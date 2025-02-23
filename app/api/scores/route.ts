@@ -10,7 +10,7 @@ export async function GET() {
         });
 
         return NextResponse.json(scores);
-    } catch (error) {
+    } catch {
         return NextResponse.json({ error: 'Failed to fetch scores' }, { status: 500 });
     }
 }
@@ -27,7 +27,7 @@ export async function POST(request: Request) {
         });
 
         return NextResponse.json(score, { status: 201 });
-    } catch (error) {
+    } catch {
         return NextResponse.json({ error: 'Failed to create score' }, { status: 500 });
     }
 }
