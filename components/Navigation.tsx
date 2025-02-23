@@ -14,17 +14,17 @@ const Navigation = () => {
 
     const socialLinks = [
         {
-            href: 'https://github.com/YourGithubUsername',
+            href: 'https://github.com/MatijaKocevar',
             icon: Github,
             label: 'GitHub',
         },
         {
-            href: 'https://linkedin.com/in/YourLinkedInUsername',
+            href: 'https://www.linkedin.com/in/matija-ko%C4%8Devar-59a198109/',
             icon: Linkedin,
             label: 'LinkedIn',
         },
         {
-            href: 'https://drive.google.com/your-cv-link',
+            href: 'https://drive.google.com/file/d/1a7A1h59XqKjEQ6zNjrlA5oWAMhsIqi1n/view',
             icon: FileText,
             label: 'CV',
         },
@@ -32,8 +32,8 @@ const Navigation = () => {
 
     return (
         <nav className='sticky top-0 z-50 border-b bg-background/80 backdrop-blur-sm'>
-            <div className='relative flex w-full items-center justify-between px-4 py-4'>
-                <div className='mx-auto flex w-full max-w-6xl items-center justify-between'>
+            <div className='relative flex w-full items-center justify-between px-8 py-4'>
+                <div className='mx-auto flex w-full items-center justify-between'>
                     <Link href='/' className='text-xl font-bold'>
                         Matija Kočevar
                     </Link>
@@ -61,10 +61,10 @@ const Navigation = () => {
                                 </a>
                             ))}
                         </div>
+                        <div className='flex items-center gap-2'>
+                            <LanguageToggleButton />
+                        </div>
                     </div>
-                </div>
-                <div className='absolute right-4 flex items-center gap-2'>
-                    <LanguageToggleButton />
                 </div>
             </div>
         </nav>
