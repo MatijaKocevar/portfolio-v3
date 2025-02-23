@@ -7,3 +7,10 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model Score {
+  id          String   @id @default(cuid())  // Using cuid instead of autoincrement
+  playerName  String
+  scoreValue  Int
+  createdAt   DateTime @default(now())       // Optional: adding timestamp
+}
+
