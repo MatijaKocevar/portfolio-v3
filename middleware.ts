@@ -7,6 +7,7 @@ export function middleware(request: NextRequest) {
     const allowedOrigins = [
         'http://localhost:3000',
         'http://localhost:5173',
+        'https://localhost:5173',
         'https://matija-kocevar-portfolio.vercel.app',
         'https://matijakprojects.com',
     ];
