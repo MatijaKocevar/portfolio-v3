@@ -2,13 +2,18 @@ import { NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 import { Prisma } from '@prisma/client';
 
-export async function POST(request: Request, { params }: { params: { id: string } }) {
+interface RouteContext {
+    params: Promise<{ id: string }>;
+}
+
+export async function POST(request: Request, { params }: RouteContext) {
     try {
+        const { id } = await params;
+        const taskId = parseInt(id);
         const { status } = await request.json();
-        const id = parseInt(params.id);
 
         const task = await prisma.task.update({
-            where: { id },
+            where: { id: taskId },
             data: { status },
         });
 

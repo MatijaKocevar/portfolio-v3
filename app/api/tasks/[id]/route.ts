@@ -2,11 +2,16 @@ import { NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 import { Prisma } from '@prisma/client';
 
-export async function GET(_request: Request, { params }: { params: { id: string } }) {
+interface RouteContext {
+    params: Promise<{ id: string }>;
+}
+
+export async function GET(request: Request, { params }: RouteContext) {
     try {
-        const id = parseInt(params.id);
+        const { id } = await params;
+        const taskId = parseInt(id);
         const task = await prisma.task.findUnique({
-            where: { id },
+            where: { id: taskId },
         });
 
         if (!task) {
@@ -19,13 +24,14 @@ export async function GET(_request: Request, { params }: { params: { id: string 
     }
 }
 
-export async function PUT(request: Request, { params }: { params: { id: string } }) {
+export async function PUT(request: Request, { params }: RouteContext) {
     try {
-        const id = parseInt(params.id);
+        const { id } = await params;
+        const taskId = parseInt(id);
         const data = await request.json();
 
         const task = await prisma.task.update({
-            where: { id },
+            where: { id: taskId },
             data: {
                 title: data.title,
                 description: data.description,
@@ -42,11 +48,12 @@ export async function PUT(request: Request, { params }: { params: { id: string }
     }
 }
 
-export async function DELETE(request: Request, { params }: { params: { id: string } }) {
+export async function DELETE(request: Request, { params }: RouteContext) {
     try {
-        const id = parseInt(params.id);
+        const { id } = await params;
+        const taskId = parseInt(id);
         await prisma.task.delete({
-            where: { id },
+            where: { id: taskId },
         });
 
         return NextResponse.json({ message: 'Task deleted' });
