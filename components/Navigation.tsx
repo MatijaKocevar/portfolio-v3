@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Github, Linkedin, FileText } from 'lucide-react';
+import { Github, Linkedin, FileText, FileSpreadsheet, GraduationCap, Briefcase } from 'lucide-react';
 import LanguageToggleButton from './LanguageToggleButton';
 
 const Navigation = () => {
@@ -17,16 +17,18 @@ const Navigation = () => {
             href: 'https://github.com/MatijaKocevar',
             icon: Github,
             label: 'GitHub',
+            tooltip: 'Open Github',
         },
         {
             href: 'https://www.linkedin.com/in/matija-ko%C4%8Devar-59a198109/',
             icon: Linkedin,
             label: 'LinkedIn',
+            tooltip: 'Open Linkedin',
         },
         {
             href: 'https://drive.google.com/file/d/1a7A1h59XqKjEQ6zNjrlA5oWAMhsIqi1n/view',
-            icon: FileText,
             label: 'CV',
+            tooltip: 'Open CV',
         },
     ];
 
@@ -54,10 +56,15 @@ const Navigation = () => {
                                     href={link.href}
                                     target='_blank'
                                     rel='noopener noreferrer'
-                                    className='rounded-full p-2 transition-colors hover:bg-foreground/10'
+                                    className='group relative rounded-full p-2 transition-colors hover:bg-foreground/10'
                                     aria-label={link.label}
+                                    title={link.tooltip}
                                 >
-                                    <link.icon className='h-5 w-5' />
+                                    {link.icon ? (
+                                        <link.icon className='h-5 w-5' />
+                                    ) : (
+                                        <span className='font-bold'>{link.label}</span>
+                                    )}
                                 </a>
                             ))}
                         </div>
