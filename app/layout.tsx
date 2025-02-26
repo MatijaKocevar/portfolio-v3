@@ -28,10 +28,10 @@ export default function RootLayout({
             <body
                 className={`${geistSans.variable} ${geistMono.variable} min-h-screen bg-background text-foreground antialiased`}
             >
-                <div className='flex min-h-screen flex-col'>
+                <div className='grid min-h-screen grid-rows-[auto_1fr] overflow-hidden'>
                     <Navigation />
-                    <main className='flex-1'>
-                        <div className='mx-auto w-full p-8'>{children}</div>
+                    <main className='h-full'>
+                        <div className='h-full w-full'>{children}</div>
                     </main>
                 </div>
             </body>
