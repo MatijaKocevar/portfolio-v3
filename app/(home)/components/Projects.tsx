@@ -67,7 +67,6 @@ export default function Projects() {
 
     return (
         <div className='relative h-full px-16'>
-            {/* Navigation Buttons - moved outside section */}
             <button
                 onClick={prevProject}
                 className='absolute -left-8 top-1/2 z-10 -translate-y-1/2 rounded-full bg-foreground/10 p-3 text-foreground transition-all hover:scale-110 hover:bg-foreground/20'
@@ -87,7 +86,6 @@ export default function Projects() {
             </button>
 
             <section className='relative flex h-full overflow-hidden rounded-xl bg-background/95 p-8'>
-                {/* Project Content */}
                 <div
                     className={`flex h-full w-full flex-col items-center justify-between transition-all duration-500 ease-in-out ${slideClass}`}
                 >

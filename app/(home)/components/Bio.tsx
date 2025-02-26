@@ -1,5 +1,6 @@
 import { Code2, Blocks, Boxes, Database } from 'lucide-react';
 import Image from 'next/image';
+import Banner from '@/components/Banner';
 
 const techStack = [
     // Frontend & Languages
@@ -19,7 +20,6 @@ const techStack = [
 export default function Bio() {
     return (
         <section className='rounded-xl bg-background/95 p-8'>
-            {/* Profile Image */}
             <div className='mb-8 flex justify-center'>
                 <div className='relative h-48 w-48 overflow-hidden rounded-full border-4 border-foreground/10'>
                     <Image
@@ -33,7 +33,6 @@ export default function Bio() {
                 </div>
             </div>
 
-            {/* Bio Text */}
             <div className='mb-12 text-center'>
                 <h1 className='mb-4 text-4xl font-bold'>Software Developer</h1>
                 <p className='text-lg text-foreground/80'>
@@ -41,9 +40,8 @@ export default function Bio() {
                 </p>
             </div>
 
-            {/* Tech Stack */}
-            <div>
-                <div className='grid grid-cols-4 gap-6'>
+            <div className='flex justify-center'>
+                <div className='flex w-full max-w-xl justify-between gap-6'>
                     {techStack.map((tech) => (
                         <div key={tech.label} className='flex flex-col items-center gap-2'>
                             <tech.icon className='h-10 w-10 transition-colors hover:text-foreground/80' />
@@ -52,6 +50,8 @@ export default function Bio() {
                     ))}
                 </div>
             </div>
+
+            <Banner />
         </section>
     );
 }
