@@ -66,10 +66,11 @@ export default function Projects() {
         : 'opacity-100 translate-x-0';
 
     return (
-        <div className='relative h-full px-16'>
+        <div className='relative h-full px-0 md:px-16'>
+            <h1 className='mb-4 text-2xl font-semibold'>Active Projects</h1>
             <button
                 onClick={prevProject}
-                className='absolute -left-8 top-1/2 z-10 -translate-y-1/2 rounded-full bg-foreground/10 p-3 text-foreground transition-all hover:scale-110 hover:bg-foreground/20'
+                className='absolute left-0 top-1/2 z-10 -translate-y-1/2 rounded-full bg-foreground/10 p-3 text-foreground transition-all hover:scale-110 hover:bg-foreground/20 md:-left-8'
                 aria-label='Previous project'
                 disabled={isSliding}
             >
@@ -78,14 +79,14 @@ export default function Projects() {
 
             <button
                 onClick={nextProject}
-                className='absolute -right-8 top-1/2 z-10 -translate-y-1/2 rounded-full bg-foreground/10 p-3 text-foreground transition-all hover:scale-110 hover:bg-foreground/20'
+                className='absolute right-0 top-1/2 z-10 -translate-y-1/2 rounded-full bg-foreground/10 p-3 text-foreground transition-all hover:scale-110 hover:bg-foreground/20 md:-right-8'
                 aria-label='Next project'
                 disabled={isSliding}
             >
                 <ChevronRight className='h-8 w-8' />
             </button>
 
-            <section className='relative flex h-full overflow-hidden rounded-xl bg-background/95 p-8'>
+            <section className='relative flex h-full overflow-hidden rounded-xl bg-background/95 p-4 md:p-8'>
                 <div
                     className={`flex h-full w-full flex-col items-center justify-between transition-all duration-500 ease-in-out ${slideClass}`}
                 >

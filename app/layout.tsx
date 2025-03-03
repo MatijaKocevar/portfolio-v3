@@ -28,7 +28,7 @@ export default function RootLayout({
             <body
                 className={`${geistSans.variable} ${geistMono.variable} min-h-screen bg-background text-foreground antialiased`}
             >
-                <div className='grid min-h-screen grid-rows-[auto_1fr] overflow-hidden'>
+                <div className='grid min-h-screen grid-rows-[auto_1fr] md:overflow-hidden'>
                     <Navigation />
                     <main className='h-full'>
                         <div className='h-full w-full'>{children}</div>
