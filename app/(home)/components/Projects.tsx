@@ -2,7 +2,8 @@
 
 import { ExternalLink, Github, ChevronLeft, ChevronRight } from 'lucide-react';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
+import { useDeviceType } from '@/hooks/useDeviceType';
 
 type Project = {
     title: string;
@@ -33,9 +34,27 @@ const showcaseProjects: Project[] = [
 ];
 
 export default function Projects() {
+    const { isMobile } = useDeviceType();
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isSliding, setIsSliding] = useState(false);
     const [slideDirection, setSlideDirection] = useState<'left' | 'right' | null>(null);
+    const [availableHeight, setAvailableHeight] = useState(0);
+    const containerRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        const updateHeight = () => {
+            if (containerRef.current) {
+                const totalHeight = containerRef.current.offsetHeight;
+                // Subtract heights of other elements (title, description, buttons)
+                const otherElementsHeight = 160; // Approximate height of title + description + buttons
+                setAvailableHeight(totalHeight - otherElementsHeight);
+            }
+        };
+
+        updateHeight();
+        window.addEventListener('resize', updateHeight);
+        return () => window.removeEventListener('resize', updateHeight);
+    }, []);
 
     const nextProject = () => {
         if (isSliding) return;
@@ -66,8 +85,8 @@ export default function Projects() {
         : 'opacity-100 translate-x-0';
 
     return (
-        <div className='relative h-full px-0 md:px-16'>
-            <h1 className='mb-4 text-2xl font-semibold'>Active Projects</h1>
+        <div className='relative flex h-full flex-col px-0 md:px-16'>
+            <h1 className='mb-4 shrink-0 text-2xl font-semibold'>Active Projects</h1>
             <button
                 onClick={prevProject}
                 className='absolute left-0 top-1/2 z-10 -translate-y-1/2 rounded-full bg-foreground/10 p-3 text-foreground transition-all hover:scale-110 hover:bg-foreground/20 md:-left-8'
@@ -86,27 +105,30 @@ export default function Projects() {
                 <ChevronRight className='h-8 w-8' />
             </button>
 
-            <section className='relative flex h-full overflow-hidden rounded-xl bg-background/95 p-4 md:p-8'>
+            <section className='relative flex flex-1 overflow-hidden rounded-xl bg-background/95 p-4 md:p-8'>
                 <div
-                    className={`flex h-full w-full flex-col items-center justify-between transition-all duration-500 ease-in-out ${slideClass}`}
+                    className={`flex h-full w-full flex-col items-center gap-4 transition-all duration-500 ease-in-out ${slideClass}`}
                 >
-                    <div className='text-center'>
+                    <div className='shrink-0 text-center'>
                         <h2 className='mb-2 text-2xl font-semibold'>{currentProject.title}</h2>
                         {currentProject.wip && <span className='text-sm text-red-500'>Work in Progress</span>}
                     </div>
 
-                    <div className='relative my-4 h-full w-full max-w-2xl overflow-hidden rounded-lg'>
+                    <div
+                        className='relative min-h-0 w-full max-w-2xl flex-1 overflow-hidden rounded-lg'
+                        style={{ maxHeight: isMobile ? 'calc(100dvh - 300px)' : 'none' }}
+                    >
                         <Image
                             src={currentProject.image}
                             alt={currentProject.title}
                             width={1280}
                             height={720}
-                            className='h-full w-full object-cover transition-transform hover:scale-105'
+                            className='h-full w-full object-contain transition-transform hover:scale-105'
                             unoptimized
                         />
                     </div>
 
-                    <div className='w-full max-w-2xl'>
+                    <div className='w-full max-w-2xl shrink-0'>
                         <p className='mb-4 text-center text-sm text-foreground/70'>{currentProject.description}</p>
 
                         <div className='flex justify-center gap-4'>
