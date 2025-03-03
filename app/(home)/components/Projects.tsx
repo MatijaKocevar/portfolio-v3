@@ -2,7 +2,7 @@
 
 import { ExternalLink, Github, ChevronLeft, ChevronRight } from 'lucide-react';
 import Image from 'next/image';
-import { useState, useRef, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDeviceType } from '@/hooks/useDeviceType';
 
 type Project = {
@@ -34,27 +34,19 @@ const showcaseProjects: Project[] = [
 ];
 
 export default function Projects() {
-    const { isMobile } = useDeviceType();
+    const { isMobile, isPortrait } = useDeviceType();
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isSliding, setIsSliding] = useState(false);
     const [slideDirection, setSlideDirection] = useState<'left' | 'right' | null>(null);
-    const [availableHeight, setAvailableHeight] = useState(0);
-    const containerRef = useRef<HTMLDivElement>(null);
+    const [isMobileLandscape, setIsMobileLandscape] = useState(false);
 
     useEffect(() => {
-        const updateHeight = () => {
-            if (containerRef.current) {
-                const totalHeight = containerRef.current.offsetHeight;
-                // Subtract heights of other elements (title, description, buttons)
-                const otherElementsHeight = 160; // Approximate height of title + description + buttons
-                setAvailableHeight(totalHeight - otherElementsHeight);
-            }
-        };
-
-        updateHeight();
-        window.addEventListener('resize', updateHeight);
-        return () => window.removeEventListener('resize', updateHeight);
-    }, []);
+        if (isMobile && !isPortrait) {
+            setIsMobileLandscape(true);
+        } else {
+            setIsMobileLandscape(false);
+        }
+    }, [isMobile, isPortrait]);
 
     const nextProject = () => {
         if (isSliding) return;
@@ -86,7 +78,7 @@ export default function Projects() {
 
     return (
         <div className='relative flex h-full flex-col px-0 md:px-16'>
-            <h1 className='mb-4 shrink-0 text-2xl font-semibold'>Active Projects</h1>
+            <h1 className='shrink-0 text-2xl font-semibold'>Active Projects</h1>
             <button
                 onClick={prevProject}
                 className='absolute left-0 top-1/2 z-10 -translate-y-1/2 rounded-full bg-foreground/10 p-3 text-foreground transition-all hover:scale-110 hover:bg-foreground/20 md:-left-8'
@@ -105,11 +97,17 @@ export default function Projects() {
                 <ChevronRight className='h-8 w-8' />
             </button>
 
-            <section className='relative flex flex-1 overflow-hidden rounded-xl bg-background/95 p-4 md:p-8'>
+            <section
+                className='relative flex flex-1 overflow-hidden rounded-xl bg-background/95 p-4 md:p-8'
+                style={{ paddingTop: isMobileLandscape ? '0px' : '2rem' }}
+            >
                 <div
                     className={`flex h-full w-full flex-col items-center gap-4 transition-all duration-500 ease-in-out ${slideClass}`}
                 >
-                    <div className='shrink-0 text-center'>
+                    <div
+                        className='flex shrink-0 flex-col items-center gap-2 text-center'
+                        style={{ flexDirection: isMobileLandscape ? 'row' : 'column' }}
+                    >
                         <h2 className='mb-2 text-2xl font-semibold'>{currentProject.title}</h2>
                         {currentProject.wip && <span className='text-sm text-red-500'>Work in Progress</span>}
                     </div>
