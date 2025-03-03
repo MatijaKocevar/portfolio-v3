@@ -2,7 +2,8 @@
 
 import { ExternalLink, Github, ChevronLeft, ChevronRight } from 'lucide-react';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useDeviceType } from '@/hooks/useDeviceType';
 
 type Project = {
     title: string;
@@ -33,9 +34,19 @@ const showcaseProjects: Project[] = [
 ];
 
 export default function Projects() {
+    const { isMobile, isPortrait } = useDeviceType();
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isSliding, setIsSliding] = useState(false);
     const [slideDirection, setSlideDirection] = useState<'left' | 'right' | null>(null);
+    const [isMobileLandscape, setIsMobileLandscape] = useState(false);
+
+    useEffect(() => {
+        if (isMobile && !isPortrait) {
+            setIsMobileLandscape(true);
+        } else {
+            setIsMobileLandscape(false);
+        }
+    }, [isMobile, isPortrait]);
 
     const nextProject = () => {
         if (isSliding) return;
@@ -66,10 +77,11 @@ export default function Projects() {
         : 'opacity-100 translate-x-0';
 
     return (
-        <div className='relative h-full px-16'>
+        <div className='relative flex h-full flex-col px-0 md:px-16'>
+            <h1 className='shrink-0 text-2xl font-semibold'>Active Projects</h1>
             <button
                 onClick={prevProject}
-                className='absolute -left-8 top-1/2 z-10 -translate-y-1/2 rounded-full bg-foreground/10 p-3 text-foreground transition-all hover:scale-110 hover:bg-foreground/20'
+                className='absolute left-0 top-1/2 z-10 -translate-y-1/2 rounded-full bg-foreground/10 p-3 text-foreground transition-all hover:scale-110 hover:bg-foreground/20 md:-left-8'
                 aria-label='Previous project'
                 disabled={isSliding}
             >
@@ -78,34 +90,43 @@ export default function Projects() {
 
             <button
                 onClick={nextProject}
-                className='absolute -right-8 top-1/2 z-10 -translate-y-1/2 rounded-full bg-foreground/10 p-3 text-foreground transition-all hover:scale-110 hover:bg-foreground/20'
+                className='absolute right-0 top-1/2 z-10 -translate-y-1/2 rounded-full bg-foreground/10 p-3 text-foreground transition-all hover:scale-110 hover:bg-foreground/20 md:-right-8'
                 aria-label='Next project'
                 disabled={isSliding}
             >
                 <ChevronRight className='h-8 w-8' />
             </button>
 
-            <section className='relative flex h-full overflow-hidden rounded-xl bg-background/95 p-8'>
+            <section
+                className='relative flex flex-1 overflow-hidden rounded-xl bg-background/95 p-4 md:p-8'
+                style={{ paddingTop: isMobileLandscape ? '0px' : '2rem' }}
+            >
                 <div
-                    className={`flex h-full w-full flex-col items-center justify-between transition-all duration-500 ease-in-out ${slideClass}`}
+                    className={`flex h-full w-full flex-col items-center gap-4 transition-all duration-500 ease-in-out ${slideClass}`}
                 >
-                    <div className='text-center'>
+                    <div
+                        className='flex shrink-0 flex-col items-center gap-2 text-center'
+                        style={{ flexDirection: isMobileLandscape ? 'row' : 'column' }}
+                    >
                         <h2 className='mb-2 text-2xl font-semibold'>{currentProject.title}</h2>
                         {currentProject.wip && <span className='text-sm text-red-500'>Work in Progress</span>}
                     </div>
 
-                    <div className='relative my-4 h-full w-full max-w-2xl overflow-hidden rounded-lg'>
+                    <div
+                        className='relative min-h-0 w-full max-w-2xl flex-1 overflow-hidden rounded-lg'
+                        style={{ maxHeight: isMobile ? 'calc(100dvh - 300px)' : 'none' }}
+                    >
                         <Image
                             src={currentProject.image}
                             alt={currentProject.title}
                             width={1280}
                             height={720}
-                            className='h-full w-full object-cover transition-transform hover:scale-105'
+                            className='h-full w-full object-contain transition-transform hover:scale-105'
                             unoptimized
                         />
                     </div>
 
-                    <div className='w-full max-w-2xl'>
+                    <div className='w-full max-w-2xl shrink-0'>
                         <p className='mb-4 text-center text-sm text-foreground/70'>{currentProject.description}</p>
 
                         <div className='flex justify-center gap-4'>
