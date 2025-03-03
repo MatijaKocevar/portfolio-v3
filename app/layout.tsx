@@ -24,15 +24,13 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang='en'>
+        <html lang='en' className='h-full'>
             <body
-                className={`${geistSans.variable} ${geistMono.variable} min-h-screen bg-background text-foreground antialiased`}
+                className={`${geistSans.variable} ${geistMono.variable} h-full bg-background text-foreground antialiased`}
             >
-                <div className='grid min-h-screen grid-rows-[auto_1fr] md:overflow-hidden'>
+                <div className='flex h-full flex-col'>
                     <Navigation />
-                    <main className='h-full'>
-                        <div className='h-full w-full'>{children}</div>
-                    </main>
+                    <main className='flex flex-1'>{children}</main>
                 </div>
             </body>
         </html>
