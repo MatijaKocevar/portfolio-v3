@@ -130,8 +130,8 @@ interface YouTubePlayerProps {
 
 export function YouTubePlayerComponent({ video, index, playerState, initializePlayer }: YouTubePlayerProps) {
     return (
-        <div className='space-y-4'>
-            <div className='relative aspect-video'>
+        <div className='w-full'>
+            <div className='relative aspect-video w-full'>
                 {playerState.activeVideoId === video.id ? (
                     <div id={`player-${video.id}`} className='absolute inset-0' />
                 ) : (
@@ -169,10 +169,6 @@ export function YouTubePlayerComponent({ video, index, playerState, initializePl
                         )}
                     </div>
                 )}
-            </div>
-            <div className='space-y-2'>
-                <h3 className='font-medium'>{video.title}</h3>
-                <p className='text-sm text-foreground/70'>{video.description}</p>
             </div>
         </div>
     );

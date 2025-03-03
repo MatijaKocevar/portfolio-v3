@@ -106,11 +106,13 @@ export default function ShortsGallery() {
                 <div
                     className={`flex h-full w-full flex-col items-center justify-between transition-all duration-500 ease-in-out ${slideClass}`}
                 >
-                    <div className='text-center'>
-                        <h3 className='mb-2 text-xl font-semibold'>{currentShort.title}</h3>
+                    <div className='w-full text-center'>
+                        <h3 className='mb-2 overflow-hidden text-ellipsis whitespace-nowrap text-xl font-semibold'>
+                            {currentShort.title}
+                        </h3>
                     </div>
 
-                    <div className='relative my-4 h-full w-full max-w-2xl'>
+                    <div className='relative my-4 h-full w-full'>
                         <YouTubePlayerComponent
                             video={currentShort}
                             index={currentIndex}
@@ -119,8 +121,7 @@ export default function ShortsGallery() {
                         />
                     </div>
 
-                    <div className='w-full max-w-2xl'>
-                        <p className='mb-4 text-center text-sm text-foreground/70'>{currentShort.description}</p>
+                    <div className='w-full'>
                         <div className='text-center text-sm text-foreground/50'>
                             {currentIndex + 1} of {shorts.length}
                         </div>
