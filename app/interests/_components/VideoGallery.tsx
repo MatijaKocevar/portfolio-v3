@@ -1,8 +1,8 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { useYouTubeStore } from '../stores/youtubeStore';
-import { usePlayerStore } from '../stores/playerStore';
+import { useYouTubeStore } from '../_stores/youtubeStore';
+import { usePlayerStore } from '../_stores/playerStore';
 import { YouTubePlayerComponent } from './YouTubePlayer';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 

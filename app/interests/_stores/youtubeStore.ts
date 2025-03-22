@@ -1,6 +1,6 @@
 import { create } from 'zustand';
-import { API_KEY, CHANNEL_ID } from '../components/YouTubePlayer';
-import type { Video, YouTubePlaylistResponse } from '../components/YouTubePlayer';
+import { API_KEY, CHANNEL_ID } from '../_components/YouTubePlayer';
+import type { Video, YouTubePlaylistResponse } from '../_components/YouTubePlayer';
 
 interface YouTubeVideoDetails {
     id: string;
