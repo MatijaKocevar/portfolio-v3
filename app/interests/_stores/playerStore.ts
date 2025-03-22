@@ -1,6 +1,6 @@
 import { create } from 'zustand';
-import type { YouTubePlayer } from '../components/YouTubePlayer';
-import { loadYouTubeAPI } from '../components/YouTubePlayer';
+import type { YouTubePlayer } from '../_components/YouTubePlayer';
+import { loadYouTubeAPI } from '../_components/YouTubePlayer';
 
 interface PlayerState {
     players: Record<string, YouTubePlayer | null>;

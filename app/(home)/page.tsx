@@ -1,7 +1,7 @@
 'use client';
 
-import Bio from './components/Bio';
-import Projects from './components/Projects';
+import Bio from './_components/Bio';
+import Projects from './_components/Projects';
 import { useDeviceType } from '@/hooks/useDeviceType';
 
 export default function Home() {

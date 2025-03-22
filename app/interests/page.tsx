@@ -1,7 +1,7 @@
 'use client';
 
-import VideoGallery from './components/VideoGallery';
-import ShortsGallery from './components/ShortsGallery';
+import VideoGallery from './_components/VideoGallery';
+import ShortsGallery from './_components/ShortsGallery';
 
 export default function InterestsPage() {
     return (
