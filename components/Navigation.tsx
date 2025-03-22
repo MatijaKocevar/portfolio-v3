@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { Github, Linkedin } from 'lucide-react';
+import { Github, Linkedin, Menu } from 'lucide-react';
 import LanguageToggleButton from './LanguageToggleButton';
 import { useDeviceType } from '@/hooks/useDeviceType';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
