@@ -5,6 +5,7 @@ import { useYouTubeStore } from '../_stores/youtubeStore';
 import { usePlayerStore } from '../_stores/playerStore';
 import { YouTubePlayerComponent } from './YouTubePlayer';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
 export default function ShortsGallery() {
     const { shorts, isLoading, error } = useYouTubeStore();
@@ -12,6 +13,7 @@ export default function ShortsGallery() {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isSliding, setIsSliding] = useState(false);
     const [slideDirection, setSlideDirection] = useState<'left' | 'right' | null>(null);
+    const t = useTranslations();
 
     useEffect(() => {
         if (shorts.length > 0) {
@@ -48,9 +50,9 @@ export default function ShortsGallery() {
     if (isLoading) {
         return (
             <section className='h-full'>
-                <h2 className='mb-6 text-2xl font-semibold'>Shorts</h2>
+                <h2 className='mb-6 text-2xl font-semibold'>{t('interests.youtube.shorts.title')}</h2>
                 <div className='flex h-64 items-center justify-center'>
-                    <p>Loading shorts...</p>
+                    <p>{t('interests.youtube.shorts.loading')}</p>
                 </div>
             </section>
         );
@@ -59,7 +61,7 @@ export default function ShortsGallery() {
     if (error) {
         return (
             <section className='h-full'>
-                <h2 className='mb-6 text-2xl font-semibold'>Shorts</h2>
+                <h2 className='mb-6 text-2xl font-semibold'>{t('interests.youtube.shorts.title')}</h2>
                 <div className='flex h-64 items-center justify-center'>
                     <p className='text-red-500'>{error}</p>
                 </div>
@@ -70,9 +72,9 @@ export default function ShortsGallery() {
     if (shorts.length === 0) {
         return (
             <section className='h-full'>
-                <h2 className='mb-6 text-2xl font-semibold'>Shorts</h2>
+                <h2 className='mb-6 text-2xl font-semibold'>{t('interests.youtube.shorts.title')}</h2>
                 <div className='flex h-64 items-center justify-center'>
-                    <p>No shorts found</p>
+                    <p>{t('interests.youtube.shorts.noShorts')}</p>
                 </div>
             </section>
         );
@@ -82,12 +84,12 @@ export default function ShortsGallery() {
 
     return (
         <section className='relative h-full px-16'>
-            <h2 className='mb-6 text-2xl font-semibold'>Shorts</h2>
+            <h2 className='mb-6 text-2xl font-semibold'>{t('interests.youtube.shorts.title')}</h2>
 
             <button
                 onClick={prevShort}
                 className='absolute left-0 top-1/2 z-10 -translate-y-1/2 rounded-full bg-foreground/10 p-3 text-foreground transition-all hover:scale-110 hover:bg-foreground/20'
-                aria-label='Previous short'
+                aria-label={t('interests.youtube.shorts.navigation.prev')}
                 disabled={isSliding || shorts.length <= 1}
             >
                 <ChevronLeft className='h-8 w-8' />
@@ -96,7 +98,7 @@ export default function ShortsGallery() {
             <button
                 onClick={nextShort}
                 className='absolute right-0 top-1/2 z-10 -translate-y-1/2 rounded-full bg-foreground/10 p-3 text-foreground transition-all hover:scale-110 hover:bg-foreground/20'
-                aria-label='Next short'
+                aria-label={t('interests.youtube.shorts.navigation.next')}
                 disabled={isSliding || shorts.length <= 1}
             >
                 <ChevronRight className='h-8 w-8' />
@@ -123,7 +125,10 @@ export default function ShortsGallery() {
 
                     <div className='w-full'>
                         <div className='text-center text-sm text-foreground/50'>
-                            {currentIndex + 1} of {shorts.length}
+                            {t('interests.youtube.shorts.counter', {
+                                current: currentIndex + 1,
+                                total: shorts.length,
+                            })}
                         </div>
                     </div>
                 </div>

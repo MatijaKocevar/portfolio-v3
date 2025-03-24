@@ -1,0 +1,137 @@
+{
+    "app": {
+        "meta": {
+            "title": "Matija Kočevar | Portfolio",
+            "description": "Personal portfolio showcasing my projects, experience, and skills"
+        }
+    },
+    "common": {
+        "connect": "Connect"
+    },
+    "nav": {
+        "about": "About",
+        "projects": "Projects",
+        "education": "Education",
+        "experience": "Experience",
+        "skills": "Skills",
+        "interests": "Interests",
+        "openGithub": "Open GitHub",
+        "openLinkedIn": "Open LinkedIn",
+        "openResume": "Open Resume"
+    },
+    "home": {
+        "title": "Home",
+        "welcome": "Welcome to the home page",
+        "meta": {
+            "title": "Matija Kočevar | Home",
+            "description": "Home page"
+        },
+        "bio": {
+            "role": "Software Developer",
+            "tagline": "Passionate about creating elegant solutions to complex problems",
+            "techStack": {
+                "react": "React",
+                "vue": "Vue",
+                "nextjs": "Next.js",
+                "typescript": "TypeScript",
+                "csharp": "C#",
+                "php": "PHP",
+                "postgresql": "PostgreSQL",
+                "sqlserver": "Sql Server"
+            }
+        },
+        "projects": {
+            "title": "Active Projects",
+            "navigation": {
+                "prev": "Previous project",
+                "next": "Next project"
+            },
+            "links": {
+                "demo": "Live Demo",
+                "code": "Code"
+            },
+            "wip": "Work in Progress",
+            "items": {
+                "zelda": {
+                    "title": "A Tie to the Past",
+                    "description": "A Zelda-like game clone built with JavaScript"
+                },
+                "anasPlace": {
+                    "title": "Ana's Place",
+                    "description": "A modern web application"
+                }
+            }
+        }
+    },
+    "about": {
+        "title": "About Me",
+        "description": "This will be the about page",
+        "meta": {
+            "title": "Matija Kočevar | About",
+            "description": "About me"
+        }
+    },
+    "projects": {
+        "title": "Projects",
+        "description": "This will be the projects page",
+        "meta": {
+            "title": "Matija Kočevar | Projects",
+            "description": "Projects"
+        }
+    },
+    "education": {
+        "title": "Education",
+        "description": "This will be the education page",
+        "meta": {
+            "title": "Matija Kočevar | Education",
+            "description": "Education"
+        }
+    },
+    "experience": {
+        "title": "Experience",
+        "description": "This will be the experience page",
+        "meta": {
+            "title": "Matija Kočevar | Experience",
+            "description": "Experience"
+        }
+    },
+    "skills": {
+        "title": "Skills",
+        "description": "This will be the skills page",
+        "meta": {
+            "title": "Matija Kočevar | Skills",
+            "description": "Skills"
+        }
+    },
+    "interests": {
+        "title": "Interests",
+        "description": "This will be the interests page",
+        "meta": {
+            "title": "Matija Kočevar | Interests",
+            "description": "Interests"
+        },
+        "youtube": {
+            "title": "My YouTube Content",
+            "videos": {
+                "title": "Music Videos",
+                "loading": "Loading videos...",
+                "noVideos": "No videos found",
+                "navigation": {
+                    "prev": "Previous video",
+                    "next": "Next video"
+                },
+                "counter": "{current} of {total}"
+            },
+            "shorts": {
+                "title": "Shorts",
+                "loading": "Loading shorts...",
+                "noShorts": "No shorts found",
+                "navigation": {
+                    "prev": "Previous short",
+                    "next": "Next short"
+                },
+                "counter": "{current} of {total}"
+            }
+        }
+    }
+}

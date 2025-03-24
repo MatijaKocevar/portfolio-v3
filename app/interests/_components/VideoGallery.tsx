@@ -5,6 +5,7 @@ import { useYouTubeStore } from '../_stores/youtubeStore';
 import { usePlayerStore } from '../_stores/playerStore';
 import { YouTubePlayerComponent } from './YouTubePlayer';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
 export default function VideoGallery() {
     const { videos, isLoading, error, fetchVideos } = useYouTubeStore();
@@ -12,6 +13,7 @@ export default function VideoGallery() {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isSliding, setIsSliding] = useState(false);
     const [slideDirection, setSlideDirection] = useState<'left' | 'right' | null>(null);
+    const t = useTranslations();
 
     useEffect(() => {
         fetchVideos();
@@ -56,9 +58,9 @@ export default function VideoGallery() {
     if (isLoading) {
         return (
             <section className='h-full'>
-                <h2 className='mb-6 text-2xl font-semibold'>Music Videos</h2>
+                <h2 className='mb-6 text-2xl font-semibold'>{t('interests.youtube.videos.title')}</h2>
                 <div className='flex h-64 items-center justify-center'>
-                    <p>Loading videos...</p>
+                    <p>{t('interests.youtube.videos.loading')}</p>
                 </div>
             </section>
         );
@@ -67,7 +69,7 @@ export default function VideoGallery() {
     if (error) {
         return (
             <section className='h-full'>
-                <h2 className='mb-6 text-2xl font-semibold'>Music Videos</h2>
+                <h2 className='mb-6 text-2xl font-semibold'>{t('interests.youtube.videos.title')}</h2>
                 <div className='flex h-64 items-center justify-center'>
                     <p className='text-red-500'>{error}</p>
                 </div>
@@ -78,9 +80,9 @@ export default function VideoGallery() {
     if (videos.length === 0) {
         return (
             <section className='h-full'>
-                <h2 className='mb-6 text-2xl font-semibold'>Music Videos</h2>
+                <h2 className='mb-6 text-2xl font-semibold'>{t('interests.youtube.videos.title')}</h2>
                 <div className='flex h-64 items-center justify-center'>
-                    <p>No videos found</p>
+                    <p>{t('interests.youtube.videos.noVideos')}</p>
                 </div>
             </section>
         );
@@ -90,12 +92,12 @@ export default function VideoGallery() {
 
     return (
         <section className='relative h-full w-full px-16'>
-            <h2 className='mb-6 text-2xl font-semibold'>Music Videos</h2>
+            <h2 className='mb-6 text-2xl font-semibold'>{t('interests.youtube.videos.title')}</h2>
 
             <button
                 onClick={prevVideo}
                 className='absolute left-0 top-1/2 z-10 -translate-y-1/2 rounded-full bg-foreground/10 p-3 text-foreground transition-all hover:scale-110 hover:bg-foreground/20'
-                aria-label='Previous video'
+                aria-label={t('interests.youtube.videos.navigation.prev')}
                 disabled={isSliding || videos.length <= 1}
             >
                 <ChevronLeft className='h-8 w-8' />
@@ -104,7 +106,7 @@ export default function VideoGallery() {
             <button
                 onClick={nextVideo}
                 className='absolute right-0 top-1/2 z-10 -translate-y-1/2 rounded-full bg-foreground/10 p-3 text-foreground transition-all hover:scale-110 hover:bg-foreground/20'
-                aria-label='Next video'
+                aria-label={t('interests.youtube.videos.navigation.next')}
                 disabled={isSliding || videos.length <= 1}
             >
                 <ChevronRight className='h-8 w-8' />
@@ -131,7 +133,10 @@ export default function VideoGallery() {
 
                     <div className='w-full'>
                         <div className='text-center text-sm text-foreground/50'>
-                            {currentIndex + 1} of {videos.length}
+                            {t('interests.youtube.videos.counter', {
+                                current: currentIndex + 1,
+                                total: videos.length,
+                            })}
                         </div>
                     </div>
                 </div>

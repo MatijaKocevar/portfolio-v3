@@ -113,7 +113,6 @@ export const loadYouTubeAPI = (callback: () => void) => {
     firstScriptTag.parentNode?.insertBefore(tag, firstScriptTag);
 
     window.onYouTubeIframeAPIReady = () => {
-        console.log('YouTube API Ready');
         callback();
     };
 };

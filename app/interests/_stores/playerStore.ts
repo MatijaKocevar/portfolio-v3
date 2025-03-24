@@ -54,7 +54,6 @@ export const usePlayerStore = create<PlayerState>((set, get) => ({
                     },
                     events: {
                         onReady: (event) => {
-                            console.log(`Player ready for video ${videoId}`);
                             set((state) => ({
                                 players: { ...state.players, [videoId]: event.target },
                             }));
