@@ -28,7 +28,12 @@ export default function Bio() {
     const t = useTranslations('home.bio');
 
     return (
-        <section className='flex min-h-[calc(100dvh-60px)] flex-col justify-around rounded-xl bg-background/95 p-4 md:min-h-0 md:p-8'>
+        <div
+            className='flex flex-col justify-around rounded-xl bg-background/95 p-4 md:min-h-0 md:p-8'
+            style={
+                isMobile ? (isPortrait ? { height: 'calc(100vh - 68px)' } : { minHeight: 'calc(100vh - 40px)' }) : {}
+            }
+        >
             {isMobileLandscape ? (
                 <div className='flex h-full gap-8'>
                     <div className='flex w-[45%] flex-col items-center justify-center'>
@@ -50,7 +55,7 @@ export default function Bio() {
                         </div>
                     </div>
 
-                    <div className='flex w-[55%] flex-col justify-between py-4'>
+                    <div className='flex w-[55%] flex-col justify-between gap-6 py-4'>
                         <Banner />
                         <div className='flex justify-center'>
                             <div className='flex w-full flex-wrap justify-center gap-2'>
@@ -66,27 +71,25 @@ export default function Bio() {
                 </div>
             ) : (
                 <>
-                    <div>
-                        <div className='mb-8 flex justify-center'>
-                            <div className='relative h-48 w-48 overflow-hidden rounded-full border-4 border-foreground/10'>
-                                <Image
-                                    src='/images/me.png'
-                                    alt='Profile'
-                                    width={192}
-                                    height={192}
-                                    className='object-cover'
-                                    unoptimized
-                                />
-                            </div>
+                    <div className='flex justify-center'>
+                        <div className='relative h-48 w-48 overflow-hidden rounded-full border-4 border-foreground/10'>
+                            <Image
+                                src='/images/me.png'
+                                alt='Profile'
+                                width={192}
+                                height={192}
+                                className='object-cover'
+                                unoptimized
+                            />
                         </div>
-
-                        <div className='mb-12 text-center'>
-                            <h1 className='mb-4 text-4xl font-bold'>{t('role')}</h1>
-                            <p className='text-lg text-foreground/80'>{t('tagline')}</p>
-                        </div>
-
-                        <Banner />
                     </div>
+
+                    <div className='text-center'>
+                        <h1 className='mb-4 text-4xl font-bold'>{t('role')}</h1>
+                        <p className='text-lg text-foreground/80'>{t('tagline')}</p>
+                    </div>
+
+                    <Banner />
 
                     <div className='flex justify-center'>
                         <div className='flex w-full max-w-xl flex-wrap justify-center gap-4 md:flex-nowrap md:justify-between md:gap-6'>
@@ -100,6 +103,6 @@ export default function Bio() {
                     </div>
                 </>
             )}
-        </section>
+        </div>
     );
 }

@@ -37,15 +37,6 @@ export default function Projects() {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isSliding, setIsSliding] = useState(false);
     const [slideDirection, setSlideDirection] = useState<'left' | 'right' | null>(null);
-    const [isMobileLandscape, setIsMobileLandscape] = useState(false);
-
-    useEffect(() => {
-        if (isMobile && !isPortrait) {
-            setIsMobileLandscape(true);
-        } else {
-            setIsMobileLandscape(false);
-        }
-    }, [isMobile, isPortrait]);
 
     const nextProject = () => {
         if (isSliding) return;
@@ -76,7 +67,7 @@ export default function Projects() {
         : 'opacity-100 translate-x-0';
 
     return (
-        <div className='relative flex h-full flex-col px-0 md:px-16'>
+        <div className='relative flex flex-col px-0 md:px-16'>
             <h1 className='shrink-0 text-2xl font-semibold'>{t('title')}</h1>
             <button
                 onClick={prevProject}
@@ -96,17 +87,11 @@ export default function Projects() {
                 <ChevronRight className='h-8 w-8' />
             </button>
 
-            <section
-                className='relative flex flex-1 overflow-hidden rounded-xl bg-background/95 p-4 md:p-8'
-                style={{ paddingTop: isMobileLandscape ? '0px' : '2rem' }}
-            >
+            <section className='relative flex flex-1 overflow-hidden rounded-xl bg-background/95 p-4 md:p-8'>
                 <div
                     className={`flex h-full w-full flex-col items-center gap-4 transition-all duration-500 ease-in-out ${slideClass}`}
                 >
-                    <div
-                        className='flex shrink-0 flex-col items-center gap-2 text-center'
-                        style={{ flexDirection: isMobileLandscape ? 'row' : 'column' }}
-                    >
+                    <div className='flex shrink-0 flex-col items-center gap-2 text-center'>
                         <h2 className='mb-2 text-2xl font-semibold'>{t(`items.${currentProject.key}.title`)}</h2>
                         {currentProject.wip && <span className='text-sm text-red-500'>{t('wip')}</span>}
                     </div>

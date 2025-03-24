@@ -51,7 +51,7 @@ const Navigation = () => {
                     </Link>
 
                     {/* Desktop Navigation */}
-                    <div className='hidden items-center gap-6 md:flex'>
+                    <div className='hidden items-center gap-4 md:flex'>
                         {links.map((link) => (
                             <Link
                                 key={link.href}
@@ -62,7 +62,7 @@ const Navigation = () => {
                             </Link>
                         ))}
                         <div
-                            className={`flex items-center gap-4 border-l pl-6 ${isMobileLandscape ? 'gap-2 pl-4' : ''}`}
+                            className={`flex items-center gap-4 border-l pl-4 ${isMobileLandscape ? 'gap-2 pl-4' : ''}`}
                         >
                             {socialLinks.map((link) => (
                                 <a
@@ -70,9 +70,7 @@ const Navigation = () => {
                                     href={link.href}
                                     target='_blank'
                                     rel='noopener noreferrer'
-                                    className={`group relative rounded-full transition-colors hover:bg-foreground/10 ${
-                                        isMobileLandscape ? 'p-1' : 'p-2'
-                                    }`}
+                                    className={`group relative rounded-full p-1 transition-colors hover:bg-foreground/10`}
                                     aria-label={link.label}
                                     title={link.tooltip}
                                 >
@@ -86,7 +84,7 @@ const Navigation = () => {
                                 </a>
                             ))}
                         </div>
-                        <div className='flex items-center gap-2'>
+                        <div className='flex items-center gap-2 border-l pl-4'>
                             <LanguageToggleButton />
                         </div>
                     </div>
