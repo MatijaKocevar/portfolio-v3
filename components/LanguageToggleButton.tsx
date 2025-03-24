@@ -14,6 +14,7 @@ const LanguageToggleButton = () => {
             const locale = document.documentElement.lang;
             initializeLanguage(locale);
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     if (!language) {
