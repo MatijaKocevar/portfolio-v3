@@ -3,6 +3,7 @@ import './globals.css';
 import Navigation from '@/components/Navigation';
 import { NextIntlClientProvider } from 'next-intl';
 import { getLocale, getMessages, getTranslations } from 'next-intl/server';
+import { MetaLocaleParams } from '../types/locale';
 
 const geistSans = Geist({
     variable: '--font-geist-sans',
@@ -14,7 +15,8 @@ const geistMono = Geist_Mono({
     subsets: ['latin'],
 });
 
-export async function generateMetadata({ params: { locale } }: { params: { locale: string } }) {
+export async function generateMetadata({ params }: MetaLocaleParams) {
+    const { locale } = await params;
     const t = await getTranslations({ locale });
 
     const title = t('app.meta.title');

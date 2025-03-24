@@ -1,6 +1,8 @@
 import { getTranslations } from 'next-intl/server';
+import { MetaLocaleParams } from '../../types/locale';
 
-export async function generateMetadata({ params: { locale } }: { params: { locale: string } }) {
+export async function generateMetadata({ params }: MetaLocaleParams) {
+    const { locale } = await params;
     const t = await getTranslations({ locale });
 
     const title = t('home.meta.title');
