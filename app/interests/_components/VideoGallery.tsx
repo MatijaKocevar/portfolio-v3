@@ -1,40 +1,50 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { useYouTubeStore } from '../stores/youtubeStore';
-import { usePlayerStore } from '../stores/playerStore';
+import { useYouTubeStore } from '../_stores/youtubeStore';
+import { usePlayerStore } from '../_stores/playerStore';
 import { YouTubePlayerComponent } from './YouTubePlayer';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
-export default function ShortsGallery() {
-    const { shorts, isLoading, error } = useYouTubeStore();
+export default function VideoGallery() {
+    const { videos, isLoading, error, fetchVideos } = useYouTubeStore();
     const { isReady, activeVideoId, initializeAPI, initializePlayer } = usePlayerStore();
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isSliding, setIsSliding] = useState(false);
     const [slideDirection, setSlideDirection] = useState<'left' | 'right' | null>(null);
+    const t = useTranslations();
 
     useEffect(() => {
-        if (shorts.length > 0) {
+        fetchVideos();
+    }, [fetchVideos]);
+
+    useEffect(() => {
+        if (videos.length > 0) {
             initializeAPI();
         }
-    }, [shorts.length, initializeAPI]);
 
-    const nextShort = () => {
-        if (isSliding || shorts.length <= 1) return;
+        return () => {
+            usePlayerStore.getState().cleanupPlayers();
+        };
+    }, [videos.length, initializeAPI]);
+
+    const nextVideo = () => {
+        if (isSliding || videos.length <= 1) return;
         setIsSliding(true);
         setSlideDirection('right');
         setTimeout(() => {
-            setCurrentIndex((prev) => (prev + 1) % shorts.length);
+            setCurrentIndex((prev) => (prev + 1) % videos.length);
             setIsSliding(false);
         }, 500);
     };
 
-    const prevShort = () => {
-        if (isSliding || shorts.length <= 1) return;
+    const prevVideo = () => {
+        if (isSliding || videos.length <= 1) return;
         setIsSliding(true);
         setSlideDirection('left');
         setTimeout(() => {
-            setCurrentIndex((prev) => (prev - 1 + shorts.length) % shorts.length);
+            setCurrentIndex((prev) => (prev - 1 + videos.length) % videos.length);
             setIsSliding(false);
         }, 500);
     };
@@ -48,9 +58,9 @@ export default function ShortsGallery() {
     if (isLoading) {
         return (
             <section className='h-full'>
-                <h2 className='mb-6 text-2xl font-semibold'>Shorts</h2>
+                <h2 className='mb-6 text-2xl font-semibold'>{t('interests.youtube.videos.title')}</h2>
                 <div className='flex h-64 items-center justify-center'>
-                    <p>Loading shorts...</p>
+                    <p>{t('interests.youtube.videos.loading')}</p>
                 </div>
             </section>
         );
@@ -59,7 +69,7 @@ export default function ShortsGallery() {
     if (error) {
         return (
             <section className='h-full'>
-                <h2 className='mb-6 text-2xl font-semibold'>Shorts</h2>
+                <h2 className='mb-6 text-2xl font-semibold'>{t('interests.youtube.videos.title')}</h2>
                 <div className='flex h-64 items-center justify-center'>
                     <p className='text-red-500'>{error}</p>
                 </div>
@@ -67,37 +77,37 @@ export default function ShortsGallery() {
         );
     }
 
-    if (shorts.length === 0) {
+    if (videos.length === 0) {
         return (
             <section className='h-full'>
-                <h2 className='mb-6 text-2xl font-semibold'>Shorts</h2>
+                <h2 className='mb-6 text-2xl font-semibold'>{t('interests.youtube.videos.title')}</h2>
                 <div className='flex h-64 items-center justify-center'>
-                    <p>No shorts found</p>
+                    <p>{t('interests.youtube.videos.noVideos')}</p>
                 </div>
             </section>
         );
     }
 
-    const currentShort = shorts[currentIndex];
+    const currentVideo = videos[currentIndex];
 
     return (
-        <section className='relative h-full px-16'>
-            <h2 className='mb-6 text-2xl font-semibold'>Shorts</h2>
+        <section className='relative h-full w-full px-16'>
+            <h2 className='mb-6 text-2xl font-semibold'>{t('interests.youtube.videos.title')}</h2>
 
             <button
-                onClick={prevShort}
+                onClick={prevVideo}
                 className='absolute left-0 top-1/2 z-10 -translate-y-1/2 rounded-full bg-foreground/10 p-3 text-foreground transition-all hover:scale-110 hover:bg-foreground/20'
-                aria-label='Previous short'
-                disabled={isSliding || shorts.length <= 1}
+                aria-label={t('interests.youtube.videos.navigation.prev')}
+                disabled={isSliding || videos.length <= 1}
             >
                 <ChevronLeft className='h-8 w-8' />
             </button>
 
             <button
-                onClick={nextShort}
+                onClick={nextVideo}
                 className='absolute right-0 top-1/2 z-10 -translate-y-1/2 rounded-full bg-foreground/10 p-3 text-foreground transition-all hover:scale-110 hover:bg-foreground/20'
-                aria-label='Next short'
-                disabled={isSliding || shorts.length <= 1}
+                aria-label={t('interests.youtube.videos.navigation.next')}
+                disabled={isSliding || videos.length <= 1}
             >
                 <ChevronRight className='h-8 w-8' />
             </button>
@@ -108,13 +118,13 @@ export default function ShortsGallery() {
                 >
                     <div className='w-full text-center'>
                         <h3 className='mb-2 overflow-hidden text-ellipsis whitespace-nowrap text-xl font-semibold'>
-                            {currentShort.title}
+                            {currentVideo.title}
                         </h3>
                     </div>
 
                     <div className='relative my-4 h-full w-full'>
                         <YouTubePlayerComponent
-                            video={currentShort}
+                            video={currentVideo}
                             index={currentIndex}
                             playerState={{ isReady, activeVideoId }}
                             initializePlayer={(videoId) => initializePlayer(videoId, `player-${videoId}`)}
@@ -123,7 +133,10 @@ export default function ShortsGallery() {
 
                     <div className='w-full'>
                         <div className='text-center text-sm text-foreground/50'>
-                            {currentIndex + 1} of {shorts.length}
+                            {t('interests.youtube.videos.counter', {
+                                current: currentIndex + 1,
+                                total: videos.length,
+                            })}
                         </div>
                     </div>
                 </div>

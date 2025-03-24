@@ -1,21 +1,23 @@
 'use client';
 
 import Link from 'next/link';
-import { Github, Linkedin, FileText, FileSpreadsheet, GraduationCap, Briefcase, Menu } from 'lucide-react';
+import { Github, Linkedin, Menu } from 'lucide-react';
 import LanguageToggleButton from './LanguageToggleButton';
 import { useDeviceType } from '@/hooks/useDeviceType';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { useTranslations } from 'next-intl';
 const Navigation = () => {
     const { isMobile, isPortrait } = useDeviceType();
     const isMobileLandscape = isMobile && !isPortrait;
+    const t = useTranslations();
 
     const links = [
-        { href: '/about', label: 'About' },
-        { href: '/projects', label: 'Projects' },
-        { href: '/education', label: 'Education' },
-        { href: '/experience', label: 'Experience' },
-        { href: '/skills', label: 'Skills' },
-        { href: '/interests', label: 'Interests' },
+        { href: '/about', label: t('nav.about') },
+        { href: '/education', label: t('nav.education') },
+        { href: '/experience', label: t('nav.experience') },
+        { href: '/interests', label: t('nav.interests') },
+        { href: '/projects', label: t('nav.projects') },
+        { href: '/skills', label: t('nav.skills') },
     ];
 
     const socialLinks = [
@@ -23,18 +25,18 @@ const Navigation = () => {
             href: 'https://github.com/MatijaKocevar',
             icon: Github,
             label: 'GitHub',
-            tooltip: 'Open Github',
+            tooltip: t('nav.openGithub'),
         },
         {
             href: 'https://www.linkedin.com/in/matija-ko%C4%8Devar-59a198109/',
             icon: Linkedin,
             label: 'LinkedIn',
-            tooltip: 'Open Linkedin',
+            tooltip: t('nav.openLinkedIn'),
         },
         {
             href: 'https://drive.google.com/file/d/1a7A1h59XqKjEQ6zNjrlA5oWAMhsIqi1n/view',
             label: 'CV',
-            tooltip: 'Open CV',
+            tooltip: t('nav.openResume'),
         },
     ];
 
@@ -112,7 +114,9 @@ const Navigation = () => {
                                         ))}
                                     </div>
                                     <div className='flex flex-col gap-4 border-t pt-4'>
-                                        <h3 className='text-sm font-medium text-muted-foreground'>Connect</h3>
+                                        <h3 className='text-sm font-medium text-muted-foreground'>
+                                            {t('common.connect')}
+                                        </h3>
                                         <div className='flex gap-4'>
                                             {socialLinks.map((link) => (
                                                 <a
