@@ -1,12 +1,14 @@
-'use client';
-
 import Link from 'next/link';
 import { Github, Linkedin, Menu } from 'lucide-react';
 import LanguageToggleButton from './LanguageToggleButton';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { useTranslations } from 'next-intl';
 
-const Navigation = () => {
+interface NavigaitonProps {
+    locale: string;
+}
+
+const Navigation = ({ locale }: NavigaitonProps) => {
     const t = useTranslations();
 
     const links = [
@@ -77,13 +79,13 @@ const Navigation = () => {
                             ))}
                         </div>
                         <div className='flex items-center gap-2 border-l pl-4'>
-                            <LanguageToggleButton />
+                            <LanguageToggleButton locale={locale} />
                         </div>
                     </div>
 
                     {/* Mobile Navigation */}
                     <div className='flex items-center gap-4 md:hidden'>
-                        <LanguageToggleButton />
+                        <LanguageToggleButton locale={locale} />
                         <Sheet>
                             <SheetTrigger asChild>
                                 <button className='rounded-md p-2 hover:bg-accent' aria-label='Menu'>
