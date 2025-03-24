@@ -133,5 +133,16 @@
                 "counter": "{current} of {total}"
             }
         }
+    },
+    "components": {
+        "projectCard": {
+            "liveDemo": "Live Demo",
+            "github": "GitHub"
+        },
+        "banner": {
+            "title": "New Portfolio Coming Soon!",
+            "description": "I'm completely rebuilding my portfolio from scratch with some cool new features and a fresh design!",
+            "previousPortfolio": "While I work on this, you can view my previous portfolio at"
+        }
     }
 }

@@ -1,6 +1,7 @@
 'use client';
 
 import { FolderKanban } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
 interface ProjectCardProps {
     title: string;
@@ -8,6 +9,8 @@ interface ProjectCardProps {
 }
 
 const ProjectCard = ({ title, description }: ProjectCardProps) => {
+    const t = useTranslations('components.projectCard');
+
     return (
         <div className='group relative overflow-hidden rounded-lg border border-foreground/10 p-4 transition-all hover:border-foreground/20'>
             <div className='flex h-40 w-full items-center justify-center rounded-lg bg-foreground/5'>
@@ -22,14 +25,14 @@ const ProjectCard = ({ title, description }: ProjectCardProps) => {
                         className='text-sm underline hover:text-foreground/80'
                         onClick={(e) => e.preventDefault()}
                     >
-                        Live Demo
+                        {t('liveDemo')}
                     </a>
                     <a
                         href='#'
                         className='text-sm underline hover:text-foreground/80'
                         onClick={(e) => e.preventDefault()}
                     >
-                        GitHub
+                        {t('github')}
                     </a>
                 </div>
             </div>

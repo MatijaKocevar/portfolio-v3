@@ -133,5 +133,16 @@
                 "counter": "{current} od {total}"
             }
         }
+    },
+    "components": {
+        "projectCard": {
+            "liveDemo": "Demonstracija",
+            "github": "GitHub"
+        },
+        "banner": {
+            "title": "Nova Portfolio Stran Prihaja Kmalu!",
+            "description": "Svoj portfelj popolnoma preurejam z novimi funkcijami in svežo obliko!",
+            "previousPortfolio": "Medtem si lahko ogledate moj prejšnji portfelj na"
+        }
     }
 }
