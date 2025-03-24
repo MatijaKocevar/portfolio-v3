@@ -9,7 +9,7 @@ export default function Home() {
     const isMobileLandscape = isMobile && !isPortrait;
 
     return (
-        <div className='container mx-auto flex h-full items-center justify-center px-4'>
+        <div className='flex h-full items-center justify-center'>
             <div className={`grid w-full gap-8 ${isMobileLandscape ? 'grid-cols-1' : 'md:grid-cols-2'}`}>
                 <Bio />
                 <Projects />
