@@ -1,1 +1,137 @@
-{}
+{
+    "app": {
+        "meta": {
+            "title": "Matija Kočevar | Portfolio",
+            "description": "Osebni portfolio z mojimi projekti, izkušnjami in veščinami"
+        }
+    },
+    "common": {
+        "connect": "Poveži se"
+    },
+    "nav": {
+        "about": "O meni",
+        "projects": "Projekti",
+        "education": "Izobrazba",
+        "experience": "Izkušnje",
+        "skills": "Veščine",
+        "interests": "Interesi",
+        "openGithub": "Odpri GitHub",
+        "openLinkedIn": "Odpri LinkedIn",
+        "openResume": "Odpri življenjepis"
+    },
+    "home": {
+        "title": "Domov",
+        "welcome": "Dobrodošli na domači strani",
+        "meta": {
+            "title": "Matija Kočevar | Domov",
+            "description": "Domača stran"
+        },
+        "bio": {
+            "role": "Razvijalec programske opreme",
+            "tagline": "Navdušen nad ustvarjanjem elegantnih rešitev za kompleksne probleme",
+            "techStack": {
+                "react": "React",
+                "vue": "Vue",
+                "nextjs": "Next.js",
+                "typescript": "TypeScript",
+                "csharp": "C#",
+                "php": "PHP",
+                "postgresql": "PostgreSQL",
+                "sqlserver": "Sql Server"
+            }
+        },
+        "projects": {
+            "title": "Aktivni projekti",
+            "navigation": {
+                "prev": "Prejšnji projekt",
+                "next": "Naslednji projekt"
+            },
+            "links": {
+                "demo": "Demonstracija",
+                "code": "Koda"
+            },
+            "wip": "V izdelavi",
+            "items": {
+                "zelda": {
+                    "title": "A Tie to the Past",
+                    "description": "Klon igre v stilu Zelda, narejen z JavaScript-om"
+                },
+                "anasPlace": {
+                    "title": "Ana's Place",
+                    "description": "Moderna spletna aplikacija"
+                }
+            }
+        }
+    },
+    "about": {
+        "title": "O meni",
+        "description": "To bo stran o meni",
+        "meta": {
+            "title": "Matija Kočevar | O meni",
+            "description": "O meni"
+        }
+    },
+    "projects": {
+        "title": "Projekti",
+        "description": "To bo stran s projekti",
+        "meta": {
+            "title": "Matija Kočevar | Projekti",
+            "description": "Projekti"
+        }
+    },
+    "education": {
+        "title": "Izobrazba",
+        "description": "To bo stran z izobrazbo",
+        "meta": {
+            "title": "Matija Kočevar | Izobrazba",
+            "description": "Izobrazba"
+        }
+    },
+    "experience": {
+        "title": "Izkušnje",
+        "description": "To bo stran z izkušnjami",
+        "meta": {
+            "title": "Matija Kočevar | Izkušnje",
+            "description": "Izkušnje"
+        }
+    },
+    "skills": {
+        "title": "Veščine",
+        "description": "To bo stran z veščinami",
+        "meta": {
+            "title": "Matija Kočevar | Veščine",
+            "description": "Veščine"
+        }
+    },
+    "interests": {
+        "title": "Interesi",
+        "description": "To bo stran z interesi",
+        "meta": {
+            "title": "Matija Kočevar | Interesi",
+            "description": "Interesi"
+        },
+        "youtube": {
+            "title": "Moja YouTube vsebina",
+            "videos": {
+                "title": "Glasbeni videi",
+                "loading": "Nalaganje videov...",
+                "noVideos": "Ni najdenih videov",
+                "navigation": {
+                    "prev": "Prejšnji video",
+                    "next": "Naslednji video"
+                },
+                "counter": "{current} od {total}"
+            },
+            "shorts": {
+                "title": "Kratki posnetki",
+                "loading": "Nalaganje kratkih posnetkov...",
+                "noShorts": "Ni najdenih kratkih posnetkov",
+                "navigation": {
+                    "prev": "Prejšnji posnetek",
+                    "next": "Naslednji posnetek"
+                },
+                "counter": "{current} od {total}"
+            }
+        }
+    }
+}
