@@ -28,7 +28,7 @@ export default function Bio() {
         <div
             className={`flex min-h-[calc(100vh-68px)] flex-col justify-around rounded-xl bg-background/95 p-4 md:p-8 min-[1024px]:min-h-[calc(100vh-65px)] max-[1023px]:landscape:min-h-[calc(100vh-40px)]`}
         >
-            <div className='flex h-full flex-col max-[1023px]:landscape:flex-row max-[1023px]:landscape:gap-8'>
+            <div className='flex h-full flex-col gap-12 portrait:gap-8 max-[1023px]:landscape:flex-row max-[1023px]:landscape:gap-8'>
                 <div className='flex flex-col items-center justify-center max-[1023px]:landscape:w-[45%]'>
                     <div className='mb-4 flex justify-center'>
                         <div className='relative h-48 w-48 overflow-hidden rounded-full border-4 border-foreground/10 max-[1023px]:landscape:h-32 max-[1023px]:landscape:w-32'>
