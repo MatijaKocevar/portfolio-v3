@@ -29,10 +29,7 @@ export default function Bio() {
 
     return (
         <div
-            className='flex flex-col justify-around rounded-xl bg-background/95 p-4 md:min-h-0 md:p-8'
-            style={
-                isMobile ? (isPortrait ? { height: 'calc(100vh - 68px)' } : { minHeight: 'calc(100vh - 40px)' }) : {}
-            }
+            className={`flex min-h-[calc(100vh-68px)] flex-col justify-around rounded-xl bg-background/95 p-4 md:p-8 min-[1024px]:min-h-[calc(100vh-65px)] max-[1023px]:landscape:min-h-[calc(100vh-40px)]`}
         >
             {isMobileLandscape ? (
                 <div className='flex h-full gap-8'>
