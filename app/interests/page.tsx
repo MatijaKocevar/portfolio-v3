@@ -8,16 +8,10 @@ export default function InterestsPage() {
     const t = useTranslations();
 
     return (
-        <div className='container flex h-full flex-col items-center justify-center'>
-            <h1 className='mb-8 text-3xl font-bold'>{t('interests.youtube.title')}</h1>
-
-            <div className='grid w-full grid-cols-1 gap-8 md:grid-cols-2'>
-                <div className='w-full'>
-                    <VideoGallery />
-                </div>
-                <div className='w-full'>
-                    <ShortsGallery />
-                </div>
+        <div className='flex flex-col gap-4 p-8'>
+            <h1 className='mb-6 text-3xl font-bold'>{t('interests.title')}</h1>
+            <div>
+                <p>{t('interests.description')}.</p>
             </div>
         </div>
     );

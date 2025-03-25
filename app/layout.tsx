@@ -1,9 +1,9 @@
 import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
 import Navigation from '@/components/Navigation';
-import { NextIntlClientProvider } from 'next-intl';
 import { getLocale, getMessages, getTranslations } from 'next-intl/server';
 import { MetaLocaleParams } from '../types/locale';
+import Providers from '@/providers/Providers';
 
 const geistSans = Geist({
     variable: '--font-geist-sans',
@@ -37,16 +37,18 @@ export default async function RootLayout({
     const locale = await getLocale();
 
     return (
-        <html lang={locale} className='h-full'>
+        <html lang={locale} className='dark h-full' suppressHydrationWarning>
             <body
                 className={`${geistSans.variable} ${geistMono.variable} h-full bg-background text-foreground antialiased`}
             >
-                <NextIntlClientProvider messages={messages}>
+                <Providers messages={messages} locale={locale}>
                     <div className='flex h-full flex-col'>
-                        <Navigation />
-                        <main className='flex flex-1'>{children}</main>
+                        <Navigation locale={locale} />
+                        <main className='flex flex-1 pt-[68px] min-[1024px]:pt-[64px] max-[1023px]:landscape:pt-[40px]'>
+                            {children}
+                        </main>
                     </div>
-                </NextIntlClientProvider>
+                </Providers>
             </body>
         </html>
     );
