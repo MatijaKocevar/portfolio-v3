@@ -44,7 +44,9 @@ export default async function RootLayout({
                 <NextIntlClientProvider messages={messages}>
                     <div className='flex h-full flex-col'>
                         <Navigation locale={locale} />
-                        <main className='flex flex-1'>{children}</main>
+                        <main className='flex flex-1 pt-[68px] min-[1024px]:pt-[64px] max-[1023px]:landscape:pt-[40px]'>
+                            {children}
+                        </main>
                     </div>
                 </NextIntlClientProvider>
             </body>
