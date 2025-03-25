@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: MetaLocaleParams) {
 export default function About() {
     const t = useTranslations();
     return (
-        <div className='flex flex-col gap-4 p-16'>
+        <div className='flex flex-col gap-4 p-8'>
             <h1 className='mb-6 text-3xl font-bold'>{t('about.title')}</h1>
             <div>
                 <p>{t('about.description')}.</p>

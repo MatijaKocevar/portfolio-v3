@@ -3,23 +3,19 @@
 import { useEffect } from 'react';
 import useLanguageStore from '../store/useLanguageStore';
 import { useRouter } from 'next/navigation';
-import { Skeleton } from '@/components/ui/skeleton';
 
-const LanguageToggleButton = () => {
-    const { language, toggleLanguage, initializeLanguage } = useLanguageStore();
+interface LanguageToggleButtonProps {
+    locale: string;
+}
+
+const LanguageToggleButton = ({ locale }: LanguageToggleButtonProps) => {
+    const { toggleLanguage, initializeLanguage } = useLanguageStore();
     const router = useRouter();
 
     useEffect(() => {
-        if (!language) {
-            const locale = document.documentElement.lang;
-            initializeLanguage(locale);
-        }
+        initializeLanguage(locale);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
-
-    if (!language) {
-        return <Skeleton className='h-7 w-[74px] rounded-full opacity-60' />;
-    }
 
     const handleToggle = () => {
         toggleLanguage();
@@ -34,14 +30,14 @@ const LanguageToggleButton = () => {
         >
             <span
                 className={`absolute z-10 flex h-5 w-[32px] transform items-center justify-center rounded-full bg-foreground text-[11px] font-medium text-background transition-transform ${
-                    language === 'en' ? 'translate-x-0' : 'translate-x-[36px]'
+                    locale === 'en' ? 'translate-x-0' : 'translate-x-[36px]'
                 }`}
             >
-                {language === 'en' ? 'ENG' : 'SLO'}
+                {locale === 'en' ? 'ENG' : 'SLO'}
             </span>
             <span className='flex w-full justify-between px-2 text-[11px] font-medium'>
-                <span className={language === 'en' ? 'invisible' : ''}>ENG</span>
-                <span className={language === 'sl' ? 'invisible' : ''}>SLO</span>
+                <span className={locale === 'en' ? 'invisible' : ''}>ENG</span>
+                <span className={locale === 'sl' ? 'invisible' : ''}>SLO</span>
             </span>
         </button>
     );

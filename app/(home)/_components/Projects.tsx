@@ -2,8 +2,7 @@
 
 import { ExternalLink, Github, ChevronLeft, ChevronRight } from 'lucide-react';
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
-import { useDeviceType } from '@/hooks/useDeviceType';
+import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 
 type Project = {
@@ -17,14 +16,14 @@ type Project = {
 const showcaseProjects: Project[] = [
     {
         key: 'zelda',
-        image: '/images/zelda-clone/zelda-clone.png',
+        image: '/images/zelda-clone/webp/1200.webp',
         liveUrl: 'https://matijakocevar.github.io/zelda-clone/',
         githubUrl: 'https://github.com/MatijaKocevar/zelda-clone',
         wip: true,
     },
     {
         key: 'anasPlace',
-        image: '/images/anas-place/anas-place-thumb.png',
+        image: '/images/anas-place/webp/1200.webp',
         liveUrl: 'https://anas-place.net',
         githubUrl: 'https://github.com/MatijaKocevar/anas-place',
         wip: true,
@@ -33,19 +32,10 @@ const showcaseProjects: Project[] = [
 
 export default function Projects() {
     const t = useTranslations('home.projects');
-    const { isMobile, isPortrait } = useDeviceType();
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isSliding, setIsSliding] = useState(false);
     const [slideDirection, setSlideDirection] = useState<'left' | 'right' | null>(null);
-    const [isMobileLandscape, setIsMobileLandscape] = useState(false);
-
-    useEffect(() => {
-        if (isMobile && !isPortrait) {
-            setIsMobileLandscape(true);
-        } else {
-            setIsMobileLandscape(false);
-        }
-    }, [isMobile, isPortrait]);
+    const [imageLoading, setImageLoading] = useState(true);
 
     const nextProject = () => {
         if (isSliding) return;
@@ -76,11 +66,97 @@ export default function Projects() {
         : 'opacity-100 translate-x-0';
 
     return (
-        <div className='relative flex h-full flex-col px-0 md:px-16'>
+        <div className='relative flex max-w-full flex-col'>
             <h1 className='shrink-0 text-2xl font-semibold'>{t('title')}</h1>
+
+            <section
+                className='relative flex flex-1 overflow-hidden rounded-xl bg-background/95 p-4 pt-1 md:p-8'
+                style={{ paddingTop: '1rem' }}
+            >
+                <div
+                    className={`flex h-full w-full flex-col items-center gap-4 transition-all duration-500 ease-in-out ${slideClass}`}
+                >
+                    <div className='flex w-full flex-col items-center gap-4 max-[1023px]:landscape:flex-row max-[1023px]:landscape:items-center max-[1023px]:landscape:justify-between'>
+                        {/* Navigation buttons for landscape mobile */}
+                        <button
+                            onClick={prevProject}
+                            className='hidden rounded-full bg-foreground/10 p-3 text-foreground transition-all hover:scale-110 hover:bg-foreground/20 max-[1023px]:landscape:flex'
+                            aria-label={t('navigation.prev')}
+                            disabled={isSliding}
+                        >
+                            <ChevronLeft className='h-6 w-6' />
+                        </button>
+
+                        <div className='flex w-full flex-col gap-4 max-[1023px]:landscape:w-[90%] max-[1023px]:landscape:flex-row'>
+                            <div className='w-full max-[1023px]:landscape:w-1/2'>
+                                <div className='mb-4 flex flex-col items-center gap-2 text-center'>
+                                    <h2 className='text-2xl font-semibold'>{t(`items.${currentProject.key}.title`)}</h2>
+                                    {currentProject.wip && <span className='text-sm text-red-500'>{t('wip')}</span>}
+                                </div>
+
+                                <div className='relative aspect-[16/10] min-h-[300px] w-full max-[1023px]:landscape:min-h-[200px]'>
+                                    {imageLoading && (
+                                        <div className='absolute inset-0 animate-pulse rounded-lg bg-foreground/5' />
+                                    )}
+                                    <Image
+                                        src={currentProject.image}
+                                        alt={currentProject.key}
+                                        fill
+                                        sizes='(max-width: 768px) 800px, 1200px'
+                                        quality={85}
+                                        className={`rounded-lg object-contain transition-opacity duration-300 ${
+                                            imageLoading ? 'opacity-0' : 'opacity-100'
+                                        }`}
+                                        priority
+                                        onLoad={() => setImageLoading(false)}
+                                    />
+                                </div>
+                            </div>
+
+                            <div className='w-full max-[1023px]:landscape:w-1/2 max-[1023px]:landscape:self-center'>
+                                <p className='mb-4 text-center text-sm text-foreground/70 max-[1023px]:landscape:text-left'>
+                                    {t(`items.${currentProject.key}.description`)}
+                                </p>
+
+                                <div className='flex justify-center gap-4 max-[1023px]:landscape:justify-start'>
+                                    <a
+                                        href={currentProject.liveUrl}
+                                        target='_blank'
+                                        rel='noopener noreferrer'
+                                        className='flex items-center gap-2 rounded-md bg-foreground/10 px-4 py-2 text-sm hover:bg-foreground/20'
+                                    >
+                                        <ExternalLink className='h-4 w-4' />
+                                        {t('links.demo')}
+                                    </a>
+                                    <a
+                                        href={currentProject.githubUrl}
+                                        target='_blank'
+                                        rel='noopener noreferrer'
+                                        className='flex items-center gap-2 rounded-md bg-foreground/10 px-4 py-2 text-sm hover:bg-foreground/20'
+                                    >
+                                        <Github className='h-4 w-4' />
+                                        {t('links.code')}
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button
+                            onClick={nextProject}
+                            className='hidden rounded-full bg-foreground/10 p-3 text-foreground transition-all hover:scale-110 hover:bg-foreground/20 max-[1023px]:landscape:flex'
+                            aria-label={t('navigation.next')}
+                            disabled={isSliding}
+                        >
+                            <ChevronRight className='h-6 w-6' />
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            {/* Regular navigation buttons (hidden in landscape) */}
             <button
                 onClick={prevProject}
-                className='absolute left-0 top-1/2 z-10 -translate-y-1/2 rounded-full bg-foreground/10 p-3 text-foreground transition-all hover:scale-110 hover:bg-foreground/20 md:-left-8'
+                className='absolute left-0 top-1/2 z-10 -translate-y-1/2 rounded-full bg-foreground/10 p-3 text-foreground transition-all hover:scale-110 hover:bg-foreground/20 md:-left-8 max-[1023px]:landscape:hidden'
                 aria-label={t('navigation.prev')}
                 disabled={isSliding}
             >
@@ -89,70 +165,12 @@ export default function Projects() {
 
             <button
                 onClick={nextProject}
-                className='absolute right-0 top-1/2 z-10 -translate-y-1/2 rounded-full bg-foreground/10 p-3 text-foreground transition-all hover:scale-110 hover:bg-foreground/20 md:-right-8'
+                className='absolute right-0 top-1/2 z-10 -translate-y-1/2 rounded-full bg-foreground/10 p-3 text-foreground transition-all hover:scale-110 hover:bg-foreground/20 md:-right-8 max-[1023px]:landscape:hidden'
                 aria-label={t('navigation.next')}
                 disabled={isSliding}
             >
                 <ChevronRight className='h-8 w-8' />
             </button>
-
-            <section
-                className='relative flex flex-1 overflow-hidden rounded-xl bg-background/95 p-4 md:p-8'
-                style={{ paddingTop: isMobileLandscape ? '0px' : '2rem' }}
-            >
-                <div
-                    className={`flex h-full w-full flex-col items-center gap-4 transition-all duration-500 ease-in-out ${slideClass}`}
-                >
-                    <div
-                        className='flex shrink-0 flex-col items-center gap-2 text-center'
-                        style={{ flexDirection: isMobileLandscape ? 'row' : 'column' }}
-                    >
-                        <h2 className='mb-2 text-2xl font-semibold'>{t(`items.${currentProject.key}.title`)}</h2>
-                        {currentProject.wip && <span className='text-sm text-red-500'>{t('wip')}</span>}
-                    </div>
-
-                    <div
-                        className='relative min-h-0 w-full max-w-2xl flex-1 overflow-hidden rounded-lg'
-                        style={{ maxHeight: isMobile ? 'calc(100dvh - 300px)' : 'none' }}
-                    >
-                        <Image
-                            src={currentProject.image}
-                            alt={currentProject.key}
-                            width={1280}
-                            height={720}
-                            className='h-full w-full object-contain transition-transform hover:scale-105'
-                            unoptimized
-                        />
-                    </div>
-
-                    <div className='w-full max-w-2xl shrink-0'>
-                        <p className='mb-4 text-center text-sm text-foreground/70'>
-                            {t(`items.${currentProject.key}.description`)}
-                        </p>
-
-                        <div className='flex justify-center gap-4'>
-                            <a
-                                href={currentProject.liveUrl}
-                                target='_blank'
-                                rel='noopener noreferrer'
-                                className='flex items-center gap-2 rounded-md bg-foreground/10 px-4 py-2 text-sm hover:bg-foreground/20'
-                            >
-                                <ExternalLink className='h-4 w-4' />
-                                {t('links.demo')}
-                            </a>
-                            <a
-                                href={currentProject.githubUrl}
-                                target='_blank'
-                                rel='noopener noreferrer'
-                                className='flex items-center gap-2 rounded-md bg-foreground/10 px-4 py-2 text-sm hover:bg-foreground/20'
-                            >
-                                <Github className='h-4 w-4' />
-                                {t('links.code')}
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </section>
         </div>
     );
 }
