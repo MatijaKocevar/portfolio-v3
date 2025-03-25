@@ -1,5 +1,6 @@
 import { PropsWithChildren } from 'react';
 import NextIntlProvider from './NextIntlProvider';
+import { ThemeProvider } from './ThemeProvider';
 
 type Props = {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -9,8 +10,10 @@ type Props = {
 
 export default function Providers({ messages, locale, children }: PropsWithChildren<Props>) {
     return (
-        <NextIntlProvider messages={messages} locale={locale}>
-            {children}
-        </NextIntlProvider>
+        <ThemeProvider attribute='class' defaultTheme='system' enableSystem disableTransitionOnChange>
+            <NextIntlProvider messages={messages} locale={locale}>
+                {children}
+            </NextIntlProvider>
+        </ThemeProvider>
     );
 }
