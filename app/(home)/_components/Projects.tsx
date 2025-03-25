@@ -16,14 +16,14 @@ type Project = {
 const showcaseProjects: Project[] = [
     {
         key: 'zelda',
-        image: '/images/zelda-clone/zelda-clone.png',
+        image: '/images/zelda-clone/webp/1200.webp',
         liveUrl: 'https://matijakocevar.github.io/zelda-clone/',
         githubUrl: 'https://github.com/MatijaKocevar/zelda-clone',
         wip: true,
     },
     {
         key: 'anasPlace',
-        image: '/images/anas-place/anas-place-thumb.png',
+        image: '/images/anas-place/webp/1200.webp',
         liveUrl: 'https://anas-place.net',
         githubUrl: 'https://github.com/MatijaKocevar/anas-place',
         wip: true,
@@ -102,7 +102,8 @@ export default function Projects() {
                                         src={currentProject.image}
                                         alt={currentProject.key}
                                         fill
-                                        sizes='(max-width: 768px) 100vw, (max-width: 1200px) 75vw, 50vw'
+                                        sizes='(max-width: 768px) 800px, 1200px'
+                                        quality={85}
                                         className={`rounded-lg object-contain transition-opacity duration-300 ${
                                             imageLoading ? 'opacity-0' : 'opacity-100'
                                         }`}

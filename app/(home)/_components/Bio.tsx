@@ -33,12 +33,14 @@ export default function Bio() {
                     <div className='mb-4 flex justify-center'>
                         <div className='relative h-48 w-48 overflow-hidden rounded-full border-4 border-foreground/10 max-[1023px]:landscape:h-32 max-[1023px]:landscape:w-32'>
                             <Image
-                                src='/images/me.png'
+                                src='/images/me/384.webp'
                                 alt='Profile'
                                 width={192}
                                 height={192}
                                 className='object-cover'
-                                unoptimized
+                                priority
+                                sizes='(max-width: 1023px) and (orientation: landscape) 128px, 192px'
+                                quality={80}
                             />
                         </div>
                     </div>
