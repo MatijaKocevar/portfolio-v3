@@ -3,6 +3,7 @@ import { Github, Linkedin, Menu } from 'lucide-react';
 import LanguageToggleButton from './LanguageToggleButton';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { useTranslations } from 'next-intl';
+import { ThemeModeToggle } from './ThemeModeToggle';
 
 interface NavigaitonProps {
     locale: string;
@@ -54,7 +55,7 @@ const Navigation = ({ locale }: NavigaitonProps) => {
                             <Link
                                 key={link.href}
                                 href={link.href}
-                                className='transition-colors hover:text-foreground/80 max-[1023px]:landscape:text-sm text-primary'
+                                className='text-primary transition-colors hover:text-foreground/80 max-[1023px]:landscape:text-sm'
                             >
                                 {link.label}
                             </Link>
@@ -71,21 +72,23 @@ const Navigation = ({ locale }: NavigaitonProps) => {
                                     title={link.tooltip}
                                 >
                                     {link.icon ? (
-                                        <link.icon className='h-5 w-5 max-[1023px]:landscape:h-4 max-[1023px]:landscape:w-4 text-primary' />
+                                        <link.icon className='h-5 w-5 text-primary max-[1023px]:landscape:h-4 max-[1023px]:landscape:w-4' />
                                     ) : (
-                                        <span className='font-bold max-[1023px]:landscape:text-sm text-primary'>{link.label}</span>
+                                        <span className='font-bold text-primary max-[1023px]:landscape:text-sm'>
+                                            {link.label}
+                                        </span>
                                     )}
                                 </a>
                             ))}
                         </div>
                         <div className='flex items-center gap-2 border-l pl-4'>
                             <LanguageToggleButton locale={locale} />
+                            <ThemeModeToggle />
                         </div>
                     </div>
 
                     {/* Mobile Navigation */}
                     <div className='flex items-center gap-4 md:hidden'>
-                        <LanguageToggleButton locale={locale} />
                         <Sheet>
                             <SheetTrigger asChild>
                                 <button className='rounded-md p-2 hover:bg-accent' aria-label='Menu'>
@@ -93,22 +96,19 @@ const Navigation = ({ locale }: NavigaitonProps) => {
                                 </button>
                             </SheetTrigger>
                             <SheetContent side='right' className='w-[250px] sm:w-[300px]'>
-                                <div className='flex flex-col gap-6 py-6'>
+                                <div className='flex flex-col gap-4 py-4'>
                                     <div className='flex flex-col gap-4'>
                                         {links.map((link) => (
                                             <Link
                                                 key={link.href}
                                                 href={link.href}
-                                                className='text-lg transition-colors hover:text-foreground/80 text-primary'
+                                                className='text-lg text-primary transition-colors hover:text-foreground/80'
                                             >
                                                 {link.label}
                                             </Link>
                                         ))}
                                     </div>
-                                    <div className='flex flex-col gap-4 border-t pt-4'>
-                                        <h3 className='text-sm font-medium text-muted-foreground'>
-                                            {t('common.connect')}
-                                        </h3>
+                                    <div className='flex flex-col justify-center gap-4 border-t pt-4'>
                                         <div className='flex gap-4'>
                                             {socialLinks.map((link) => (
                                                 <a
@@ -127,6 +127,12 @@ const Navigation = ({ locale }: NavigaitonProps) => {
                                                     )}
                                                 </a>
                                             ))}
+                                        </div>
+                                    </div>
+                                    <div className='flex flex-col justify-center gap-4 border-t pt-4'>
+                                        <div className='flex items-center justify-between gap-2'>
+                                            <LanguageToggleButton locale={locale} />
+                                            <ThemeModeToggle />
                                         </div>
                                     </div>
                                 </div>
