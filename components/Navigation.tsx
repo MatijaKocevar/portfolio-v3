@@ -54,7 +54,7 @@ const Navigation = ({ locale }: NavigaitonProps) => {
                             <Link
                                 key={link.href}
                                 href={link.href}
-                                className='transition-colors hover:text-foreground/80 max-[1023px]:landscape:text-sm'
+                                className='transition-colors hover:text-foreground/80 max-[1023px]:landscape:text-sm text-primary'
                             >
                                 {link.label}
                             </Link>
@@ -71,9 +71,9 @@ const Navigation = ({ locale }: NavigaitonProps) => {
                                     title={link.tooltip}
                                 >
                                     {link.icon ? (
-                                        <link.icon className='h-5 w-5 max-[1023px]:landscape:h-4 max-[1023px]:landscape:w-4' />
+                                        <link.icon className='h-5 w-5 max-[1023px]:landscape:h-4 max-[1023px]:landscape:w-4 text-primary' />
                                     ) : (
-                                        <span className='font-bold max-[1023px]:landscape:text-sm'>{link.label}</span>
+                                        <span className='font-bold max-[1023px]:landscape:text-sm text-primary'>{link.label}</span>
                                     )}
                                 </a>
                             ))}
@@ -99,7 +99,7 @@ const Navigation = ({ locale }: NavigaitonProps) => {
                                             <Link
                                                 key={link.href}
                                                 href={link.href}
-                                                className='text-lg transition-colors hover:text-foreground/80'
+                                                className='text-lg transition-colors hover:text-foreground/80 text-primary'
                                             >
                                                 {link.label}
                                             </Link>
@@ -121,9 +121,9 @@ const Navigation = ({ locale }: NavigaitonProps) => {
                                                     title={link.tooltip}
                                                 >
                                                     {link.icon ? (
-                                                        <link.icon className='h-5 w-5' />
+                                                        <link.icon className='h-5 w-5 text-primary' />
                                                     ) : (
-                                                        <span className='font-bold'>{link.label}</span>
+                                                        <span className='font-bold text-primary'>{link.label}</span>
                                                     )}
                                                 </a>
                                             ))}
