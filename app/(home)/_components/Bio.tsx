@@ -1,28 +1,13 @@
 'use client';
 
-import { Code2, Blocks, Database } from 'lucide-react';
 import Image from 'next/image';
 import Banner from '@/components/Banner';
 import { useTranslations } from 'next-intl';
-
-const techStack = [
-    // Frontend & Languages
-    { icon: Blocks, label: 'react' },
-    { icon: Blocks, label: 'vue' },
-    { icon: Blocks, label: 'nextjs' },
-    { icon: Code2, label: 'typescript' },
-
-    // Backend
-    { icon: Code2, label: 'csharp' },
-    { icon: Code2, label: 'php' },
-
-    // Database
-    { icon: Database, label: 'postgresql' },
-    { icon: Database, label: 'sqlserver' },
-];
+import { useBioData } from '../_store/useBioData';
 
 export default function Bio() {
     const t = useTranslations('home.bio');
+    const { techStack } = useBioData();
 
     return (
         <div
