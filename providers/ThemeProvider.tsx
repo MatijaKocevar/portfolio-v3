@@ -2,12 +2,13 @@
 
 import * as React from 'react';
 import { ThemeProvider as NextThemesProvider } from 'next-themes';
+import useThemeStore from '../store/useThemeStore';
 
 export function ThemeProvider({ children, ...props }: React.ComponentProps<typeof NextThemesProvider>) {
-    const themeList = ['light', 'dark', 'red-light', 'red-dark', 'blue-light', 'blue-dark'];
+    const { getThemeList } = useThemeStore();
 
     return (
-        <NextThemesProvider themes={themeList} {...props}>
+        <NextThemesProvider themes={getThemeList()} {...props}>
             {children}
         </NextThemesProvider>
     );

@@ -29,13 +29,13 @@ const LanguageToggleButton = ({ locale }: LanguageToggleButtonProps) => {
             aria-label='Toggle language'
         >
             <span
-                className={`absolute z-10 flex h-5 w-[32px] transform items-center justify-center rounded-full bg-foreground text-[11px] font-medium text-background transition-transform ${
+                className={`absolute z-10 flex h-5 w-[32px] transform items-center justify-center rounded-full bg-background text-[11px] font-medium text-foreground transition-transform ${
                     locale === 'en' ? 'translate-x-0' : 'translate-x-[36px]'
                 }`}
             >
                 {locale === 'en' ? 'ENG' : 'SLO'}
             </span>
-            <span className='flex w-full justify-between px-2 text-[11px] font-medium'>
+            <span className='flex w-full justify-between px-2 text-[11px] font-medium text-muted-foreground'>
                 <span className={locale === 'en' ? 'invisible' : ''}>ENG</span>
                 <span className={locale === 'sl' ? 'invisible' : ''}>SLO</span>
             </span>
