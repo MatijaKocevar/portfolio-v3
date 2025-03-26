@@ -90,6 +90,9 @@
     "experience": {
         "title": "Izkušnje",
         "description": "To bo stran z izkušnjami",
+        "technologies": {
+            "title": "Tehnologije"
+        },
         "meta": {
             "title": "Matija Kočevar | Izkušnje",
             "description": "Izkušnje"

@@ -90,6 +90,9 @@
     "experience": {
         "title": "Experience",
         "description": "This will be the experience page",
+        "technologies": {
+            "title": "Technologies"
+        },
         "meta": {
             "title": "Matija Kočevar | Experience",
             "description": "Experience"

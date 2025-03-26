@@ -1,28 +1,14 @@
 import { useTranslations } from 'next-intl';
-import { getTranslations } from 'next-intl/server';
-import { MetaLocaleParams } from '../../types/locale';
-
-export async function generateMetadata({ params }: MetaLocaleParams) {
-    const { locale } = await params;
-    const t = await getTranslations({ locale });
-
-    const title = t('experience.meta.title');
-    const description = t('experience.meta.description');
-
-    return {
-        title,
-        description,
-    };
-}
+import Timeline from './_components/Timeline';
 
 export default function Experience() {
     const t = useTranslations();
 
     return (
-        <div className='flex flex-col gap-4 p-8'>
-            <h1 className='mb-6 text-3xl font-bold'>{t('experience.title')}</h1>
-            <div>
-                <p>{t('experience.description')}.</p>
+        <div className='flex h-full flex-col'>
+            <h1 className='text-3xl font-bold'>{t('experience.title')}</h1>
+            <div className='mt-8 h-full border px-8'>
+                <Timeline direction='horizontal' />
             </div>
         </div>
     );
