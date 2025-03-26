@@ -10,7 +10,7 @@ type Props = {
 
 export default function Providers({ messages, locale, children }: PropsWithChildren<Props>) {
     return (
-        <ThemeProvider attribute='class' defaultTheme='system' enableSystem disableTransitionOnChange>
+        <ThemeProvider attribute='class' defaultTheme='violet-dark' enableSystem disableTransitionOnChange>
             <NextIntlProvider messages={messages} locale={locale}>
                 {children}
             </NextIntlProvider>
