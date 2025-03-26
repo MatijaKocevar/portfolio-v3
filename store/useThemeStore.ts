@@ -32,6 +32,21 @@ const useThemeStore = create<ThemeState>((set, get) => ({
             lightColor: '#0A84FF',
             darkColor: '#0A84FF',
         },
+        {
+            name: 'green',
+            lightColor: '#34C759',
+            darkColor: '#34C759',
+        },
+        {
+            name: 'yellow',
+            lightColor: '#FFCC00',
+            darkColor: '#FFCC00',
+        },
+        {
+            name: 'violet',
+            lightColor: '#5856D6',
+            darkColor: '#5856D6',
+        },
     ],
     variants: ['light', 'dark'],
     getThemeList: () => {
