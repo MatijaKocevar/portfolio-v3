@@ -14,7 +14,7 @@
         "education": "Izobrazba",
         "experience": "Izkušnje",
         "skills": "Veščine",
-        "interests": "Interesi",
+        "interests": "Interesi & hobiji",
         "openGithub": "Odpri GitHub",
         "openLinkedIn": "Odpri LinkedIn",
         "openResume": "Odpri življenjepis"
@@ -104,7 +104,7 @@
         }
     },
     "interests": {
-        "title": "Interesi",
+        "title": "Interests & Hobbies",
         "description": "To bo stran z interesi",
         "meta": {
             "title": "Matija Kočevar | Interesi",
