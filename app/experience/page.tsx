@@ -8,7 +8,7 @@ export default function Experience() {
         <div className='flex h-full flex-col'>
             <h1 className='text-3xl font-bold'>{t('experience.title')}</h1>
             <div className='mt-8 h-full border px-8'>
-                <Timeline direction='horizontal' />
+                <Timeline direction='vertical' />
             </div>
         </div>
     );

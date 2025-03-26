@@ -11,11 +11,13 @@ export default function Timeline({ direction = 'vertical' }: TimelineProps) {
     const { experiences } = useExperienceStore();
 
     return (
-        <div
-            className={`flex justify-between p-2 ${direction === 'horizontal' ? 'w-full flex-row' : 'h-full flex-col'}`}
-        >
+        <div className={`flex h-full ${direction === 'horizontal' ? 'flex-row' : 'flex-col'}`}>
             {experiences.map((experience, index) => (
-                <TimelineItem key={index} experience={experience} />
+                <div key={index} className='flex flex-1'>
+                    <div className={`flex flex-1 ${index % 2 !== 0 ? 'items-end' : 'items-start'}`}>
+                        <TimelineItem experience={experience} isOdd={index % 2 !== 0} direction={direction} />
+                    </div>
+                </div>
             ))}
         </div>
     );

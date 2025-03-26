@@ -4,11 +4,16 @@ import { ExperienceItem } from '../_stores/useExperienceStore';
 
 type TimelineItemProps = {
     experience: ExperienceItem;
+    isOdd: boolean;
+    direction?: 'horizontal' | 'vertical';
 };
 
-export default function TimelineItem({ experience }: TimelineItemProps) {
+export default function TimelineItem({ experience, isOdd, direction = 'vertical' }: TimelineItemProps) {
+    const positionClass =
+        direction === 'horizontal' ? (isOdd ? 'items-end' : 'items-start') : isOdd ? 'self-end' : 'self-start';
+
     return (
-        <div className='flex flex-1 flex-col text-center'>
+        <div className='flex w-full flex-col text-center'>
             <h2 className='text-xl font-bold'>{experience.name}</h2>
             <p className='text-sm'>{experience.description}</p>
             <div className='flex flex-col justify-center'>
