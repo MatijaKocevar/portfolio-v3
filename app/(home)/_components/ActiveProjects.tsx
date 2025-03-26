@@ -2,60 +2,23 @@
 
 import { ExternalLink, Github, ChevronLeft, ChevronRight } from 'lucide-react';
 import Image from 'next/image';
-import { useState } from 'react';
 import { useTranslations } from 'next-intl';
+import { Button } from '../../../components/ui/button';
+import { Skeleton } from '../../../components/ui/skeleton';
+import { useActiveProjects } from '../_store/useActiveProjects';
 
-type Project = {
-    key: string;
-    image: string;
-    liveUrl: string;
-    githubUrl: string;
-    wip: boolean;
-};
-
-const showcaseProjects: Project[] = [
-    {
-        key: 'zelda',
-        image: '/images/zelda-clone/webp/1200.webp',
-        liveUrl: 'https://matijakocevar.github.io/zelda-clone/',
-        githubUrl: 'https://github.com/MatijaKocevar/zelda-clone',
-        wip: true,
-    },
-    {
-        key: 'anasPlace',
-        image: '/images/anas-place/webp/1200.webp',
-        liveUrl: 'https://anas-place.net',
-        githubUrl: 'https://github.com/MatijaKocevar/anas-place',
-        wip: true,
-    },
-];
-
-export default function Projects() {
+export default function ActiveProjects() {
     const t = useTranslations('home.projects');
-    const [currentIndex, setCurrentIndex] = useState(0);
-    const [isSliding, setIsSliding] = useState(false);
-    const [slideDirection, setSlideDirection] = useState<'left' | 'right' | null>(null);
-    const [imageLoading, setImageLoading] = useState(true);
-
-    const nextProject = () => {
-        if (isSliding) return;
-        setIsSliding(true);
-        setSlideDirection('right');
-        setTimeout(() => {
-            setCurrentIndex((prev) => (prev + 1) % showcaseProjects.length);
-            setIsSliding(false);
-        }, 500);
-    };
-
-    const prevProject = () => {
-        if (isSliding) return;
-        setIsSliding(true);
-        setSlideDirection('left');
-        setTimeout(() => {
-            setCurrentIndex((prev) => (prev - 1 + showcaseProjects.length) % showcaseProjects.length);
-            setIsSliding(false);
-        }, 500);
-    };
+    const {
+        currentIndex,
+        isSliding,
+        slideDirection,
+        imageLoading,
+        showcaseProjects,
+        setImageLoading,
+        nextProject,
+        prevProject,
+    } = useActiveProjects();
 
     const currentProject = showcaseProjects[currentIndex];
 
@@ -70,11 +33,11 @@ export default function Projects() {
             <h1 className='shrink-0 text-2xl font-semibold'>{t('title')}</h1>
 
             <section
-                className='relative flex flex-1 overflow-hidden rounded-xl bg-background/95 p-4 pt-1 md:p-8'
+                className='relative flex flex-1 rounded-xl bg-background/95 pb-8 pt-1'
                 style={{ paddingTop: '1rem' }}
             >
                 <div
-                    className={`flex h-full w-full flex-col items-center gap-4 transition-all duration-500 ease-in-out ${slideClass}`}
+                    className={`flex h-full w-full flex-col items-center transition-all duration-500 ease-in-out ${slideClass}`}
                 >
                     <div className='flex w-full flex-col items-center gap-4 max-[1023px]:landscape:flex-row max-[1023px]:landscape:items-center max-[1023px]:landscape:justify-between'>
                         {/* Navigation buttons for landscape mobile */}
@@ -96,17 +59,17 @@ export default function Projects() {
 
                                 <div className='relative aspect-[16/10] min-h-[300px] w-full max-[1023px]:landscape:min-h-[200px]'>
                                     {imageLoading && (
-                                        <div className='absolute inset-0 animate-pulse rounded-lg bg-foreground/5' />
+                                        <Skeleton className='mx-auto h-full max-h-[90%] w-full max-w-[90%]' />
                                     )}
                                     <Image
                                         src={currentProject.image}
                                         alt={currentProject.key}
                                         fill
-                                        sizes='(max-width: 768px) 800px, 1200px'
+                                        sizes='(max-width: 768px)'
                                         quality={85}
-                                        className={`rounded-lg object-contain transition-opacity duration-300 ${
+                                        className={`mx-auto rounded-lg object-contain transition-opacity duration-300 ${
                                             imageLoading ? 'opacity-0' : 'opacity-100'
-                                        }`}
+                                        } max-w-[90%]`}
                                         priority
                                         onLoad={() => setImageLoading(false)}
                                     />
@@ -119,24 +82,28 @@ export default function Projects() {
                                 </p>
 
                                 <div className='flex justify-center gap-4 max-[1023px]:landscape:justify-start'>
-                                    <a
-                                        href={currentProject.liveUrl}
-                                        target='_blank'
-                                        rel='noopener noreferrer'
-                                        className='flex items-center gap-2 rounded-md bg-foreground/10 px-4 py-2 text-sm hover:bg-foreground/20'
-                                    >
-                                        <ExternalLink className='h-4 w-4' />
-                                        {t('links.demo')}
-                                    </a>
-                                    <a
-                                        href={currentProject.githubUrl}
-                                        target='_blank'
-                                        rel='noopener noreferrer'
-                                        className='flex items-center gap-2 rounded-md bg-foreground/10 px-4 py-2 text-sm hover:bg-foreground/20'
-                                    >
-                                        <Github className='h-4 w-4' />
-                                        {t('links.code')}
-                                    </a>
+                                    <Button>
+                                        <a
+                                            href={currentProject.liveUrl}
+                                            target='_blank'
+                                            rel='noopener noreferrer'
+                                            className='flex items-center gap-2 rounded-md px-4 py-2 text-sm'
+                                        >
+                                            <ExternalLink className='h-4 w-4' />
+                                            {t('links.demo')}
+                                        </a>
+                                    </Button>
+                                    <Button>
+                                        <a
+                                            href={currentProject.githubUrl}
+                                            target='_blank'
+                                            rel='noopener noreferrer'
+                                            className='flex items-center gap-2 rounded-md px-4 py-2 text-sm'
+                                        >
+                                            <Github className='h-4 w-4' />
+                                            {t('links.code')}
+                                        </a>
+                                    </Button>
                                 </div>
                             </div>
                         </div>

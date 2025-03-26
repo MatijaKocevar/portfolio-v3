@@ -1,7 +1,3 @@
-'use client';
-
-import VideoGallery from './_components/VideoGallery';
-import ShortsGallery from './_components/ShortsGallery';
 import { useTranslations } from 'next-intl';
 
 export default function InterestsPage() {
