@@ -46,7 +46,7 @@ export default function Bio() {
                                     key={tech.label}
                                     className='flex w-[20%] flex-col items-center gap-2 md:w-auto max-[1023px]:landscape:w-[15%] max-[1023px]:landscape:gap-1'
                                 >
-                                    <tech.icon className='h-8 w-8 transition-colors hover:text-foreground/80 md:h-10 md:w-10 max-[1023px]:landscape:h-6 max-[1023px]:landscape:w-6' />
+                                    <tech.icon className='h-8 w-8 text-primary transition-colors hover:text-foreground/80 md:h-10 md:w-10 max-[1023px]:landscape:h-6 max-[1023px]:landscape:w-6' />
                                     <span className='text-xs md:text-sm max-[1023px]:landscape:text-[10px]'>
                                         {t(`techStack.${tech.label}`)}
                                     </span>

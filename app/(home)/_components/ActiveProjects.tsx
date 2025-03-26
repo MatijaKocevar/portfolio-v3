@@ -30,7 +30,7 @@ export default function ActiveProjects() {
 
     return (
         <div className='relative flex max-w-full flex-col'>
-            <h1 className='shrink-0 text-2xl font-semibold'>{t('title')}</h1>
+            <h1 className='shrink-0 text-2xl font-semibold text-muted-foreground'>{t('title')}</h1>
 
             <section
                 className='relative flex flex-1 rounded-xl bg-background/95 pb-8 pt-1'
@@ -123,7 +123,7 @@ export default function ActiveProjects() {
             {/* Regular navigation buttons (hidden in landscape) */}
             <button
                 onClick={prevProject}
-                className='absolute left-0 top-1/2 z-10 -translate-y-1/2 rounded-full bg-foreground/10 p-3 text-foreground transition-all hover:scale-110 hover:bg-foreground/20 md:-left-8 max-[1023px]:landscape:hidden'
+                className='absolute left-0 top-1/2 z-10 -translate-y-1/2 rounded-full bg-primary/10 p-3 text-primary transition-all hover:scale-110 hover:bg-primary/20 md:-left-8 max-[1023px]:landscape:hidden'
                 aria-label={t('navigation.prev')}
                 disabled={isSliding}
             >
@@ -132,7 +132,7 @@ export default function ActiveProjects() {
 
             <button
                 onClick={nextProject}
-                className='absolute right-0 top-1/2 z-10 -translate-y-1/2 rounded-full bg-foreground/10 p-3 text-foreground transition-all hover:scale-110 hover:bg-foreground/20 md:-right-8 max-[1023px]:landscape:hidden'
+                className='absolute right-0 top-1/2 z-10 -translate-y-1/2 rounded-full bg-primary/10 p-3 text-primary transition-all hover:scale-110 hover:bg-primary/20 md:-right-8 max-[1023px]:landscape:hidden'
                 aria-label={t('navigation.next')}
                 disabled={isSliding}
             >

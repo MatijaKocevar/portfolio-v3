@@ -1,9 +1,12 @@
+'use client';
+
 import Link from 'next/link';
 import { Github, Linkedin, Menu } from 'lucide-react';
 import LanguageToggleButton from './LanguageToggleButton';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { useTranslations } from 'next-intl';
 import { ThemeModeToggle } from './ThemeModeToggle';
+import { usePathname } from 'next/navigation';
 
 interface NavigaitonProps {
     locale: string;
@@ -11,6 +14,7 @@ interface NavigaitonProps {
 
 const Navigation = ({ locale }: NavigaitonProps) => {
     const t = useTranslations();
+    const pathname = usePathname();
 
     const links = [
         { href: '/about', label: t('nav.about') },
@@ -45,7 +49,12 @@ const Navigation = ({ locale }: NavigaitonProps) => {
         <nav className='fixed left-0 right-0 top-0 z-50 border-b bg-background/80 backdrop-blur-sm'>
             <div className='relative flex w-full items-center justify-between px-8 py-4 max-[1023px]:landscape:py-1'>
                 <div className='mx-auto flex w-full items-center justify-between'>
-                    <Link href='/' className='text-xl font-bold max-[1023px]:landscape:text-base'>
+                    <Link
+                        href='/'
+                        className={`text-xl font-bold text-foreground max-[1023px]:landscape:text-base ${
+                            pathname === '/' ? 'border-b-2 border-primary' : ''
+                        }`}
+                    >
                         Matija Kočevar
                     </Link>
 
@@ -55,7 +64,11 @@ const Navigation = ({ locale }: NavigaitonProps) => {
                             <Link
                                 key={link.href}
                                 href={link.href}
-                                className='text-primary transition-colors hover:text-foreground/80 max-[1023px]:landscape:text-sm'
+                                className={`transition-colors hover:text-foreground/80 max-[1023px]:landscape:text-sm ${
+                                    pathname === link.href
+                                        ? 'border-b-2 border-primary text-foreground'
+                                        : 'text-muted-foreground'
+                                }`}
                             >
                                 {link.label}
                             </Link>
@@ -72,9 +85,9 @@ const Navigation = ({ locale }: NavigaitonProps) => {
                                     title={link.tooltip}
                                 >
                                     {link.icon ? (
-                                        <link.icon className='h-5 w-5 text-primary max-[1023px]:landscape:h-4 max-[1023px]:landscape:w-4' />
+                                        <link.icon className='h-5 w-5 text-muted-foreground max-[1023px]:landscape:h-4 max-[1023px]:landscape:w-4' />
                                     ) : (
-                                        <span className='font-bold text-primary max-[1023px]:landscape:text-sm'>
+                                        <span className='font-bold text-muted-foreground max-[1023px]:landscape:text-sm'>
                                             {link.label}
                                         </span>
                                     )}
@@ -102,7 +115,11 @@ const Navigation = ({ locale }: NavigaitonProps) => {
                                             <Link
                                                 key={link.href}
                                                 href={link.href}
-                                                className='text-lg text-primary transition-colors hover:text-foreground/80'
+                                                className={`text-lg text-muted-foreground transition-colors hover:text-foreground/80 ${
+                                                    pathname === link.href
+                                                        ? 'border-b-2 border-primary text-foreground'
+                                                        : ''
+                                                }`}
                                             >
                                                 {link.label}
                                             </Link>
