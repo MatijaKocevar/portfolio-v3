@@ -54,11 +54,11 @@
             "items": {
                 "zelda": {
                     "title": "A Tie to the Past",
-                    "description": "A Zelda-like game clone built with JavaScript"
+                    "description": "A Zelda-like game clone built with Typescript and Phaser.js"
                 },
                 "anasPlace": {
                     "title": "Ana's Place",
-                    "description": "A modern web application"
+                    "description": "A modern web application for managing a small nail saloon"
                 }
             }
         }
@@ -143,6 +143,20 @@
             "title": "New Portfolio Coming Soon!",
             "description": "I'm completely rebuilding my portfolio from scratch with some cool new features and a fresh design!",
             "previousPortfolio": "While I work on this, you can view my previous portfolio at"
+        },
+        "themeToggle": {
+            "switchMode": "Switch to {mode} mode",
+            "dark": "Dark",
+            "light": "Light",
+            "changeColor": "Change color"
         }
+    },
+    "themes": {
+        "default": "Default",
+        "red": "Red",
+        "blue": "Blue",
+        "green": "Green",
+        "yellow": "Yellow",
+        "violet": "Violet"
     }
 }

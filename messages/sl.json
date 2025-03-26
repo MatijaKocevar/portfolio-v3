@@ -54,11 +54,11 @@
             "items": {
                 "zelda": {
                     "title": "A Tie to the Past",
-                    "description": "Klon igre v stilu Zelda, narejen z JavaScript-om"
+                    "description": "Klon igre v stilu Zelda, narejen z TypeScript in Phaser.js"
                 },
                 "anasPlace": {
                     "title": "Ana's Place",
-                    "description": "Moderna spletna aplikacija"
+                    "description": "Moderna spletna aplikacija za upravljanje manjšega manikirnega salona"
                 }
             }
         }
@@ -143,6 +143,20 @@
             "title": "Nova Portfolio Stran Prihaja Kmalu!",
             "description": "Svoj portfelj popolnoma preurejam z novimi funkcijami in svežo obliko!",
             "previousPortfolio": "Medtem si lahko ogledate moj prejšnji portfelj na"
+        },
+        "themeToggle": {
+            "switchMode": "Preklopi na {mode} način",
+            "dark": "temni",
+            "light": "svetli",
+            "changeColor": "Spremeni barvo"
         }
+    },
+    "themes": {
+        "default": "Privzeta",
+        "red": "Rdeča",
+        "blue": "Modra",
+        "green": "Zelena",
+        "yellow": "Rumena",
+        "violet": "Vijolična"
     }
 }

@@ -3,6 +3,7 @@
 import * as React from 'react';
 import { Moon, Sun, Brush } from 'lucide-react';
 import { useTheme } from 'next-themes';
+import { useTranslations } from 'next-intl';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -21,6 +22,7 @@ import { useEffect, useState } from 'react';
 type ThemeColorKey = 'lightColor' | 'darkColor';
 
 export function ThemeModeToggle() {
+    const t = useTranslations();
     const { resolvedTheme, theme, setTheme } = useTheme();
     const { baseThemes, getThemeColor, setCurrentTheme, loadTheme } = useThemeStore();
     const [mounted, setMounted] = useState(false);
@@ -76,7 +78,14 @@ export function ThemeModeToggle() {
                 <DropdownMenuItem onClick={toggleMode}>
                     <div className='flex items-center gap-2'>
                         {currentMode === 'dark' ? <Sun className='h-4 w-4' /> : <Moon className='h-4 w-4' />}
-                        <span>Switch to {currentMode === 'light' ? 'Dark' : 'Light'} mode</span>
+                        <span>
+                            {t('components.themeToggle.switchMode', {
+                                mode:
+                                    currentMode === 'light'
+                                        ? t('components.themeToggle.dark')
+                                        : t('components.themeToggle.light'),
+                            })}
+                        </span>
                     </div>
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
@@ -87,7 +96,7 @@ export function ThemeModeToggle() {
                                 className='h-6 w-6 rounded-full'
                                 style={{ backgroundColor: currentColor || undefined }}
                             />
-                            <span>Change color</span>
+                            <span>{t('components.themeToggle.changeColor')}</span>
                         </div>
                     </DropdownMenuSubTrigger>
                     <DropdownMenuSubContent>
@@ -98,7 +107,7 @@ export function ThemeModeToggle() {
                                         className='h-4 w-4 rounded-full'
                                         style={{ backgroundColor: theme[`${currentMode}Color` as ThemeColorKey] }}
                                     />
-                                    {theme.name}
+                                    {t(`themes.${theme.name}`)}
                                 </div>
                             </DropdownMenuItem>
                         ))}
