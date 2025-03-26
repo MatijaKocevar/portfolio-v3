@@ -10,14 +10,17 @@ interface ThemeState {
     variants: string[];
     getThemeList: () => string[];
     getThemeColor: (themeName: string, variant: string) => string | null;
+    currentTheme: string;
+    setCurrentTheme: (theme: string) => void;
+    loadTheme: () => void;
 }
 
 const useThemeStore = create<ThemeState>((set, get) => ({
     baseThemes: [
         {
             name: 'default',
-            lightColor: '#000000',
-            darkColor: '#FFFFFF',
+            lightColor: '#a1a1aa',
+            darkColor: '#a1a1aa',
         },
         {
             name: 'red',
@@ -44,6 +47,17 @@ const useThemeStore = create<ThemeState>((set, get) => ({
         }
 
         return theme[`${variant}Color` as 'lightColor' | 'darkColor'];
+    },
+    currentTheme: 'default-light',
+    setCurrentTheme: (theme: string) => {
+        set({ currentTheme: theme });
+        localStorage.setItem('theme', theme);
+    },
+    loadTheme: () => {
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            set({ currentTheme: savedTheme });
+        }
     },
 }));
 
