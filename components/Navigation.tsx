@@ -18,11 +18,10 @@ const Navigation = ({ locale }: NavigaitonProps) => {
 
     const links = [
         { href: '/about', label: t('nav.about') },
-        { href: '/education', label: t('nav.education') },
         { href: '/experience', label: t('nav.experience') },
-        { href: '/interests', label: t('nav.interests') },
         { href: '/projects', label: t('nav.projects') },
         { href: '/skills', label: t('nav.skills') },
+        { href: '/interests', label: t('nav.interests') },
     ];
 
     const socialLinks = [

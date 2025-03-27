@@ -1,29 +1,35 @@
 import { useTranslations } from 'next-intl';
-import { getTranslations } from 'next-intl/server';
-import { MetaLocaleParams } from '../../types/locale';
-
-export async function generateMetadata({ params }: MetaLocaleParams) {
-    const { locale } = await params;
-    const t = await getTranslations({ locale });
-
-    const title = t('experience.meta.title');
-    const description = t('experience.meta.description');
-
-    return {
-        title,
-        description,
-    };
-}
+import Timeline from './_components/Timeline';
 
 export default function Experience() {
     const t = useTranslations();
 
-    return (
-        <div className='flex flex-col gap-4 p-8'>
-            <h1 className='mb-6 text-3xl font-bold'>{t('experience.title')}</h1>
-            <div>
-                <p>{t('experience.description')}.</p>
+    const verticalTimeline = (
+        <div className='flex h-full w-full flex-row gap-8'>
+            <div className='flex h-full border-l-2 border-muted-foreground'>
+                <div className='h-full overflow-auto'>
+                    <Timeline direction='vertical' />
+                </div>
             </div>
+            <div className='h-full w-full rounded-lg border-l bg-muted' />
+        </div>
+    );
+
+    const horizontalTimeline = (
+        <>
+            <div className='border-t-2 border-muted-foreground'>
+                <div className='w-full overflow-auto'>
+                    <Timeline direction='horizontal' />
+                </div>
+            </div>
+            <div className='mt-8 h-full w-full rounded-lg border-l bg-muted' />
+        </>
+    );
+
+    return (
+        <div className='flex h-[calc(100vh-68px)] flex-col p-8 min-[1024px]:min-h-[calc(100vh-65px)] max-[1023px]:landscape:min-h-[calc(100vh-40px)]'>
+            {verticalTimeline}
+            {/* {horizontalTimeline} */}
         </div>
     );
 }

@@ -14,7 +14,7 @@
         "education": "Education",
         "experience": "Experience",
         "skills": "Skills",
-        "interests": "Interests",
+        "interests": "Interests & Hobbies",
         "openGithub": "Open GitHub",
         "openLinkedIn": "Open LinkedIn",
         "openResume": "Open Resume"
@@ -90,6 +90,9 @@
     "experience": {
         "title": "Experience",
         "description": "This will be the experience page",
+        "technologies": {
+            "title": "Technologies"
+        },
         "meta": {
             "title": "Matija Kočevar | Experience",
             "description": "Experience"
@@ -104,7 +107,7 @@
         }
     },
     "interests": {
-        "title": "Interests",
+        "title": "Interests & Hobbies",
         "description": "This will be the interests page",
         "meta": {
             "title": "Matija Kočevar | Interests",
