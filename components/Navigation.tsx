@@ -1,12 +1,13 @@
 'use client';
 
 import Link from 'next/link';
-import { Github, Linkedin, Menu } from 'lucide-react';
+import { Menu } from 'lucide-react';
 import LanguageToggleButton from './LanguageToggleButton';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { useTranslations } from 'next-intl';
 import { ThemeModeToggle } from './ThemeModeToggle';
 import { usePathname } from 'next/navigation';
+import useNavigationStore from '../store/useNavigationStore';
 
 interface NavigaitonProps {
     locale: string;
@@ -15,34 +16,7 @@ interface NavigaitonProps {
 const Navigation = ({ locale }: NavigaitonProps) => {
     const t = useTranslations();
     const pathname = usePathname();
-
-    const links = [
-        { href: '/about', label: t('nav.about') },
-        { href: '/experience', label: t('nav.experience') },
-        { href: '/projects', label: t('nav.projects') },
-        { href: '/skills', label: t('nav.skills') },
-        { href: '/interests', label: t('nav.interests') },
-    ];
-
-    const socialLinks = [
-        {
-            href: 'https://github.com/MatijaKocevar',
-            icon: Github,
-            label: 'GitHub',
-            tooltip: t('nav.openGithub'),
-        },
-        {
-            href: 'https://www.linkedin.com/in/matija-ko%C4%8Devar-59a198109/',
-            icon: Linkedin,
-            label: 'LinkedIn',
-            tooltip: t('nav.openLinkedIn'),
-        },
-        {
-            href: 'https://drive.google.com/file/d/1a7A1h59XqKjEQ6zNjrlA5oWAMhsIqi1n/view',
-            label: 'CV',
-            tooltip: t('nav.openResume'),
-        },
-    ];
+    const { links, socialLinks } = useNavigationStore();
 
     const renderSocialLinks = (isMobile: boolean) => (
         <div className='flex gap-4'>
@@ -54,10 +28,10 @@ const Navigation = ({ locale }: NavigaitonProps) => {
                     rel='noopener noreferrer'
                     className={`group relative rounded-full ${isMobile ? 'p-2' : 'p-1'} transition-colors hover:bg-foreground/10`}
                     aria-label={link.label}
-                    title={link.tooltip}
+                    title={t(link.tooltipKey)}
                 >
                     {link.icon ? (
-                        <link.icon className={`h-5 w-5 text-primary`} />
+                        <link.icon className={`h-5 w-5 fill-primary text-primary`} />
                     ) : (
                         <span className={`font-bold text-primary`}>{link.label}</span>
                     )}
@@ -80,10 +54,8 @@ const Navigation = ({ locale }: NavigaitonProps) => {
                     </Link>
 
                     <div className='flex items-center gap-4'>
-                        {/* Desktop Social Links */}
                         <div className='hidden items-center gap-4 md:flex'>{renderSocialLinks(false)}</div>
-                        {/* Desktop Language Toggle */}
-                        <div className='hidden md:block'>
+                        <div className='hidden border-l pl-4 md:block'>
                             <LanguageToggleButton locale={locale} />
                         </div>
 
@@ -108,12 +80,11 @@ const Navigation = ({ locale }: NavigaitonProps) => {
                                                             : ''
                                                     }`}
                                                 >
-                                                    {link.label}
+                                                    {t(link.labelKey)}
                                                 </Link>
                                             ))}
                                         </div>
 
-                                        {/* Mobile Social Links */}
                                         <div className='flex flex-col items-center justify-center gap-4 border-t pt-3 md:hidden'>
                                             {renderSocialLinks(true)}
                                         </div>
@@ -121,7 +92,6 @@ const Navigation = ({ locale }: NavigaitonProps) => {
 
                                     <div className='flex flex-col justify-center gap-4 pt-4'>
                                         <div className='flex items-center justify-between gap-2 md:justify-end'>
-                                            {/* Mobile Language Toggle */}
                                             <div className='md:hidden'>
                                                 <LanguageToggleButton locale={locale} />
                                             </div>
