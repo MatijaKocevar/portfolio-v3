@@ -14,10 +14,10 @@ export async function generateMetadata({ params }: MetaLocaleParams) {
     };
 }
 
-export default async function HomeLayout({
+export default async function ExperienceLayout({
     children,
 }: Readonly<{
     children: React.ReactNode;
 }>) {
-    return <div className='flex h-full w-full flex-col p-8'>{children}</div>;
+    return <div className='flex h-full w-full flex-col'>{children}</div>;
 }

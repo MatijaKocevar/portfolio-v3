@@ -11,15 +11,17 @@ type TimelineProps = {
 export default function Timeline({ direction = 'vertical' }: TimelineProps) {
     const { experiences } = useExperienceStore();
 
-    const getContainerClasses = () => `relative flex ${direction === 'horizontal' ? 'flex-col' : 'flex-row'} h-full`;
+    const getContainerClasses = () =>
+        `relative flex ${direction === 'horizontal' ? 'flex-col' : 'flex-row'} h-full min-h-0`;
 
     const getMainLineClasses = () =>
         `absolute bg-muted-foreground ${direction === 'horizontal' ? 'h-[2px] w-full' : ' h-full w-[2px]'}`;
 
-    const getItemsContainerClasses = () => `flex ${direction === 'horizontal' ? ' flex-row' : ' flex-col'} flex-1`;
+    const getItemsContainerClasses = () =>
+        `flex ${direction === 'horizontal' ? ' flex-row' : ' flex-col'} flex-1 min-h-0`;
 
     const getItemWrapperClasses = () =>
-        `relative flex ${direction === 'horizontal' ? 'flex-1 flex-col' : 'h-full flex-row'}`;
+        `relative flex ${direction === 'horizontal' ? 'flex-1 flex-col min-w-[200px]' : 'h-full flex-row'}`;
 
     const getConnectorContainerClasses = () =>
         `relative flex ${direction === 'horizontal' ? 'h-24 flex-col' : 'w-24 flex-row'} items-center`;
