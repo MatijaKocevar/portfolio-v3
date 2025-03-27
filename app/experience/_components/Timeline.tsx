@@ -18,7 +18,9 @@ export default function Timeline({ direction = 'vertical' }: TimelineProps) {
         `relative flex ${direction === 'horizontal' ? 'flex-row min-w-fit' : 'flex-col gap-4'} flex-1`;
 
     const getItemWrapperClasses = () =>
-        `relative flex ${direction === 'horizontal' ? 'flex-1 flex-col min-w-[200px]' : 'flex-row w-full'}`;
+        `relative flex group cursor-pointer transition-colors hover:bg-muted/50 rounded-md ${
+            direction === 'horizontal' ? 'flex-1 flex-col min-w-[200px]' : 'flex-row w-full'
+        }`;
 
     const getConnectorContainerClasses = () =>
         `relative flex ${direction === 'horizontal' ? 'h-24 flex-col' : 'w-24 flex-row'} items-center sticky`;
