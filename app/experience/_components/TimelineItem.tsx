@@ -1,33 +1,28 @@
 'use client';
 
+import { CodeIcon } from 'lucide-react';
 import { ExperienceItem } from '../_stores/useExperienceStore';
 
 type TimelineItemProps = {
     experience: ExperienceItem;
-    isOdd: boolean;
     direction?: 'horizontal' | 'vertical';
 };
 
-export default function TimelineItem({ experience, isOdd, direction = 'vertical' }: TimelineItemProps) {
-    const positionClass =
-        direction === 'horizontal' ? (isOdd ? 'items-end' : 'items-start') : isOdd ? 'self-end' : 'self-start';
-
+export default function TimelineItem({ experience, direction = 'vertical' }: TimelineItemProps) {
     return (
-        <div className='flex w-full flex-col text-center'>
+        <div
+            className={`flex h-full flex-col gap-2 p-2 ${direction === 'horizontal' ? 'items-center text-center' : 'items-start justify-center'}`}
+        >
             <h2 className='text-xl font-bold'>{experience.name}</h2>
-            <p className='text-sm'>{experience.description}</p>
-            <div className='flex flex-col justify-center'>
-                <div className='flex flex-row items-center justify-center gap-2'>
-                    <p className='text-sm'>{experience.dateRange[0].getFullYear()}</p>-
-                    <p className='text-sm'>{experience.dateRange[1].getFullYear()}</p>
-                </div>
-                <div className='flex flex-col'>
-                    {experience.technologies.map((tech, index) => (
-                        <p key={index} className='text-sm'>
-                            {tech.name}
-                        </p>
-                    ))}
-                </div>
+            <div className='flex items-center gap-1 text-sm font-semibold'>
+                <span>{experience.dateRange[0].getFullYear()}</span>
+                <span>/</span>
+                <span>{experience.dateRange[1].getFullYear()}</span>
+            </div>
+            <div className='flex flex-wrap gap-2'>
+                {experience.technologies.map((tech, index) => (
+                    <CodeIcon key={index} className='h-4 w-4' />
+                ))}
             </div>
         </div>
     );
