@@ -5,7 +5,7 @@ export default function Experience() {
     const t = useTranslations();
 
     return (
-        <div className='flex min-h-[calc(100vh-68px)] flex-col p-8 min-[1024px]:min-h-[calc(100vh-65px)] max-[1023px]:landscape:min-h-[calc(100vh-40px)]'>
+        <div className='flex h-[calc(100vh-68px)] flex-col p-8 min-[1024px]:min-h-[calc(100vh-65px)] max-[1023px]:landscape:min-h-[calc(100vh-40px)]'>
             <div className='h-full border'>
                 <div className='h-1/2 w-full overflow-auto'>
                     <Timeline direction='horizontal' />
