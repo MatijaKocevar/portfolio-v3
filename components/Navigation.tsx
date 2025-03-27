@@ -95,28 +95,31 @@ const Navigation = ({ locale }: NavigaitonProps) => {
                             </SheetTrigger>
 
                             <SheetContent side='right' className='w-[250px] sm:w-[300px]'>
-                                <div className='flex flex-col gap-4 py-4'>
-                                    <div className='flex flex-col gap-4'>
-                                        {links.map((link) => (
-                                            <Link
-                                                key={link.href}
-                                                href={link.href}
-                                                className={`text-lg text-muted-foreground transition-colors hover:text-foreground/80 ${
-                                                    pathname === link.href
-                                                        ? 'border-b-2 border-primary text-foreground'
-                                                        : ''
-                                                }`}
-                                            >
-                                                {link.label}
-                                            </Link>
-                                        ))}
+                                <div className='flex h-full flex-col justify-between gap-4 py-4'>
+                                    <div>
+                                        <div className='flex flex-col gap-4 pb-4'>
+                                            {links.map((link) => (
+                                                <Link
+                                                    key={link.href}
+                                                    href={link.href}
+                                                    className={`text-lg text-muted-foreground transition-colors hover:text-foreground/80 ${
+                                                        pathname === link.href
+                                                            ? 'border-b-2 border-primary text-foreground'
+                                                            : ''
+                                                    }`}
+                                                >
+                                                    {link.label}
+                                                </Link>
+                                            ))}
+                                        </div>
+
+                                        {/* Mobile Social Links */}
+                                        <div className='flex flex-col items-center justify-center gap-4 border-t pt-3 md:hidden'>
+                                            {renderSocialLinks(true)}
+                                        </div>
                                     </div>
 
-                                    {/* Mobile Social Links */}
-                                    <div className='flex flex-col justify-center gap-4 border-t pt-4 md:hidden'>
-                                        {renderSocialLinks(true)}
-                                    </div>
-                                    <div className='flex flex-col justify-center gap-4 border-t pt-4'>
+                                    <div className='flex flex-col justify-center gap-4 pt-4'>
                                         <div className='flex items-center justify-between gap-2 md:justify-end'>
                                             {/* Mobile Language Toggle */}
                                             <div className='md:hidden'>
