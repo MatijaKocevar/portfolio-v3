@@ -8,6 +8,7 @@ import { useTranslations } from 'next-intl';
 import { ThemeModeToggle } from './ThemeModeToggle';
 import { usePathname } from 'next/navigation';
 import useNavigationStore from '../store/useNavigationStore';
+import Breadcrumbs from './Breadcrumbs';
 
 interface NavigaitonProps {
     locale: string;
@@ -44,14 +45,21 @@ const Navigation = ({ locale }: NavigaitonProps) => {
         <nav className='fixed left-0 right-0 top-0 z-50 border-b bg-background/80 backdrop-blur-sm'>
             <div className='relative flex w-full items-center justify-between px-8 py-4 max-[1023px]:landscape:py-1'>
                 <div className='mx-auto flex w-full items-center justify-between'>
-                    <Link
-                        href='/'
-                        className={`text-xl font-bold text-foreground max-[1023px]:landscape:text-base ${
-                            pathname === '/' ? 'border-b-2 border-primary' : ''
-                        }`}
-                    >
-                        Matija Kočevar
-                    </Link>
+                    <div className='flex items-center gap-6'>
+                        <div className='flex items-center'>
+                            <Link
+                                href='/'
+                                className={`text-xl font-bold text-foreground max-[1023px]:landscape:text-base ${
+                                    pathname === '/' ? 'border-b-2 border-primary' : ''
+                                }`}
+                            >
+                                Matija Kočevar
+                            </Link>
+                        </div>
+                        <div className='flex items-center pt-1'>
+                            <Breadcrumbs />
+                        </div>
+                    </div>
 
                     <div className='flex items-center gap-4'>
                         <div className='hidden items-center gap-4 md:flex'>{renderSocialLinks(false)}</div>
