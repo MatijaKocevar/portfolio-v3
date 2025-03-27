@@ -12,19 +12,16 @@ export default function Timeline({ direction = 'vertical' }: TimelineProps) {
     const { experiences } = useExperienceStore();
 
     const getContainerClasses = () =>
-        `relative flex ${direction === 'horizontal' ? 'flex-col' : 'flex-row'} h-full min-h-0`;
-
-    const getMainLineClasses = () =>
-        `absolute bg-muted-foreground ${direction === 'horizontal' ? 'h-[2px] w-full' : ' h-full w-[2px]'}`;
+        `relative flex ${direction === 'horizontal' ? 'flex-col' : 'flex-row'} h-full min-h-0 w-full`;
 
     const getItemsContainerClasses = () =>
-        `flex ${direction === 'horizontal' ? ' flex-row' : ' flex-col'} flex-1 min-h-0`;
+        `relative flex ${direction === 'horizontal' ? 'flex-row min-w-fit' : 'flex-col gap-4'} flex-1`;
 
     const getItemWrapperClasses = () =>
-        `relative flex ${direction === 'horizontal' ? 'flex-1 flex-col min-w-[200px]' : 'h-full flex-row'}`;
+        `relative flex ${direction === 'horizontal' ? 'flex-1 flex-col min-w-[200px]' : 'flex-row w-full'}`;
 
     const getConnectorContainerClasses = () =>
-        `relative flex ${direction === 'horizontal' ? 'h-24 flex-col' : 'w-24 flex-row'} items-center`;
+        `relative flex ${direction === 'horizontal' ? 'h-24 flex-col' : 'w-24 flex-row'} items-center sticky`;
 
     const getConnectorLineClasses = () =>
         `absolute bg-muted-foreground ${direction === 'horizontal' ? 'bottom-16 h-8 w-[2px]' : 'right-16 h-[2px] w-[calc(100%-64px)]'}`;
@@ -35,8 +32,6 @@ export default function Timeline({ direction = 'vertical' }: TimelineProps) {
 
     return (
         <div className={getContainerClasses()}>
-            <div className={getMainLineClasses()} />
-
             <div className={getItemsContainerClasses()}>
                 {experiences.map((experience, index) => (
                     <div key={index} className={getItemWrapperClasses()}>
