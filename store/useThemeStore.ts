@@ -44,8 +44,8 @@ const useThemeStore = create<ThemeState>((set, get) => ({
         },
         {
             name: 'violet',
-            lightColor: '#5856D6',
-            darkColor: '#5856D6',
+            lightColor: '#6d28d9',
+            darkColor: '#6d28d9',
         },
     ],
     variants: ['light', 'dark'],

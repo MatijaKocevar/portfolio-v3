@@ -11,7 +11,7 @@ export default function Experience() {
                     <Timeline direction='vertical' />
                 </div>
             </div>
-            <div className='h-full w-full rounded-lg border-l bg-muted' />
+            <div className='flex h-full w-full items-center justify-center rounded-lg border-l bg-muted'>TBD</div>
         </div>
     );
 
@@ -22,14 +22,14 @@ export default function Experience() {
                     <Timeline direction='horizontal' />
                 </div>
             </div>
-            <div className='mt-8 h-full w-full rounded-lg border-l bg-muted' />
+            <div className='mt-8 flex h-full w-full items-center justify-center rounded-lg border-l bg-muted'>TBD</div>
         </>
     );
 
     return (
         <div className='flex h-[calc(100vh-68px)] flex-col p-8 min-[1024px]:min-h-[calc(100vh-65px)] max-[1023px]:landscape:min-h-[calc(100vh-40px)]'>
-            {verticalTimeline}
-            {/* {horizontalTimeline} */}
+            {/* {verticalTimeline} */}
+            {horizontalTimeline}
         </div>
     );
 }
