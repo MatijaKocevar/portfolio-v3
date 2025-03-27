@@ -12,10 +12,10 @@ export default function Timeline({ direction = 'vertical' }: TimelineProps) {
     const { experiences } = useExperienceStore();
 
     const getContainerClasses = () =>
-        `relative flex ${direction === 'horizontal' ? 'flex-col' : 'flex-row'} h-full min-h-0 w-full`;
+        ` relative flex ${direction === 'horizontal' ? 'flex-col' : ' flex-row items-center'} h-full min-h-0 w-full`;
 
     const getItemsContainerClasses = () =>
-        `relative flex ${direction === 'horizontal' ? 'flex-row min-w-fit' : 'flex-col gap-4'} flex-1`;
+        `relative flex ${direction === 'horizontal' ? 'flex-row min-w-fit' : 'h-full justify-between flex-col gap-4'} flex-1`;
 
     const getItemWrapperClasses = () =>
         `relative flex group cursor-pointer transition-colors hover:bg-muted/50 rounded-md ${
@@ -23,13 +23,13 @@ export default function Timeline({ direction = 'vertical' }: TimelineProps) {
         }`;
 
     const getConnectorContainerClasses = () =>
-        `relative flex ${direction === 'horizontal' ? 'h-24 flex-col' : 'w-24 flex-row'} items-center sticky`;
+        `relative flex ${direction === 'horizontal' ? 'h-20 lg:h-24 flex-col' : 'w-20 lg:w-24 flex-row'} items-center sticky`;
 
     const getConnectorLineClasses = () =>
         `absolute bg-muted-foreground ${
             direction === 'horizontal'
-                ? 'bottom-16 h-8 w-[2px] left-[calc(50%-1px)]'
-                : 'right-16 h-[2px] w-[calc(100%-64px)]'
+                ? 'bottom-12 lg:bottom-16 h-8 w-[2px] left-[calc(50%-1px)]'
+                : 'right-12 lg:right-16 h-[2px] w-[calc(100%-48px)] lg:w-[calc(100%-64px)]'
         }`;
 
     const getConnectorCircleClasses = () =>
@@ -38,7 +38,7 @@ export default function Timeline({ direction = 'vertical' }: TimelineProps) {
         }`;
 
     const getCircleClasses = () =>
-        `absolute z-10 flex h-16 w-16 shrink-0 items-center justify-center rounded-full border-2 bg-primary
+        `absolute z-10 flex h-12 w-12 lg:h-16 lg:w-16 shrink-0 items-center justify-center rounded-full border-2 bg-primary
         ${direction === 'horizontal' ? 'bottom-0 left-1/2 -translate-x-1/2' : 'right-0 top-1/2 -translate-y-1/2'}`;
 
     return (
@@ -50,7 +50,7 @@ export default function Timeline({ direction = 'vertical' }: TimelineProps) {
                             <div className={getConnectorLineClasses()} />
                             <div className={getConnectorCircleClasses()} />
                             <div className={getCircleClasses()}>
-                                <BriefcaseIcon className='h-8 w-8 text-foreground' />
+                                <BriefcaseIcon className='h-6 w-6 text-foreground lg:h-8 lg:w-8' />
                             </div>
                         </div>
                         <div className={`flex-1 ${direction === 'horizontal' ? 'pt-4' : 'pl-4'}`}>
