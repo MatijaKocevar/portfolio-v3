@@ -1,4 +1,4 @@
-@import "../themes/index.css";
+@import '../themes/index.css';
 
 @tailwind base;
 @tailwind components;
@@ -11,4 +11,27 @@
     body {
         @apply bg-background text-foreground;
     }
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: theme('colors.foreground');
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: theme('colors.primary.DEFAULT');
+}
+
+* {
+    scrollbar-width: thin;
+    scrollbar-color: theme('colors.muted.foreground') transparent;
 }
