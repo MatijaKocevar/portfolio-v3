@@ -24,7 +24,16 @@ export default function Timeline({ direction = 'vertical' }: TimelineProps) {
         `relative flex ${direction === 'horizontal' ? 'h-24 flex-col' : 'w-24 flex-row'} items-center sticky`;
 
     const getConnectorLineClasses = () =>
-        `absolute bg-muted-foreground ${direction === 'horizontal' ? 'bottom-16 h-8 w-[2px]' : 'right-16 h-[2px] w-[calc(100%-64px)]'}`;
+        `absolute bg-muted-foreground ${
+            direction === 'horizontal'
+                ? 'bottom-16 h-8 w-[2px] left-[calc(50%-1px)]'
+                : 'right-16 h-[2px] w-[calc(100%-64px)]'
+        }`;
+
+    const getConnectorCircleClasses = () =>
+        `absolute bg-muted-foreground rounded-full h-4 w-4 ${
+            direction === 'horizontal' ? '-top-[8px] left-[calc(50%-8px)]' : 'top-[calc(50%-8px)] -left-[8px]'
+        }`;
 
     const getCircleClasses = () =>
         `absolute z-10 flex h-16 w-16 shrink-0 items-center justify-center rounded-full border-2 bg-primary
@@ -37,6 +46,7 @@ export default function Timeline({ direction = 'vertical' }: TimelineProps) {
                     <div key={index} className={getItemWrapperClasses()}>
                         <div className={getConnectorContainerClasses()}>
                             <div className={getConnectorLineClasses()} />
+                            <div className={getConnectorCircleClasses()} />
                             <div className={getCircleClasses()}>
                                 <BriefcaseIcon className='h-8 w-8 text-foreground' />
                             </div>
