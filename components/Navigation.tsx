@@ -57,6 +57,7 @@ const Navigation = ({ locale }: NavigaitonProps) => {
                                 className={`text-xl font-bold text-foreground hover:text-primary max-[1023px]:landscape:text-base ${
                                     pathname === '/' ? 'border-b-2 border-primary' : ''
                                 }`}
+                                scroll={false}
                             >
                                 Matija Kočevar
                             </Link>
@@ -87,6 +88,7 @@ const Navigation = ({ locale }: NavigaitonProps) => {
                                                 <Link
                                                     key={link.href}
                                                     href={link.href}
+                                                    scroll={false}
                                                     onClick={() => setIsOpen(false)}
                                                     className={`text-lg text-muted-foreground transition-colors hover:text-foreground/80 ${
                                                         pathname === link.href

@@ -1,6 +1,6 @@
 'use client';
 
-import { Dialog, DialogContent } from '@/components/ui/dialog';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import TimelineItemContent from './TimelineItemContent';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useDeviceType } from '@/hooks/useDeviceType';
@@ -23,11 +23,11 @@ export default function MobileTimelineDialog({ id }: { id?: string }) {
 
     return (
         <Dialog modal open={!!id} onOpenChange={handleOpenChange}>
-            <DialogContent
-                className='h-[80vh] overflow-y-auto'
-                onOpenAutoFocus={(e) => e.preventDefault()}
-                onCloseAutoFocus={(e) => e.preventDefault()}
-            >
+            <DialogContent className='h-[80vh] overflow-y-auto'>
+                <DialogHeader>
+                    <DialogTitle>Experience Details</DialogTitle>
+                    <DialogDescription>View detailed information about this position</DialogDescription>
+                </DialogHeader>
                 {id && <TimelineItemContent id={id} />}
             </DialogContent>
         </Dialog>
