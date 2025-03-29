@@ -9,12 +9,14 @@ import { ThemeModeToggle } from './ThemeModeToggle';
 import { usePathname } from 'next/navigation';
 import useNavigationStore from '../store/useNavigationStore';
 import Breadcrumbs from './Breadcrumbs';
+import { useState } from 'react';
 
 interface NavigaitonProps {
     locale: string;
 }
 
 const Navigation = ({ locale }: NavigaitonProps) => {
+    const [isOpen, setIsOpen] = useState(false);
     const t = useTranslations();
     const pathname = usePathname();
     const { links, socialLinks } = useNavigationStore();
@@ -67,7 +69,7 @@ const Navigation = ({ locale }: NavigaitonProps) => {
                             <LanguageToggleButton locale={locale} />
                         </div>
 
-                        <Sheet>
+                        <Sheet open={isOpen} onOpenChange={setIsOpen}>
                             <SheetTrigger asChild>
                                 <button className='rounded-md p-2 hover:bg-accent' aria-label='Menu'>
                                     <Menu className='h-5 w-5' />
@@ -82,6 +84,7 @@ const Navigation = ({ locale }: NavigaitonProps) => {
                                                 <Link
                                                     key={link.href}
                                                     href={link.href}
+                                                    onClick={() => setIsOpen(false)}
                                                     className={`text-lg text-muted-foreground transition-colors hover:text-foreground/80 ${
                                                         pathname === link.href
                                                             ? 'border-b-2 border-primary text-foreground'
