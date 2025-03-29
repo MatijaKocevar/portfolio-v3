@@ -1,18 +1,22 @@
-import { useTranslations } from 'next-intl';
 import Timeline from './_components/Timeline';
+import TimelineItemContent from './_components/TimelineItemContent';
 
-export default function ExperiencePage() {
-    const t = useTranslations();
+interface ExperiencePageProps {
+    searchParams: { id: string | undefined };
+}
+
+export default async function ExperiencePage({ searchParams }: ExperiencePageProps) {
+    const { id } = await searchParams;
 
     const verticalTimeline = (
         <div className='flex h-full w-full flex-row gap-8'>
             <div className='flex h-full w-full border-l-2 border-muted-foreground lg:w-auto'>
                 <div className='flex h-full w-full overflow-auto'>
-                    <Timeline direction='vertical' />
+                    <Timeline direction='vertical' selectedId={id} />
                 </div>
             </div>
             <div className='hidden h-full w-full items-center justify-center rounded-lg border-l bg-muted lg:flex'>
-                TBD
+                {<TimelineItemContent id={id} />}
             </div>
         </div>
     );
@@ -21,11 +25,11 @@ export default function ExperiencePage() {
         <>
             <div className='h-full border-t-2 border-muted-foreground lg:h-auto'>
                 <div className='h-full w-full overflow-auto'>
-                    <Timeline direction='horizontal' />
+                    <Timeline direction='horizontal' selectedId={id} />
                 </div>
             </div>
             <div className='mt-8 hidden h-full w-full items-center justify-center rounded-lg border-l bg-muted lg:flex'>
-                TBD
+                {<TimelineItemContent id={id} />}
             </div>
         </>
     );
