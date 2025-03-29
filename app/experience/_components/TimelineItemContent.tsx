@@ -19,15 +19,15 @@ export default function TimelineItemContent({ id }: TimelineItemContentProps) {
         );
 
     return (
-        <div className='flex flex-col gap-4 p-6'>
-            <h1 className='text-2xl font-bold'>{experience.name}</h1>
-            <div className='flex items-center gap-2 text-sm'>
+        <div className='flex flex-col items-center justify-center gap-4 p-6'>
+            <h1 className='hidden text-2xl font-bold lg:block'>{experience.name}</h1>
+            <div className='hidden items-center gap-2 text-sm lg:flex'>
                 <span>{experience.dateRange[0].getFullYear()}</span>
                 <span>-</span>
                 <span>{experience.dateRange[1].getFullYear()}</span>
             </div>
-            <p className='text-muted-foreground'>{experience.description}</p>
-            <div className='flex flex-wrap gap-4'>
+            <p className='text-muted-foreground lg:px-8'>{experience.description}</p>
+            <div className='hidden flex-wrap gap-4 lg:flex'>
                 {experience.technologies.map((tech, index) => (
                     <div key={index} className='flex flex-col items-center gap-1'>
                         <IconRenderer name={tech.name} className='h-8 w-8' />
