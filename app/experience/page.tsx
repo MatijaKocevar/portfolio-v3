@@ -1,7 +1,7 @@
 import { useTranslations } from 'next-intl';
 import Timeline from './_components/Timeline';
 
-export default function Experience() {
+export default function ExperiencePage() {
     const t = useTranslations();
 
     const verticalTimeline = (

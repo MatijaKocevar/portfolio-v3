@@ -1,12 +1,12 @@
 import { getTranslations } from 'next-intl/server';
-import { MetaLocaleParams } from '../../types/locale';
+import { MetaLocaleParams } from '../../types';
 
 export async function generateMetadata({ params }: MetaLocaleParams) {
     const { locale } = await params;
     const t = await getTranslations({ locale });
 
-    const title = t('interests.meta.title');
-    const description = t('interests.meta.description');
+    const title = t('about.meta.title');
+    const description = t('about.meta.description');
 
     return {
         title,
@@ -14,10 +14,10 @@ export async function generateMetadata({ params }: MetaLocaleParams) {
     };
 }
 
-export default async function InterestsLayout({
+export default async function AboutLayout({
     children,
 }: Readonly<{
     children: React.ReactNode;
 }>) {
-    return <div>{children}</div>;
+    return <div className='container p-8'>{children}</div>;
 }
