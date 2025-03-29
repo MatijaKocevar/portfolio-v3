@@ -31,7 +31,7 @@ export default function TimelineItemContent({ id }: TimelineItemContentProps) {
                 {experience.technologies.map((tech, index) => (
                     <div key={index} className='flex flex-col items-center gap-1'>
                         <IconRenderer name={tech.name} className='h-8 w-8' />
-                        <span className='text-xs text-muted-foreground'>{tech.name}</span>
+                        <span className='text-xs text-muted-foreground'>{tech.title}</span>
                     </div>
                 ))}
             </div>

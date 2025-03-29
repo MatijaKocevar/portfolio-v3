@@ -34,10 +34,10 @@
                 "vue": "Vue",
                 "nextjs": "Next.js",
                 "typescript": "TypeScript",
-                "csharp": "C#",
+                "cSharp": "C#",
                 "php": "PHP",
-                "postgresql": "PostgreSQL",
-                "sqlserver": "Sql Server"
+                "postgres": "PostgreSQL",
+                "sql": "Sql Server"
             }
         },
         "projects": {
