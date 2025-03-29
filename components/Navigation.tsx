@@ -51,7 +51,7 @@ const Navigation = ({ locale }: NavigaitonProps) => {
                         <div className='flex items-center'>
                             <Link
                                 href='/'
-                                className={`text-xl font-bold text-foreground max-[1023px]:landscape:text-base ${
+                                className={`text-xl font-bold text-foreground hover:text-primary max-[1023px]:landscape:text-base ${
                                     pathname === '/' ? 'border-b-2 border-primary' : ''
                                 }`}
                             >

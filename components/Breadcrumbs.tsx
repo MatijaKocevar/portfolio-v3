@@ -1,6 +1,6 @@
 'use client';
 
-import { ChevronRight, Home } from 'lucide-react';
+import { ChevronRight } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useTranslations } from 'next-intl';
@@ -13,18 +13,24 @@ const Breadcrumbs = () => {
         .split('/')
         .filter(Boolean)
         .map((segment) => ({
-            name: t(`nav.${segment}`),
+            name: isNaN(Number(segment)) ? t(`nav.${segment}`) : segment,
             href: `/${segment}`,
         }));
 
     if (pathname === '/') return null;
 
     return (
-        <div className='flex items-center gap-2 text-sm text-muted-foreground'>
+        <div className='flex items-center gap-2 text-sm'>
             {pathSegments.map((segment, index) => (
                 <div key={segment.href} className='flex items-center gap-2'>
-                    <ChevronRight className='h-4 w-4' />
-                    <span className='hover:text-foreground'>{segment.name}</span>
+                    <ChevronRight className='h-4 w-4 text-muted-foreground' />
+                    {index === pathSegments.length - 1 ? (
+                        <span className='text-primary'>{segment.name}</span>
+                    ) : (
+                        <Link href={segment.href} className='text-muted-foreground hover:text-primary'>
+                            {segment.name}
+                        </Link>
+                    )}
                 </div>
             ))}
         </div>
