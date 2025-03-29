@@ -1,3 +1,4 @@
+import MobileTimelineDialog from './_components/MobileTimelineDialog';
 import Timeline from './_components/Timeline';
 import TimelineItemContent from './_components/TimelineItemContent';
 
@@ -18,6 +19,9 @@ export default async function ExperiencePage({ searchParams }: ExperiencePagePro
             <div className='hidden h-full w-full items-center justify-center rounded-lg border-l bg-muted lg:flex'>
                 {<TimelineItemContent id={id} />}
             </div>
+            <div >
+                <MobileTimelineDialog id={id} />
+            </div>
         </div>
     );
 
@@ -30,6 +34,9 @@ export default async function ExperiencePage({ searchParams }: ExperiencePagePro
             </div>
             <div className='mt-8 hidden h-full w-full items-center justify-center rounded-lg border-l bg-muted lg:flex'>
                 {<TimelineItemContent id={id} />}
+            </div>
+            <div >
+                <MobileTimelineDialog id={id} />
             </div>
         </>
     );

@@ -22,14 +22,14 @@ const Navigation = ({ locale }: NavigaitonProps) => {
     const { links, socialLinks } = useNavigationStore();
 
     const renderSocialLinks = (isMobile: boolean) => (
-        <div className='flex gap-4'>
+        <div className='flex flex-row items-center gap-4'>
             {socialLinks.map((link) => (
                 <a
                     key={link.label}
                     href={link.href}
                     target='_blank'
                     rel='noopener noreferrer'
-                    className={`group relative rounded-full ${isMobile ? 'p-2' : 'p-1'} transition-colors`}
+                    className={`group relative rounded-full transition-colors`}
                     aria-label={link.label}
                     title={t(link.tooltipKey)}
                 >

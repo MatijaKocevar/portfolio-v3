@@ -13,11 +13,11 @@ export function useDeviceType(): DeviceType {
 
     useEffect(() => {
         const checkDevice = () => {
-            const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+            const isDesktop = window.matchMedia('(min-width: 1024px)').matches;
             const isPortrait = window.innerHeight > window.innerWidth;
 
             setDeviceType({
-                isMobile,
+                isMobile: !isDesktop,
                 isPortrait,
             });
         };
