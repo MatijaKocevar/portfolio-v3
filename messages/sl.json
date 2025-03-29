@@ -93,6 +93,18 @@
         "technologies": {
             "title": "Tehnologije"
         },
+        "timeline": {
+            "select": "Prosim izberite element iz časovnice",
+            "position": "Pozicija"
+        },
+        "descriptions": {
+            "6": "Začel novo službo kot Vue.js razvijalec. Delo na obstoječih Vue 2 aplikacijah in novih React projektih. Vodilni frontend razvijalec za nov React projekt.",
+            "5": "Razvil React knjižnico za tabele z naprednimi funkcijami. Delal na prenosu Laravel API-ja v .NET. Ustvaril komponente za Microsoft Power Platform.",
+            "4": "Delal na obsežni Vue.js/Angular aplikaciji z 24/7 razpoložljivostjo. Pridobil izkušnje z Linux in Docker okoljem.",
+            "3": "Full-stack razvoj s poudarkom na React in TypeScript. Delal z .NET in SQL na backend-u.",
+            "2": "Po letih dela v prodaji in službah, kjer nisem bil zares zadovoljen, sem začel učenje razvoja spletnih aplikacij. Uporabljal sem tutoriale in samostojno raziskoval moderne frameworke ter začel razvijati lastne projekte. Tehnologije, ki sem jih raziskoval so bile HTML, CSS, SQL, React JS, Vue JS, Node, .NET Core in C#.",
+            "1": "Ustvaril pol-avtomatizirane Excel dokumente za pregled prodaje in zalog. Razvil avtomatiziran sistem za preverjanje cen z uporabo Google App Scripts. Ustvaril spletni luščilec z React.js za primerjavo cen."
+        },
         "meta": {
             "title": "Matija Kočevar | Izkušnje",
             "description": "Izkušnje"

@@ -27,7 +27,7 @@ const Breadcrumbs = () => {
                     {index === pathSegments.length - 1 ? (
                         <span className='text-primary'>{segment.name}</span>
                     ) : (
-                        <Link href={segment.href} className='text-muted-foreground hover:text-primary'>
+                        <Link scroll={false} href={segment.href} className='text-muted-foreground hover:text-primary'>
                             {segment.name}
                         </Link>
                     )}

@@ -18,13 +18,6 @@ export default function Timeline({ direction = 'vertical', selectedId }: Timelin
     const handleExperienceClick = (experienceId: number) => {
         const params = new URLSearchParams(searchParams);
 
-
-
-
-
-
-
-        
         params.set('id', experienceId.toString());
         router.push(`/experience?${params.toString()}`);
     };
@@ -64,6 +57,7 @@ export default function Timeline({ direction = 'vertical', selectedId }: Timelin
             <div className={getItemsContainerClasses()}>
                 {experiences.map((experience, index) => {
                     const isActive = selectedId === experience.id.toString();
+
                     return (
                         <div
                             key={index}
