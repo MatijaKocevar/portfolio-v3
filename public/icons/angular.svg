@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="100" height="100" viewBox="0 0 4 4" version="1.1" id="svg2" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+	<defs id="defs2" />
+	<polygon points="29.034,6.648 16,2 2.966,6.648 4.954,23.882 16,30 27.046,23.882 " id="polygon1" transform="matrix(0.14285714,0,0,0.14285714,-0.28571424,-0.28571424)" fill="#dd0031" />
+	<polygon points="29.034,6.648 16,2 16,5.108 16,5.094 16,19.276 16,30 27.046,23.882 " id="polygon2" transform="matrix(0.14285714,0,0,0.14285714,-0.28571424,-0.28571424)" fill="#c3002f" />
+	<path d="M 2,0.44200003 0.83600002,3.052 H 1.27 L 1.504,2.468 H 2.492 L 2.726,3.052 H 3.16 Z M 2.34,2.108 H 1.66 L 2,1.29 Z" id="path2" fill="#ffffff" stroke-width="0.142857" />
+</svg>

@@ -1,10 +1,8 @@
-import { ForwardRefExoticComponent, RefAttributes } from 'react';
 import { create } from 'zustand';
-import { Code2, Blocks, Database, LucideProps } from 'lucide-react';
 
 interface TechStack {
-    icon: ForwardRefExoticComponent<Omit<LucideProps, 'ref'> & RefAttributes<SVGSVGElement>>;
-    label: string;
+    name: string;
+    title: string;
 }
 
 export interface BioDataStore {
@@ -14,17 +12,17 @@ export interface BioDataStore {
 export const useBioData = create<BioDataStore>(() => ({
     techStack: [
         // Frontend & Languages
-        { icon: Blocks, label: 'react' },
-        { icon: Blocks, label: 'vue' },
-        { icon: Blocks, label: 'nextjs' },
-        { icon: Code2, label: 'typescript' },
+        { name: 'react', title: 'React' },
+        { name: 'vue', title: 'Vue.js' },
+        { name: 'nextjs', title: 'Next.js' },
+        { name: 'typescript', title: 'TypeScript' },
 
         // Backend
-        { icon: Code2, label: 'csharp' },
-        { icon: Code2, label: 'php' },
+        { name: 'cSharp', title: 'C#' },
+        { name: 'php', title: 'PHP' },
 
         // Database
-        { icon: Database, label: 'postgresql' },
-        { icon: Database, label: 'sqlserver' },
+        { name: 'postgres', title: 'PostgreSQL' },
+        { name: 'sql', title: 'SQL Server' },
     ],
 }));

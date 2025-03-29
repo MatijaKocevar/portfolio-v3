@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Banner from '@/components/Banner';
 import { useTranslations } from 'next-intl';
 import { useBioData } from '../_store/useBioData';
+import IconRenderer from '@/components/IconRenderer';
 
 export default function Bio() {
     const t = useTranslations('home.bio');
@@ -43,12 +44,15 @@ export default function Bio() {
                         <div className='flex w-full max-w-xl flex-wrap justify-center gap-4 md:flex-nowrap md:justify-between md:gap-6 max-[1023px]:landscape:gap-2'>
                             {techStack.map((tech) => (
                                 <div
-                                    key={tech.label}
+                                    key={tech.name}
                                     className='flex w-[20%] flex-col items-center gap-2 md:w-auto max-[1023px]:landscape:w-[15%] max-[1023px]:landscape:gap-1'
                                 >
-                                    <tech.icon className='h-8 w-8 text-primary transition-colors hover:text-foreground/80 md:h-10 md:w-10 max-[1023px]:landscape:h-6 max-[1023px]:landscape:w-6' />
-                                    <span className='text-xs md:text-sm max-[1023px]:landscape:text-[10px]'>
-                                        {t(`techStack.${tech.label}`)}
+                                    <IconRenderer
+                                        name={tech.name}
+                                        className='h-8 w-8 text-foreground transition-colors hover:text-foreground/80 md:h-10 md:w-10 max-[1023px]:landscape:h-6 max-[1023px]:landscape:w-6'
+                                    />
+                                    <span className='whitespace-nowrap text-xs md:text-sm max-[1023px]:landscape:text-[10px]'>
+                                        {tech.title}
                                     </span>
                                 </div>
                             ))}

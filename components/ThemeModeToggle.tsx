@@ -30,12 +30,7 @@ export function ThemeModeToggle() {
 
     if (!mounted || !resolvedTheme) {
         return (
-            <Button
-                variant='outline'
-                size='icon'
-                className='relative h-8 w-8 rounded-full bg-transparent'
-                aria-hidden='true'
-            >
+            <Button variant='outline' size='icon' className='relative h-8 w-8 rounded-full bg-transparent'>
                 <Brush className='h-[1.2rem] w-[1.2rem] text-transparent' />
             </Button>
         );
