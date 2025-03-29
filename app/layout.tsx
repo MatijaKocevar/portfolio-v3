@@ -4,7 +4,6 @@ import Navigation from '@/components/Navigation';
 import { getLocale, getMessages, getTranslations } from 'next-intl/server';
 import { MetaLocaleParams } from '../types/locale';
 import Providers from '@/providers/Providers';
-import { delay } from '../lib/utils';
 
 const geistSans = Geist({
     variable: '--font-geist-sans',
