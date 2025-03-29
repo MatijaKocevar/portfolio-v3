@@ -9,32 +9,36 @@ import { ThemeModeToggle } from './ThemeModeToggle';
 import { usePathname } from 'next/navigation';
 import useNavigationStore from '../store/useNavigationStore';
 import Breadcrumbs from './Breadcrumbs';
+import { useState } from 'react';
 
 interface NavigaitonProps {
     locale: string;
 }
 
 const Navigation = ({ locale }: NavigaitonProps) => {
+    const [isOpen, setIsOpen] = useState(false);
     const t = useTranslations();
     const pathname = usePathname();
     const { links, socialLinks } = useNavigationStore();
 
     const renderSocialLinks = (isMobile: boolean) => (
-        <div className='flex gap-4'>
+        <div className='flex flex-row items-center gap-4'>
             {socialLinks.map((link) => (
                 <a
                     key={link.label}
                     href={link.href}
                     target='_blank'
                     rel='noopener noreferrer'
-                    className={`group relative rounded-full ${isMobile ? 'p-2' : 'p-1'} transition-colors hover:bg-foreground/10`}
+                    className={`group relative rounded-full transition-colors`}
                     aria-label={link.label}
                     title={t(link.tooltipKey)}
                 >
                     {link.icon ? (
-                        <link.icon className={`h-5 w-5 fill-primary text-primary`} />
+                        <link.icon
+                            className={`h-5 w-5 fill-muted-foreground text-muted-foreground hover:fill-primary hover:text-primary`}
+                        />
                     ) : (
-                        <span className={`font-bold text-primary`}>{link.label}</span>
+                        <span className={`font-bold text-muted-foreground hover:text-primary`}>{link.label}</span>
                     )}
                 </a>
             ))}
@@ -49,7 +53,8 @@ const Navigation = ({ locale }: NavigaitonProps) => {
                         <div className='flex items-center'>
                             <Link
                                 href='/'
-                                className={`text-xl font-bold text-foreground max-[1023px]:landscape:text-base ${
+                                onClick={(e) => pathname === '/' && e.preventDefault()}
+                                className={`text-xl font-bold text-foreground hover:text-primary max-[1023px]:landscape:text-base ${
                                     pathname === '/' ? 'border-b-2 border-primary' : ''
                                 }`}
                             >
@@ -67,7 +72,7 @@ const Navigation = ({ locale }: NavigaitonProps) => {
                             <LanguageToggleButton locale={locale} />
                         </div>
 
-                        <Sheet>
+                        <Sheet open={isOpen} onOpenChange={setIsOpen}>
                             <SheetTrigger asChild>
                                 <button className='rounded-md p-2 hover:bg-accent' aria-label='Menu'>
                                     <Menu className='h-5 w-5' />
@@ -82,6 +87,7 @@ const Navigation = ({ locale }: NavigaitonProps) => {
                                                 <Link
                                                     key={link.href}
                                                     href={link.href}
+                                                    onClick={() => setIsOpen(false)}
                                                     className={`text-lg text-muted-foreground transition-colors hover:text-foreground/80 ${
                                                         pathname === link.href
                                                             ? 'border-b-2 border-primary text-foreground'

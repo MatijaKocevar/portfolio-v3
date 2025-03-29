@@ -9,6 +9,7 @@ export interface ExperienceItem {
     name: string;
     dateRange: Date[];
     description: string;
+    id: number;
 }
 
 interface ExperienceStore {
@@ -18,6 +19,7 @@ interface ExperienceStore {
 export const useExperienceStore = create<ExperienceStore>(() => ({
     experiences: [
         {
+            id: 6,
             name: 'Frontend developer - Amibit d.o.o.',
             dateRange: [new Date(2024, 0), new Date()],
             description:
@@ -25,6 +27,7 @@ export const useExperienceStore = create<ExperienceStore>(() => ({
             technologies: [{ name: 'Vue.js' }, { name: 'React' }, { name: 'Vite' }, { name: 'TypeScript' }],
         },
         {
+            id: 5,
             name: 'Software engineer II - Frodx d.o.o.',
             dateRange: [new Date(2023, 0), new Date(2024, 0)],
             description:
@@ -32,6 +35,7 @@ export const useExperienceStore = create<ExperienceStore>(() => ({
             technologies: [{ name: 'React' }, { name: 'TypeScript' }, { name: '.NET' }, { name: 'PCF' }],
         },
         {
+            id: 4,
             name: 'Software engineer - Dhimahi d.o.o.',
             dateRange: [new Date(2023, 0), new Date(2023, 11)],
             description:
@@ -39,6 +43,7 @@ export const useExperienceStore = create<ExperienceStore>(() => ({
             technologies: [{ name: 'Vue.js' }, { name: 'TypeScript' }, { name: 'Docker' }, { name: 'Linux' }],
         },
         {
+            id: 3,
             name: 'Software developer - Agitavit Solutions d.o.o.',
             dateRange: [new Date(2021, 0), new Date(2023, 0)],
             description:
@@ -46,6 +51,7 @@ export const useExperienceStore = create<ExperienceStore>(() => ({
             technologies: [{ name: 'React' }, { name: 'TypeScript' }, { name: '.NET' }, { name: 'SQL' }],
         },
         {
+            id: 2,
             name: 'Learning web development',
             dateRange: [new Date(2021, 0), new Date(2021, 11)],
             description:
@@ -53,6 +59,7 @@ export const useExperienceStore = create<ExperienceStore>(() => ({
             technologies: [{ name: 'React' }, { name: 'Vue.js' }, { name: '.NET Core' }, { name: 'Bootstrap' }],
         },
         {
+            id: 1,
             name: 'Data Analyst - Mimovrste d.o.o.',
             dateRange: [new Date(2019, 0), new Date(2020, 11)],
             description:

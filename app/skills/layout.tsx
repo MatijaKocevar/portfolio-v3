@@ -5,8 +5,8 @@ export async function generateMetadata({ params }: MetaLocaleParams) {
     const { locale } = await params;
     const t = await getTranslations({ locale });
 
-    const title = t('interests.meta.title');
-    const description = t('interests.meta.description');
+    const title = t('skills.meta.title');
+    const description = t('skills.meta.description');
 
     return {
         title,
@@ -14,7 +14,7 @@ export async function generateMetadata({ params }: MetaLocaleParams) {
     };
 }
 
-export default async function InterestsLayout({
+export default async function SkillsLayout({
     children,
 }: Readonly<{
     children: React.ReactNode;
