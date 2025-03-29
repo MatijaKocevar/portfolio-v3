@@ -24,7 +24,7 @@ export const useExperienceStore = create<ExperienceStore>(() => ({
             dateRange: [new Date(2024, 0), new Date()],
             description:
                 'Started a new job as a Vue.js developer. Working on both legacy Vue 2 applications and new React projects. Lead frontend developer for new React project.',
-            technologies: [{ name: 'Vue.js' }, { name: 'React' }, { name: 'Vite' }, { name: 'TypeScript' }],
+            technologies: [{ name: 'vue' }, { name: 'react' }, { name: 'typescript' }, { name: 'javascript' }],
         },
         {
             id: 5,
@@ -32,7 +32,7 @@ export const useExperienceStore = create<ExperienceStore>(() => ({
             dateRange: [new Date(2023, 0), new Date(2024, 0)],
             description:
                 'Developed React table library with advanced features. Worked on porting Laravel API to .NET. Created Microsoft Power Platform components.',
-            technologies: [{ name: 'React' }, { name: 'TypeScript' }, { name: '.NET' }, { name: 'PCF' }],
+            technologies: [{ name: 'react' }, { name: 'typescript' }, { name: 'dotnet' }, { name: 'javascript' }],
         },
         {
             id: 4,
@@ -40,15 +40,15 @@ export const useExperienceStore = create<ExperienceStore>(() => ({
             dateRange: [new Date(2023, 0), new Date(2023, 11)],
             description:
                 'Worked on a large-scale Vue.js/Angular application with 24/7 availability. Gained experience with Linux and Docker.',
-            technologies: [{ name: 'Vue.js' }, { name: 'TypeScript' }, { name: 'Docker' }, { name: 'Linux' }],
+            technologies: [{ name: 'vue' }, { name: 'typescript' }, { name: 'docker' }, { name: 'linux' }],
         },
         {
             id: 3,
             name: 'Software developer - Agitavit Solutions d.o.o.',
             dateRange: [new Date(2021, 0), new Date(2023, 0)],
             description:
-                'Full-stack development with focus on React and TypeScript. Worked with .NET and SQL on backend.',
-            technologies: [{ name: 'React' }, { name: 'TypeScript' }, { name: '.NET' }, { name: 'SQL' }],
+                'Full-stack development with focus on React and Typescript. Worked with .NET and SQL on backend.',
+            technologies: [{ name: 'react' }, { name: 'typescript' }, { name: 'dotnet' }, { name: 'sql' }],
         },
         {
             id: 2,
@@ -56,7 +56,7 @@ export const useExperienceStore = create<ExperienceStore>(() => ({
             dateRange: [new Date(2021, 0), new Date(2021, 11)],
             description:
                 "After years of working in sales and having jobs where I didn't really enjoy myself, I began learning how to develop web apps. I used tutorials and independent searches to find out about modern frameworks and started making my own projects. The stacks I looked at were HTML, CSS, SQL, React JS, Vue JS, Node, .NET Core, and C#.",
-            technologies: [{ name: 'React' }, { name: 'Vue.js' }, { name: '.NET Core' }, { name: 'Bootstrap' }],
+            technologies: [{ name: 'react' }, { name: 'vue' }, { name: 'dotnet' }, { name: 'bootstrap' }],
         },
         {
             id: 1,
@@ -64,12 +64,7 @@ export const useExperienceStore = create<ExperienceStore>(() => ({
             dateRange: [new Date(2019, 0), new Date(2020, 11)],
             description:
                 'Created semi-automated Excel documents for sales & stock overview. Developed automated price checking system using Google App Scripts. Created a web scraper with React.js for price comparison.',
-            technologies: [
-                { name: 'Excel' },
-                { name: 'Google Sheets' },
-                { name: 'Google App Scripts' },
-                { name: 'VBA' },
-            ],
+            technologies: [{ name: 'excel' }, { name: 'sheets' }],
         },
     ],
 }));

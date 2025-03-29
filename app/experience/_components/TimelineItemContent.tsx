@@ -1,6 +1,7 @@
 'use client';
 
 import { useExperienceStore } from '../_stores/useExperienceStore';
+import IconRenderer from '@/components/IconRenderer';
 
 interface TimelineItemContentProps {
     id?: string;
@@ -26,11 +27,12 @@ export default function TimelineItemContent({ id }: TimelineItemContentProps) {
                 <span>{experience.dateRange[1].getFullYear()}</span>
             </div>
             <p className='text-muted-foreground'>{experience.description}</p>
-            <div className='flex flex-wrap gap-2'>
+            <div className='flex flex-wrap gap-4'>
                 {experience.technologies.map((tech, index) => (
-                    <span key={index} className='rounded-full bg-primary px-3 py-1 text-sm'>
-                        {tech.name}
-                    </span>
+                    <div key={index} className='flex flex-col items-center gap-1'>
+                        <IconRenderer name={tech.name} className='h-8 w-8' />
+                        <span className='text-xs text-muted-foreground'>{tech.name}</span>
+                    </div>
                 ))}
             </div>
         </div>

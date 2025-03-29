@@ -10,7 +10,7 @@ export default async function ExperiencePage({ searchParams }: ExperiencePagePro
     const { id } = await searchParams;
 
     const verticalTimeline = (
-        <div className='flex h-full w-full flex-row gap-8'>
+        <div className='flex h-full w-full flex-row'>
             <div className='flex h-full w-full border-l-2 border-muted-foreground lg:w-auto'>
                 <div className='flex h-full w-full overflow-auto'>
                     <Timeline direction='vertical' selectedId={id} />

@@ -1,7 +1,7 @@
 'use client';
 
-import { CodeIcon } from 'lucide-react';
 import { ExperienceItem } from '../_stores/useExperienceStore';
+import IconRenderer from '@/components/IconRenderer';
 
 type TimelineItemProps = {
     experience: ExperienceItem;
@@ -24,7 +24,11 @@ export default function TimelineItem({ experience, direction = 'vertical', isAct
             </div>
             <div className='flex flex-wrap gap-2'>
                 {experience.technologies.map((tech, index) => (
-                    <CodeIcon key={index} className={`h-4 w-4 ${isActive ? 'text-foreground' : ''}`} />
+                    <IconRenderer
+                        key={index}
+                        name={tech.name}
+                        className={`h-4 w-4 ${isActive ? 'text-foreground' : ''}`}
+                    />
                 ))}
             </div>
         </div>
