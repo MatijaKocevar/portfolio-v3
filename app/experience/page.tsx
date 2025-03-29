@@ -3,7 +3,7 @@ import Timeline from './_components/Timeline';
 import TimelineItemContent from './_components/TimelineItemContent';
 
 interface ExperiencePageProps {
-    searchParams: { id: string | undefined };
+    searchParams: Promise<{ id: string | undefined }>;
 }
 
 export default async function ExperiencePage({ searchParams }: ExperiencePageProps) {
@@ -19,7 +19,7 @@ export default async function ExperiencePage({ searchParams }: ExperiencePagePro
             <div className='hidden h-full w-full items-center justify-center rounded-lg border-l bg-muted lg:flex'>
                 {<TimelineItemContent id={id} />}
             </div>
-            <div >
+            <div>
                 <MobileTimelineDialog id={id} />
             </div>
         </div>
@@ -35,7 +35,7 @@ export default async function ExperiencePage({ searchParams }: ExperiencePagePro
             <div className='mt-8 hidden h-full w-full items-center justify-center rounded-lg border-l bg-muted lg:flex'>
                 {<TimelineItemContent id={id} />}
             </div>
-            <div >
+            <div>
                 <MobileTimelineDialog id={id} />
             </div>
         </>
