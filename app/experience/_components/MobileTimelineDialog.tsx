@@ -13,12 +13,14 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import { useDeviceType } from '@/hooks/useDeviceType';
 import { useExperienceStore } from '../_stores/useExperienceStore';
 import IconRenderer from '../../../components/IconRenderer';
+import { useTranslations } from 'next-intl';
 
 export default function MobileTimelineDialog({ id }: { id?: string }) {
     const router = useRouter();
     const searchParams = useSearchParams();
     const { isMobile } = useDeviceType();
     const { experiences } = useExperienceStore();
+    const t = useTranslations('experience');
     const experienceItem = experiences.find((exp) => exp.id === Number(id));
 
     if (!isMobile || !id) return null;
@@ -36,7 +38,11 @@ export default function MobileTimelineDialog({ id }: { id?: string }) {
         <Dialog aria-modal open={!!id} onOpenChange={handleOpenChange}>
             <DialogContent className='h-[80vh] overflow-y-auto'>
                 <DialogHeader>
-                    <DialogTitle>{experienceItem?.name}</DialogTitle>
+                    <DialogTitle>
+                        <span>
+                            {t('timeline.position')}: {experienceItem?.name}
+                        </span>
+                    </DialogTitle>
                     <DialogDescription>
                         <span>{experienceItem?.dateRange[0].getFullYear()}</span>
                         <span>-</span>

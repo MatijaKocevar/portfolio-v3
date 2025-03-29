@@ -2,19 +2,21 @@
 
 import { useExperienceStore } from '../_stores/useExperienceStore';
 import IconRenderer from '@/components/IconRenderer';
+import { useTranslations } from 'next-intl';
 
 interface TimelineItemContentProps {
     id?: string;
 }
 
 export default function TimelineItemContent({ id }: TimelineItemContentProps) {
+    const t = useTranslations();
     const { experiences } = useExperienceStore();
     const experience = experiences.find((exp) => exp.id === Number(id));
 
     if (!experience)
         return (
             <div className='flex h-full w-full items-center justify-center rounded-lg bg-muted p-4'>
-                <p className='text-muted-foreground'>Please select and item from the timeline</p>
+                <p className='text-muted-foreground'>{t('experience.timeline.select')}</p>
             </div>
         );
 
@@ -26,7 +28,7 @@ export default function TimelineItemContent({ id }: TimelineItemContentProps) {
                 <span>-</span>
                 <span>{experience.dateRange[1].getFullYear()}</span>
             </div>
-            <p className='text-muted-foreground lg:px-8'>{experience.description}</p>
+            <p className='text-muted-foreground lg:px-8'>{t(experience.description)}</p>
             <div className='hidden flex-wrap gap-4 lg:flex'>
                 {experience.technologies.map((tech, index) => (
                     <div key={index} className='flex flex-col items-center gap-1'>
