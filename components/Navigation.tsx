@@ -29,14 +29,16 @@ const Navigation = ({ locale }: NavigaitonProps) => {
                     href={link.href}
                     target='_blank'
                     rel='noopener noreferrer'
-                    className={`group relative rounded-full ${isMobile ? 'p-2' : 'p-1'} transition-colors hover:bg-foreground/10`}
+                    className={`group relative rounded-full ${isMobile ? 'p-2' : 'p-1'} transition-colors`}
                     aria-label={link.label}
                     title={t(link.tooltipKey)}
                 >
                     {link.icon ? (
-                        <link.icon className={`h-5 w-5 fill-primary text-primary`} />
+                        <link.icon
+                            className={`h-5 w-5 fill-muted-foreground text-muted-foreground hover:fill-primary hover:text-primary`}
+                        />
                     ) : (
-                        <span className={`font-bold text-primary`}>{link.label}</span>
+                        <span className={`font-bold text-muted-foreground hover:text-primary`}>{link.label}</span>
                     )}
                 </a>
             ))}
@@ -51,7 +53,8 @@ const Navigation = ({ locale }: NavigaitonProps) => {
                         <div className='flex items-center'>
                             <Link
                                 href='/'
-                                className={`text-xl font-bold text-foreground max-[1023px]:landscape:text-base ${
+                                onClick={(e) => pathname === '/' && e.preventDefault()}
+                                className={`text-xl font-bold text-foreground hover:text-primary max-[1023px]:landscape:text-base ${
                                     pathname === '/' ? 'border-b-2 border-primary' : ''
                                 }`}
                             >
