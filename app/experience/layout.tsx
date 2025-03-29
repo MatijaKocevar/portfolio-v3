@@ -1,7 +1,5 @@
 import { getTranslations } from 'next-intl/server';
 import { MetaLocaleParams } from '../../types/locale';
-import { Suspense } from 'react';
-import LoadingSpinner from '@/components/Loading';
 
 export async function generateMetadata({ params }: MetaLocaleParams) {
     const { locale } = await params;
@@ -21,9 +19,5 @@ export default async function ExperienceLayout({
 }: Readonly<{
     children: React.ReactNode;
 }>) {
-    return (
-        <div className='flex h-full w-full flex-col'>
-            <Suspense fallback={<LoadingSpinner />}>{children}</Suspense>
-        </div>
-    );
+    return <div className='flex h-full w-full flex-col'>{children}</div>;
 }
