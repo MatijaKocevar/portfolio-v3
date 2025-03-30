@@ -18,9 +18,13 @@ export default function TimelineItem({ experience, direction = 'vertical', isAct
         >
             <h2 className={`text-xl font-bold ${isActive ? 'text-foreground' : ''}`}>{experience.name}</h2>
             <div className='flex items-center gap-1 text-sm font-semibold'>
-                <span>{experience.dateRange[0].getFullYear()}</span>
+                <span>
+                    {`${experience.dateRange[0].getFullYear()} ${experience.dateRange[0].toLocaleString('en-US', { month: 'short' })}`}
+                </span>
                 <span>/</span>
-                <span>{experience.dateRange[1].getFullYear()}</span>
+                <span>
+                    {`${experience.dateRange[1].getFullYear()} ${experience.dateRange[1].toLocaleString('en-US', { month: 'short' })}`}
+                </span>
             </div>
             <div className='flex flex-wrap gap-2'>
                 {experience.technologies.map((tech, index) => (
