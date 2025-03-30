@@ -22,7 +22,7 @@ export const useExperienceStore = create<ExperienceStore>(() => ({
         {
             id: 6,
             name: 'Frontend developer - Amibit d.o.o.',
-            dateRange: [new Date(2024, 0), new Date()],
+            dateRange: [new Date(2024, 5), new Date()],
             description: 'experience.descriptions.6',
             technologies: [
                 { name: 'react', title: 'React' },
@@ -39,7 +39,7 @@ export const useExperienceStore = create<ExperienceStore>(() => ({
         {
             id: 5,
             name: 'Software engineer II - Frodx d.o.o.',
-            dateRange: [new Date(2023, 0), new Date(2024, 0)],
+            dateRange: [new Date(2023, 10), new Date(2024, 2)],
             description: 'experience.descriptions.5',
             technologies: [
                 { name: 'react', title: 'React' },
@@ -53,7 +53,7 @@ export const useExperienceStore = create<ExperienceStore>(() => ({
         {
             id: 4,
             name: 'Software engineer - Dhimahi d.o.o.',
-            dateRange: [new Date(2023, 0), new Date(2023, 11)],
+            dateRange: [new Date(2023, 8), new Date(2023, 10)],
             description: 'experience.descriptions.4',
             technologies: [
                 { name: 'vue', title: 'Vue.js' },
@@ -67,7 +67,7 @@ export const useExperienceStore = create<ExperienceStore>(() => ({
         {
             id: 3,
             name: 'Software developer - Agitavit Solutions d.o.o.',
-            dateRange: [new Date(2021, 0), new Date(2023, 0)],
+            dateRange: [new Date(2021, 7), new Date(2023, 5)],
             description: 'experience.descriptions.3',
             technologies: [
                 { name: 'react', title: 'React' },
@@ -81,7 +81,7 @@ export const useExperienceStore = create<ExperienceStore>(() => ({
         {
             id: 2,
             name: 'Learning web development',
-            dateRange: [new Date(2021, 0), new Date(2021, 11)],
+            dateRange: [new Date(2020, 9), new Date(2021, 7)],
             description: 'experience.descriptions.2',
             technologies: [
                 { name: 'react', title: 'React' },
@@ -93,7 +93,7 @@ export const useExperienceStore = create<ExperienceStore>(() => ({
         {
             id: 1,
             name: 'Data Analyst - Mimovrste d.o.o.',
-            dateRange: [new Date(2019, 0), new Date(2020, 11)],
+            dateRange: [new Date(2019, 10), new Date(2020, 8)],
             description: 'experience.descriptions.1',
             technologies: [
                 { name: 'excel', title: 'Excel' },
