@@ -50,13 +50,15 @@ export default function MobileTimelineDialog({ id }: { id?: string }) {
                     </DialogDescription>
                 </DialogHeader>
                 {id && <TimelineItemContent id={id} />}
-                <DialogFooter className='m-0 flex-row items-center justify-center p-0 sm:justify-center'>
-                    {experienceItem?.technologies.map((tech, index) => (
-                        <div key={index} className='flex flex-col gap-1'>
-                            <IconRenderer name={tech.name} className='h-8 w-8' />
-                            <span className='text-xs text-muted-foreground'>{tech.title}</span>
-                        </div>
-                    ))}
+                <DialogFooter className='m-0 p-0'>
+                    <div className='flex flex-wrap items-center justify-evenly gap-4 px-2 py-4'>
+                        {experienceItem?.technologies.map((tech, index) => (
+                            <div key={index} className='flex basis-[calc(25%-1rem)] flex-col items-center gap-2'>
+                                <IconRenderer name={tech.name} className='h-8 w-8' />
+                                <span className='text-center text-xs text-muted-foreground'>{tech.title}</span>
+                            </div>
+                        ))}
+                    </div>
                 </DialogFooter>
             </DialogContent>
         </Dialog>
