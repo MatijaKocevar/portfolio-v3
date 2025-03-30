@@ -17,7 +17,10 @@
         "interests": "Interests & Hobbies",
         "openGithub": "Open GitHub",
         "openLinkedIn": "Open LinkedIn",
-        "openResume": "Open Resume"
+        "openResume": "Open Resume",
+        "service-worker": {
+            "js": "Service Worker"
+        }
     },
     "home": {
         "title": "Home",
