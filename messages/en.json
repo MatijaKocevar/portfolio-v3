@@ -20,6 +20,9 @@
         "openResume": "Open Resume",
         "service-worker": {
             "js": "Service Worker"
+        },
+        "icon-192x192": {
+            "png": "Badge"
         }
     },
     "home": {

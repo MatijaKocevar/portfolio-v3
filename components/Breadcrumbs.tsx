@@ -9,15 +9,18 @@ const Breadcrumbs = () => {
     const t = useTranslations();
     const pathname = usePathname();
 
+    if (pathname === '/' || pathname.startsWith('/public') || pathname.includes('/manifest/')) {
+        return null;
+    }
+
     const pathSegments = pathname
         .split('/')
         .filter(Boolean)
+        .filter((segment) => !segment.includes('.'))
         .map((segment) => ({
             name: isNaN(Number(segment)) ? t(`nav.${segment}`) : segment,
             href: `/${segment}`,
         }));
-
-    if (pathname === '/') return null;
 
     return (
         <div className='flex items-center gap-2 text-sm'>

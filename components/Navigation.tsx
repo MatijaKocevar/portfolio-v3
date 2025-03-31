@@ -10,6 +10,7 @@ import { usePathname } from 'next/navigation';
 import useNavigationStore from '../store/useNavigationStore';
 import Breadcrumbs from './Breadcrumbs';
 import { useState } from 'react';
+import WebPush from '../webpush/webpush';
 
 interface NavigaitonProps {
     locale: string;
@@ -21,7 +22,7 @@ const Navigation = ({ locale }: NavigaitonProps) => {
     const pathname = usePathname();
     const { links, socialLinks } = useNavigationStore();
 
-    const renderSocialLinks = (isMobile: boolean) => (
+    const renderSocialLinks = () => (
         <div className='flex flex-row items-center gap-4'>
             {socialLinks.map((link) => (
                 <a
@@ -68,7 +69,7 @@ const Navigation = ({ locale }: NavigaitonProps) => {
                     </div>
 
                     <div className='flex items-center gap-4'>
-                        <div className='hidden items-center gap-4 md:flex'>{renderSocialLinks(false)}</div>
+                        <div className='hidden items-center gap-4 md:flex'>{renderSocialLinks()}</div>
                         <div className='hidden border-l pl-4 md:block'>
                             <LanguageToggleButton locale={locale} />
                         </div>
@@ -102,11 +103,12 @@ const Navigation = ({ locale }: NavigaitonProps) => {
                                         </div>
 
                                         <div className='flex flex-col items-center justify-center gap-4 border-t pt-3 md:hidden'>
-                                            {renderSocialLinks(true)}
+                                            {renderSocialLinks()}
                                         </div>
                                     </div>
 
                                     <div className='flex flex-col justify-center gap-4 pt-4'>
+                                        <WebPush />
                                         <div className='flex items-center justify-between gap-2 md:justify-end'>
                                             <div className='md:hidden'>
                                                 <LanguageToggleButton locale={locale} />
