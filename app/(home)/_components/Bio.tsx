@@ -12,7 +12,7 @@ export default function Bio() {
 
     return (
         <div
-            className={`flex min-h-[calc(100vh-68px)] flex-col justify-around rounded-xl bg-background/95 min-[1024px]:min-h-[calc(100vh-65px)] max-[1023px]:landscape:min-h-[calc(100vh-40px)]`}
+            className={`flex min-h-[calc(100vh-68px)] flex-col justify-around rounded-xl bg-background/95 min-[1024px]:min-h-[600px] min-[1024px]:min-h-[calc(100vh-65px)] max-[1023px]:landscape:min-h-[calc(100vh-40px)]`}
         >
             <div className='flex h-full flex-col gap-12 portrait:gap-8 max-[1023px]:landscape:flex-row max-[1023px]:landscape:gap-8'>
                 <div className='flex flex-col items-center justify-center max-[1023px]:landscape:w-[45%]'>

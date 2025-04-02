@@ -29,8 +29,28 @@ export default function ActiveProjects() {
         : 'opacity-100 translate-x-0';
 
     return (
-        <div className='relative flex max-w-full flex-col'>
-            <h1 className='shrink-0 text-2xl font-semibold text-muted-foreground'>{t('title')}</h1>
+        <div className='relative flex max-w-full flex-col overflow-x-hidden min-[1024px]:min-h-[600px]'>
+            <div className='mb-4 flex items-center justify-between'>
+                <button
+                    onClick={prevProject}
+                    className='rounded-full bg-primary/10 p-3 text-primary transition-all hover:scale-110 hover:bg-primary/20 max-[1023px]:landscape:hidden'
+                    aria-label={t('navigation.prev')}
+                    disabled={isSliding}
+                >
+                    <ChevronLeft className='h-6 w-6' />
+                </button>
+
+                <h1 className='shrink-0 text-2xl font-semibold text-muted-foreground'>{t('title')}</h1>
+
+                <button
+                    onClick={nextProject}
+                    className='rounded-full bg-primary/10 p-3 text-primary transition-all hover:scale-110 hover:bg-primary/20 max-[1023px]:landscape:hidden'
+                    aria-label={t('navigation.next')}
+                    disabled={isSliding}
+                >
+                    <ChevronRight className='h-6 w-6' />
+                </button>
+            </div>
 
             <section
                 className='relative flex flex-1 rounded-xl bg-background/95 pb-8 pt-1'
@@ -119,25 +139,6 @@ export default function ActiveProjects() {
                     </div>
                 </div>
             </section>
-
-            {/* Regular navigation buttons (hidden in landscape) */}
-            <button
-                onClick={prevProject}
-                className='absolute left-0 top-1/2 z-10 -translate-y-1/2 rounded-full bg-primary/10 p-3 text-primary transition-all hover:scale-110 hover:bg-primary/20 md:-left-8 max-[1023px]:landscape:hidden'
-                aria-label={t('navigation.prev')}
-                disabled={isSliding}
-            >
-                <ChevronLeft className='h-8 w-8' />
-            </button>
-
-            <button
-                onClick={nextProject}
-                className='absolute right-0 top-1/2 z-10 -translate-y-1/2 rounded-full bg-primary/10 p-3 text-primary transition-all hover:scale-110 hover:bg-primary/20 md:-right-8 max-[1023px]:landscape:hidden'
-                aria-label={t('navigation.next')}
-                disabled={isSliding}
-            >
-                <ChevronRight className='h-8 w-8' />
-            </button>
         </div>
     );
 }
