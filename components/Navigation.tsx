@@ -10,7 +10,6 @@ import { usePathname } from 'next/navigation';
 import useNavigationStore from '../store/useNavigationStore';
 import Breadcrumbs from './Breadcrumbs';
 import { useState } from 'react';
-import WebPush from '../webpush/webpush';
 
 interface NavigaitonProps {
     locale: string;
@@ -108,7 +107,6 @@ const Navigation = ({ locale }: NavigaitonProps) => {
                                     </div>
 
                                     <div className='flex flex-col justify-center gap-4 pt-4'>
-                                        <WebPush />
                                         <div className='flex items-center justify-between gap-2 md:justify-end'>
                                             <div className='md:hidden'>
                                                 <LanguageToggleButton locale={locale} />
