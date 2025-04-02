@@ -17,7 +17,10 @@
         "interests": "Interesi & hobiji",
         "openGithub": "Odpri GitHub",
         "openLinkedIn": "Odpri LinkedIn",
-        "openResume": "Odpri življenjepis"
+        "openResume": "Odpri življenjepis",
+        "icon-192x192": {
+            "png": "Badge"
+        }
     },
     "home": {
         "title": "Domov",
