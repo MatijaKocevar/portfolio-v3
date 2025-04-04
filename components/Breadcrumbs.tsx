@@ -9,7 +9,7 @@ const Breadcrumbs = () => {
     const t = useTranslations();
     const pathname = usePathname();
 
-    if (pathname === '/' || pathname.startsWith('/public') || pathname.includes('/manifest/')) {
+    if (pathname.startsWith('/public') || pathname.includes('/manifest/')) {
         return null;
     }
 
@@ -24,18 +24,29 @@ const Breadcrumbs = () => {
 
     return (
         <div className='flex items-center gap-2 text-sm'>
-            {pathSegments.map((segment, index) => (
-                <div key={segment.href} className='flex items-center gap-2'>
+            {pathname === '/' ? (
+                <div className='flex items-center gap-2'>
                     <ChevronRight className='h-4 w-4 text-muted-foreground' />
-                    {index === pathSegments.length - 1 ? (
-                        <span className='text-primary'>{segment.name}</span>
-                    ) : (
-                        <Link scroll={false} href={segment.href} className='text-muted-foreground hover:text-primary'>
-                            {segment.name}
-                        </Link>
-                    )}
+                    <span className='text-primary'>{t('nav.home')}</span>
                 </div>
-            ))}
+            ) : (
+                pathSegments.map((segment, index) => (
+                    <div key={segment.href} className='flex items-center gap-2'>
+                        <ChevronRight className='h-4 w-4 text-muted-foreground' />
+                        {index === pathSegments.length - 1 ? (
+                            <span className='text-primary'>{segment.name}</span>
+                        ) : (
+                            <Link
+                                scroll={false}
+                                href={segment.href}
+                                className='text-muted-foreground hover:text-primary'
+                            >
+                                {segment.name}
+                            </Link>
+                        )}
+                    </div>
+                ))
+            )}
         </div>
     );
 };

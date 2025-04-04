@@ -9,6 +9,7 @@
         "connect": "Poveži se"
     },
     "nav": {
+        "home": "Portfolio",
         "about": "O meni",
         "projects": "Projekti",
         "education": "Izobrazba",

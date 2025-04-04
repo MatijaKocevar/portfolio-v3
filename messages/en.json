@@ -9,6 +9,7 @@
         "connect": "Connect"
     },
     "nav": {
+        "home": "Home",
         "about": "About",
         "projects": "Projects",
         "education": "Education",
