@@ -3,11 +3,11 @@ import ActiveProjects from './_components/ActiveProjects';
 
 export default function Home() {
     return (
-        <div
-            className={`flex h-full w-full flex-col gap-4 p-4 [@container(min-width:900px)]:flex-row [@container(min-width:900px)]:items-center [@container(min-width:900px)]:justify-evenly`}
-        >
-            <Bio />
-            <ActiveProjects />
+        <div className='flex h-full w-full flex-col overflow-x-hidden lg:items-center lg:justify-center'>
+            <div className='flex w-full flex-col lg:flex-row lg:items-start lg:justify-evenly'>
+                <Bio />
+                <ActiveProjects />
+            </div>
         </div>
     );
 }

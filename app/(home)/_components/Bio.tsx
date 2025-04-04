@@ -11,41 +11,39 @@ export default function Bio() {
     const { techStack } = useBioData();
 
     return (
-        <div className={`flex flex-col justify-around rounded-xl bg-background/95`}>
-            <div className='flex h-full flex-col gap-12'>
-                <div className='flex flex-col items-center justify-center max-[1023px]:landscape:w-[45%]'>
-                    <div className='mb-4 flex justify-center'>
-                        <div className='relative h-48 w-48 overflow-hidden rounded-full border-4 border-foreground/10'>
-                            <Image
-                                src='/images/me/384.webp'
-                                alt='Profile'
-                                width={192}
-                                height={192}
-                                className='object-cover'
-                                priority
-                                sizes='(max-width: 1023px) and (orientation: landscape) 128px, 192px'
-                                quality={80}
-                            />
-                        </div>
+        <div className='flex h-[calc(100vh-64px)] w-full flex-col items-center justify-center p-8 max-[1023px]:landscape:min-h-[calc(100vh-64px)]'>
+            <div className='flex h-full w-full flex-col justify-evenly gap-4 max-[1023px]:landscape:flex-row max-[1023px]:landscape:justify-between'>
+                <div className='flex h-full flex-col items-center justify-center gap-2 max-[1023px]:landscape:w-[45%]'>
+                    <div className='relative h-32 w-32 overflow-hidden rounded-full md:h-48 md:w-48 max-[1023px]:landscape:h-24 max-[1023px]:landscape:w-24'>
+                        <Image
+                            src='/images/me/384.webp'
+                            alt='Profile'
+                            width={192}
+                            height={192}
+                            className='object-cover'
+                            priority
+                            sizes='192px'
+                            quality={80}
+                        />
                     </div>
-                    <div className='text-center'>
-                        <h1 className='mb-4 text-4xl font-bold'>{t('role')}</h1>
-                        <p className='text-lg text-foreground/80'>{t('tagline')}</p>
-                    </div>
+                    <h1 className='text-2xl font-bold md:text-3xl max-[1023px]:landscape:text-xl'>Matija Kočevar</h1>
+                    <p className='text-center text-lg text-foreground/80 max-[1023px]:landscape:text-base'>
+                        {t('tagline')}
+                    </p>
                 </div>
 
-                <div className='flex flex-col justify-between gap-6'>
+                <div className='flex h-full w-full flex-col justify-around max-[1023px]:landscape:w-[55%]'>
                     <Banner />
-                    <div className='flex justify-center'>
-                        <div className='flex w-full max-w-xl flex-wrap justify-center gap-4'>
+                    <div className='flex justify-center p-2'>
+                        <div className='flex w-full max-w-xl flex-wrap justify-center gap-4 max-[1023px]:landscape:grid max-[1023px]:landscape:grid-cols-4 max-[1023px]:landscape:gap-2'>
                             {techStack.map((tech) => (
                                 <div
                                     key={tech.name}
-                                    className='flex w-[20%] flex-col items-center gap-2 md:w-auto max-[1023px]:landscape:w-[15%] max-[1023px]:landscape:gap-1'
+                                    className='flex w-[16.67%] flex-col items-center gap-2 md:w-auto max-[1023px]:landscape:w-full'
                                 >
                                     <IconRenderer
                                         name={tech.name}
-                                        className='h-8 w-8 text-foreground transition-colors hover:text-foreground/80 md:h-10 md:w-10 max-[1023px]:landscape:h-6 max-[1023px]:landscape:w-6'
+                                        className='h-8 w-8 text-foreground transition-colors hover:text-foreground/80 md:h-10 md:w-10 max-[1023px]:landscape:h-7 max-[1023px]:landscape:w-7'
                                     />
                                     <span className='whitespace-nowrap text-xs md:text-sm max-[1023px]:landscape:text-[10px]'>
                                         {tech.title}

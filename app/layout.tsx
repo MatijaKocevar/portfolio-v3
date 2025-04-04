@@ -1,19 +1,11 @@
 import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
-import Navigation from '@/components/Navigation';
 import { getLocale, getMessages, getTranslations } from 'next-intl/server';
 import { MetaLocaleParams } from '../types/locale';
 import Providers from '@/providers/Providers';
 import { AppSidebar } from '../components/app-sidebar';
 import { SidebarInset, SidebarTrigger } from '../components/ui/sidebar';
-import {
-    Breadcrumb,
-    BreadcrumbList,
-    BreadcrumbItem,
-    BreadcrumbLink,
-    BreadcrumbSeparator,
-    BreadcrumbPage,
-} from '../components/ui/breadcrumb';
+
 import { Separator } from '../components/ui/separator';
 import Breadcrumbs from '../components/Breadcrumbs';
 
@@ -51,17 +43,17 @@ export default async function RootLayout({
     return (
         <html lang={locale} suppressHydrationWarning>
             <body
-                className={`${geistSans.variable} ${geistMono.variable} h-full bg-background text-foreground antialiased`}
+                className={`${geistSans.variable} ${geistMono.variable} flex h-[100dvh] overflow-hidden bg-background text-foreground antialiased`}
             >
                 <Providers messages={messages} locale={locale}>
                     <AppSidebar />
                     <SidebarInset>
-                        <header className='sticky top-0 z-10 flex h-16 shrink-0 items-center gap-2 border-b bg-background px-4'>
+                        <header className='sticky top-0 z-50 flex h-16 shrink-0 items-center gap-2 border-b bg-background/80 px-4 backdrop-blur'>
                             <SidebarTrigger className='-ml-1' />
                             <Separator orientation='vertical' className='mr-2 h-4' />
                             <Breadcrumbs />
                         </header>
-                        <div className='h-full'>{children}</div>
+                        <main className='relative flex-1 overflow-auto'>{children}</main>
                     </SidebarInset>
                 </Providers>
             </body>

@@ -29,11 +29,11 @@ export default function ActiveProjects() {
         : 'opacity-100 translate-x-0';
 
     return (
-        <div className='relative flex max-w-full flex-col'>
+        <div className='flex h-[calc(100vh-64px)] w-full flex-col p-8 max-[1023px]:landscape:h-full max-[1023px]:landscape:justify-center'>
             <div className='mb-4 flex items-center justify-between'>
                 <button
                     onClick={prevProject}
-                    className='rounded-full bg-primary/10 p-3 text-primary transition-all hover:scale-110 hover:bg-primary/20 max-[1023px]:landscape:hidden'
+                    className='rounded-full bg-primary/10 p-3 text-primary transition-all hover:scale-110 hover:bg-primary/20'
                     aria-label={t('navigation.prev')}
                     disabled={isSliding}
                 >
@@ -44,7 +44,7 @@ export default function ActiveProjects() {
 
                 <button
                     onClick={nextProject}
-                    className='rounded-full bg-primary/10 p-3 text-primary transition-all hover:scale-110 hover:bg-primary/20 max-[1023px]:landscape:hidden'
+                    className='rounded-full bg-primary/10 p-3 text-primary transition-all hover:scale-110 hover:bg-primary/20'
                     aria-label={t('navigation.next')}
                     disabled={isSliding}
                 >
@@ -52,56 +52,41 @@ export default function ActiveProjects() {
                 </button>
             </div>
 
-            <section
-                className='relative flex flex-1 rounded-xl bg-background/95 pb-8 pt-1'
-                style={{ paddingTop: '1rem' }}
-            >
+            <section className='relative flex flex-1 justify-center overflow-hidden rounded-xl bg-background/95 pt-1'>
                 <div
-                    className={`flex h-full w-full flex-col items-center transition-all duration-500 ease-in-out ${slideClass}`}
+                    className={`flex h-full w-full flex-col items-center transition-all duration-500 ease-in-out max-[1023px]:landscape:justify-center ${slideClass}`}
                 >
-                    <div className='flex w-full flex-col items-center gap-4 max-[1023px]:landscape:flex-row max-[1023px]:landscape:items-center max-[1023px]:landscape:justify-between'>
-                        {/* Navigation buttons for landscape mobile */}
-                        <button
-                            onClick={prevProject}
-                            className='hidden rounded-full bg-foreground/10 p-3 text-foreground transition-all hover:scale-110 hover:bg-foreground/20 max-[1023px]:landscape:flex'
-                            aria-label={t('navigation.prev')}
-                            disabled={isSliding}
-                        >
-                            <ChevronLeft className='h-6 w-6' />
-                        </button>
-
-                        <div className='flex w-full flex-col gap-4 max-[1023px]:landscape:w-[90%] max-[1023px]:landscape:flex-row'>
-                            <div className='w-full max-[1023px]:landscape:w-1/2'>
+                    <div className='flex h-full w-full flex-col items-center gap-4'>
+                        <div className='flex h-full w-full flex-col gap-4'>
+                            <div className='flex h-full w-full flex-col justify-center'>
                                 <div className='mb-4 flex flex-col items-center gap-2 text-center'>
                                     <h2 className='text-2xl font-semibold'>{t(`items.${currentProject.key}.title`)}</h2>
                                     {currentProject.wip && <span className='text-sm text-red-500'>{t('wip')}</span>}
                                 </div>
 
-                                <div className='relative aspect-[16/10] min-h-[300px] w-full max-[1023px]:landscape:min-h-[200px]'>
-                                    {imageLoading && (
-                                        <Skeleton className='mx-auto h-full max-h-[90%] w-full max-w-[90%]' />
-                                    )}
+                                <div className='relative mx-auto aspect-square max-h-[450px] min-h-[300px] w-full max-w-3xl landscape:aspect-auto landscape:h-[60vh] landscape:max-h-none landscape:min-h-0 landscape:w-[85%]'>
+                                    {imageLoading && <Skeleton className='mx-auto h-full w-full rounded-2xl' />}
                                     <Image
                                         src={currentProject.image}
                                         alt={currentProject.key}
                                         fill
-                                        sizes='(max-width: 768px)'
+                                        sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
                                         quality={85}
-                                        className={`rounded-lg object-contain transition-opacity duration-300 ${
+                                        className={`rounded-2xl object-cover transition-opacity duration-300 ${
                                             imageLoading ? 'opacity-0' : 'opacity-100'
-                                        } max-w-[100%]`}
+                                        }`}
                                         priority
                                         onLoad={() => setImageLoading(false)}
                                     />
                                 </div>
                             </div>
 
-                            <div className='w-full max-[1023px]:landscape:w-1/2 max-[1023px]:landscape:self-center'>
-                                <p className='mb-4 text-center text-sm text-foreground/70 max-[1023px]:landscape:text-left'>
+                            <div className='w-full'>
+                                <p className='mb-4 text-center text-sm text-foreground/70'>
                                     {t(`items.${currentProject.key}.description`)}
                                 </p>
 
-                                <div className='flex justify-center gap-4 max-[1023px]:landscape:justify-start'>
+                                <div className='flex justify-center gap-4'>
                                     <Button>
                                         <a
                                             href={currentProject.liveUrl}
@@ -127,15 +112,6 @@ export default function ActiveProjects() {
                                 </div>
                             </div>
                         </div>
-
-                        <button
-                            onClick={nextProject}
-                            className='hidden rounded-full bg-foreground/10 p-3 text-foreground transition-all hover:scale-110 hover:bg-foreground/20 max-[1023px]:landscape:flex'
-                            aria-label={t('navigation.next')}
-                            disabled={isSliding}
-                        >
-                            <ChevronRight className='h-6 w-6' />
-                        </button>
                     </div>
                 </div>
             </section>

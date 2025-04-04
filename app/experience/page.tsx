@@ -42,7 +42,7 @@ export default async function ExperiencePage({ searchParams }: ExperiencePagePro
     );
 
     return (
-        <div className='flex h-[calc(100vh-68px)] flex-col items-center justify-center p-8 min-[1024px]:min-h-[calc(100vh-65px)] max-[1023px]:landscape:min-h-[calc(100vh-40px)]'>
+        <div className='flex h-[calc(100vh-68px)] flex-col items-center justify-center p-8 min-[1024px]:min-h-[calc(100vh-65px)] max-[1023px]:landscape:min-h-[calc(100vh-65px)]'>
             <div className='hidden h-full w-full flex-col lg:flex landscape:flex'>{horizontalTimeline}</div>
             <div className='flex h-full w-full flex-col lg:hidden landscape:hidden'>{verticalTimeline}</div>
         </div>
