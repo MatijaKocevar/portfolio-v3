@@ -30,7 +30,7 @@ export default function ActiveProjects() {
 
     return (
         <div className='flex h-[calc(100vh-64px)] w-full flex-col p-8 max-[1023px]:landscape:h-full max-[1023px]:landscape:justify-center'>
-            <div className='mb-4 flex items-center justify-between'>
+            <div className='mb-4 flex flex-wrap items-center justify-between gap-4'>
                 <button
                     onClick={prevProject}
                     className='rounded-full bg-primary/10 p-3 text-primary transition-all hover:scale-110 hover:bg-primary/20'
@@ -52,41 +52,24 @@ export default function ActiveProjects() {
                 </button>
             </div>
 
-            <section className='relative flex flex-1 justify-center overflow-hidden rounded-xl bg-background/95 pt-1'>
+            <section className='relative flex flex-1 justify-center overflow-hidden rounded-xl bg-background/95 pt-4'>
                 <div
                     className={`flex h-full w-full flex-col items-center transition-all duration-500 ease-in-out max-[1023px]:landscape:justify-center ${slideClass}`}
                 >
-                    <div className='flex h-full w-full flex-col items-center gap-4'>
-                        <div className='flex h-full w-full flex-col gap-4'>
-                            <div className='flex h-full w-full flex-col justify-center'>
-                                <div className='mb-4 flex flex-col items-center gap-2 text-center'>
-                                    <h2 className='text-2xl font-semibold'>{t(`items.${currentProject.key}.title`)}</h2>
-                                    {currentProject.wip && <span className='text-sm text-red-500'>{t('wip')}</span>}
-                                </div>
-
-                                <div className='relative mx-auto aspect-square max-h-[450px] min-h-[300px] w-full max-w-3xl landscape:aspect-auto landscape:h-[60vh] landscape:max-h-none landscape:min-h-0 landscape:w-[85%]'>
-                                    {imageLoading && <Skeleton className='mx-auto h-full w-full rounded-2xl' />}
-                                    <Image
-                                        src={currentProject.image}
-                                        alt={currentProject.key}
-                                        fill
-                                        sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
-                                        quality={85}
-                                        className={`rounded-2xl object-cover transition-opacity duration-300 ${
-                                            imageLoading ? 'opacity-0' : 'opacity-100'
-                                        }`}
-                                        priority
-                                        onLoad={() => setImageLoading(false)}
-                                    />
-                                </div>
+                    <div className='flex h-full w-full flex-col justify-evenly gap-4 max-[1023px]:landscape:flex-row'>
+                        {/* Project information - goes to the left in landscape mobile */}
+                        <div className='flex w-full flex-col justify-center max-[1023px]:landscape:w-[50%] max-[1023px]:landscape:pr-4'>
+                            <div className='mb-4 flex flex-col items-center gap-2 text-center max-[1023px]:landscape:items-start max-[1023px]:landscape:text-left'>
+                                <h2 className='text-2xl font-semibold'>{t(`items.${currentProject.key}.title`)}</h2>
+                                {currentProject.wip && <span className='text-sm text-red-500'>{t('wip')}</span>}
                             </div>
 
-                            <div className='w-full'>
-                                <p className='mb-4 text-center text-sm text-foreground/70'>
+                            <div className='w-full max-[1023px]:landscape:order-3'>
+                                <p className='mb-4 text-center text-sm text-foreground/70 max-[1023px]:landscape:text-left'>
                                     {t(`items.${currentProject.key}.description`)}
                                 </p>
 
-                                <div className='flex justify-center gap-4'>
+                                <div className='flex flex-wrap justify-center gap-4 max-[1023px]:landscape:justify-start'>
                                     <Button>
                                         <a
                                             href={currentProject.liveUrl}
@@ -111,6 +94,23 @@ export default function ActiveProjects() {
                                     </Button>
                                 </div>
                             </div>
+                        </div>
+
+                        {/* Project image - goes to the right in landscape mobile */}
+                        <div className='relative aspect-square max-h-[450px] min-h-[300px] max-w-3xl landscape:aspect-auto landscape:h-[60vh] landscape:max-h-none landscape:min-h-0 max-[1023px]:landscape:w-[50%]'>
+                            {imageLoading && <Skeleton className='mx-auto h-full w-full rounded-2xl' />}
+                            <Image
+                                src={currentProject.image}
+                                alt={currentProject.key}
+                                fill
+                                sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
+                                quality={85}
+                                className={`rounded-2xl object-cover transition-opacity duration-300 ${
+                                    imageLoading ? 'opacity-0' : 'opacity-100'
+                                }`}
+                                priority
+                                onLoad={() => setImageLoading(false)}
+                            />
                         </div>
                     </div>
                 </div>
