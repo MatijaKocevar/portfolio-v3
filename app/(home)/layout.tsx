@@ -19,5 +19,9 @@ export default async function HomeLayout({
 }: Readonly<{
     children: React.ReactNode;
 }>) {
-    return <div className='container mx-auto px-4'>{children}</div>;
+    return (
+        <div className='h-full' style={{ containerType: 'inline-size', containerName: 'home' }}>
+            {children}
+        </div>
+    );
 }

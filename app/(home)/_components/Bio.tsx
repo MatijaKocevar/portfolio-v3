@@ -11,13 +11,11 @@ export default function Bio() {
     const { techStack } = useBioData();
 
     return (
-        <div
-            className={`flex min-h-[calc(100vh-68px)] flex-col justify-around rounded-xl bg-background/95 min-[1024px]:min-h-[calc(100vh-65px)] max-[1023px]:landscape:min-h-[calc(100vh-40px)]`}
-        >
-            <div className='flex h-full flex-col gap-12 portrait:gap-8 max-[1023px]:landscape:flex-row max-[1023px]:landscape:gap-8'>
+        <div className={`flex flex-col justify-around rounded-xl bg-background/95`}>
+            <div className='flex h-full flex-col gap-12'>
                 <div className='flex flex-col items-center justify-center max-[1023px]:landscape:w-[45%]'>
                     <div className='mb-4 flex justify-center'>
-                        <div className='relative h-48 w-48 overflow-hidden rounded-full border-4 border-foreground/10 max-[1023px]:landscape:h-32 max-[1023px]:landscape:w-32'>
+                        <div className='relative h-48 w-48 overflow-hidden rounded-full border-4 border-foreground/10'>
                             <Image
                                 src='/images/me/384.webp'
                                 alt='Profile'
@@ -31,17 +29,15 @@ export default function Bio() {
                         </div>
                     </div>
                     <div className='text-center'>
-                        <h1 className='mb-4 text-4xl font-bold max-[1023px]:landscape:mb-2 max-[1023px]:landscape:text-2xl'>
-                            {t('role')}
-                        </h1>
-                        <p className='text-lg text-foreground/80 max-[1023px]:landscape:text-sm'>{t('tagline')}</p>
+                        <h1 className='mb-4 text-4xl font-bold'>{t('role')}</h1>
+                        <p className='text-lg text-foreground/80'>{t('tagline')}</p>
                     </div>
                 </div>
 
-                <div className='flex flex-col justify-between gap-6 max-[1023px]:landscape:w-[55%] max-[1023px]:landscape:py-4'>
+                <div className='flex flex-col justify-between gap-6'>
                     <Banner />
                     <div className='flex justify-center'>
-                        <div className='flex w-full max-w-xl flex-wrap justify-center gap-4 md:flex-nowrap md:justify-between md:gap-6 max-[1023px]:landscape:gap-2'>
+                        <div className='flex w-full max-w-xl flex-wrap justify-center gap-4'>
                             {techStack.map((tech) => (
                                 <div
                                     key={tech.name}

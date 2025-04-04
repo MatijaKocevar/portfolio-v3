@@ -29,7 +29,7 @@ export default function ActiveProjects() {
         : 'opacity-100 translate-x-0';
 
     return (
-        <div className='relative flex max-w-full flex-col overflow-x-hidden min-[1024px]:min-h-[600px]'>
+        <div className='relative flex max-w-full flex-col'>
             <div className='mb-4 flex items-center justify-between'>
                 <button
                     onClick={prevProject}
@@ -87,9 +87,9 @@ export default function ActiveProjects() {
                                         fill
                                         sizes='(max-width: 768px)'
                                         quality={85}
-                                        className={`mx-auto rounded-lg object-contain transition-opacity duration-300 ${
+                                        className={`rounded-lg object-contain transition-opacity duration-300 ${
                                             imageLoading ? 'opacity-0' : 'opacity-100'
-                                        } max-w-[90%]`}
+                                        } max-w-[100%]`}
                                         priority
                                         onLoad={() => setImageLoading(false)}
                                     />

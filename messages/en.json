@@ -23,7 +23,8 @@
         },
         "icon-192x192": {
             "png": "Badge"
-        }
+        },
+        "dashboard": "Dashboard"
     },
     "home": {
         "title": "Home",

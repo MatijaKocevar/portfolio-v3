@@ -4,14 +4,10 @@ import ActiveProjects from './_components/ActiveProjects';
 export default function Home() {
     return (
         <div
-            className={`flex min-h-full w-full flex-col items-center justify-between min-[1024px]:h-full min-[1024px]:flex-row min-[1024px]:gap-8 min-[1024px]:py-0`}
+            className={`flex h-full w-full flex-col gap-4 p-4 [@container(min-width:900px)]:flex-row [@container(min-width:900px)]:items-center [@container(min-width:900px)]:justify-evenly`}
         >
-            <div className='w-full overflow-x-hidden'>
-                <Bio />
-            </div>
-            <div className='w-full overflow-x-hidden'>
-                <ActiveProjects />
-            </div>
+            <Bio />
+            <ActiveProjects />
         </div>
     );
 }
