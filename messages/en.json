@@ -12,7 +12,7 @@
         }
     },
     "nav": {
-        "home": "Portfolio",
+        "home": "Home",
         "about": "About",
         "projects": "Projects",
         "education": "Education",
@@ -166,9 +166,9 @@
             "github": "GitHub"
         },
         "banner": {
-            "title": "New Portfolio Coming Soon!",
+            "title": "Redesign in progress!",
             "description": "I'm completely rebuilding my portfolio from scratch with some cool new features and a fresh design!",
-            "previousPortfolio": "While I work on this, you can view my previous portfolio at"
+            "previousPortfolio": "Switch to previous version "
         },
         "themeToggle": {
             "switchMode": "Switch to {mode} mode",
