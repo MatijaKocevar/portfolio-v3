@@ -26,16 +26,17 @@ export function ThemeModeToggle() {
 
     useEffect(() => {
         loadTheme();
+
         setMounted(true);
     }, [loadTheme]);
 
-    // Get current theme properties (safely)
     const currentThemeName = mounted ? theme?.split('-')[0] || 'default' : 'default';
     const currentMode = mounted ? theme?.split('-')[1] || 'light' : 'light';
     const currentColor = mounted ? getThemeColor(currentThemeName, currentMode) : undefined;
 
     const handleThemeChange = (newTheme: string) => {
         const newFullTheme = `${newTheme}-${currentMode}`;
+
         setTheme(newFullTheme);
         setCurrentTheme(newFullTheme);
     };
@@ -44,11 +45,11 @@ export function ThemeModeToggle() {
         if (!mounted) return;
         const newMode = currentMode === 'light' ? 'dark' : 'light';
         const newFullTheme = `${currentThemeName}-${newMode}`;
+
         setTheme(newFullTheme);
         setCurrentTheme(newFullTheme);
     };
 
-    // Always render both buttons to prevent layout shift
     return (
         <div className='flex items-center gap-2'>
             {!mounted ? (

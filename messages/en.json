@@ -6,7 +6,10 @@
         }
     },
     "common": {
-        "connect": "Connect"
+        "connect": "Connect",
+        "language": {
+            "toggle": "Change language"
+        }
     },
     "nav": {
         "home": "Home",

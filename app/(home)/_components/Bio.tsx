@@ -43,7 +43,7 @@ export default function Bio() {
                                 >
                                     <IconRenderer
                                         name={tech.name}
-                                        className='h-8 w-8 text-foreground transition-colors hover:text-foreground/80 md:h-10 md:w-10 max-[1023px]:landscape:h-7 max-[1023px]:landscape:w-7'
+                                        className='h-8 w-8 text-foreground transition-colors md:h-10 md:w-10 max-[1023px]:landscape:h-7 max-[1023px]:landscape:w-7'
                                     />
                                     <span className='whitespace-nowrap text-xs md:text-sm max-[1023px]:landscape:text-[10px]'>
                                         {tech.title}

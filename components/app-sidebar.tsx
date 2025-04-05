@@ -55,9 +55,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                             key={item.title}
                             href={item.url}
                             className={`flex h-10 w-full items-center px-4 text-sm ${
-                                isActive
-                                    ? 'bg-sidebar-accent font-medium text-sidebar-accent-foreground'
-                                    : 'text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground'
+                                isActive ? 'text-foreground' : 'text-muted-foreground hover:text-foreground'
                             }`}
                         >
                             {item.title}
