@@ -8,6 +8,9 @@ import { SidebarInset, SidebarTrigger } from '../components/ui/sidebar';
 
 import { Separator } from '../components/ui/separator';
 import Breadcrumbs from '../components/Breadcrumbs';
+import LanguageToggleButton from '../components/LanguageToggleButton';
+import { ThemeModeToggle } from '../components/ThemeModeToggle';
+import SocialLinks from '../components/SocialLinks';
 
 const geistSans = Geist({
     variable: '--font-geist-sans',
@@ -48,10 +51,21 @@ export default async function RootLayout({
                 <Providers messages={messages} locale={locale}>
                     <AppSidebar />
                     <SidebarInset>
-                        <header className='sticky top-0 z-50 flex h-16 shrink-0 items-center gap-2 border-b bg-background/80 px-4 backdrop-blur'>
-                            <SidebarTrigger className='-ml-1' />
-                            <Separator orientation='vertical' className='mr-2 h-4' />
-                            <Breadcrumbs />
+                        <header className='sticky top-0 z-50 flex h-16 shrink-0 items-center justify-between gap-2 border-b bg-background/80 px-4 backdrop-blur'>
+                            <div className='flex items-center gap-2'>
+                                <SidebarTrigger className='-ml-1' />
+                                <Separator orientation='vertical' className='mr-2 h-4' />
+                                <Breadcrumbs />
+                            </div>
+                            <div className='hidden items-center gap-4 md:flex'>
+                                <div className='flex items-center gap-4'>
+                                    <SocialLinks />
+                                </div>
+                                <div className='border-l pl-4'>
+                                    <LanguageToggleButton locale={locale} />
+                                </div>
+                                <ThemeModeToggle />
+                            </div>
                         </header>
                         <main className='relative flex-1 overflow-auto'>{children}</main>
                     </SidebarInset>

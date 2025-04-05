@@ -3,7 +3,11 @@
 import * as React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Sidebar, SidebarContent, SidebarHeader, SidebarRail } from '@/components/ui/sidebar';
+import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarRail } from '@/components/ui/sidebar';
+import { useLocale } from 'next-intl';
+import SocialLinks from './SocialLinks';
+import { ThemeModeToggle } from './ThemeModeToggle';
+import LanguageToggleButton from './LanguageToggleButton';
 
 // This is sample data.
 const data = {
@@ -34,6 +38,7 @@ const data = {
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
     const pathname = usePathname();
+    const locale = useLocale();
 
     return (
         <Sidebar {...props}>
@@ -50,7 +55,9 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                             key={item.title}
                             href={item.url}
                             className={`flex h-10 w-full items-center px-4 text-sm ${
-                                isActive ? 'text-foreground' : 'text-muted-foreground hover:text-foreground'
+                                isActive
+                                    ? 'bg-sidebar-accent font-medium text-sidebar-accent-foreground'
+                                    : 'text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground'
                             }`}
                         >
                             {item.title}
@@ -58,6 +65,17 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                     );
                 })}
             </SidebarContent>
+            <SidebarFooter className='border-t bg-background p-4 md:hidden'>
+                <div className='flex flex-col gap-4 bg-background'>
+                    <div className='flex items-center justify-between'>
+                        <LanguageToggleButton locale={locale} />
+                        <ThemeModeToggle />
+                    </div>
+                    <div className='flex items-center justify-center'>
+                        <SocialLinks />
+                    </div>
+                </div>
+            </SidebarFooter>
             <SidebarRail />
         </Sidebar>
     );
