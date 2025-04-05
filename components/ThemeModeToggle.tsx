@@ -65,6 +65,12 @@ export function ThemeModeToggle() {
                         onClick={toggleMode}
                         className='h-8 w-8 rounded-full'
                         disabled={!mounted}
+                        aria-label={t(`components.themeToggle.switchMode`, {
+                            mode:
+                                currentMode === 'dark'
+                                    ? t('components.themeToggle.light')
+                                    : t('components.themeToggle.dark'),
+                        })}
                     >
                         {currentMode === 'dark' ? (
                             <Sun className={`h-4 w-4 ${!mounted ? 'opacity-0' : ''}`} />
@@ -80,6 +86,7 @@ export function ThemeModeToggle() {
                                 size='icon'
                                 className='relative h-8 w-8 rounded-full text-foreground'
                                 style={currentColor && mounted ? { backgroundColor: currentColor } : undefined}
+                                aria-label={t('components.themeToggle.changeColor')}
                             >
                                 <Brush
                                     className={`h-[1.2rem] w-[1.2rem] ${mounted ? 'fill-foreground text-foreground' : 'opacity-0'}`}
@@ -93,6 +100,7 @@ export function ThemeModeToggle() {
                                         <div
                                             className='h-4 w-4 rounded-full'
                                             style={{ backgroundColor: theme[`${currentMode}Color` as ThemeColorKey] }}
+                                            aria-hidden='true'
                                         />
                                         {t(`themes.${theme.name}`)}
                                     </div>
