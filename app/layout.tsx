@@ -46,7 +46,7 @@ export default async function RootLayout({
     return (
         <html lang={locale} suppressHydrationWarning>
             <body
-                className={`${geistSans.variable} ${geistMono.variable} flex h-[100dvh] overflow-hidden bg-background text-foreground antialiased`}
+                className={`${geistSans.variable} ${geistMono.variable} flex h-[100dvh] bg-background text-foreground antialiased`}
             >
                 <Providers messages={messages} locale={locale}>
                     <AppSidebar />
