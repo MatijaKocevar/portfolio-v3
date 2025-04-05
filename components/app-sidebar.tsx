@@ -15,6 +15,7 @@ import { useLocale, useTranslations } from 'next-intl';
 import SocialLinks from './SocialLinks';
 import { ThemeModeToggle } from './ThemeModeToggle';
 import LanguageToggleButton from './LanguageToggleButton';
+import { useDeviceType } from '@/hooks/useDeviceType';
 
 const data = {
     navMain: [
@@ -46,6 +47,9 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
     const locale = useLocale();
     const t = useTranslations('nav');
     const { setOpenMobile, isMobile } = useSidebar();
+    const { isPortrait } = useDeviceType();
+
+    const sidebarSide = isMobile && isPortrait ? 'right' : 'left';
 
     const handleNavItemClick = () => {
         if (isMobile) {
@@ -54,7 +58,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
     };
 
     return (
-        <Sidebar {...props}>
+        <Sidebar side={sidebarSide} {...props}>
             <SidebarHeader className='h-16 items-center justify-center bg-background'>
                 <Link
                     href='/'

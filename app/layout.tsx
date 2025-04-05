@@ -52,19 +52,29 @@ export default async function RootLayout({
                     <AppSidebar />
                     <SidebarInset>
                         <header className='sticky top-0 z-50 flex h-16 shrink-0 items-center justify-between gap-2 border-b bg-background/80 px-4 backdrop-blur'>
-                            <div className='flex items-center gap-2'>
-                                <SidebarTrigger className='-ml-1' />
-                                <Separator orientation='vertical' className='mr-2 h-4' />
+                            <div className='flex items-center gap-2 md:flex'>
+                                <div className='hidden md:block'>
+                                    <SidebarTrigger className='-ml-1' />
+                                </div>
+                                <Separator orientation='vertical' className='mr-2 hidden h-4 md:block' />
                                 <Breadcrumbs />
                             </div>
-                            <div className='hidden items-center gap-4 md:flex'>
-                                <div className='flex items-center gap-4'>
-                                    <SocialLinks />
+                            <div className='flex items-center gap-4'>
+                                <div className='hidden items-center gap-4 md:flex'>
+                                    <div className='flex items-center gap-4'>
+                                        <SocialLinks />
+                                    </div>
+                                    <div className='border-l pl-4'>
+                                        <LanguageToggleButton locale={locale} />
+                                    </div>
+                                    <ThemeModeToggle />
                                 </div>
-                                <div className='border-l pl-4'>
-                                    <LanguageToggleButton locale={locale} />
+                                <div className='block md:hidden landscape:hidden'>
+                                    <SidebarTrigger className='-mr-1' />
                                 </div>
-                                <ThemeModeToggle />
+                                <div className='hidden md:hidden landscape:block'>
+                                    <SidebarTrigger className='-ml-1' />
+                                </div>
                             </div>
                         </header>
                         <main className='relative flex-1 overflow-auto'>{children}</main>
