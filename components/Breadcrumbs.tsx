@@ -34,7 +34,7 @@ const Breadcrumbs = () => {
                     <div key={segment.href} className='flex items-center gap-2'>
                         <ChevronRight className='h-4 w-4 text-muted-foreground' />
                         {index === pathSegments.length - 1 ? (
-                            <span className='text-primary'>{segment.name}</span>
+                            <span className='text-foreground'>{segment.name}</span>
                         ) : (
                             <Link
                                 scroll={false}

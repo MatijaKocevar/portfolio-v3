@@ -30,10 +30,10 @@ export default function ActiveProjects() {
 
     return (
         <div className='flex h-[calc(100vh-64px)] w-full flex-col p-4 max-[1023px]:landscape:h-full max-[1023px]:landscape:justify-center'>
-            <div className='mb-4 flex flex-wrap items-center justify-between gap-4'>
+            <div className='flex flex-wrap items-center justify-between gap-4'>
                 <button
                     onClick={prevProject}
-                    className='rounded-full bg-primary/10 p-3 text-primary transition-all hover:scale-110 hover:bg-primary/20'
+                    className='rounded-full bg-primary/10 p-4 text-primary transition-all hover:scale-110 hover:bg-primary/20'
                     aria-label={t('navigation.prev')}
                     disabled={isSliding}
                 >
@@ -44,7 +44,7 @@ export default function ActiveProjects() {
 
                 <button
                     onClick={nextProject}
-                    className='rounded-full bg-primary/10 p-3 text-primary transition-all hover:scale-110 hover:bg-primary/20'
+                    className='rounded-full bg-primary/10 p-4 text-primary transition-all hover:scale-110 hover:bg-primary/20'
                     aria-label={t('navigation.next')}
                     disabled={isSliding}
                 >
@@ -70,25 +70,25 @@ export default function ActiveProjects() {
                                 </p>
 
                                 <div className='flex flex-wrap justify-center gap-4'>
-                                    <Button>
+                                    <Button size='lg' className='min-h-12 min-w-[120px] p-0'>
                                         <a
                                             href={currentProject.liveUrl}
                                             target='_blank'
                                             rel='noopener noreferrer'
-                                            className='flex w-full items-center gap-2 rounded-md px-4 py-2 text-sm'
+                                            className='flex w-full items-center justify-center gap-2 p-4 text-base'
                                         >
-                                            <ExternalLink className='h-4 w-4' />
+                                            <ExternalLink className='h-5 w-5' />
                                             {t('links.demo')}
                                         </a>
                                     </Button>
-                                    <Button>
+                                    <Button size='lg' className='min-h-12 min-w-[120px] p-0'>
                                         <a
                                             href={currentProject.githubUrl}
                                             target='_blank'
                                             rel='noopener noreferrer'
-                                            className='flex w-full items-center gap-2 rounded-md px-4 py-2 text-sm'
+                                            className='flex w-full items-center justify-center gap-2 p-4 text-base'
                                         >
-                                            <Github className='h-4 w-4' />
+                                            <Github className='h-5 w-5' />
                                             {t('links.code')}
                                         </a>
                                     </Button>
