@@ -1,7 +1,22 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
+import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server';
 
-export function middleware(request: NextRequest) {
+const isPublicRoute = createRouteMatcher([
+    '/',
+    '/about',
+    '/experience',
+    '/interests',
+    '/projects',
+    '/skills',
+    '/sign-in(.*)',
+    '/sign-up(.*)',
+    '/api/push(.*)',
+    '/api/scores(.*)',
+    '/api/tasks(.*)',
+]);
+
+function corsMiddleware(request: NextRequest) {
     const origin = request.headers.get('origin') || '';
 
     const allowedOrigins = [
@@ -14,7 +29,6 @@ export function middleware(request: NextRequest) {
 
     const isAllowedOrigin = allowedOrigins.includes(origin) || !origin;
 
-    // Handle preflight requests
     if (request.method === 'OPTIONS') {
         const response = new NextResponse(null, { status: 204 });
         response.headers.set('Access-Control-Allow-Origin', isAllowedOrigin ? origin : allowedOrigins[0]);
@@ -34,6 +48,18 @@ export function middleware(request: NextRequest) {
     return response;
 }
 
+export default clerkMiddleware((auth, req) => {
+    if (req.method === 'OPTIONS') {
+        return corsMiddleware(req);
+    }
+
+    if (!isPublicRoute(req)) {
+        auth.protect();
+    }
+
+    return corsMiddleware(req);
+});
+
 export const config = {
-    matcher: '/api/:path*',
+    matcher: ['/api/:path*', '/((?!_next|images|icons|.*\\.[\\w]+$).*)'],
 };

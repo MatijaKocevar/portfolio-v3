@@ -16,6 +16,7 @@ import SocialLinks from './SocialLinks';
 import { ThemeModeToggle } from './ThemeModeToggle';
 import LanguageToggleButton from './LanguageToggleButton';
 import { useDeviceType } from '@/hooks/useDeviceType';
+import { AuthButton } from './AuthButton';
 
 const data = {
     navMain: [
@@ -59,7 +60,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
 
     return (
         <Sidebar side={sidebarSide} {...props}>
-            <SidebarHeader className='h-16 items-center justify-center bg-background'>
+            <SidebarHeader className='h-16 flex-row items-center justify-center bg-background'>
                 <Link
                     href='/'
                     className={`text-xl font-bold text-foreground hover:text-primary`}
@@ -86,14 +87,15 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                     );
                 })}
             </SidebarContent>
-            <SidebarFooter className='border-t bg-background p-4 md:hidden'>
+            <SidebarFooter className='border-t bg-background p-4'>
                 <div className='flex flex-col gap-4 bg-background'>
                     <div className='flex items-center justify-between'>
                         <LanguageToggleButton locale={locale} />
                         <ThemeModeToggle />
                     </div>
-                    <div className='flex items-center justify-center'>
+                    <div className='flex items-center justify-between md:justify-center'>
                         <SocialLinks />
+                        <AuthButton className='md:hidden' />
                     </div>
                 </div>
             </SidebarFooter>
