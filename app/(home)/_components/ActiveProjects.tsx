@@ -29,7 +29,7 @@ export default function ActiveProjects() {
         : 'opacity-100 translate-x-0';
 
     return (
-        <div className='flex h-[calc(100vh-64px)] w-full flex-col p-4 max-[1023px]:landscape:h-full max-[1023px]:landscape:justify-center'>
+        <div className='flex h-[calc(100vh-64px)] w-full flex-col p-4 lg:p-8 max-[1023px]:landscape:h-full max-[1023px]:landscape:justify-center'>
             <div className='flex flex-wrap items-center justify-between gap-4'>
                 <button
                     onClick={prevProject}
@@ -97,7 +97,7 @@ export default function ActiveProjects() {
                         </div>
 
                         {/* Project image - goes to the right in landscape mobile */}
-                        <div className='relative aspect-square max-h-[450px] min-h-[300px] w-full max-w-3xl landscape:aspect-auto landscape:h-[60vh] landscape:max-h-none landscape:min-h-0 max-[1023px]:landscape:w-[50%]'>
+                        <div className='relative aspect-square max-h-[450px] min-h-[300px] w-full landscape:aspect-auto landscape:h-[60vh] landscape:max-h-none landscape:min-h-0 max-[1023px]:landscape:w-[50%]'>
                             {imageLoading && <Skeleton className='mx-auto h-full w-full rounded-2xl' />}
                             <Image
                                 src={currentProject.image}

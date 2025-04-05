@@ -11,7 +11,7 @@ export default function Bio() {
     const { techStack } = useBioData();
 
     return (
-        <div className='flex h-[calc(100vh-64px)] w-full flex-col items-center justify-center p-4 max-[1023px]:landscape:min-h-[calc(100vh-64px)]'>
+        <div className='flex h-[calc(100vh-64px)] w-full flex-col items-center justify-center p-4 lg:p-8 max-[1023px]:landscape:min-h-[calc(100vh-64px)]'>
             <div className='flex h-full w-full flex-col justify-center gap-4 max-[1023px]:landscape:flex-row max-[1023px]:landscape:justify-between'>
                 <div className='flex flex-col items-center justify-center gap-4 max-[1023px]:landscape:w-[45%]'>
                     <div className='relative h-32 w-32 overflow-hidden rounded-full md:h-48 md:w-48 max-[1023px]:landscape:h-24 max-[1023px]:landscape:w-24'>
