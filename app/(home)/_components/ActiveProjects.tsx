@@ -52,11 +52,11 @@ export default function ActiveProjects() {
                 </button>
             </div>
 
-            <section className='flex justify-center overflow-hidden rounded-xl bg-background/95 pt-4'>
+            <section className='flex h-full justify-center overflow-hidden rounded-xl bg-background/95 pt-4 lg:h-auto'>
                 <div
                     className={`flex w-full flex-col items-center transition-all duration-500 ease-in-out max-[1023px]:landscape:justify-center ${slideClass}`}
                 >
-                    <div className='flex w-full flex-col items-center justify-center gap-8 max-[1023px]:landscape:flex-row'>
+                    <div className='flex h-full w-full flex-col items-center justify-center gap-8 max-[1023px]:landscape:flex-row'>
                         {/* Project information - goes to the left in landscape mobile */}
                         <div className='flex w-full flex-col justify-center max-[1023px]:landscape:w-[50%]'>
                             <div className='mb-4 flex flex-col items-center gap-2 text-center max-[1023px]:landscape:items-center max-[1023px]:landscape:text-center'>
