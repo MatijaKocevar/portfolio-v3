@@ -29,8 +29,8 @@ export default function ActiveProjects() {
         : 'opacity-100 translate-x-0';
 
     return (
-        <div className='flex h-[calc(100vh-64px)] w-full flex-col p-4 lg:p-8 max-[1023px]:landscape:h-full max-[1023px]:landscape:justify-center'>
-            <div className='flex flex-wrap items-center justify-between gap-4'>
+        <div className='flex h-[calc(100vh-64px)] w-full flex-col justify-center p-4 lg:p-8 max-[1023px]:landscape:h-full max-[1023px]:landscape:justify-center'>
+            <div className='flex items-center justify-between gap-4'>
                 <button
                     onClick={prevProject}
                     className='rounded-full bg-primary/10 p-4 text-primary transition-all hover:scale-110 hover:bg-primary/20'
@@ -52,11 +52,11 @@ export default function ActiveProjects() {
                 </button>
             </div>
 
-            <section className='relative flex flex-1 justify-center overflow-hidden rounded-xl bg-background/95 pt-4'>
+            <section className='flex justify-center overflow-hidden rounded-xl bg-background/95 pt-4'>
                 <div
-                    className={`flex h-full w-full flex-col items-center transition-all duration-500 ease-in-out max-[1023px]:landscape:justify-center ${slideClass}`}
+                    className={`flex w-full flex-col items-center transition-all duration-500 ease-in-out max-[1023px]:landscape:justify-center ${slideClass}`}
                 >
-                    <div className='flex h-full w-full flex-col items-center justify-evenly gap-4 max-[1023px]:landscape:flex-row'>
+                    <div className='flex w-full flex-col items-center justify-center gap-8 max-[1023px]:landscape:flex-row'>
                         {/* Project information - goes to the left in landscape mobile */}
                         <div className='flex w-full flex-col justify-center max-[1023px]:landscape:w-[50%]'>
                             <div className='mb-4 flex flex-col items-center gap-2 text-center max-[1023px]:landscape:items-center max-[1023px]:landscape:text-center'>
