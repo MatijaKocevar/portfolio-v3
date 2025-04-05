@@ -78,7 +78,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                             href={item.url}
                             onClick={handleNavItemClick}
                             className={`flex h-10 w-full items-center px-4 text-sm ${
-                                isActive ? 'text-foreground' : 'text-muted-foreground hover:text-foreground'
+                                isActive ? 'text-primary' : 'text-muted-foreground hover:text-foreground'
                             }`}
                         >
                             {t(item.title)}

@@ -12,7 +12,7 @@
         }
     },
     "nav": {
-        "home": "Portfolio",
+        "home": "Domača stran",
         "about": "O meni",
         "projects": "Projekti",
         "education": "Izobrazba",
@@ -162,9 +162,9 @@
             "github": "GitHub"
         },
         "banner": {
-            "title": "Nova Portfolio Stran Prihaja Kmalu!",
+            "title": "Preoblikovanje v teku!",
             "description": "Svoj portfelj popolnoma preurejam z novimi funkcijami in svežo obliko!",
-            "previousPortfolio": "Medtem si lahko ogledate moj prejšnji portfelj na"
+            "previousPortfolio": "Preklopi na prejšnjo verzijo"
         },
         "themeToggle": {
             "switchMode": "Preklopi na {mode} način",

@@ -1,6 +1,6 @@
 'use client';
 
-import { ChevronRight } from 'lucide-react';
+import { ChevronRight, Home } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useTranslations } from 'next-intl';
@@ -22,33 +22,47 @@ const Breadcrumbs = () => {
             href: `/${segment}`,
         }));
 
-    return (
-        <div className='flex items-center gap-2 text-sm'>
-            {pathname === '/' ? (
-                <div className='flex items-center gap-2'>
-                    <ChevronRight className='h-4 w-4 text-muted-foreground' />
-                    <span className='text-primary'>{t('nav.home')}</span>
-                </div>
+    const breadcrumbs = [];
+
+    if (pathname === '/') {
+        breadcrumbs.push(
+            <div key='home' className='flex items-center gap-2'>
+                <span className='text-primary'>
+                    <Home className='h-4 w-4' />
+                </span>
+                {/* <ChevronRight className='h-4 w-4 text-muted-foreground' /> */}
+                <span className='text-primary'>{t('nav.home')}</span>
+            </div>,
+        );
+    } else {
+        breadcrumbs.push(
+            <div key='home' className='flex items-center gap-2'>
+                <Link scroll={false} href='/' className='text-muted-foreground hover:text-primary'>
+                    <Home className='h-4 w-4' />
+                </Link>
+            </div>,
+        );
+
+        pathSegments.forEach((segment, index) => {
+            const isLastSegment = index === pathSegments.length - 1;
+            const segmentElement = isLastSegment ? (
+                <span className='text-primary'>{segment.name}</span>
             ) : (
-                pathSegments.map((segment, index) => (
-                    <div key={segment.href} className='flex items-center gap-2'>
-                        <ChevronRight className='h-4 w-4 text-muted-foreground' />
-                        {index === pathSegments.length - 1 ? (
-                            <span className='text-foreground'>{segment.name}</span>
-                        ) : (
-                            <Link
-                                scroll={false}
-                                href={segment.href}
-                                className='text-muted-foreground hover:text-primary'
-                            >
-                                {segment.name}
-                            </Link>
-                        )}
-                    </div>
-                ))
-            )}
-        </div>
-    );
+                <Link scroll={false} href={segment.href} className='text-muted-foreground hover:text-primary'>
+                    {segment.name}
+                </Link>
+            );
+
+            breadcrumbs.push(
+                <div key={segment.href} className='flex items-center gap-2'>
+                    <ChevronRight className='h-4 w-4 text-muted-foreground' />
+                    {segmentElement}
+                </div>,
+            );
+        });
+    }
+
+    return <div className='flex items-center gap-2 text-sm'>{breadcrumbs}</div>;
 };
 
 export default Breadcrumbs;

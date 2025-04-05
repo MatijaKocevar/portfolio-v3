@@ -3,7 +3,7 @@ import './globals.css';
 import { getLocale, getMessages, getTranslations } from 'next-intl/server';
 import { MetaLocaleParams } from '../types/locale';
 import Providers from '@/providers/Providers';
-import { AppSidebar } from '../components/app-sidebar';
+import { AppSidebar } from '../components/AppSidebar';
 import { SidebarInset, SidebarTrigger } from '../components/ui/sidebar';
 
 import { Separator } from '../components/ui/separator';
@@ -69,11 +69,8 @@ export default async function RootLayout({
                                     </div>
                                     <ThemeModeToggle />
                                 </div>
-                                <div className='block md:hidden landscape:hidden'>
+                                <div className='block md:hidden'>
                                     <SidebarTrigger className='-mr-1' />
-                                </div>
-                                <div className='hidden md:hidden landscape:block'>
-                                    <SidebarTrigger className='-ml-1' />
                                 </div>
                             </div>
                         </header>
