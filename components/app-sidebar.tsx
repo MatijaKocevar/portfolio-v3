@@ -3,34 +3,39 @@
 import * as React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarRail } from '@/components/ui/sidebar';
-import { useLocale } from 'next-intl';
+import {
+    Sidebar,
+    SidebarContent,
+    SidebarFooter,
+    SidebarHeader,
+    SidebarRail,
+    useSidebar,
+} from '@/components/ui/sidebar';
+import { useLocale, useTranslations } from 'next-intl';
 import SocialLinks from './SocialLinks';
 import { ThemeModeToggle } from './ThemeModeToggle';
 import LanguageToggleButton from './LanguageToggleButton';
 
-// This is sample data.
 const data = {
-    versions: ['1.0.1', '1.1.0-alpha', '2.0.0-beta1'],
     navMain: [
         {
-            title: 'About',
+            title: 'about',
             url: '/about',
         },
         {
-            title: 'Experience',
+            title: 'experience',
             url: '/experience',
         },
         {
-            title: 'Projects',
+            title: 'projects',
             url: '/projects',
         },
         {
-            title: 'Skills',
+            title: 'skills',
             url: '/skills',
         },
         {
-            title: 'Interests',
+            title: 'interests',
             url: '/interests',
         },
     ],
@@ -39,11 +44,24 @@ const data = {
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
     const pathname = usePathname();
     const locale = useLocale();
+    const t = useTranslations('nav');
+    const { setOpenMobile, isMobile } = useSidebar();
+
+    const handleNavItemClick = () => {
+        if (isMobile) {
+            setOpenMobile(false);
+        }
+    };
 
     return (
         <Sidebar {...props}>
             <SidebarHeader className='h-16 items-center justify-center bg-background'>
-                <Link href='/' className={`text-xl font-bold text-foreground hover:text-primary`} scroll={false}>
+                <Link
+                    href='/'
+                    className={`text-xl font-bold text-foreground hover:text-primary`}
+                    scroll={false}
+                    onClick={handleNavItemClick}
+                >
                     Matija Kočevar
                 </Link>
             </SidebarHeader>
@@ -54,11 +72,12 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                         <Link
                             key={item.title}
                             href={item.url}
+                            onClick={handleNavItemClick}
                             className={`flex h-10 w-full items-center px-4 text-sm ${
                                 isActive ? 'text-foreground' : 'text-muted-foreground hover:text-foreground'
                             }`}
                         >
-                            {item.title}
+                            {t(item.title)}
                         </Link>
                     );
                 })}

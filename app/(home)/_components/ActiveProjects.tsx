@@ -56,26 +56,26 @@ export default function ActiveProjects() {
                 <div
                     className={`flex h-full w-full flex-col items-center transition-all duration-500 ease-in-out max-[1023px]:landscape:justify-center ${slideClass}`}
                 >
-                    <div className='flex h-full w-full flex-col justify-evenly gap-4 max-[1023px]:landscape:flex-row'>
+                    <div className='flex h-full w-full flex-col items-center justify-evenly gap-4 max-[1023px]:landscape:flex-row'>
                         {/* Project information - goes to the left in landscape mobile */}
-                        <div className='flex w-full flex-col justify-center max-[1023px]:landscape:w-[50%] max-[1023px]:landscape:pr-4'>
-                            <div className='mb-4 flex flex-col items-center gap-2 text-center max-[1023px]:landscape:items-start max-[1023px]:landscape:text-left'>
+                        <div className='flex w-full flex-col justify-center max-[1023px]:landscape:w-[50%]'>
+                            <div className='mb-4 flex flex-col items-center gap-2 text-center max-[1023px]:landscape:items-center max-[1023px]:landscape:text-center'>
                                 <h2 className='text-2xl font-semibold'>{t(`items.${currentProject.key}.title`)}</h2>
                                 {currentProject.wip && <span className='text-sm text-red-500'>{t('wip')}</span>}
                             </div>
 
                             <div className='w-full max-[1023px]:landscape:order-3'>
-                                <p className='mb-4 text-center text-sm text-foreground/70 max-[1023px]:landscape:text-left'>
+                                <p className='mb-4 text-center text-sm text-foreground/70 max-[1023px]:landscape:text-center'>
                                     {t(`items.${currentProject.key}.description`)}
                                 </p>
 
-                                <div className='flex flex-wrap justify-center gap-4 max-[1023px]:landscape:justify-start'>
+                                <div className='flex flex-wrap justify-center gap-4'>
                                     <Button>
                                         <a
                                             href={currentProject.liveUrl}
                                             target='_blank'
                                             rel='noopener noreferrer'
-                                            className='flex items-center gap-2 rounded-md px-4 py-2 text-sm'
+                                            className='flex w-full items-center gap-2 rounded-md px-4 py-2 text-sm'
                                         >
                                             <ExternalLink className='h-4 w-4' />
                                             {t('links.demo')}
@@ -86,7 +86,7 @@ export default function ActiveProjects() {
                                             href={currentProject.githubUrl}
                                             target='_blank'
                                             rel='noopener noreferrer'
-                                            className='flex items-center gap-2 rounded-md px-4 py-2 text-sm'
+                                            className='flex w-full items-center gap-2 rounded-md px-4 py-2 text-sm'
                                         >
                                             <Github className='h-4 w-4' />
                                             {t('links.code')}
@@ -97,7 +97,7 @@ export default function ActiveProjects() {
                         </div>
 
                         {/* Project image - goes to the right in landscape mobile */}
-                        <div className='relative aspect-square max-h-[450px] min-h-[300px] max-w-3xl landscape:aspect-auto landscape:h-[60vh] landscape:max-h-none landscape:min-h-0 max-[1023px]:landscape:w-[50%]'>
+                        <div className='relative aspect-square max-h-[450px] min-h-[300px] w-full max-w-3xl landscape:aspect-auto landscape:h-[60vh] landscape:max-h-none landscape:min-h-0 max-[1023px]:landscape:w-[50%]'>
                             {imageLoading && <Skeleton className='mx-auto h-full w-full rounded-2xl' />}
                             <Image
                                 src={currentProject.image}
