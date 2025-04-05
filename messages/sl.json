@@ -6,9 +6,13 @@
         }
     },
     "common": {
-        "connect": "Poveži se"
+        "connect": "Poveži se",
+        "language": {
+            "toggle": "izberi jezik"
+        }
     },
     "nav": {
+        "home": "Portfolio",
         "about": "O meni",
         "projects": "Projekti",
         "education": "Izobrazba",
