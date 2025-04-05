@@ -29,7 +29,7 @@ export default function ActiveProjects() {
         : 'opacity-100 translate-x-0';
 
     return (
-        <div className='flex h-[calc(100vh-64px)] w-full flex-col p-8 max-[1023px]:landscape:h-full max-[1023px]:landscape:justify-center'>
+        <div className='flex h-[calc(100vh-64px)] w-full flex-col p-4 max-[1023px]:landscape:h-full max-[1023px]:landscape:justify-center'>
             <div className='mb-4 flex flex-wrap items-center justify-between gap-4'>
                 <button
                     onClick={prevProject}
