@@ -1,9 +1,16 @@
 import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
-import Navigation from '@/components/Navigation';
 import { getLocale, getMessages, getTranslations } from 'next-intl/server';
 import { MetaLocaleParams } from '../types/locale';
 import Providers from '@/providers/Providers';
+import { AppSidebar } from '../components/app-sidebar';
+import { SidebarInset, SidebarTrigger } from '../components/ui/sidebar';
+
+import { Separator } from '../components/ui/separator';
+import Breadcrumbs from '../components/Breadcrumbs';
+import LanguageToggleButton from '../components/LanguageToggleButton';
+import { ThemeModeToggle } from '../components/ThemeModeToggle';
+import SocialLinks from '../components/SocialLinks';
 
 const geistSans = Geist({
     variable: '--font-geist-sans',
@@ -37,17 +44,31 @@ export default async function RootLayout({
     const locale = await getLocale();
 
     return (
-        <html lang={locale} className='h-full' suppressHydrationWarning>
+        <html lang={locale} suppressHydrationWarning>
             <body
-                className={`${geistSans.variable} ${geistMono.variable} h-full bg-background text-foreground antialiased`}
+                className={`${geistSans.variable} ${geistMono.variable} flex h-[100dvh] overflow-hidden bg-background text-foreground antialiased`}
             >
                 <Providers messages={messages} locale={locale}>
-                    <div className='flex h-full flex-col'>
-                        <Navigation locale={locale} />
-                        <main className='flex flex-1 pt-[68px] min-[1024px]:pt-[64px] max-[1023px]:landscape:pt-[40px]'>
-                            {children}
-                        </main>
-                    </div>
+                    <AppSidebar />
+                    <SidebarInset>
+                        <header className='sticky top-0 z-50 flex h-16 shrink-0 items-center justify-between gap-2 border-b bg-background/80 px-4 backdrop-blur'>
+                            <div className='flex items-center gap-2'>
+                                <SidebarTrigger className='-ml-1' />
+                                <Separator orientation='vertical' className='mr-2 h-4' />
+                                <Breadcrumbs />
+                            </div>
+                            <div className='hidden items-center gap-4 md:flex'>
+                                <div className='flex items-center gap-4'>
+                                    <SocialLinks />
+                                </div>
+                                <div className='border-l pl-4'>
+                                    <LanguageToggleButton locale={locale} />
+                                </div>
+                                <ThemeModeToggle />
+                            </div>
+                        </header>
+                        <main className='relative flex-1 overflow-auto'>{children}</main>
+                    </SidebarInset>
                 </Providers>
             </body>
         </html>

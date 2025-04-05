@@ -6,9 +6,13 @@
         }
     },
     "common": {
-        "connect": "Poveži se"
+        "connect": "Poveži se",
+        "language": {
+            "toggle": "izberi jezik"
+        }
     },
     "nav": {
+        "home": "Portfolio",
         "about": "O meni",
         "projects": "Projekti",
         "education": "Izobrazba",
@@ -17,7 +21,10 @@
         "interests": "Interesi & hobiji",
         "openGithub": "Odpri GitHub",
         "openLinkedIn": "Odpri LinkedIn",
-        "openResume": "Odpri življenjepis"
+        "openResume": "Odpri življenjepis",
+        "icon-192x192": {
+            "png": "Badge"
+        }
     },
     "home": {
         "title": "Domov",

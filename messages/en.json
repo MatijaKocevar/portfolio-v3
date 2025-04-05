@@ -6,9 +6,13 @@
         }
     },
     "common": {
-        "connect": "Connect"
+        "connect": "Connect",
+        "language": {
+            "toggle": "Change language"
+        }
     },
     "nav": {
+        "home": "Home",
         "about": "About",
         "projects": "Projects",
         "education": "Education",
@@ -20,7 +24,11 @@
         "openResume": "Open Resume",
         "service-worker": {
             "js": "Service Worker"
-        }
+        },
+        "icon-192x192": {
+            "png": "Badge"
+        },
+        "dashboard": "Dashboard"
     },
     "home": {
         "title": "Home",

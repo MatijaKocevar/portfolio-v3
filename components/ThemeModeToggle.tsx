@@ -14,76 +14,94 @@ import {
 } from '@/components/ui/dropdown-menu';
 import useThemeStore from '../store/useThemeStore';
 import { useEffect, useState } from 'react';
+import { Skeleton } from './ui/skeleton';
 
 type ThemeColorKey = 'lightColor' | 'darkColor';
 
 export function ThemeModeToggle() {
     const t = useTranslations();
-    const { resolvedTheme, theme, setTheme } = useTheme();
+    const { theme, setTheme } = useTheme();
     const { baseThemes, getThemeColor, setCurrentTheme, loadTheme } = useThemeStore();
     const [mounted, setMounted] = useState(false);
 
     useEffect(() => {
         loadTheme();
+
         setMounted(true);
     }, [loadTheme]);
 
-    if (!mounted || !resolvedTheme) {
-        return (
-            <Button variant='outline' size='icon' className='relative h-8 w-8 rounded-full bg-transparent'>
-                <Brush className='h-[1.2rem] w-[1.2rem] text-transparent' />
-            </Button>
-        );
-    }
-
-    const currentThemeName = theme?.split('-')[0] || 'default';
-    const currentMode = theme?.split('-')[1] || 'light';
-    const currentColor = getThemeColor(currentThemeName, currentMode);
+    const currentThemeName = mounted ? theme?.split('-')[0] || 'default' : 'default';
+    const currentMode = mounted ? theme?.split('-')[1] || 'light' : 'light';
+    const currentColor = mounted ? getThemeColor(currentThemeName, currentMode) : undefined;
 
     const handleThemeChange = (newTheme: string) => {
         const newFullTheme = `${newTheme}-${currentMode}`;
+
         setTheme(newFullTheme);
         setCurrentTheme(newFullTheme);
     };
 
     const toggleMode = () => {
+        if (!mounted) return;
         const newMode = currentMode === 'light' ? 'dark' : 'light';
         const newFullTheme = `${currentThemeName}-${newMode}`;
+
         setTheme(newFullTheme);
         setCurrentTheme(newFullTheme);
     };
 
     return (
         <div className='flex items-center gap-2'>
-            <Button variant='ghost' size='icon' onClick={toggleMode} className='h-8 w-8 rounded-full'>
-                {currentMode === 'dark' ? <Sun className='h-4 w-4' /> : <Moon className='h-4 w-4' />}
-            </Button>
-
-            <DropdownMenu>
-                <DropdownMenuTrigger asChild>
+            {!mounted ? (
+                <>
+                    <Skeleton className='h-8 w-8 rounded-full' />
+                    <Skeleton className='h-8 w-8 rounded-full' />
+                </>
+            ) : (
+                <>
                     <Button
-                        variant='outline'
+                        variant='ghost'
                         size='icon'
-                        className='relative h-8 w-8 rounded-full text-foreground'
-                        style={currentColor ? { backgroundColor: currentColor } : undefined}
+                        onClick={toggleMode}
+                        className='h-8 w-8 rounded-full'
+                        disabled={!mounted}
                     >
-                        <Brush className='h-[1.2rem] w-[1.2rem] fill-foreground text-foreground' />
+                        {currentMode === 'dark' ? (
+                            <Sun className={`h-4 w-4 ${!mounted ? 'opacity-0' : ''}`} />
+                        ) : (
+                            <Moon className={`h-4 w-4 ${!mounted ? 'opacity-0' : ''}`} />
+                        )}
                     </Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent align='end'>
-                    {baseThemes.map((theme) => (
-                        <DropdownMenuItem key={theme.name} onClick={() => handleThemeChange(theme.name)}>
-                            <div className='flex items-center gap-2'>
-                                <div
-                                    className='h-4 w-4 rounded-full'
-                                    style={{ backgroundColor: theme[`${currentMode}Color` as ThemeColorKey] }}
+
+                    <DropdownMenu>
+                        <DropdownMenuTrigger asChild disabled={!mounted}>
+                            <Button
+                                variant='outline'
+                                size='icon'
+                                className='relative h-8 w-8 rounded-full text-foreground'
+                                style={currentColor && mounted ? { backgroundColor: currentColor } : undefined}
+                            >
+                                <Brush
+                                    className={`h-[1.2rem] w-[1.2rem] ${mounted ? 'fill-foreground text-foreground' : 'opacity-0'}`}
                                 />
-                                {t(`themes.${theme.name}`)}
-                            </div>
-                        </DropdownMenuItem>
-                    ))}
-                </DropdownMenuContent>
-            </DropdownMenu>
+                            </Button>
+                        </DropdownMenuTrigger>
+                        <DropdownMenuContent align='end'>
+                            {baseThemes.map((theme) => (
+                                <DropdownMenuItem key={theme.name} onClick={() => handleThemeChange(theme.name)}>
+                                    <div className='flex items-center gap-2'>
+                                        <div
+                                            className='h-4 w-4 rounded-full'
+                                            style={{ backgroundColor: theme[`${currentMode}Color` as ThemeColorKey] }}
+                                        />
+                                        {t(`themes.${theme.name}`)}
+                                    </div>
+                                </DropdownMenuItem>
+                            ))}
+                        </DropdownMenuContent>
+                    </DropdownMenu>
+                </>
+            )}
         </div>
     );
 }
