@@ -8,9 +8,7 @@ import { SidebarInset, SidebarTrigger } from '../components/ui/sidebar';
 
 import { Separator } from '../components/ui/separator';
 import Breadcrumbs from '../components/Breadcrumbs';
-import LanguageToggleButton from '../components/LanguageToggleButton';
-import { ThemeModeToggle } from '../components/ThemeModeToggle';
-import SocialLinks from '../components/SocialLinks';
+import { AuthButton } from '../components/AuthButton';
 
 const geistSans = Geist({
     variable: '--font-geist-sans',
@@ -60,14 +58,8 @@ export default async function RootLayout({
                                 <Breadcrumbs />
                             </div>
                             <div className='flex items-center gap-4'>
-                                <div className='hidden items-center gap-4 md:flex'>
-                                    <div className='flex items-center gap-4'>
-                                        <SocialLinks />
-                                    </div>
-                                    <div className='border-l pl-4'>
-                                        <LanguageToggleButton locale={locale} />
-                                    </div>
-                                    <ThemeModeToggle />
+                                <div className='hidden items-center gap-4 lg:flex'>
+                                    <AuthButton />
                                 </div>
                                 <div className='block md:hidden'>
                                     <SidebarTrigger className='-mr-1' />

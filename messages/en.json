@@ -22,6 +22,9 @@
         "openGithub": "Open GitHub",
         "openLinkedIn": "Open LinkedIn",
         "openResume": "Open Resume",
+        "sign-in": "Sign in",
+        "sign-up": "Sign up",
+        "factor-one": "Factor One",
         "service-worker": {
             "js": "Service Worker"
         },
