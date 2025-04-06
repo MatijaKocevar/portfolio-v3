@@ -36,12 +36,10 @@ export default function MobileTimelineDialog({ id }: { id?: string }) {
 
     return (
         <Dialog aria-modal open={!!id} onOpenChange={handleOpenChange}>
-            <DialogContent className='h-[80vh] overflow-y-auto'>
+            <DialogContent className='h-[80vh] overflow-y-auto rounded-lg'>
                 <DialogHeader>
                     <DialogTitle>
-                        <span>
-                            {t('timeline.position')}: {experienceItem?.name}
-                        </span>
+                        <span>{experienceItem?.name}</span>
                     </DialogTitle>
                     <DialogDescription>
                         <span>{experienceItem?.dateRange[0].getFullYear()}</span>
