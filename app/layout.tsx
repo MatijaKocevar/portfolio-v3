@@ -5,7 +5,7 @@ import { MetaLocaleParams } from '../types/locale';
 import Providers from '@/providers/Providers';
 import { AppSidebar } from '../components/AppSidebar';
 import { SidebarInset, SidebarTrigger } from '../components/ui/sidebar';
-
+import { currentUser } from '@clerk/nextjs/server';
 import { Separator } from '../components/ui/separator';
 import Breadcrumbs from '../components/Breadcrumbs';
 import { AuthButton } from '../components/AuthButton';
@@ -41,13 +41,17 @@ export default async function RootLayout({
     const messages = await getMessages();
     const locale = await getLocale();
 
+    // Get user authentication status on the server
+    const user = await currentUser();
+    const isLoggedIn = !!user;
+
     return (
         <html lang={locale} suppressHydrationWarning>
             <body
                 className={`${geistSans.variable} ${geistMono.variable} flex h-[100dvh] bg-background text-foreground antialiased`}
             >
                 <Providers messages={messages} locale={locale}>
-                    <AppSidebar />
+                    <AppSidebar isLoggedIn={isLoggedIn} />
                     <SidebarInset>
                         <header className='sticky top-0 z-50 flex h-16 shrink-0 items-center justify-between gap-2 border-b bg-background/80 px-4 backdrop-blur'>
                             <div className='flex items-center gap-2 md:flex'>
@@ -58,8 +62,8 @@ export default async function RootLayout({
                                 <Breadcrumbs />
                             </div>
                             <div className='flex items-center gap-4'>
-                                <div className='hidden items-center gap-4 lg:flex'>
-                                    <AuthButton />
+                                <div className='hidden items-center gap-4 md:flex'>
+                                    <AuthButton isLoggedIn={isLoggedIn} />
                                 </div>
                                 <div className='block md:hidden'>
                                     <SidebarTrigger className='-mr-1' />

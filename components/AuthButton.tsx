@@ -1,28 +1,45 @@
 'use client';
 
-import { SignInButton, SignOutButton, useAuth } from '@clerk/nextjs';
+import { SignOutButton, useAuth } from '@clerk/nextjs';
 import { Button } from './ui/button';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import { useEffect, useState } from 'react';
 
 interface AuthButtonProps {
     className?: string;
+    onClick?: () => void;
+    isLoggedIn?: boolean;
 }
 
-export function AuthButton({ className }: AuthButtonProps) {
+export function AuthButton({ className, onClick, isLoggedIn: initialLoggedIn }: AuthButtonProps) {
     const { isSignedIn } = useAuth();
+    const router = useRouter();
+    const [loggedIn, setLoggedIn] = useState(initialLoggedIn);
+
+    useEffect(() => {
+        if (isSignedIn !== undefined) {
+            setLoggedIn(isSignedIn);
+        }
+    }, [isSignedIn]);
+
+    const handleSignInClick = () => {
+        if (onClick) onClick();
+        router.push('/sign-in');
+    };
 
     return (
         <div className={className}>
-            {isSignedIn ? (
+            {loggedIn ? (
                 <SignOutButton>
                     <Button variant='outline' size='sm'>
                         Sign Out
                     </Button>
                 </SignOutButton>
             ) : (
-                <SignInButton>
-                    <Button size='sm'>Sign In</Button>
-                </SignInButton>
+                <Button size='sm' onClick={handleSignInClick}>
+                    Sign In
+                </Button>
             )}
         </div>
     );

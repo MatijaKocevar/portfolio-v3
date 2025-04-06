@@ -43,7 +43,11 @@ const data = {
     ],
 };
 
-export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+interface AppSidebarProps extends React.ComponentProps<typeof Sidebar> {
+    isLoggedIn?: boolean;
+}
+
+export function AppSidebar({ isLoggedIn, ...props }: AppSidebarProps) {
     const pathname = usePathname();
     const locale = useLocale();
     const t = useTranslations('nav');
@@ -95,7 +99,11 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                     </div>
                     <div className='flex items-center justify-between md:justify-center'>
                         <SocialLinks />
-                        <AuthButton className='md:hidden' />
+                        <AuthButton
+                            className='md:hidden'
+                            onClick={isMobile ? () => setOpenMobile(false) : undefined}
+                            isLoggedIn={isLoggedIn}
+                        />
                     </div>
                 </div>
             </SidebarFooter>
