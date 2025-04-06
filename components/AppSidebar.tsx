@@ -1,6 +1,7 @@
 'use client';
 
 import * as React from 'react';
+import { useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import {
@@ -17,6 +18,7 @@ import { ThemeModeToggle } from './ThemeModeToggle';
 import LanguageToggleButton from './LanguageToggleButton';
 import { useDeviceType } from '@/hooks/useDeviceType';
 import { AuthButton } from './AuthButton';
+import { setCookie } from 'cookies-next';
 
 const data = {
     navMain: [
@@ -43,12 +45,20 @@ const data = {
     ],
 };
 
-export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+interface AppSidebarProps extends React.ComponentProps<typeof Sidebar> {
+    isLoggedIn?: boolean;
+}
+
+export function AppSidebar({ isLoggedIn, ...props }: AppSidebarProps) {
     const pathname = usePathname();
     const locale = useLocale();
     const t = useTranslations('nav');
-    const { setOpenMobile, isMobile } = useSidebar();
+    const { setOpenMobile, isMobile, open } = useSidebar();
     const { isPortrait } = useDeviceType();
+
+    useEffect(() => {
+        setCookie('sidebar_state', String(open), { maxAge: 60 * 60 * 24 * 30 });
+    }, [open]);
 
     const sidebarSide = isMobile && isPortrait ? 'right' : 'left';
 
@@ -95,7 +105,11 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                     </div>
                     <div className='flex items-center justify-between md:justify-center'>
                         <SocialLinks />
-                        <AuthButton className='md:hidden' />
+                        <AuthButton
+                            className='md:hidden'
+                            onClick={isMobile ? () => setOpenMobile(false) : undefined}
+                            isLoggedIn={isLoggedIn}
+                        />
                     </div>
                 </div>
             </SidebarFooter>
