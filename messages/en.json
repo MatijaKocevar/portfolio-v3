@@ -87,10 +87,42 @@
     },
     "about": {
         "title": "About Me",
-        "description": "This will be the about page",
         "meta": {
             "title": "Matija Kočevar | About",
-            "description": "About me"
+            "description": "Learn about my journey as a software developer, my skills, and what drives me"
+        },
+        "sections": {
+            "journey": "My Journey",
+            "capabilities": "What I Do",
+            "currentFocus": "Current Focus"
+        },
+        "content": {
+            "journey": "I studied programming in school but didn't complete college, which led me to work in sales initially. After a few years in sales roles where I wasn't finding fulfillment, I decided to return to programming through self-learning. I started by creating Excel automation tools and web scrapers, which rekindled my interest in development.\n\nI focused on learning web technologies starting with HTML, CSS, and JavaScript, then moved on to modern frameworks like React, Vue, and .NET. This self-guided learning led to my first development role, and I've since worked on various projects from complex Vue.js/Angular applications to leading frontend development for new React projects.\n\nCurrently, I work as a frontend developer at Amibit, where I handle both legacy Vue applications and lead new React project development.",
+            "currentFocus": "While I enjoy full-stack development, my primary focus is on frontend development where I can combine my technical skills with my passion for creating intuitive and engaging user experiences. I excel in React and TypeScript development, always staying updated with the latest frontend technologies and best practices. My approach combines technical excellence with a keen eye for user experience, ensuring that I deliver solutions that are both powerful and user-friendly."
+        },
+        "capabilities": {
+            "frontend": {
+                "title": "Frontend Development",
+                "items": [
+                    "Building responsive and interactive web applications",
+                    "Working with React, Vue, and Next.js",
+                    "Crafting elegant user interfaces with TypeScript",
+                    "Implementing modern design patterns and best practices",
+                    "Creating accessible and performant web experiences",
+                    "Developing reusable component libraries"
+                ]
+            },
+            "fullstack": {
+                "title": "Full Stack Capabilities",
+                "items": [
+                    "Developing backend services with .NET and Node.js",
+                    "Database design and optimization (SQL Server, PostgreSQL)",
+                    "API development and integration",
+                    "DevOps and deployment workflows",
+                    "System architecture and scalability planning",
+                    "Technical documentation and code review"
+                ]
+            }
         }
     },
     "projects": {

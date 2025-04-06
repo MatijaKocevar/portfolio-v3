@@ -83,10 +83,42 @@
     },
     "about": {
         "title": "O meni",
-        "description": "To bo stran o meni",
         "meta": {
             "title": "Matija Kočevar | O meni",
-            "description": "O meni"
+            "description": "Spoznajte mojo pot kot razvijalec programske opreme, moje veščine in kaj me žene"
+        },
+        "sections": {
+            "journey": "Moja pot",
+            "capabilities": "Kaj počnem",
+            "currentFocus": "Trenutni fokus"
+        },
+        "content": {
+            "journey": "Programiranje sem študiral v šoli, vendar fakultete nisem dokončal, zato sem sprva delal v prodaji. Po nekaj letih dela v prodaji, kjer nisem našel izpolnitve, sem se odločil za vrnitev k programiranju preko samostojnega učenja. Začel sem z ustvarjanjem Excel orodij za avtomatizacijo in spletnih luščilcev podatkov, kar je ponovno vzbudilo moje zanimanje za razvoj.\n\nOsredotočil sem se na učenje spletnih tehnologij, začenši s HTML, CSS in JavaScript, nato pa sem napredoval do modernih ogrodij kot so React, Vue in .NET. To samostojno učenje me je pripeljalo do prve razvijalske vloge, od takrat pa sem delal na različnih projektih, od kompleksnih Vue.js/Angular aplikacij do vodenja frontend razvoja za nove React projekte.\n\nTrenutno delam kot frontend razvijalec pri Amibit, kjer upravljam tako z obstoječimi Vue aplikacijami kot tudi vodim razvoj novih React projektov.",
+            "currentFocus": "Čeprav uživam v full-stack razvoju, je moj primarni fokus na frontend razvoju, kjer lahko združim svoje tehnične veščine s strastjo do ustvarjanja intuitivnih in privlačnih uporabniških izkušenj. Odlikujem se v razvoju z React in TypeScript tehnologijami, pri čemer se neprestano izpopolnjujem v najnovejših frontend tehnologijah in dobrih praksah. Moj pristop združuje tehnično odličnost s pozornostjo na uporabniško izkušnjo, kar zagotavlja, da dostavim rešitve, ki so hkrati zmogljive in uporabnikom prijazne."
+        },
+        "capabilities": {
+            "frontend": {
+                "title": "Frontend razvoj",
+                "items": [
+                    "Razvoj odzivnih in interaktivnih spletnih aplikacij",
+                    "Delo z React, Vue in Next.js ogrodji",
+                    "Oblikovanje elegantnih uporabniških vmesnikov s TypeScript",
+                    "Implementacija modernih vzorcev oblikovanja in dobrih praks",
+                    "Ustvarjanje dostopnih in zmogljivih spletnih izkušenj",
+                    "Razvoj knjižnic ponovno uporabnih komponent"
+                ]
+            },
+            "fullstack": {
+                "title": "Full Stack zmožnosti",
+                "items": [
+                    "Razvoj backend storitev z .NET in Node.js",
+                    "Načrtovanje in optimizacija podatkovnih baz (SQL Server, PostgreSQL)",
+                    "Razvoj in integracija API-jev",
+                    "DevOps in postavitev v produkcijo",
+                    "Načrtovanje sistemske arhitekture in skalabilnosti",
+                    "Tehnična dokumentacija in pregled kode"
+                ]
+            }
         }
     },
     "projects": {
