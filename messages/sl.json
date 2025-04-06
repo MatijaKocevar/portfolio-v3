@@ -69,6 +69,14 @@
                 "anasPlace": {
                     "title": "Ana's Place",
                     "description": "Moderna spletna aplikacija za upravljanje manjšega manikirnega salona"
+                },
+                "spaceInvaders": {
+                    "title": "Space Invaders",
+                    "description": "Klon igre Space Invaders, narejen z TypeScript"
+                },
+                "taskManagement": {
+                    "title": "Task Management",
+                    "description": "Spletna aplikacija za upravljanje nalog, narejena z React, .NET in SQL Server"
                 }
             }
         }

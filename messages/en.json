@@ -73,6 +73,14 @@
                 "anasPlace": {
                     "title": "Ana's Place",
                     "description": "A modern web application for managing a small nail saloon"
+                },
+                "spaceInvaders": {
+                    "title": "Space Invaders",
+                    "description": "A clone of the classic Space Invaders game built with Typescript"
+                },
+                "taskManagement": {
+                    "title": "Task Management",
+                    "description": "A task management application built with React, .NET and SQL Server"
                 }
             }
         }
