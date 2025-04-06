@@ -32,6 +32,20 @@ export const useActiveProjects = create<ActiveProjectsStore>((set) => ({
             githubUrl: 'https://github.com/MatijaKocevar/anas-place',
             wip: true,
         },
+        {
+            key: 'spaceInvaders',
+            image: '/images/space-invaders/space-invaders.webp',
+            liveUrl: 'https://matijakprojects.com/space-invaders/',
+            githubUrl: 'https://github.com/MatijaKocevar/space-invaders',
+            wip: true,
+        },
+        // {
+        //     key: 'taskManagement',
+        //     image: '/images/task-management/task-management.webp',
+        //     liveUrl: 'https://matijakprojects.com/space-invaders/',
+        //     githubUrl: 'https://github.com/MatijaKocevar/task-management',
+        //     wip: true,
+        // },
     ],
     setImageLoading: (loading) => set({ imageLoading: loading }),
     nextProject: () => {
