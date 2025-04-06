@@ -1,6 +1,7 @@
 'use client';
 
 import * as React from 'react';
+import { useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import {
@@ -17,6 +18,7 @@ import { ThemeModeToggle } from './ThemeModeToggle';
 import LanguageToggleButton from './LanguageToggleButton';
 import { useDeviceType } from '@/hooks/useDeviceType';
 import { AuthButton } from './AuthButton';
+import { setCookie } from 'cookies-next';
 
 const data = {
     navMain: [
@@ -51,8 +53,12 @@ export function AppSidebar({ isLoggedIn, ...props }: AppSidebarProps) {
     const pathname = usePathname();
     const locale = useLocale();
     const t = useTranslations('nav');
-    const { setOpenMobile, isMobile } = useSidebar();
+    const { setOpenMobile, isMobile, open } = useSidebar();
     const { isPortrait } = useDeviceType();
+
+    useEffect(() => {
+        setCookie('sidebar_state', String(open), { maxAge: 60 * 60 * 24 * 30 });
+    }, [open]);
 
     const sidebarSide = isMobile && isPortrait ? 'right' : 'left';
 

@@ -9,6 +9,8 @@ import { currentUser } from '@clerk/nextjs/server';
 import { Separator } from '../components/ui/separator';
 import Breadcrumbs from '../components/Breadcrumbs';
 import { AuthButton } from '../components/AuthButton';
+import { cookies } from 'next/headers';
+import { getCookie } from 'cookies-next';
 
 const geistSans = Geist({
     variable: '--font-geist-sans',
@@ -41,16 +43,17 @@ export default async function RootLayout({
     const messages = await getMessages();
     const locale = await getLocale();
 
-    // Get user authentication status on the server
     const user = await currentUser();
     const isLoggedIn = !!user;
+
+    const value = await getCookie('sidebar_state', { cookies });
 
     return (
         <html lang={locale} suppressHydrationWarning>
             <body
                 className={`${geistSans.variable} ${geistMono.variable} flex h-[100dvh] bg-background text-foreground antialiased`}
             >
-                <Providers messages={messages} locale={locale}>
+                <Providers messages={messages} locale={locale} isSidebarOpen={value === 'true' ? true : false}>
                     <AppSidebar isLoggedIn={isLoggedIn} />
                     <SidebarInset>
                         <header className='sticky top-0 z-50 flex h-16 shrink-0 items-center justify-between gap-2 border-b bg-background/80 px-4 backdrop-blur'>
