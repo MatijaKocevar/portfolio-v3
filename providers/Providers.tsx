@@ -8,12 +8,13 @@ type Props = {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     messages: Record<string, any>;
     locale: string;
+    isSidebarOpen?: boolean;
 };
 
-export default function Providers({ messages, locale, children }: PropsWithChildren<Props>) {
+export default function Providers({ messages, locale, children, isSidebarOpen }: PropsWithChildren<Props>) {
     return (
         <ClerkProvider>
-            <SidebarProvider>
+            <SidebarProvider defaultOpen={isSidebarOpen}>
                 <ThemeProvider attribute='class' defaultTheme='violet-dark' enableSystem disableTransitionOnChange>
                     <NextIntlProvider messages={messages} locale={locale}>
                         {children}
