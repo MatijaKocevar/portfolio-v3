@@ -18,15 +18,17 @@ export default function TimelineItemContent({ id }: TimelineItemContentProps) {
     }
 
     return (
-        <div className='flex flex-col items-center justify-center gap-4 p-6'>
-            <h1 className='hidden text-2xl font-bold lg:block'>{experience.name}</h1>
-            <div className='hidden items-center gap-2 text-sm lg:flex'>
-                <span>{experience.dateRange[0].getFullYear()}</span>
-                <span>-</span>
-                <span>{experience.dateRange[1].getFullYear()}</span>
+        <div className='flex h-full w-full flex-col items-center justify-between gap-5 p-5 lg:p-10'>
+            <div className='flex flex-col items-center justify-center gap-2'>
+                <h1 className='hidden text-2xl font-bold lg:block'>{experience.name}</h1>
+                <div className='hidden items-center gap-2 text-sm lg:flex'>
+                    <span>{experience.dateRange[0].getFullYear()}</span>
+                    <span>-</span>
+                    <span>{experience.dateRange[1].getFullYear()}</span>
+                </div>
             </div>
-            <p className='text-muted-foreground lg:px-8'>{t(experience.description)}</p>
-            <div className='hidden flex-wrap gap-4 lg:flex'>
+            <p className='px-5 text-center text-muted-foreground lg:px-10'>{t(experience.description)}</p>
+            <div className='hidden flex-wrap gap-5 lg:flex lg:gap-10'>
                 {experience.technologies.map((tech, index) => (
                     <div key={index} className='flex flex-col items-center gap-1'>
                         <IconRenderer name={tech.name} className='h-8 w-8' />

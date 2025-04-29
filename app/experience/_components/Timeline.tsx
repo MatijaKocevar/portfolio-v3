@@ -26,7 +26,7 @@ export default function Timeline({ direction = 'vertical', selectedId }: Timelin
         ` relative flex ${direction === 'horizontal' ? 'flex-col' : ' flex-row items-center'} h-full min-h-0 w-full`;
 
     const getItemsContainerClasses = () =>
-        `relative flex ${direction === 'horizontal' ? 'flex-row min-w-fit' : 'h-full justify-between flex-col gap-4'} flex-1`;
+        `relative flex ${direction === 'horizontal' ? 'flex-row min-w-fit' : 'h-full justify-between flex-col gap-5'} flex-1`;
 
     const getItemWrapperClasses = (isActive: boolean) =>
         `relative flex group cursor-pointer transition-colors hover:bg-muted/50 rounded-md ${
@@ -71,7 +71,7 @@ export default function Timeline({ direction = 'vertical', selectedId }: Timelin
                                     <BriefcaseIcon className='h-6 w-6 text-foreground lg:h-8 lg:w-8' />
                                 </div>
                             </div>
-                            <div className={`flex-1 ${direction === 'horizontal' ? 'pt-4' : 'pl-4'}`}>
+                            <div className={`flex-1 ${direction === 'horizontal' ? 'pt-5' : 'pl-5'}`}>
                                 <TimelineItem experience={experience} direction={direction} isActive={isActive} />
                             </div>
                         </div>
