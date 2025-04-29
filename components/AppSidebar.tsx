@@ -4,14 +4,7 @@ import * as React from 'react';
 import { useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import {
-    Sidebar,
-    SidebarContent,
-    SidebarFooter,
-    SidebarHeader,
-    SidebarRail,
-    useSidebar,
-} from '@/components/ui/sidebar';
+import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, useSidebar } from '@/components/ui/sidebar';
 import { useLocale, useTranslations } from 'next-intl';
 import SocialLinks from './SocialLinks';
 import { ThemeModeToggle } from './ThemeModeToggle';
@@ -113,7 +106,6 @@ export function AppSidebar({ isLoggedIn, ...props }: AppSidebarProps) {
                     </div>
                 </div>
             </SidebarFooter>
-            <SidebarRail />
         </Sidebar>
     );
 }
