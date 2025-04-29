@@ -11,7 +11,7 @@ export default function Bio() {
     const { techStack } = useBioData();
 
     return (
-        <div className='flex h-[calc(100vh-64px)] w-full flex-col items-center justify-center p-4 lg:p-8 max-[1023px]:landscape:min-h-[calc(100vh-64px)]'>
+        <div className='flex h-[calc(100vh-64px)] w-full flex-col items-center justify-center p-4 lg:p-10 lg:pr-5 max-[1023px]:landscape:min-h-[calc(100vh-64px)]'>
             <div className='flex h-full w-full flex-col justify-evenly gap-8 max-[1023px]:landscape:flex-row max-[1023px]:landscape:justify-between'>
                 <div className='flex flex-col items-center justify-center gap-4 max-[1023px]:landscape:w-[50%]'>
                     <div className='relative h-32 w-32 overflow-hidden rounded-full md:h-48 md:w-48 max-[1023px]:landscape:h-24 max-[1023px]:landscape:w-24'>
@@ -32,7 +32,7 @@ export default function Bio() {
                     </p>
                 </div>
 
-                <div className='flex w-full flex-col justify-center gap-4 max-[1023px]:landscape:w-[50%]'>
+                <div className='flex w-full flex-col justify-center gap-10 max-[1023px]:landscape:w-[50%]'>
                     <Banner />
                     <div className='flex justify-center'>
                         <div className='flex w-full max-w-xl flex-wrap justify-center gap-4 portrait:max-sm:gap-6 max-[1023px]:landscape:grid max-[1023px]:landscape:grid-cols-4 max-[1023px]:landscape:gap-2'>

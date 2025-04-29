@@ -23,7 +23,7 @@ export default async function AboutLayout({
 }>) {
     return (
         <Suspense fallback={<LoadingSpinner />}>
-            <div className='flex w-full justify-center'>{children}</div>
+            <div className='w-full'>{children}</div>
         </Suspense>
     );
 }

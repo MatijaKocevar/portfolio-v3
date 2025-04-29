@@ -22,10 +22,10 @@ export default function AboutPage() {
     const fullstackItems = t.raw('about.capabilities.fullstack.items') as string[];
 
     return (
-        <div className='container items-center justify-center space-y-8 p-6'>
+        <div className='flex flex-col gap-5 p-5 lg:gap-10 lg:p-10'>
             <Card className='border-none shadow-none'>
-                <CardHeader className='px-0'>
-                    <div className='flex flex-col items-start gap-8 md:flex-row'>
+                <CardHeader className='p-0'>
+                    <div className='flex flex-col items-start gap-5 md:flex-row lg:gap-10'>
                         <div className='flex-shrink-0'>
                             <div className='relative h-48 w-48 overflow-hidden rounded-full border border-primary/10 shadow-xl'>
                                 <Image
@@ -40,7 +40,7 @@ export default function AboutPage() {
                                 />
                             </div>
                         </div>
-                        <div className='flex-grow space-y-4'>
+                        <div className='flex-grow space-y-5'>
                             <CardTitle className='text-3xl font-bold'>{t('about.title')}</CardTitle>
                             <p className='text-lg leading-relaxed text-muted-foreground'>{t('home.bio.tagline')}</p>
                         </div>
@@ -48,9 +48,9 @@ export default function AboutPage() {
                 </CardHeader>
             </Card>
 
-            <Separator className='my-8' />
+            <Separator />
 
-            <section className='space-y-6'>
+            <section className='space-y-5'>
                 <h2 className='text-2xl font-semibold'>{t('about.sections.journey')}</h2>
                 <div className='prose dark:prose-invert max-w-none whitespace-pre-line'>
                     <p className='text-muted-foreground'>{t('about.content.journey')}</p>
@@ -62,8 +62,8 @@ export default function AboutPage() {
                     <CardTitle>{t('about.sections.capabilities')}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                    <div className='grid gap-8 md:grid-cols-2'>
-                        <div className='space-y-4'>
+                    <div className='grid gap-5 md:grid-cols-2 lg:gap-10'>
+                        <div className='space-y-5'>
                             <h3 className='text-xl font-medium'>{t('about.capabilities.frontend.title')}</h3>
                             <ul className='space-y-2'>
                                 {frontendItems.map((item, index) => (
@@ -74,7 +74,7 @@ export default function AboutPage() {
                                 ))}
                             </ul>
                         </div>
-                        <div className='space-y-4'>
+                        <div className='space-y-5'>
                             <h3 className='text-xl font-medium'>{t('about.capabilities.fullstack.title')}</h3>
                             <ul className='space-y-2'>
                                 {fullstackItems.map((item, index) => (
@@ -95,13 +95,13 @@ export default function AboutPage() {
                 </CardHeader>
                 <CardContent>
                     <div
-                        className='flex flex-wrap gap-4 sm:grid sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8'
+                        className='flex flex-wrap gap-5 sm:grid sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8'
                         style={{ width: '100%', justifyContent: 'space-evenly' }}
                     >
                         {techStack.map((tech, index) => (
                             <div
                                 key={index}
-                                className='group flex w-[calc(33.33%-1rem)] flex-col items-center gap-3 rounded-lg p-4 transition-colors hover:bg-accent sm:w-auto'
+                                className='group flex w-[calc(33.33%-1rem)] flex-col items-center gap-3 rounded-lg p-5 transition-colors hover:bg-accent sm:w-auto lg:p-10'
                             >
                                 <IconRenderer
                                     name={tech.name}
@@ -116,7 +116,7 @@ export default function AboutPage() {
                 </CardContent>
             </Card>
 
-            <section className='space-y-6'>
+            <section className='space-y-5'>
                 <h2 className='text-2xl font-semibold'>{t('about.sections.currentFocus')}</h2>
                 <div className='prose dark:prose-invert max-w-none whitespace-pre-line'>
                     <p className='text-muted-foreground'>{t('about.content.currentFocus')}</p>
