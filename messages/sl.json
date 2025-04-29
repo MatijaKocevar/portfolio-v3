@@ -123,10 +123,26 @@
     },
     "projects": {
         "title": "Projekti",
-        "description": "To bo stran s projekti",
+        "description": "Tukaj so nekateri projekti, na katerih sem delal. Vsak projekt predstavlja različne izzive in priložnosti za učenje.",
         "meta": {
             "title": "Matija Kočevar | Projekti",
-            "description": "Projekti"
+            "description": "Pregled mojih razvojnih projektov in tehničnega dela"
+        },
+        "showcase": {
+            "liveDemo": "Demonstracija",
+            "github": "GitHub",
+            "projectDescriptions": {
+                "zelda": "Igra po navdihu The Legend of Zelda, zgrajena z modernimi spletnimi tehnologijami",
+                "spaceInvaders": "Klon igre Space Invaders v TypeScript",
+                "anasPlace": "Spletna stran za upravljanje manjšega manikirnega salona",
+                "taskManagement": "Celovit sistem za upravljanje in sledenje nalogam",
+                "portfolioV2": "Druga iteracija mojega osebnega portfolia",
+                "portfolioV1": "Prva verzija moje spletne strani s portfoliem",
+                "vueDynamicForms": "Osnovna spletna aplikacija z usmerjanjem, narejena z Vue.js",
+                "diffingApi": "API storitev za primerjavo in iskanje razlik v dveh base 64 kodiranih nizih",
+                "drumBox": "MIDI predvajalnik za ustvarjanje in predvajanje ritmičnih vzorcev",
+                "holidaysCalculator": "Orodje za izračunavanje in upravljanje dopustov v Sloveniji"
+            }
         }
     },
     "education": {

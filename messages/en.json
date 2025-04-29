@@ -127,10 +127,26 @@
     },
     "projects": {
         "title": "Projects",
-        "description": "This will be the projects page",
+        "description": "Here are some of the projects I've worked on. Each project represents different challenges and learning experiences.",
         "meta": {
             "title": "Matija Kočevar | Projects",
-            "description": "Projects"
+            "description": "A showcase of my development projects and technical work"
+        },
+        "showcase": {
+            "liveDemo": "Live Demo",
+            "github": "GitHub",
+            "projectDescriptions": {
+                "zelda": "A tribute game inspired by The Legend of Zelda, built with modern web technologies",
+                "spaceInvaders": "A clone of Space Invaders in TypeScript",
+                "anasPlace": "A custom website for managing a small nail saloon",
+                "taskManagement": "A comprehensive task management system for organizing and tracking tasks",
+                "portfolioV2": "Second iteration of my personal portfolio",
+                "portfolioV1": "First version of my portfolio website",
+                "vueDynamicForms": "A basic web app with routing built with Vue.js",
+                "diffingApi": "An API service for comparing and finding diffs in two base 64 encoded strings",
+                "drumBox": "An MIDI playback tool for creating and playing drum patterns",
+                "holidaysCalculator": "A tool for calculating and managing holiday dates in Slovenia"
+            }
         }
     },
     "education": {
