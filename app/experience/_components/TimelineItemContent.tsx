@@ -11,14 +11,11 @@ interface TimelineItemContentProps {
 export default function TimelineItemContent({ id }: TimelineItemContentProps) {
     const t = useTranslations();
     const { experiences } = useExperienceStore();
-    const experience = experiences.find((exp) => exp.id === Number(id));
+    let experience = experiences.find((exp) => exp.id === Number(id));
 
-    if (!experience)
-        return (
-            <div className='flex h-full w-full items-center justify-center rounded-lg bg-muted p-4'>
-                <p className='text-muted-foreground'>{t('experience.timeline.select')}</p>
-            </div>
-        );
+    if (!experience) {
+        experience = experiences[0];
+    }
 
     return (
         <div className='flex flex-col items-center justify-center gap-4 p-6'>
