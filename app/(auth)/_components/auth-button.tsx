@@ -5,6 +5,7 @@ import { Button } from '../../../components/ui/button';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import { useTranslations } from 'next-intl';
 
 interface AuthButtonProps {
     className?: string;
@@ -16,6 +17,7 @@ export function AuthButton({ className, onClick, isLoggedIn: initialLoggedIn }: 
     const { isSignedIn } = useAuth();
     const router = useRouter();
     const [loggedIn, setLoggedIn] = useState(initialLoggedIn);
+    const t = useTranslations('auth');
 
     useEffect(() => {
         if (isSignedIn !== undefined) {
@@ -24,7 +26,10 @@ export function AuthButton({ className, onClick, isLoggedIn: initialLoggedIn }: 
     }, [isSignedIn]);
 
     const handleSignInClick = () => {
-        if (onClick) onClick();
+        if (onClick) {
+            onClick();
+        }
+
         router.push('/sign-in');
     };
 
@@ -33,12 +38,12 @@ export function AuthButton({ className, onClick, isLoggedIn: initialLoggedIn }: 
             {loggedIn ? (
                 <SignOutButton>
                     <Button variant='outline' size='sm'>
-                        Sign Out
+                        {t('signOut')}
                     </Button>
                 </SignOutButton>
             ) : (
                 <Button size='sm' onClick={handleSignInClick}>
-                    Sign In
+                    {t('signIn.title')}
                 </Button>
             )}
         </div>
@@ -48,7 +53,9 @@ export function AuthButton({ className, onClick, isLoggedIn: initialLoggedIn }: 
 export function UserProfileButton() {
     const { isSignedIn } = useAuth();
 
-    if (!isSignedIn) return null;
+    if (!isSignedIn) {
+        return null;
+    }
 
     return (
         <Link href='/user-profile'>

@@ -182,10 +182,45 @@
     },
     "skills": {
         "title": "Skills",
-        "description": "This will be the skills page",
+        "description": "Overview of my technical skills and expertise",
         "meta": {
             "title": "Matija Kočevar | Skills",
-            "description": "Skills"
+            "description": "Overview of my technical skills and expertise"
+        },
+        "sections": {
+            "webDevelopment": {
+                "title": "Web Development",
+                "frontend": "Frontend Development",
+                "backend": "Backend Development",
+                "database": "Database & Tools"
+            },
+            "design": {
+                "title": "Design"
+            }
+        },
+        "tech": {
+            "react": "React",
+            "nextjs": "Next.js",
+            "vue": "Vue.js",
+            "angular": "Angular",
+            "typescript": "TypeScript",
+            "javascript": "JavaScript",
+            "html5": "HTML5",
+            "cssSass": "CSS/SASS",
+            "tailwind": "Tailwind",
+            "cSharp": "C#",
+            "dotnet": ".NET",
+            "nodejs": "Node.js",
+            "php": "PHP",
+            "python": "Python",
+            "postgres": "PostgreSQL",
+            "mssql": "SQL Server",
+            "docker": "Docker",
+            "git": "Git",
+            "photoshop": "Photoshop",
+            "illustrator": "Illustrator",
+            "figma": "Figma",
+            "inkscape": "Inkscape"
         }
     },
     "interests": {
@@ -243,5 +278,42 @@
         "green": "Green",
         "yellow": "Yellow",
         "violet": "Violet"
+    },
+    "auth": {
+        "signIn": {
+            "title": "Sign In",
+            "description": "Enter your email and password to access your account",
+            "emailLabel": "Email",
+            "emailPlaceholder": "name@example.com",
+            "passwordLabel": "Password",
+            "passwordPlaceholder": "••••••••",
+            "submitButton": "Sign In",
+            "loadingButton": "Signing in...",
+            "noAccountText": "Don't have an account? Sign up",
+            "errors": {
+                "default": "Something went wrong. Please try again.",
+                "invalidCredentials": "Failed to sign in. Please check your credentials."
+            }
+        },
+        "signUp": {
+            "title": "Sign Up",
+            "description": "Create your account to get started",
+            "firstNameLabel": "First name",
+            "lastNameLabel": "Last name",
+            "emailLabel": "Email",
+            "emailPlaceholder": "name@example.com",
+            "passwordLabel": "Password",
+            "passwordPlaceholder": "••••••••",
+            "confirmPasswordLabel": "Confirm Password",
+            "confirmPasswordPlaceholder": "••••••••",
+            "submitButton": "Sign Up",
+            "loadingButton": "Creating Account...",
+            "hasAccountText": "Already have an account? Sign in",
+            "errors": {
+                "default": "Failed to sign up. Please try again.",
+                "passwordMismatch": "Passwords do not match"
+            }
+        },
+        "signOut": "Sign Out"
     }
 }

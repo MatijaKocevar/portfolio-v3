@@ -57,7 +57,6 @@ export default function ActiveProjects() {
                     className={`flex w-full flex-col items-center transition-all duration-500 ease-in-out max-[1023px]:landscape:justify-center ${slideClass}`}
                 >
                     <div className='flex h-full w-full flex-col items-center justify-center gap-8 max-[1023px]:landscape:flex-row'>
-                        {/* Project information - goes to the left in landscape mobile */}
                         <div className='flex w-full flex-col justify-center max-[1023px]:landscape:w-[50%]'>
                             <div className='mb-4 flex flex-col items-center gap-2 text-center max-[1023px]:landscape:items-center max-[1023px]:landscape:text-center'>
                                 <h2 className='text-2xl font-semibold'>{t(`items.${currentProject.key}.title`)}</h2>
@@ -96,7 +95,6 @@ export default function ActiveProjects() {
                             </div>
                         </div>
 
-                        {/* Project image - goes to the right in landscape mobile */}
                         <div className='relative aspect-square max-h-[450px] min-h-[300px] w-full landscape:aspect-auto landscape:h-[60vh] landscape:max-h-none landscape:min-h-0 max-[1023px]:landscape:w-[50%]'>
                             {imageLoading && <Skeleton className='mx-auto h-full w-full rounded-2xl' />}
                             <Image

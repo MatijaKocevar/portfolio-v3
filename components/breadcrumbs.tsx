@@ -30,7 +30,6 @@ const Breadcrumbs = () => {
                 <span className='text-primary'>
                     <Home className='h-4 w-4' />
                 </span>
-                {/* <ChevronRight className='h-4 w-4 text-muted-foreground' /> */}
                 <span className='text-primary'>{t('nav.home')}</span>
             </div>,
         );

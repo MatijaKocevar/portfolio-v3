@@ -8,14 +8,14 @@ export default function AboutPage() {
     const t = useTranslations();
 
     const techStack = [
-        { name: 'react', title: 'React' },
-        { name: 'vue', title: 'Vue' },
-        { name: 'nextjs', title: 'Next.js' },
-        { name: 'typescript', title: 'TypeScript' },
-        { name: 'cSharp', title: 'C#' },
-        { name: 'php', title: 'PHP' },
-        { name: 'postgres', title: 'PostgreSQL' },
-        { name: 'sql', title: 'SQL Server' },
+        { name: 'react', title: t('skills.tech.react') },
+        { name: 'vue', title: t('skills.tech.vue') },
+        { name: 'nextjs', title: t('skills.tech.nextjs') },
+        { name: 'typescript', title: t('skills.tech.typescript') },
+        { name: 'cSharp', title: t('skills.tech.cSharp') },
+        { name: 'php', title: t('skills.tech.php') },
+        { name: 'postgres', title: t('skills.tech.postgres') },
+        { name: 'mssql', title: t('skills.tech.mssql') },
     ];
 
     const frontendItems = t.raw('about.capabilities.frontend.items') as string[];
@@ -91,7 +91,7 @@ export default function AboutPage() {
 
             <Card className='border-primary/10 bg-card'>
                 <CardHeader>
-                    <CardTitle>Tech Stack</CardTitle>
+                    <CardTitle>{t('skills.sections.webDevelopment.title')}</CardTitle>
                 </CardHeader>
                 <CardContent>
                     <div

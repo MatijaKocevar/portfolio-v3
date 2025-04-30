@@ -178,10 +178,45 @@
     },
     "skills": {
         "title": "Veščine",
-        "description": "To bo stran z veščinami",
+        "description": "Pregled mojih tehničnih veščin in znanj",
         "meta": {
             "title": "Matija Kočevar | Veščine",
-            "description": "Veščine"
+            "description": "Pregled mojih tehničnih veščin in znanj"
+        },
+        "sections": {
+            "webDevelopment": {
+                "title": "Spletni razvoj",
+                "frontend": "Frontend razvoj",
+                "backend": "Backend razvoj",
+                "database": "Podatkovne baze & orodja"
+            },
+            "design": {
+                "title": "Oblikovanje"
+            }
+        },
+        "tech": {
+            "react": "React",
+            "nextjs": "Next.js",
+            "vue": "Vue.js",
+            "angular": "Angular",
+            "typescript": "TypeScript",
+            "javascript": "JavaScript",
+            "html5": "HTML5",
+            "cssSass": "CSS/SASS",
+            "tailwind": "Tailwind",
+            "cSharp": "C#",
+            "dotnet": ".NET",
+            "nodejs": "Node.js",
+            "php": "PHP",
+            "python": "Python",
+            "postgres": "PostgreSQL",
+            "mssql": "SQL Server",
+            "docker": "Docker",
+            "git": "Git",
+            "photoshop": "Photoshop",
+            "illustrator": "Illustrator",
+            "figma": "Figma",
+            "inkscape": "Inkscape"
         }
     },
     "interests": {
@@ -239,5 +274,42 @@
         "green": "Zelena",
         "yellow": "Rumena",
         "violet": "Vijolična"
+    },
+    "auth": {
+        "signIn": {
+            "title": "Prijava",
+            "description": "Vnesite svoj e-poštni naslov in geslo za dostop do računa",
+            "emailLabel": "E-pošta",
+            "emailPlaceholder": "ime@primer.com",
+            "passwordLabel": "Geslo",
+            "passwordPlaceholder": "••••••••",
+            "submitButton": "Prijava",
+            "loadingButton": "Prijavljanje...",
+            "noAccountText": "Nimate računa? Registrirajte se",
+            "errors": {
+                "default": "Prišlo je do napake. Prosim poskusite ponovno.",
+                "invalidCredentials": "Prijava ni uspela. Preverite vaše podatke."
+            }
+        },
+        "signUp": {
+            "title": "Registracija",
+            "description": "Ustvarite svoj račun za začetek",
+            "firstNameLabel": "Ime",
+            "lastNameLabel": "Priimek",
+            "emailLabel": "E-pošta",
+            "emailPlaceholder": "ime@primer.com",
+            "passwordLabel": "Geslo",
+            "passwordPlaceholder": "••••••••",
+            "confirmPasswordLabel": "Potrdite geslo",
+            "confirmPasswordPlaceholder": "••••••••",
+            "submitButton": "Registracija",
+            "loadingButton": "Ustvarjanje računa...",
+            "hasAccountText": "Že imate račun? Prijavite se",
+            "errors": {
+                "default": "Registracija ni uspela. Prosim poskusite ponovno.",
+                "passwordMismatch": "Gesli se ne ujemata"
+            }
+        },
+        "signOut": "Odjava"
     }
 }

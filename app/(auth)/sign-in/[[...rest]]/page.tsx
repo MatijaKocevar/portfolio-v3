@@ -3,11 +3,16 @@
 import { useState } from 'react';
 import { useSignIn } from '@clerk/nextjs';
 import { useRouter } from 'next/navigation';
+import { useTranslations } from 'next-intl';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Alert, AlertDescription } from '@/components/ui/alert';
+
+interface ClerkError {
+    errors?: Array<{ message: string }>;
+}
 
 export default function SignInPage() {
     const { isLoaded, signIn, setActive } = useSignIn();
@@ -16,9 +21,11 @@ export default function SignInPage() {
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState('');
     const router = useRouter();
+    const t = useTranslations('auth.signIn');
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+
         if (!isLoaded) return;
 
         try {
@@ -30,21 +37,18 @@ export default function SignInPage() {
                 password,
             });
 
-            if (result.status === 'complete') {
+            if (result.status === 'complete' && result.createdSessionId) {
                 await setActive({ session: result.createdSessionId });
 
                 router.push('/');
+                router.refresh();
             } else {
-                console.error('Sign in failed', result);
-
-                setError('Something went wrong. Please try again.');
+                setError(t('errors.default'));
             }
+        } catch (err: unknown) {
+            const clerkError = err as ClerkError;
 
-            //eslint-disable-next-line @typescript-eslint/no-explicit-any
-        } catch (err: any) {
-            console.error('Error during sign in:', err);
-
-            setError(err.errors?.[0]?.message || 'Failed to sign in. Please check your credentials.');
+            setError(clerkError.errors?.[0]?.message || t('errors.invalidCredentials'));
         } finally {
             setIsLoading(false);
         }
@@ -54,8 +58,8 @@ export default function SignInPage() {
         <div className='flex h-full items-start justify-center p-4'>
             <Card className='my-auto w-full max-w-md'>
                 <CardHeader>
-                    <CardTitle className='text-2xl'>Sign In</CardTitle>
-                    <CardDescription>Enter your email and password to access your account</CardDescription>
+                    <CardTitle className='text-2xl'>{t('title')}</CardTitle>
+                    <CardDescription>{t('description')}</CardDescription>
                 </CardHeader>
                 <CardContent>
                     <form onSubmit={handleSubmit} className='space-y-4'>
@@ -65,35 +69,37 @@ export default function SignInPage() {
                             </Alert>
                         )}
                         <div className='space-y-2'>
-                            <Label htmlFor='email'>Email</Label>
+                            <Label htmlFor='email'>{t('emailLabel')}</Label>
                             <Input
                                 id='email'
                                 type='email'
-                                placeholder='name@example.com'
+                                placeholder={t('emailPlaceholder')}
                                 value={emailAddress}
                                 onChange={(e) => setEmailAddress(e.target.value)}
                                 required
+                                autoComplete='email'
                             />
                         </div>
                         <div className='space-y-2'>
-                            <Label htmlFor='password'>Password</Label>
+                            <Label htmlFor='password'>{t('passwordLabel')}</Label>
                             <Input
                                 id='password'
                                 type='password'
-                                placeholder='••••••••'
+                                placeholder={t('passwordPlaceholder')}
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
                                 required
+                                autoComplete='current-password'
                             />
                         </div>
                         <Button type='submit' className='w-full' disabled={isLoading}>
-                            {isLoading ? 'Signing in...' : 'Sign In'}
+                            {isLoading ? t('loadingButton') : t('submitButton')}
                         </Button>
                     </form>
                 </CardContent>
                 <CardFooter className='flex justify-center'>
                     <Button variant='link' onClick={() => router.push('/sign-up')} disabled={isLoading}>
-                        Don&apos;t have an account? Sign up
+                        {t('noAccountText')}
                     </Button>
                 </CardFooter>
             </Card>
