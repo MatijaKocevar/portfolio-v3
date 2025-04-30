@@ -13,14 +13,12 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import { useDeviceType } from '@/hooks/use-device-type';
 import { useExperienceStore } from '../_stores/use-experience-store';
 import IconRenderer from '../../../components/icon-renderer';
-import { useTranslations } from 'next-intl';
 
 export default function MobileTimelineDialog({ id }: { id?: string }) {
     const router = useRouter();
     const searchParams = useSearchParams();
     const { isMobile } = useDeviceType();
     const { experiences } = useExperienceStore();
-    const t = useTranslations('experience');
     const experienceItem = experiences.find((exp) => exp.id === Number(id));
 
     if (!isMobile || !id) return null;

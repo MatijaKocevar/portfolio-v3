@@ -1,4 +1,3 @@
-import { useTranslations } from 'next-intl';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import IconRenderer from '@/components/icon-renderer';
 
@@ -13,8 +12,6 @@ const skillCategories = {
 };
 
 export default function SkillsPage() {
-    const t = useTranslations();
-
     return (
         <div className='flex flex-col gap-8 p-5 lg:p-10'>
             {/* Web Development Section */}
