@@ -6,7 +6,6 @@ import LoadingSpinner from '../../components/loading';
 export async function generateMetadata({ params }: MetaLocaleParams) {
     const { locale } = await params;
     const t = await getTranslations({ locale });
-
     const title = t('about.meta.title');
     const description = t('about.meta.description');
 

@@ -25,7 +25,6 @@ const geistMono = Geist_Mono({
 export async function generateMetadata({ params }: MetaLocaleParams) {
     const { locale } = await params;
     const t = await getTranslations({ locale });
-
     const title = t('app.meta.title');
     const description = t('app.meta.description');
 
@@ -42,10 +41,8 @@ export default async function RootLayout({
 }>) {
     const messages = await getMessages();
     const locale = await getLocale();
-
     const user = await currentUser();
     const isLoggedIn = !!user;
-
     const value = await getCookie('sidebar_state', { cookies });
 
     return (

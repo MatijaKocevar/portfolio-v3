@@ -4,7 +4,6 @@ import { MetaLocaleParams } from '../../types/locale';
 export async function generateMetadata({ params }: MetaLocaleParams) {
     const { locale } = await params;
     const t = await getTranslations({ locale });
-
     const title = t('home.meta.title');
     const description = t('home.meta.description');
 
