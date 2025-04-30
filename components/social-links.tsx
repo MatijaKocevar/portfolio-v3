@@ -1,7 +1,7 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import useNavigationStore from '../store/useNavigationStore';
+import useNavigationStore from '../store/use-navigation-store';
 
 const SocialLinks = () => {
     const t = useTranslations();

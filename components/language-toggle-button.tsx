@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
-import useLanguageStore from '../store/useLanguageStore';
+import useLanguageStore from '../store/use-language-store';
 import { useRouter } from 'next/navigation';
 
 interface LanguageToggleButtonProps {

@@ -6,11 +6,11 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, useSidebar } from '@/components/ui/sidebar';
 import { useLocale, useTranslations } from 'next-intl';
-import SocialLinks from './SocialLinks';
-import { ThemeModeToggle } from './ThemeModeToggle';
-import LanguageToggleButton from './LanguageToggleButton';
-import { useDeviceType } from '@/hooks/useDeviceType';
-import { AuthButton } from './AuthButton';
+import SocialLinks from './social-links';
+import { ThemeModeToggle } from './theme-mode-toggle';
+import LanguageToggleButton from './language-toggle-button';
+import { useDeviceType } from '@/hooks/use-device-type';
+import { AuthButton } from '../app/(auth)/_components/auth-button';
 import { setCookie } from 'cookies-next';
 
 const data = {

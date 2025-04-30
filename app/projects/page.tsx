@@ -1,5 +1,5 @@
 import { useTranslations } from 'next-intl';
-import { ProjectShowcaseGrid } from '@/components/showcase/ProjectShowcaseGrid';
+import { ProjectShowcaseGrid } from '@/app/projects/_components/project-showcase-grid';
 import type { ShowcaseProject } from '@/types/showcase';
 
 const projectsData: ShowcaseProject[] = [

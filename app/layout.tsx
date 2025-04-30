@@ -2,13 +2,13 @@ import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
 import { getLocale, getMessages, getTranslations } from 'next-intl/server';
 import { MetaLocaleParams } from '../types/locale';
-import Providers from '@/providers/Providers';
-import { AppSidebar } from '../components/AppSidebar';
+import Providers from '@/providers/providers';
+import { AppSidebar } from '../components/app-sidebar';
 import { SidebarInset, SidebarTrigger } from '../components/ui/sidebar';
 import { currentUser } from '@clerk/nextjs/server';
 import { Separator } from '../components/ui/separator';
-import Breadcrumbs from '../components/Breadcrumbs';
-import { AuthButton } from '../components/AuthButton';
+import Breadcrumbs from '../components/breadcrumbs';
+import { AuthButton } from './(auth)/_components/auth-button';
 import { cookies } from 'next/headers';
 import { getCookie } from 'cookies-next';
 

@@ -12,7 +12,7 @@ import {
     DropdownMenuItem,
     DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import useThemeStore from '../store/useThemeStore';
+import useThemeStore from '../store/use-theme-store';
 import { useEffect, useState } from 'react';
 import { Skeleton } from './ui/skeleton';
 

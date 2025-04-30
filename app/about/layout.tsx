@@ -1,7 +1,7 @@
 import { getTranslations } from 'next-intl/server';
 import { MetaLocaleParams } from '../../types';
 import { Suspense } from 'react';
-import LoadingSpinner from '../../components/Loading';
+import LoadingSpinner from '../../components/loading';
 
 export async function generateMetadata({ params }: MetaLocaleParams) {
     const { locale } = await params;

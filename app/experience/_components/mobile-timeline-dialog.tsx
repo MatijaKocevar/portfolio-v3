@@ -8,19 +8,17 @@ import {
     DialogDescription,
     DialogFooter,
 } from '@/components/ui/dialog';
-import TimelineItemContent from './TimelineItemContent';
+import TimelineItemContent from './timeline-item-content';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { useDeviceType } from '@/hooks/useDeviceType';
-import { useExperienceStore } from '../_stores/useExperienceStore';
-import IconRenderer from '../../../components/IconRenderer';
-import { useTranslations } from 'next-intl';
+import { useDeviceType } from '@/hooks/use-device-type';
+import { useExperienceStore } from '../_stores/use-experience-store';
+import IconRenderer from '../../../components/icon-renderer';
 
 export default function MobileTimelineDialog({ id }: { id?: string }) {
     const router = useRouter();
     const searchParams = useSearchParams();
     const { isMobile } = useDeviceType();
     const { experiences } = useExperienceStore();
-    const t = useTranslations('experience');
     const experienceItem = experiences.find((exp) => exp.id === Number(id));
 
     if (!isMobile || !id) return null;

@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { Button } from '../../../components/ui/button';
 import { Skeleton } from '../../../components/ui/skeleton';
-import { useActiveProjects } from '../_store/useActiveProjects';
+import { useActiveProjects } from '../_store/use-active-projects';
 
 export default function ActiveProjects() {
     const t = useTranslations('home.projects');

@@ -1,5 +1,5 @@
 import { ShowcaseProject } from '@/types/showcase';
-import { ProjectShowcase } from './ProjectShowcase';
+import { ProjectShowcase } from './project-showcase';
 
 interface ProjectShowcaseGridProps {
     projects: ShowcaseProject[];

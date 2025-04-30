@@ -1,5 +1,5 @@
-import Bio from './_components/Bio';
-import ActiveProjects from './_components/ActiveProjects';
+import Bio from './_components/bio';
+import ActiveProjects from './_components/active-projects';
 
 export default async function Home() {
     return (

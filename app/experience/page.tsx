@@ -1,6 +1,6 @@
-import MobileTimelineDialog from './_components/MobileTimelineDialog';
-import Timeline from './_components/Timeline';
-import TimelineItemContent from './_components/TimelineItemContent';
+import MobileTimelineDialog from './_components/mobile-timeline-dialog';
+import Timeline from './_components/timeline';
+import TimelineItemContent from './_components/timeline-item-content';
 
 interface ExperiencePageProps {
     searchParams: Promise<{ id: string | undefined }>;
