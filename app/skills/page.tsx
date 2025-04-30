@@ -1,6 +1,6 @@
 import { useTranslations } from 'next-intl';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import IconRenderer from '@/components/IconRenderer';
+import IconRenderer from '@/components/icon-renderer';
 
 const skillCategories = {
     webDevelopment: {

@@ -1,7 +1,7 @@
 'use client';
 
-import { useExperienceStore } from '../_stores/useExperienceStore';
-import TimelineItem from './TimelineItem';
+import { useExperienceStore } from '../_stores/use-experience-store';
+import TimelineItem from './timeline-item';
 import { BriefcaseIcon } from 'lucide-react';
 import { useRouter, useSearchParams } from 'next/navigation';
 

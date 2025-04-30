@@ -1,10 +1,10 @@
 'use client';
 
 import Image from 'next/image';
-import Banner from '@/components/Banner';
+import Banner from '@/app/(home)/_components/banner';
 import { useTranslations } from 'next-intl';
-import { useBioData } from '../_store/useBioData';
-import IconRenderer from '@/components/IconRenderer';
+import { useBioData } from '../_store/use-bio-data';
+import IconRenderer from '@/components/icon-renderer';
 
 export default function Bio() {
     const t = useTranslations('home.bio');

@@ -8,11 +8,11 @@ import {
     DialogDescription,
     DialogFooter,
 } from '@/components/ui/dialog';
-import TimelineItemContent from './TimelineItemContent';
+import TimelineItemContent from './timeline-item-content';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { useDeviceType } from '@/hooks/useDeviceType';
-import { useExperienceStore } from '../_stores/useExperienceStore';
-import IconRenderer from '../../../components/IconRenderer';
+import { useDeviceType } from '@/hooks/use-device-type';
+import { useExperienceStore } from '../_stores/use-experience-store';
+import IconRenderer from '../../../components/icon-renderer';
 import { useTranslations } from 'next-intl';
 
 export default function MobileTimelineDialog({ id }: { id?: string }) {

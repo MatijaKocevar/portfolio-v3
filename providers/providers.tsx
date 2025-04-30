@@ -1,6 +1,6 @@
 import { PropsWithChildren } from 'react';
-import NextIntlProvider from './NextIntlProvider';
-import { ThemeProvider } from './ThemeProvider';
+import NextIntlProvider from './next-intl-provider';
+import { ThemeProvider } from './theme-provider';
 import { SidebarProvider } from '../components/ui/sidebar';
 import { ClerkProvider } from '@clerk/nextjs';
 

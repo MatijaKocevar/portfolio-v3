@@ -1,7 +1,7 @@
 'use client';
 
-import { useExperienceStore } from '../_stores/useExperienceStore';
-import IconRenderer from '@/components/IconRenderer';
+import { useExperienceStore } from '../_stores/use-experience-store';
+import IconRenderer from '@/components/icon-renderer';
 import { useTranslations } from 'next-intl';
 
 interface TimelineItemContentProps {

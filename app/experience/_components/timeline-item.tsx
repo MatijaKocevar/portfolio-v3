@@ -1,7 +1,7 @@
 'use client';
 
-import { ExperienceItem } from '../_stores/useExperienceStore';
-import IconRenderer from '@/components/IconRenderer';
+import { ExperienceItem } from '../_stores/use-experience-store';
+import IconRenderer from '@/components/icon-renderer';
 
 type TimelineItemProps = {
     experience: ExperienceItem;
