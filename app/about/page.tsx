@@ -26,7 +26,7 @@ export default function AboutPage() {
             <Card className='border-none shadow-none'>
                 <CardHeader className='p-0'>
                     <div className='flex flex-col items-start gap-5 md:flex-row lg:gap-10'>
-                        <div className='flex-shrink-0'>
+                        <div className='flex w-full flex-row flex-wrap items-center gap-5'>
                             <div className='relative h-48 w-48 overflow-hidden rounded-full border border-primary/10 shadow-xl'>
                                 <Image
                                     src='/images/me/384.webp'
@@ -39,10 +39,10 @@ export default function AboutPage() {
                                     quality={80}
                                 />
                             </div>
-                        </div>
-                        <div className='flex-grow space-y-5'>
-                            <CardTitle className='text-3xl font-bold'>{t('about.title')}</CardTitle>
-                            <p className='text-lg leading-relaxed text-muted-foreground'>{t('home.bio.tagline')}</p>
+                            <div className='flex-grow space-y-5'>
+                                <CardTitle className='text-3xl font-bold'>{t('about.title')}</CardTitle>
+                                <p className='text-lg leading-relaxed text-muted-foreground'>{t('home.bio.tagline')}</p>
+                            </div>
                         </div>
                     </div>
                 </CardHeader>
