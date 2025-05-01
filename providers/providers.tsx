@@ -3,6 +3,7 @@ import NextIntlProvider from './next-intl-provider';
 import { ThemeProvider } from './theme-provider';
 import { SidebarProvider } from '../components/ui/sidebar';
 import { ClerkProvider } from '@clerk/nextjs';
+import { PullToRefresh } from '../components/pull-to-refresh';
 
 type Props = {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -17,6 +18,7 @@ export default function Providers({ messages, locale, children, isSidebarOpen }:
             <SidebarProvider defaultOpen={isSidebarOpen}>
                 <ThemeProvider attribute='class' defaultTheme='violet-dark' enableSystem disableTransitionOnChange>
                     <NextIntlProvider messages={messages} locale={locale}>
+                        <PullToRefresh />
                         {children}
                     </NextIntlProvider>
                 </ThemeProvider>
