@@ -1,9 +1,11 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import { useExperienceStore } from '../_stores/use-experience-store';
 import TimelineItem from './timeline-item';
 import { BriefcaseIcon } from 'lucide-react';
 import { useRouter, useSearchParams } from 'next/navigation';
+import useThemeStore from '../../../store/use-theme-store';
 
 type TimelineProps = {
     direction?: 'horizontal' | 'vertical';
@@ -14,6 +16,14 @@ export default function Timeline({ direction = 'vertical', selectedId }: Timelin
     const { experiences } = useExperienceStore();
     const router = useRouter();
     const searchParams = useSearchParams();
+    const { currentTheme } = useThemeStore();
+    const [isDefaultTheme, setIsDefaultTheme] = useState(false);
+
+    useEffect(() => {
+        const isDefault = currentTheme.includes('default');
+
+        setIsDefaultTheme(isDefault);
+    }, [currentTheme]);
 
     const handleExperienceClick = (experienceId: number) => {
         const params = new URLSearchParams(searchParams);
@@ -29,7 +39,7 @@ export default function Timeline({ direction = 'vertical', selectedId }: Timelin
         `relative flex ${direction === 'horizontal' ? 'flex-row min-w-fit' : 'h-full justify-between flex-col gap-5'} flex-1`;
 
     const getItemWrapperClasses = (isActive: boolean, isCurrent?: boolean) =>
-        `relative flex group cursor-pointer transition-colors hover:bg-muted/50 rounded-md ${
+        `relative flex group cursor-pointer transition-colors hover:bg-muted/50 rounded-lg ${
             direction === 'horizontal' ? 'flex-1 flex-col min-w-[200px]' : 'flex-row w-full'
         } ${isActive || isCurrent ? 'bg-muted/50' : ''}`;
 
@@ -68,7 +78,9 @@ export default function Timeline({ direction = 'vertical', selectedId }: Timelin
                                 <div className={getConnectorLineClasses()} />
                                 <div className={getConnectorCircleClasses()} />
                                 <div className={getCircleClasses()}>
-                                    <BriefcaseIcon className='h-6 w-6 text-foreground lg:h-8 lg:w-8' />
+                                    <BriefcaseIcon
+                                        className={`h-6 w-6 ${isDefaultTheme ? 'stroke-background text-background' : 'stroke-foreground text-foreground'} lg:h-8 lg:w-8`}
+                                    />
                                 </div>
                             </div>
                             <div className={`flex-1 ${direction === 'horizontal' ? 'pt-5' : 'pl-5'}`}>
