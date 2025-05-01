@@ -9,7 +9,8 @@
         "connect": "Connect",
         "language": {
             "toggle": "Change language"
-        }
+        },
+        "present": "Present"
     },
     "nav": {
         "home": "Home",
@@ -145,7 +146,8 @@
                 "vueDynamicForms": "A basic web app with routing built with Vue.js",
                 "diffingApi": "An API service for comparing and finding diffs in two base 64 encoded strings",
                 "drumBox": "An MIDI playback tool for creating and playing drum patterns",
-                "holidaysCalculator": "A tool for calculating and managing holiday dates in Slovenia"
+                "holidaysCalculator": "A tool for calculating and managing holiday dates in Slovenia",
+                "roles": "A full-stack web app for managing user roles and permissions"
             }
         }
     },
@@ -159,7 +161,7 @@
     },
     "experience": {
         "title": "Experience",
-        "description": "This will be the experience page",
+        "description": "My experience so far has been a mix of self-learning and professional development. I have worked on various projects, both independently and in teams, which have helped me grow as a developer.",
         "technologies": {
             "title": "Technologies"
         },

@@ -9,6 +9,7 @@ export interface ExperienceItem {
     technologies: TechItem[];
     name: string;
     dateRange: Date[];
+    current?: boolean;
     description: string;
     id: number;
 }
@@ -23,6 +24,7 @@ export const useExperienceStore = create<ExperienceStore>(() => ({
             id: 6,
             name: 'Frontend developer - Amibit d.o.o.',
             dateRange: [new Date(2024, 5), new Date()],
+            current: true,
             description: 'experience.descriptions.6',
             technologies: [
                 { name: 'react', title: 'React' },

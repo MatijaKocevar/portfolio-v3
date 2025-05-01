@@ -9,7 +9,8 @@
         "connect": "Poveži se",
         "language": {
             "toggle": "izberi jezik"
-        }
+        },
+        "present": "Tekoče"
     },
     "nav": {
         "home": "Domača stran",
@@ -141,7 +142,8 @@
                 "vueDynamicForms": "Osnovna spletna aplikacija z usmerjanjem, narejena z Vue.js",
                 "diffingApi": "API storitev za primerjavo in iskanje razlik v dveh base 64 kodiranih nizih",
                 "drumBox": "MIDI predvajalnik za ustvarjanje in predvajanje ritmičnih vzorcev",
-                "holidaysCalculator": "Orodje za izračunavanje in upravljanje dopustov v Sloveniji"
+                "holidaysCalculator": "Orodje za izračunavanje in upravljanje dopustov v Sloveniji",
+                "roles": "Full-stack aplikacija za upravljanje vlog in pravic uporabnikov"
             }
         }
     },
@@ -155,7 +157,7 @@
     },
     "experience": {
         "title": "Izkušnje",
-        "description": "To bo stran z izkušnjami",
+        "description": "Moje izkušnje so bile mešanica samostojnega učenja in profesionalnega razvoja. Delal sem na različnih projektih, tako samostojno kot v ekipah, kar mi je pomagalo rasti kot razvijalec.",
         "technologies": {
             "title": "Tehnologije"
         },
