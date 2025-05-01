@@ -64,3 +64,9 @@
         @apply bg-background text-foreground;
     }
 }
+
+.ptr--content,
+.ptr--text,
+.ptr--icon {
+    color: theme('colors.foreground') !important;
+}

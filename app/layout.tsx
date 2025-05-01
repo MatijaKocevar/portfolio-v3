@@ -70,7 +70,9 @@ export default async function RootLayout({
                                 </div>
                             </div>
                         </header>
-                        <main className='relative flex-1 overflow-auto'>{children}</main>
+                        <main id='main-content' className='main-content relative flex-1 overflow-auto'>
+                            {children}
+                        </main>
                     </SidebarInset>
                 </Providers>
             </body>
