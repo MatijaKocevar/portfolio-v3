@@ -1,8 +1,9 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import useLanguageStore from '../store/use-language-store';
 import { useRouter } from 'next/navigation';
+import useThemeStore from '../store/use-theme-store';
 
 interface LanguageToggleButtonProps {
     locale: string;
@@ -11,9 +12,18 @@ interface LanguageToggleButtonProps {
 const LanguageToggleButton = ({ locale }: LanguageToggleButtonProps) => {
     const { toggleLanguage, initializeLanguage } = useLanguageStore();
     const router = useRouter();
+    const { currentTheme } = useThemeStore();
+    const [isDefaultTheme, setIsDefaultTheme] = useState(false);
+
+    useEffect(() => {
+        const isDefault = currentTheme.includes('default');
+
+        setIsDefaultTheme(isDefault);
+    }, [currentTheme]);
 
     useEffect(() => {
         initializeLanguage(locale);
+
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
@@ -29,9 +39,9 @@ const LanguageToggleButton = ({ locale }: LanguageToggleButtonProps) => {
             aria-label='Toggle language'
         >
             <span
-                className={`absolute z-10 flex h-5 w-[32px] transform items-center justify-center rounded-full bg-primary text-[11px] font-medium text-foreground transition-transform ${
+                className={`absolute z-10 flex h-5 w-[32px] transform items-center justify-center rounded-full bg-primary text-[11px] font-medium transition-transform ${
                     locale === 'en' ? 'translate-x-0' : 'translate-x-[36px]'
-                }`}
+                } ${isDefaultTheme ? 'text-background' : 'text-foreground'}`}
             >
                 {locale === 'en' ? 'ENG' : 'SLO'}
             </span>

@@ -1,9 +1,13 @@
 import type { MetadataRoute } from 'next';
 
 export default function manifest(): MetadataRoute.Manifest {
+    const isDev = process.env.NODE_ENV === 'development';
+    const name = isDev ? 'DEV - M.K. Portfolio' : 'M.K. Portfolio';
+    const shortName = isDev ? 'DEV' : 'M.K. Portfolio';
+
     return {
-        name: 'M.K. Portfolio',
-        short_name: 'M.K. Portfolio',
+        name,
+        short_name: shortName,
         description: 'A portfolio website for Matija Kočevar',
         start_url: '/',
         display: 'standalone',
