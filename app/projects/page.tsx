@@ -1,8 +1,15 @@
-import { useTranslations } from 'next-intl';
 import { ProjectShowcaseGrid } from '@/app/projects/_components/project-showcase-grid';
 import type { ShowcaseProject } from '@/types/showcase';
 
 const projectsData: ShowcaseProject[] = [
+    {
+        id: '11',
+        title: 'Role/Permission Management',
+        description: 'projects.showcase.projectDescriptions.roles',
+        imageUrl: '/images/roles/roles.webp',
+        githubUrl: 'https://github.com/MatijaKocevar/roles-poc',
+        liveUrl: 'https://roles-poc.vercel.app/',
+    },
     {
         id: '5',
         title: 'Zelda Clone',
@@ -83,14 +90,8 @@ const projectsData: ShowcaseProject[] = [
 ];
 
 export default function ProjectsPage() {
-    const t = useTranslations();
-
     return (
-        <div className='flex flex-col gap-5 p-5 lg:p-10'>
-            <h1 className='mb-6 text-3xl font-bold'>{t('projects.title')}</h1>
-            <div className='mb-8'>
-                <p>{t('projects.description')}</p>
-            </div>
+        <div className='flex flex-col p-5 lg:p-10'>
             <ProjectShowcaseGrid projects={projectsData} />
         </div>
     );
