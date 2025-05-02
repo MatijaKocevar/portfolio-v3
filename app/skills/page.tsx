@@ -1,99 +1,53 @@
-import { useTranslations } from 'next-intl';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import IconRenderer from '@/components/icon-renderer';
+'use client';
 
-const skillCategories = {
-    webDevelopment: {
-        frontend: ['react', 'nextjs', 'vue', 'angular', 'typescript', 'javascript', 'html5', 'cssSass', 'tailwind'],
-        backend: ['cSharp', 'dotnet', 'nodejs', 'php', 'python'],
-        database: ['postgres', 'mssql'],
-        tools: ['docker', 'git'],
-    },
-    design: ['photoshop', 'illustrator', 'figma', 'inkscape'],
-};
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { useTranslations } from 'next-intl';
+import { useSkillsStore } from './_stores/use-skills-store';
+import { SkillGroup } from './_components/skill-group';
+import { SkillDialog } from './_components/skill-dialog';
+import { SkillItem } from './_components/skill-item';
 
 export default function SkillsPage() {
-    const t = useTranslations('skills');
+    const t = useTranslations('skills.sections');
+    const { skillCategories } = useSkillsStore();
 
     return (
-        <div className='flex flex-col gap-8 p-5 lg:p-10'>
-            {/* Web Development Section */}
-            <Card>
-                <CardHeader>
-                    <CardTitle>{t('sections.webDevelopment.title')}</CardTitle>
-                </CardHeader>
-                <CardContent className='flex flex-col gap-8'>
-                    {/* Frontend */}
-                    <div>
-                        <h3 className='mb-4 text-lg font-semibold'>{t('sections.webDevelopment.frontend')}</h3>
+        <>
+            <div className='flex flex-col gap-8 p-5 lg:p-10'>
+                <Card>
+                    <CardHeader>
+                        <CardTitle>{t('webDevelopment.title')}</CardTitle>
+                    </CardHeader>
+                    <CardContent className='flex flex-col gap-8'>
+                        <SkillGroup
+                            title='webDevelopment.frontend'
+                            skills={skillCategories.webDevelopment.frontend}
+                        />
+                        <SkillGroup
+                            title='webDevelopment.backend'
+                            skills={skillCategories.webDevelopment.backend}
+                        />
+                        <SkillGroup
+                            title='webDevelopment.database'
+                            skills={[...skillCategories.webDevelopment.database, ...skillCategories.webDevelopment.tools]}
+                        />
+                    </CardContent>
+                </Card>
+
+                <Card>
+                    <CardHeader>
+                        <CardTitle>{t('design.title')}</CardTitle>
+                    </CardHeader>
+                    <CardContent>
                         <div className='grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6'>
-                            {skillCategories.webDevelopment.frontend.map((skill) => (
-                                <div
-                                    key={skill}
-                                    className='flex flex-col items-center gap-2 rounded-lg border p-4 transition-colors hover:bg-muted/50'
-                                >
-                                    <IconRenderer name={skill} className='h-8 w-8' />
-                                    <span className='text-sm text-muted-foreground'>{t(`tech.${skill}`)}</span>
-                                </div>
+                            {skillCategories.design.map((skill) => (
+                                <SkillItem key={skill} skill={skill} />
                             ))}
                         </div>
-                    </div>
-
-                    {/* Backend */}
-                    <div>
-                        <h3 className='mb-4 text-lg font-semibold'>{t('sections.webDevelopment.backend')}</h3>
-                        <div className='grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6'>
-                            {skillCategories.webDevelopment.backend.map((skill) => (
-                                <div
-                                    key={skill}
-                                    className='flex flex-col items-center gap-2 rounded-lg border p-4 transition-colors hover:bg-muted/50'
-                                >
-                                    <IconRenderer name={skill} className='h-8 w-8' />
-                                    <span className='text-sm text-muted-foreground'>{t(`tech.${skill}`)}</span>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-
-                    {/* Database & Tools */}
-                    <div>
-                        <h3 className='mb-4 text-lg font-semibold'>{t('sections.webDevelopment.database')}</h3>
-                        <div className='grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6'>
-                            {[...skillCategories.webDevelopment.database, ...skillCategories.webDevelopment.tools].map(
-                                (skill) => (
-                                    <div
-                                        key={skill}
-                                        className='flex flex-col items-center gap-2 rounded-lg border p-4 transition-colors hover:bg-muted/50'
-                                    >
-                                        <IconRenderer name={skill} className='h-8 w-8' />
-                                        <span className='text-sm text-muted-foreground'>{t(`tech.${skill}`)}</span>
-                                    </div>
-                                ),
-                            )}
-                        </div>
-                    </div>
-                </CardContent>
-            </Card>
-
-            {/* Design Section */}
-            <Card>
-                <CardHeader>
-                    <CardTitle>{t('sections.design.title')}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                    <div className='grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6'>
-                        {skillCategories.design.map((skill) => (
-                            <div
-                                key={skill}
-                                className='flex flex-col items-center gap-2 rounded-lg border p-4 transition-colors hover:bg-muted/50'
-                            >
-                                <IconRenderer name={skill} className='h-8 w-8' />
-                                <span className='text-sm text-muted-foreground'>{t(`tech.${skill}`)}</span>
-                            </div>
-                        ))}
-                    </div>
-                </CardContent>
-            </Card>
-        </div>
+                    </CardContent>
+                </Card>
+            </div>
+            <SkillDialog />
+        </>
     );
 }
