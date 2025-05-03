@@ -66,7 +66,8 @@ export default function Timeline({ direction = 'vertical', selectedId }: Timelin
         <div className={getContainerClasses()}>
             <div className={getItemsContainerClasses()}>
                 {experiences.map((experience, index) => {
-                    const isActive = selectedId === experience.id.toString();
+                    const isActive =
+                        selectedId === experience.id.toString() || ((experience.current ?? false) && !selectedId);
 
                     return (
                         <div
