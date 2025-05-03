@@ -41,7 +41,7 @@ export default function Timeline({ direction = 'vertical', selectedId }: Timelin
     const getItemWrapperClasses = (isActive: boolean, isCurrent?: boolean) =>
         `relative flex group cursor-pointer transition-colors hover:bg-muted/50 rounded-lg ${
             direction === 'horizontal' ? 'flex-1 flex-col min-w-[200px]' : 'flex-row w-full'
-        } ${isActive || isCurrent ? 'bg-muted/50' : ''}`;
+        } ${isActive || (isCurrent && !selectedId) ? 'bg-muted/50' : ''}`;
 
     const getConnectorContainerClasses = () =>
         `relative flex ${direction === 'horizontal' ? 'h-20 lg:h-24 flex-col' : 'w-20 lg:w-24 flex-row'} items-center sticky`;
