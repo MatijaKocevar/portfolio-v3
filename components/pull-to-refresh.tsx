@@ -15,6 +15,15 @@ export const PullToRefresh = () => {
                 const PullToRefresh = (await import('pulltorefreshjs')).default;
                 PullToRefresh.init({
                     mainElement: '.main-content',
+                    shouldPullToRefresh: () => {
+                        const scrollContainerElement = document.querySelector('.main-content');
+                        const scrollableElement = document.querySelector('.scrollable-element');
+
+                        const scrollContainerElementRect = scrollContainerElement?.getBoundingClientRect();
+                        const scrollElementRect = scrollableElement?.getBoundingClientRect();
+
+                        return scrollContainerElementRect?.top === scrollElementRect?.top;
+                    },
                     onRefresh() {
                         window.location.reload();
                     },

@@ -91,7 +91,7 @@ const projectsData: ShowcaseProject[] = [
 
 export default function ProjectsPage() {
     return (
-        <div className='flex flex-col p-5 lg:p-10'>
+        <div className='scrollable-element flex flex-col p-5 lg:p-10'>
             <ProjectShowcaseGrid projects={projectsData} />
         </div>
     );

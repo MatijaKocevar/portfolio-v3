@@ -22,7 +22,7 @@ export default function AboutPage() {
     const fullstackItems = t.raw('about.capabilities.fullstack.items') as string[];
 
     return (
-        <div className='flex flex-col gap-5 p-5 lg:gap-10 lg:p-10'>
+        <div className='scrollable-element flex flex-col gap-5 p-5 lg:gap-10 lg:p-10'>
             <Card className='border-none shadow-none'>
                 <CardHeader className='p-0'>
                     <div className='flex flex-col items-start gap-5 md:flex-row lg:gap-10'>
