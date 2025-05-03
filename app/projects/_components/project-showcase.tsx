@@ -49,7 +49,7 @@ export function ProjectShowcase({ project }: ProjectShowcaseProps) {
                             </Button>
                         </DialogTrigger>
                         <DialogTitle></DialogTitle>
-                        <DialogContent>Description component in progress</DialogContent>
+                        <DialogContent className='rounded-lg'>Description component in progress</DialogContent>
                     </Dialog>
                 </div>
             </CardFooter>

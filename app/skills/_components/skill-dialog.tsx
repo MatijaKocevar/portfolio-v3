@@ -9,7 +9,7 @@ export function SkillDialog() {
 
     return (
         <Dialog open={!!selectedSkill} onOpenChange={(open) => !open && setSelectedSkill(null)}>
-            <DialogContent>
+            <DialogContent className='rounded-lg'>
                 <DialogHeader>
                     <DialogTitle className='mb-4 flex items-center gap-2'>
                         {selectedSkill && (
