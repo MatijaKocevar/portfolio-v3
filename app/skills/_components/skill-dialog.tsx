@@ -11,7 +11,7 @@ export function SkillDialog() {
         <Dialog open={!!selectedSkill} onOpenChange={(open) => !open && setSelectedSkill(null)}>
             <DialogContent>
                 <DialogHeader>
-                    <DialogTitle className='flex items-center gap-2'>
+                    <DialogTitle className='mb-4 flex items-center gap-2'>
                         {selectedSkill && (
                             <>
                                 <IconRenderer name={selectedSkill} className='h-6 w-6' />
@@ -20,7 +20,7 @@ export function SkillDialog() {
                         )}
                     </DialogTitle>
                     {selectedSkill && (
-                        <DialogDescription className='mt-2 text-muted-foreground'>
+                        <DialogDescription className='mt-2 whitespace-pre-line text-muted-foreground'>
                             {t(`descriptions.${selectedSkill}`)}
                         </DialogDescription>
                     )}
