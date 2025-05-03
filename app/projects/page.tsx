@@ -15,7 +15,7 @@ const projectsData: ShowcaseProject[] = [
         title: 'Zelda Clone',
         description: 'projects.showcase.projectDescriptions.zelda',
         imageUrl: '/images/zelda-clone/zelda_clone.webp',
-        githubUrl: 'https://github.com/MatijaKocevar/anas-place',
+        githubUrl: 'https://github.com/MatijaKocevar/zelda-clone',
         liveUrl: 'https://matijakprojects.com/zelda-clone/',
     },
     {
