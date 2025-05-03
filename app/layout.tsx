@@ -11,6 +11,7 @@ import Breadcrumbs from '../components/breadcrumbs';
 import { AuthButton } from './(auth)/_components/auth-button';
 import { cookies } from 'next/headers';
 import { getCookie } from 'cookies-next';
+import { Viewport } from 'next';
 
 const geistSans = Geist({
     variable: '--font-geist-sans',
@@ -33,6 +34,12 @@ export async function generateMetadata({ params }: MetaLocaleParams) {
         description,
     };
 }
+
+export const viewport: Viewport = {
+    initialScale: 1,
+    maximumScale: 1,
+    userScalable: false,
+};
 
 export default async function RootLayout({
     children,
