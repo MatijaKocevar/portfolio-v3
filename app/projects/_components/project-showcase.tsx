@@ -7,6 +7,8 @@ import { Dialog, DialogContent, DialogTitle, DialogTrigger } from '../../../comp
 import { ShowcaseProject } from '@/types/showcase';
 import { Github, ExternalLink, Info } from 'lucide-react';
 import { useTranslations } from 'next-intl';
+import { Skeleton } from '@/components/ui/skeleton';
+import { useState } from 'react';
 
 interface ProjectShowcaseProps {
     project: ShowcaseProject;
@@ -14,11 +16,20 @@ interface ProjectShowcaseProps {
 
 export function ProjectShowcase({ project }: ProjectShowcaseProps) {
     const t = useTranslations();
+    const [imageLoading, setImageLoading] = useState(true);
 
     return (
         <Card className='flex h-full flex-col overflow-hidden'>
             <div className='relative h-48 w-full'>
-                <Image src={project.imageUrl} alt={project.title} fill className='object-cover' />
+                {imageLoading && <Skeleton className='absolute inset-0 h-full w-full' />}
+                <Image
+                    src={project.imageUrl}
+                    alt={project.title}
+                    fill
+                    className='object-cover'
+                    onLoadingComplete={() => setImageLoading(false)}
+                    priority
+                />
             </div>
             <CardHeader>
                 <CardTitle>{project.title}</CardTitle>
