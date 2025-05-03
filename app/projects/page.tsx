@@ -71,21 +71,21 @@ const projectsData: ShowcaseProject[] = [
         title: 'Diffing API',
         description: 'projects.showcase.projectDescriptions.diffingApi',
         imageUrl: '/images/diffingApi/diffingApi.png',
-        githubUrl: 'https://github.com/yourusername/diffing-api',
+        githubUrl: 'https://github.com/MatijaKocevar/diffs',
     },
     {
         id: '8',
         title: 'Drum Box',
         description: 'projects.showcase.projectDescriptions.drumBox',
         imageUrl: '/images/drumbox/drumbox.png',
-        githubUrl: 'https://github.com/yourusername/drumbox',
+        githubUrl: 'https://github.com/MatijaKocevar/drumbox',
     },
     {
         id: '9',
         title: 'Holidays Calculator',
         description: 'projects.showcase.projectDescriptions.holidaysCalculator',
         imageUrl: '/images/holidaysCalculator/holidaysCalculator.png',
-        githubUrl: 'https://github.com/yourusername/holidays-calculator',
+        githubUrl: 'https://github.com/MatijaKocevar/HolidaysApi',
     },
 ];
 
