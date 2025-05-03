@@ -1,7 +1,9 @@
+'use client';
+
 import Image from 'next/image';
 import { Button } from '../../../components/ui/button';
 import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from '../../../components/ui/card';
-import { Dialog, DialogContent, DialogTrigger } from '../../../components/ui/dialog';
+import { Dialog, DialogContent, DialogTitle, DialogTrigger } from '../../../components/ui/dialog';
 import { ShowcaseProject } from '@/types/showcase';
 import { Github, ExternalLink, Info } from 'lucide-react';
 import { useTranslations } from 'next-intl';
@@ -46,6 +48,7 @@ export function ProjectShowcase({ project }: ProjectShowcaseProps) {
                                 <Info className='h-4 w-4' />
                             </Button>
                         </DialogTrigger>
+                        <DialogTitle></DialogTitle>
                         <DialogContent>Description component in progress</DialogContent>
                     </Dialog>
                 </div>

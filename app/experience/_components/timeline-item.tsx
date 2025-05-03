@@ -17,7 +17,7 @@ export default function TimelineItem({ experience, direction = 'vertical', isAct
 
     return (
         <div
-            className={`group relative flex h-full flex-col gap-2 p-2 transition-colors ${
+            className={`group relative flex h-full flex-col gap-2 p-2 ${
                 direction === 'horizontal' ? 'items-center text-center' : 'items-start justify-center'
             } ${isActive ? 'text-foreground' : 'text-muted-foreground'}`}
         >
@@ -31,7 +31,7 @@ export default function TimelineItem({ experience, direction = 'vertical', isAct
                         {`${experience.dateRange[0].getFullYear()} ${experience.dateRange[0].toLocaleString('en-US', { month: 'short' })}`}
                     </span>
                     <span>/</span>
-                    <span className='text-foreground'>{t('present')}</span>
+                    <span className={`${isActive ? 'text-foreground' : 'text-muted-foreground'}`}>{t('present')}</span>
                 </div>
             )}
             {!experience.current && (
@@ -47,11 +47,7 @@ export default function TimelineItem({ experience, direction = 'vertical', isAct
             )}
             <div className='flex flex-wrap gap-2'>
                 {experience.technologies.map((tech, index) => (
-                    <IconRenderer
-                        key={index}
-                        name={tech.name}
-                        className={`h-4 w-4 ${isActive ? 'text-foreground' : ''}`}
-                    />
+                    <IconRenderer key={index} name={tech.name} className={`h-4 w-4 text-foreground`} />
                 ))}
             </div>
         </div>
