@@ -10,9 +10,9 @@ export default async function ExperiencePage({ searchParams }: ExperiencePagePro
     const { id } = await searchParams;
 
     const verticalTimeline = (
-        <div className='flex h-full w-full flex-row'>
-            <div className='flex h-full w-full border-l-2 border-muted-foreground lg:w-auto'>
-                <div className='flex h-full w-full overflow-auto'>
+        <div className='flex w-full flex-row pb-5'>
+            <div className='flex w-full border-l-2 border-muted-foreground lg:w-auto'>
+                <div className='flex h-full w-full'>
                     <Timeline direction='vertical' selectedId={id} />
                 </div>
             </div>
@@ -43,9 +43,9 @@ export default async function ExperiencePage({ searchParams }: ExperiencePagePro
 
     return (
         <div className='flex h-full w-full flex-col overflow-x-hidden lg:items-center lg:justify-center'>
-            <div className='flex h-full w-full flex-col p-5 lg:flex-row lg:items-start lg:justify-evenly lg:p-10'>
+            <div className='scrollable-element flex h-full w-full flex-col p-5 lg:flex-row lg:items-start lg:justify-evenly lg:p-10'>
                 <div className='hidden h-full w-full flex-col lg:flex landscape:flex'>{horizontalTimeline}</div>
-                <div className='flex h-full w-full flex-col lg:hidden landscape:hidden'>{verticalTimeline}</div>
+                <div className='flex w-full flex-col lg:hidden landscape:hidden'>{verticalTimeline}</div>
             </div>
         </div>
     );

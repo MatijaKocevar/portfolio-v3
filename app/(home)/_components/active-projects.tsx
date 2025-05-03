@@ -29,11 +29,11 @@ export default function ActiveProjects() {
         : 'opacity-100 translate-x-0';
 
     return (
-        <div className='flex h-[calc(100vh-64px)] w-full flex-col justify-center p-4 lg:p-10 lg:pl-5 max-[1023px]:landscape:h-full max-[1023px]:landscape:justify-center'>
-            <div className='flex items-center justify-between gap-4'>
+        <div className='flex h-[calc(100vh-64px)] w-full flex-col justify-center p-5 lg:p-10 lg:pl-5 max-[1023px]:landscape:h-full max-[1023px]:landscape:justify-center'>
+            <div className='flex items-center justify-between gap-5'>
                 <button
                     onClick={prevProject}
-                    className='rounded-full bg-primary/10 p-4 text-primary transition-all hover:scale-110 hover:bg-primary/20'
+                    className='rounded-full bg-primary/10 p-3 text-primary transition-all hover:scale-110 hover:bg-primary/20'
                     aria-label={t('navigation.prev')}
                     disabled={isSliding}
                 >
@@ -44,7 +44,7 @@ export default function ActiveProjects() {
 
                 <button
                     onClick={nextProject}
-                    className='rounded-full bg-primary/10 p-4 text-primary transition-all hover:scale-110 hover:bg-primary/20'
+                    className='rounded-full bg-primary/10 p-3 text-primary transition-all hover:scale-110 hover:bg-primary/20'
                     aria-label={t('navigation.next')}
                     disabled={isSliding}
                 >
@@ -52,23 +52,23 @@ export default function ActiveProjects() {
                 </button>
             </div>
 
-            <section className='flex h-full justify-center overflow-hidden rounded-xl bg-background/95 pt-4 lg:h-auto'>
+            <section className='flex h-full justify-center overflow-hidden rounded-xl bg-background/95 pt-5 lg:h-auto'>
                 <div
                     className={`flex w-full flex-col items-center transition-all duration-500 ease-in-out max-[1023px]:landscape:justify-center ${slideClass}`}
                 >
-                    <div className='flex h-full w-full flex-col items-center justify-center gap-8 max-[1023px]:landscape:flex-row'>
+                    <div className='flex h-full w-full flex-col items-center justify-center gap-10 max-[1023px]:landscape:flex-row'>
                         <div className='flex w-full flex-col justify-center max-[1023px]:landscape:w-[50%]'>
-                            <div className='mb-4 flex flex-col items-center gap-2 text-center max-[1023px]:landscape:items-center max-[1023px]:landscape:text-center'>
+                            <div className='mb-5 flex flex-col items-center gap-2 text-center max-[1023px]:landscape:items-center max-[1023px]:landscape:text-center'>
                                 <h2 className='text-2xl font-semibold'>{t(`items.${currentProject.key}.title`)}</h2>
                                 {currentProject.wip && <span className='text-sm text-red-500'>{t('wip')}</span>}
                             </div>
 
                             <div className='w-full max-[1023px]:landscape:order-3'>
-                                <p className='mb-4 text-center text-sm text-foreground/70 max-[1023px]:landscape:text-center'>
+                                <p className='mb-5 text-center text-sm text-foreground/70 max-[1023px]:landscape:text-center'>
                                     {t(`items.${currentProject.key}.description`)}
                                 </p>
 
-                                <div className='flex flex-wrap justify-center gap-4'>
+                                <div className='flex flex-wrap justify-center gap-5'>
                                     <Button size='lg' className='min-h-12 min-w-[120px] p-0'>
                                         <a
                                             href={currentProject.liveUrl}

@@ -12,24 +12,21 @@ export default function SkillsPage() {
     const { skillCategories } = useSkillsStore();
 
     return (
-        <>
+        <div className='scrollable-element'>
             <div className='flex flex-col gap-8 p-5 lg:p-10'>
                 <Card>
                     <CardHeader>
                         <CardTitle>{t('webDevelopment.title')}</CardTitle>
                     </CardHeader>
                     <CardContent className='flex flex-col gap-8'>
-                        <SkillGroup
-                            title='webDevelopment.frontend'
-                            skills={skillCategories.webDevelopment.frontend}
-                        />
-                        <SkillGroup
-                            title='webDevelopment.backend'
-                            skills={skillCategories.webDevelopment.backend}
-                        />
+                        <SkillGroup title='webDevelopment.frontend' skills={skillCategories.webDevelopment.frontend} />
+                        <SkillGroup title='webDevelopment.backend' skills={skillCategories.webDevelopment.backend} />
                         <SkillGroup
                             title='webDevelopment.database'
-                            skills={[...skillCategories.webDevelopment.database, ...skillCategories.webDevelopment.tools]}
+                            skills={[
+                                ...skillCategories.webDevelopment.database,
+                                ...skillCategories.webDevelopment.tools,
+                            ]}
                         />
                     </CardContent>
                 </Card>
@@ -48,6 +45,6 @@ export default function SkillsPage() {
                 </Card>
             </div>
             <SkillDialog />
-        </>
+        </div>
     );
 }
