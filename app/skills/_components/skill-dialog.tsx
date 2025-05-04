@@ -9,7 +9,7 @@ export function SkillDialog() {
 
     return (
         <Dialog open={!!selectedSkill} onOpenChange={(open) => !open && setSelectedSkill(null)}>
-            <DialogContent className='rounded-lg'>
+            <DialogContent className='flex max-h-[80vh] flex-col justify-between overflow-auto rounded-lg'>
                 <DialogHeader>
                     <DialogTitle className='mb-4 flex items-center gap-2'>
                         {selectedSkill && (
@@ -19,12 +19,12 @@ export function SkillDialog() {
                             </>
                         )}
                     </DialogTitle>
-                    {selectedSkill && (
-                        <DialogDescription className='mt-2 whitespace-pre-line text-muted-foreground'>
-                            {t(`descriptions.${selectedSkill}`)}
-                        </DialogDescription>
-                    )}
                 </DialogHeader>
+                {selectedSkill && (
+                    <DialogDescription className='mt-2 whitespace-pre-line text-muted-foreground'>
+                        {t(`descriptions.${selectedSkill}`)}
+                    </DialogDescription>
+                )}
                 <div className='mt-4'>
                     {selectedSkill && skillDetails[selectedSkill] && (
                         <ul className='grid grid-cols-2 gap-2'>
