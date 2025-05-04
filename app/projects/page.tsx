@@ -11,7 +11,7 @@ const projectsData: ShowcaseProject[] = [
     },
     {
         id: '11',
-        title: 'Role/Permission Management',
+        title: 'Role-Based Access Control System',
         description: 'projects.showcase.projectDescriptions.roles',
         imageUrl: '/images/roles/roles.webp',
         githubUrl: 'https://github.com/MatijaKocevar/roles-poc',
