@@ -3,6 +3,13 @@ import type { ShowcaseProject } from '@/types/showcase';
 
 const projectsData: ShowcaseProject[] = [
     {
+        id: '12',
+        title: 'Portfolio V3',
+        description: 'projects.showcase.projectDescriptions.portfolioV3',
+        imageUrl: '/images/portfolioV3/portfolioV3.webp',
+        githubUrl: 'https://github.com/MatijaKocevar/portfolio-v3',
+    },
+    {
         id: '11',
         title: 'Role/Permission Management',
         description: 'projects.showcase.projectDescriptions.roles',
