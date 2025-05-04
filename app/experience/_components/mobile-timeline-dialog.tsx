@@ -34,8 +34,8 @@ export default function MobileTimelineDialog({ id }: { id?: string }) {
 
     return (
         <Dialog aria-modal open={!!id} onOpenChange={handleOpenChange}>
-            <DialogContent className='h-[80vh] overflow-y-auto rounded-lg'>
-                <DialogHeader>
+            <DialogContent className='flex h-[80vh] flex-col overflow-hidden rounded-lg'>
+                <DialogHeader className='shrink-0'>
                     <DialogTitle>
                         <span>{experienceItem?.name}</span>
                     </DialogTitle>
@@ -45,8 +45,8 @@ export default function MobileTimelineDialog({ id }: { id?: string }) {
                         <span>{experienceItem?.dateRange[1].getFullYear()}</span>
                     </DialogDescription>
                 </DialogHeader>
-                {id && <TimelineItemContent id={id} />}
-                <DialogFooter className='m-0 w-full p-0 sm:flex-auto sm:justify-center lg:flex-auto lg:justify-center'>
+                <div className='min-h-0 flex-1 overflow-auto'>{id && <TimelineItemContent id={id} />}</div>
+                <DialogFooter className='m-0 w-full shrink-0 p-0 sm:flex-auto sm:justify-center lg:flex-auto lg:justify-center'>
                     <div className='flex flex-wrap items-center justify-evenly gap-5 p-5 lg:gap-10 lg:p-10'>
                         {experienceItem?.technologies.map((tech, index) => (
                             <div key={index} className='flex basis-[calc(25%-1rem)] flex-col items-center gap-2'>
