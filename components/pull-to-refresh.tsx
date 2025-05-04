@@ -16,6 +16,9 @@ export const PullToRefresh = () => {
                 PullToRefresh.init({
                     mainElement: '.main-content',
                     shouldPullToRefresh: () => {
+                        const preventPTR = document.querySelector('.prevent-ptr');
+                        if (preventPTR) return false;
+
                         const scrollContainerElement = document.querySelector('.main-content');
                         const scrollableElement = document.querySelector('.scrollable-element');
 
