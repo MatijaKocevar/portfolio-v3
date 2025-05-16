@@ -43,9 +43,9 @@ export default function ContactPage() {
 
     return (
         <div className='scrollable-element flex min-h-[calc(100vh-4rem)] items-center justify-center p-5 lg:p-10'>
-            <div className='grid w-full gap-8 lg:grid-cols-2'>
-                <div className='order-2 lg:order-1'>
-                    <Card className='lg:h-[calc(100vh-10rem)]'>
+            <div className='grid h-full w-full gap-8 lg:min-h-[calc(100vh-9rem)] lg:grid-cols-2'>
+                <div className='order-2 lg:order-1 lg:h-full'>
+                    <Card className='h-full'>
                         <CardContent className='flex h-full flex-col gap-5 pt-5'>
                             <form onSubmit={handleSubmit} className='flex h-full flex-col gap-5'>
                                 <div className='grid gap-5 sm:grid-cols-2'>
@@ -105,20 +105,18 @@ export default function ContactPage() {
                                         />
                                     </div>
                                 </div>
-                                <Button
-                                    type='submit'
-                                    className='h-12 w-full text-base font-medium'
-                                    disabled={isLoading}
-                                    size='lg'
-                                >
-                                    {isLoading ? t('contact.form.submit.sending') : t('contact.form.submit.default')}
+                                <Button type='submit' disabled={isLoading} className='w-full sm:w-auto'>
+                                    {isLoading ? (
+                                        <>{t('contact.form.submit.sending')}</>
+                                    ) : (
+                                        t('contact.form.submit.default')
+                                    )}
                                 </Button>
                             </form>
                         </CardContent>
                     </Card>
                 </div>
-
-                <div className='order-1 flex flex-col justify-center lg:order-2'>
+                <div className='order-1 lg:order-2 lg:flex lg:h-full lg:items-center'>
                     <div className='space-y-5'>
                         <p className='text-xl text-muted-foreground'>{t('contact.description')}</p>
 
