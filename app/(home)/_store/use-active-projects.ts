@@ -28,7 +28,7 @@ export const useActiveProjects = create<ActiveProjectsStore>((set) => ({
         {
             key: 'anasPlace',
             image: '/images/anas-place/anas_place.webp',
-            liveUrl: 'https://anas-place.net',
+            liveUrl: 'https://anas-place.vercel.app',
             githubUrl: 'https://github.com/MatijaKocevar/anas-place',
             wip: true,
         },
