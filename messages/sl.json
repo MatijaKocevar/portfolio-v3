@@ -28,7 +28,8 @@
         "factor-one": "Factor One",
         "icon-192x192": {
             "png": "Badge"
-        }
+        },
+        "contact": "Kontakt"
     },
     "home": {
         "title": "Domov",
@@ -274,6 +275,26 @@
                     "next": "Naslednji posnetek"
                 },
                 "counter": "{current} od {total}"
+            }
+        }
+    },
+    "contact": {
+        "title": "Kontakt",
+        "description": "Uporabite ta obrazec za pošiljanje sporočila in odgovoril vam bom po e-pošti.",
+        "meta": {
+            "title": "Matija Kočevar | Kontact",
+            "description": "Kontact"
+        },
+        "form": {
+            "name": "Ime",
+            "email": "E-pošta",
+            "message": "Sporočilo",
+            "submit": {
+                "sending": "Pošiljanje...",
+                "default": "Pošlji sporočilo"
+            },
+            "alerts": {
+                "success": "Sporočilo uspešno poslano!"
             }
         }
     },
