@@ -97,11 +97,11 @@ export default function SignInPage() {
                         </Button>
                     </form>
                 </CardContent>
-                <CardFooter className='flex justify-center'>
+                {/* <CardFooter className='flex justify-center'>
                     <Button variant='link' onClick={() => router.push('/sign-up')} disabled={isLoading}>
                         {t('noAccountText')}
                     </Button>
-                </CardFooter>
+                </CardFooter> */}
             </Card>
         </div>
     );
