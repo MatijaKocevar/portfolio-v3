@@ -32,6 +32,22 @@ export async function generateMetadata({ params }: MetaLocaleParams) {
     return {
         title,
         description,
+        openGraph: {
+            title,
+            description,
+            url: 'https://matijakocevar.com',
+            siteName: 'Matija Kočevar Portfolio',
+            images: [
+                {
+                    url: '/images/me/384.webp',
+                    width: 384,
+                    height: 384,
+                    alt: 'Matija Kočevar',
+                },
+            ],
+            locale,
+            type: 'website',
+        },
     };
 }
 
