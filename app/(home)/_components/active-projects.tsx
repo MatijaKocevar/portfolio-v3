@@ -29,8 +29,8 @@ export default function ActiveProjects() {
         : 'opacity-100 translate-x-0';
 
     return (
-        <div className='flex w-full flex-col p-5 lg:p-10 lg:pl-5'>
-            <div className='flex items-center justify-between gap-5'>
+        <div className='flex w-full flex-col items-center p-5 lg:h-[calc(100vh-64px)] lg:p-10 lg:pl-5'>
+            <div className='flex w-full items-center justify-between gap-5'>
                 <button
                     onClick={prevProject}
                     className='rounded-full bg-primary/10 p-3 text-primary transition-all hover:scale-110 hover:bg-primary/20'
@@ -52,7 +52,7 @@ export default function ActiveProjects() {
                 </button>
             </div>
 
-            <section className='flex h-full justify-center overflow-hidden rounded-xl bg-background/95 pt-5 lg:h-auto'>
+            <section className='flex h-full w-full justify-center overflow-hidden rounded-xl bg-background/95 pt-5 lg:h-auto'>
                 <div
                     className={`flex w-full flex-col items-center transition-all duration-500 ease-in-out max-[1023px]:landscape:justify-center ${slideClass}`}
                 >
