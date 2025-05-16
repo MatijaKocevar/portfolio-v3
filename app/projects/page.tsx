@@ -39,7 +39,7 @@ const projectsData: ShowcaseProject[] = [
         description: 'projects.showcase.projectDescriptions.anasPlace',
         imageUrl: '/images/anas-place/anas_place.webp',
         githubUrl: 'https://github.com/MatijaKocevar/anas-place',
-        liveUrl: 'https://anas-place.net/',
+        liveUrl: 'https://anas-place.vercel.app',
     },
     {
         id: '3',
