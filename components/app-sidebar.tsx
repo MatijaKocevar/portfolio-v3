@@ -32,8 +32,8 @@ const data = {
             url: '/skills',
         },
         {
-            title: 'interests',
-            url: '/interests',
+            title: 'contact',
+            url: '/contact',
         },
     ],
 };
