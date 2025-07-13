@@ -134,6 +134,7 @@
             "liveDemo": "Demonstracija",
             "github": "GitHub",
             "projectDescriptions": {
+                "hierarchicalStructure": "Spletna aplikacija za vizualizacijo hierarhičnih struktur, zgrajena z React in D3.js",
                 "zelda": "Igra po navdihu The Legend of Zelda, zgrajena z modernimi spletnimi tehnologijami",
                 "spaceInvaders": "Klon igre Space Invaders v TypeScript",
                 "anasPlace": "Spletna stran za upravljanje manjšega manikirnega salona",
