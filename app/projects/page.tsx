@@ -5,7 +5,7 @@ const projectsData: ShowcaseProject[] = [
     {
         id: '13',
         title: 'Hierarchical Structure Visualization',
-        description: 'projects.showcase.projectDescriptions.portfolioV3',
+        description: 'projects.showcase.projectDescriptions.hierarchicalStructure',
         imageUrl: '/images/hierarchical-structure/hierarchical-structure.webp',
         githubUrl: 'https://github.com/MatijaKocevar/hierarchical-structure',
         liveUrl: 'https://matijakprojects.com/hierarchical-structure/',
