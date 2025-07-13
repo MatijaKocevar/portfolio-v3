@@ -3,6 +3,14 @@ import type { ShowcaseProject } from '@/types/showcase';
 
 const projectsData: ShowcaseProject[] = [
     {
+        id: '13',
+        title: 'Hierarchical Structure Visualization',
+        description: 'projects.showcase.projectDescriptions.portfolioV3',
+        imageUrl: '/images/hierarchical-structure/hierarchical-structure.webp',
+        githubUrl: 'https://github.com/MatijaKocevar/hierarchical-structure',
+        liveUrl: 'https://matijakprojects.com/hierarchical-structure/',
+    },
+    {
         id: '12',
         title: 'Portfolio V3',
         description: 'projects.showcase.projectDescriptions.portfolioV3',
