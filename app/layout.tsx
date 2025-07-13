@@ -73,7 +73,7 @@ export default async function RootLayout({
             <body
                 className={`${geistSans.variable} ${geistMono.variable} flex h-[100dvh] bg-background text-foreground antialiased`}
             >
-                <Providers messages={messages} locale={locale} isSidebarOpen={value === 'true' ? true : false}>
+                <Providers messages={messages} locale={locale} isSidebarOpen={value !== 'false'}>
                     <AppSidebar isLoggedIn={isLoggedIn} />
                     <SidebarInset>
                         <header className='sticky top-0 z-50 flex h-16 shrink-0 items-center justify-between gap-2 border-b bg-background/80 px-4 backdrop-blur'>
