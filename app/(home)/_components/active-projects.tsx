@@ -29,8 +29,8 @@ export default function ActiveProjects() {
         : 'opacity-100 translate-x-0';
 
     return (
-        <div className='flex w-full flex-col items-center p-5 lg:h-[calc(100vh-64px)] lg:p-10 lg:pl-5'>
-            <div className='flex w-full items-center justify-between gap-5'>
+        <div className='flex w-full flex-col items-center p-5 lg:p-10'>
+            <div className='flex w-full items-center justify-between gap-5 lg:max-w-screen-md'>
                 <button
                     onClick={prevProject}
                     className='rounded-full bg-primary/10 p-3 text-primary transition-all hover:scale-110 hover:bg-primary/20'
@@ -54,17 +54,17 @@ export default function ActiveProjects() {
 
             <section className='flex h-full w-full justify-center overflow-hidden rounded-xl bg-background/95 pt-5 lg:h-auto'>
                 <div
-                    className={`flex w-full flex-col items-center transition-all duration-500 ease-in-out max-[1023px]:landscape:justify-center ${slideClass}`}
+                    className={`flex w-full flex-col items-center transition-all duration-500 ease-in-out landscape:justify-center ${slideClass}`}
                 >
-                    <div className='flex h-full w-full flex-col items-center justify-center gap-10 max-[1023px]:landscape:flex-row'>
-                        <div className='flex w-full flex-col justify-center max-[1023px]:landscape:w-[50%]'>
-                            <div className='mb-5 flex flex-col items-center gap-2 text-center max-[1023px]:landscape:items-center max-[1023px]:landscape:text-center'>
+                    <div className='flex h-full w-full flex-col items-center justify-center gap-10 landscape:flex-row'>
+                        <div className='flex w-full flex-col justify-center landscape:w-[50%]'>
+                            <div className='mb-5 flex flex-col items-center gap-2 text-center landscape:items-center landscape:text-center'>
                                 <h2 className='text-2xl font-semibold'>{t(`items.${currentProject.key}.title`)}</h2>
                                 {currentProject.wip && <span className='text-sm text-red-500'>{t('wip')}</span>}
                             </div>
 
-                            <div className='w-full max-[1023px]:landscape:order-3'>
-                                <p className='mb-5 text-center text-sm text-foreground/70 max-[1023px]:landscape:text-center'>
+                            <div className='w-full landscape:order-3'>
+                                <p className='mb-5 text-center text-sm text-foreground/70 landscape:text-center'>
                                     {t(`items.${currentProject.key}.description`)}
                                 </p>
 
@@ -95,7 +95,7 @@ export default function ActiveProjects() {
                             </div>
                         </div>
 
-                        <div className='relative aspect-square max-h-[450px] min-h-[300px] w-full landscape:aspect-auto landscape:h-[60vh] landscape:max-h-none landscape:min-h-0 max-[1023px]:landscape:w-[50%]'>
+                        <div className='relative aspect-square max-h-[450px] min-h-[300px] w-full landscape:aspect-auto landscape:h-[60vh] landscape:max-h-none landscape:min-h-0 landscape:w-[50%] lg:max-w-screen-md'>
                             {imageLoading && <Skeleton className='mx-auto h-full w-full rounded-2xl' />}
                             <Image
                                 src={currentProject.image}
