@@ -45,7 +45,8 @@
         "bio": {
             "role": "Software Developer",
             "tagline": "Passionate about creating elegant solutions to complex problems",
-            "techStack": {
+            "techStack": "My most commonly used tech stack",
+            "technologies": {
                 "react": "React",
                 "vue": "Vue",
                 "nextjs": "Next.js",

@@ -32,7 +32,7 @@ export default function Bio() {
                 <div className='flex w-full flex-col justify-center gap-10 landscape:w-[50%]'>
                     {/* <Banner /> */}
                     <div className='flex flex-col items-center gap-5'>
-                        <h2 className='text-center'>My most commonly used tech stack</h2>
+                        <h2 className='text-center'>{t('techStack')}</h2>
                         <div className='flex w-full max-w-xl flex-wrap justify-center gap-5 portrait:max-sm:gap-6 landscape:grid landscape:grid-cols-4 landscape:gap-2'>
                             {techStack.map((tech) => (
                                 <div
