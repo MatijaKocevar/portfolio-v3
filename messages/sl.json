@@ -41,7 +41,8 @@
         "bio": {
             "role": "Razvijalec programske opreme",
             "tagline": "Navdušen nad ustvarjanjem elegantnih rešitev za kompleksne probleme",
-            "techStack": {
+            "techStack": "Moje najpogostejše uporabljene tehnologije",
+            "technologies": {
                 "react": "React",
                 "vue": "Vue",
                 "nextjs": "Next.js",
