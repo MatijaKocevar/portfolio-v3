@@ -115,7 +115,7 @@ function deobfuscateScore(payload: string): number | null {
             difference: Math.abs(actualScore - expectedScore),
         });
 
-        if (Math.abs(actualScore - expectedScore) < 1) {
+        if (Math.abs(actualScore - expectedScore) < 0.1) {
             return Math.round(actualScore);
         }
 
