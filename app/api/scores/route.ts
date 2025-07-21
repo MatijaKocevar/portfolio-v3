@@ -99,8 +99,8 @@ function deobfuscateScore(payload: string): number | null {
         const timestamp = parseInt(timestampStr);
         const expectedScore = parseInt(scoreBase36, 36);
 
-        const calculatedScore = (scrambled ^ 0xabcdef) - timestamp;
-        const actualScore = calculatedScore / 7919;
+        const unscrambled = scrambled ^ 0xabcdef;
+        const actualScore = (unscrambled - timestamp) / 7919;
 
         if (Math.abs(actualScore - expectedScore) < 0.01) {
             return Math.round(actualScore);
