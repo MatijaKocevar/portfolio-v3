@@ -7,7 +7,7 @@ import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Alert, AlertDescription } from '@/components/ui/alert';
-import { sendEmail } from '../actions/email';
+import { sendEmail } from '../../actions/email';
 import { Textarea } from '../../components/ui/textarea';
 
 export default function ContactPage() {

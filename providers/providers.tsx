@@ -16,7 +16,7 @@ export default function Providers({ messages, locale, children, isSidebarOpen }:
     return (
         <ClerkProvider>
             <SidebarProvider defaultOpen={isSidebarOpen}>
-                <ThemeProvider attribute='class' defaultTheme='violet-dark' enableSystem disableTransitionOnChange>
+                <ThemeProvider attribute='class' defaultTheme='blue-dark' enableSystem disableTransitionOnChange>
                     <NextIntlProvider messages={messages} locale={locale}>
                         <PullToRefresh />
                         {children}
