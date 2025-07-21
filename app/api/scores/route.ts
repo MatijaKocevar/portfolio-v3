@@ -99,15 +99,29 @@ function deobfuscateScore(payload: string): number | null {
         const timestamp = parseInt(timestampStr);
         const expectedScore = parseInt(scoreBase36, 36);
 
+        console.log('Debug deobfuscation:', {
+            decoded,
+            scrambled,
+            timestamp,
+            expectedScore,
+        });
+
         const unscrambled = scrambled ^ 0xabcdef;
         const actualScore = (unscrambled - timestamp) / 7919;
 
-        if (Math.abs(actualScore - expectedScore) < 0.01) {
+        console.log('Calculated values:', {
+            unscrambled,
+            actualScore,
+            difference: Math.abs(actualScore - expectedScore),
+        });
+
+        if (Math.abs(actualScore - expectedScore) < 1) {
             return Math.round(actualScore);
         }
 
         return null;
-    } catch {
+    } catch (error) {
+        console.error('Deobfuscation error:', error);
         return null;
     }
 }
