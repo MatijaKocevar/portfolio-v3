@@ -161,12 +161,12 @@ export default function ContactPage() {
                                 <div className='ml-5'>
                                     <p className='text-lg font-medium'>GitHub</p>
                                     <a
-                                        href='https://github.com/matija-kocevar'
+                                        href='https://github.com/MatijaKocevar'
                                         className='text-muted-foreground hover:text-primary'
                                         target='_blank'
                                         rel='noopener noreferrer'
                                     >
-                                        github.com/matija-kocevar
+                                        github.com/MatijaKocevar
                                     </a>
                                 </div>
                             </div>
