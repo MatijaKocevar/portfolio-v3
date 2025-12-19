@@ -26,9 +26,13 @@
         "sign-in": "Prijava",
         "sign-up": "Registracija",
         "factor-one": "Factor One",
+        "service-worker": {
+            "js": "Service Worker"
+        },
         "icon-192x192": {
             "png": "Badge"
         },
+        "dashboard": "Nadzorna plošča",
         "contact": "Kontakt"
     },
     "home": {
@@ -80,6 +84,10 @@
                 "taskManagement": {
                     "title": "Task Management",
                     "description": "Spletna aplikacija za upravljanje nalog, narejena z React, .NET in SQL Server"
+                },
+                "timeManager": {
+                    "title": "Time Manager",
+                    "description": "Spletna aplikacija za upravljanje časa, narejena z Next.js in Tailwind CSS"
                 }
             }
         }
@@ -135,6 +143,7 @@
             "liveDemo": "Demonstracija",
             "github": "GitHub",
             "projectDescriptions": {
+                "timeManager": "Spletna aplikacija za upravljanje časa, narejena z Next.js in Tailwind CSS",
                 "hierarchicalStructure": "Spletna aplikacija za vizualizacijo hierarhičnih struktur, zgrajena z React in D3.js",
                 "zelda": "Igra po navdihu The Legend of Zelda, zgrajena z modernimi spletnimi tehnologijami",
                 "spaceInvaders": "Klon igre Space Invaders v TypeScript",

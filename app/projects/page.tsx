@@ -3,6 +3,14 @@ import type { ShowcaseProject } from '@/types/showcase';
 
 const projectsData: ShowcaseProject[] = [
     {
+        id: '14',
+        title: 'Time Manager',
+        description: 'projects.showcase.projectDescriptions.timeManager',
+        imageUrl: '/images/time-manager/time-manager.webp',
+        githubUrl: 'https://github.com/MatijaKocevar/time-management-app',
+        liveUrl: 'https://time-management-app-phi.vercel.app/demo',
+    },
+    {
         id: '13',
         title: 'Hierarchical Structure Visualization',
         description: 'projects.showcase.projectDescriptions.hierarchicalStructure',
