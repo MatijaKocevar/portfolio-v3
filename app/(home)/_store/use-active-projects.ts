@@ -19,17 +19,17 @@ export const useActiveProjects = create<ActiveProjectsStore>((set) => ({
     imageLoading: true,
     showcaseProjects: [
         {
+            key: 'timeManager',
+            image: '/images/time-manager/time-manager.webp',
+            liveUrl: 'https://time-management-app-phi.vercel.app/demo',
+            githubUrl: 'https://github.com/MatijaKocevar/time-management-app',
+            wip: true,
+        },
+        {
             key: 'zelda',
             image: '/images/zelda-clone/zelda_clone.webp',
             liveUrl: 'https://matijakocevar.github.io/zelda-clone/',
             githubUrl: 'https://github.com/MatijaKocevar/zelda-clone',
-            wip: true,
-        },
-        {
-            key: 'anasPlace',
-            image: '/images/anas-place/anas_place.webp',
-            liveUrl: 'https://anas-place.vercel.app',
-            githubUrl: 'https://github.com/MatijaKocevar/anas-place',
             wip: true,
         },
         {

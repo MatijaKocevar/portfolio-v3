@@ -84,6 +84,10 @@
                 "taskManagement": {
                     "title": "Task Management",
                     "description": "A task management application built with React, .NET and SQL Server"
+                },
+                "timeManager": {
+                    "title": "Time Manager",
+                    "description": "A time management web application built with Next.js and Tailwind CSS"
                 }
             }
         }
