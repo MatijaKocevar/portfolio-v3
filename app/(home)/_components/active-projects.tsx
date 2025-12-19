@@ -53,9 +53,9 @@ export default function ActiveProjects() {
                     </button>
                 </div>
 
-                <div className='flex w-full flex-col items-center justify-center gap-5'>
+                <div className='flex w-full flex-col items-center justify-around gap-5 overflow-hidden'>
                     <div
-                        className={`flex w-full flex-col items-center transition-all duration-500 ease-in-out ${slideClass}`}
+                        className={`flex w-full flex-col items-center justify-around transition-all duration-500 ease-in-out ${slideClass}`}
                     >
                         <div className='mb-5 flex flex-col items-center gap-2 text-center'>
                             <h2 className='text-2xl font-semibold'>{t(`items.${currentProject.key}.title`)}</h2>
@@ -90,23 +90,21 @@ export default function ActiveProjects() {
                                 </a>
                             </Button>
                         </div>
-                    </div>
-                </div>
 
-                <div className='relative aspect-square max-h-[450px] min-h-[300px] w-full lg:max-w-screen-md'>
-                    {imageLoading && <Skeleton className='mx-auto h-full w-full rounded-2xl' />}
-                    <Image
-                        src={currentProject.image}
-                        alt={currentProject.key}
-                        fill
-                        sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
-                        quality={85}
-                        className={`rounded-2xl object-cover transition-opacity duration-300 ${
-                            imageLoading ? 'opacity-0' : 'opacity-100'
-                        }`}
-                        priority
-                        onLoad={() => setImageLoading(false)}
-                    />
+                        <div className='relative aspect-square max-h-[450px] min-h-[300px] w-full lg:max-w-screen-md'>
+                            {imageLoading && <Skeleton className='mx-auto h-full w-full rounded-2xl' />}
+                            <Image
+                                src={currentProject.image}
+                                alt={currentProject.key}
+                                fill
+                                sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
+                                quality={85}
+                                className='rounded-2xl object-cover'
+                                priority
+                                onLoad={() => setImageLoading(false)}
+                            />
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
