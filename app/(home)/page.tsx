@@ -1,12 +1,10 @@
 import Bio from './_components/bio';
 import ActiveProjects from './_components/active-projects';
-import { Separator } from '@/components/ui/separator';
 
 export default async function Home() {
     return (
-        <div className='flex w-full flex-col overflow-x-hidden'>
+        <div className='flex h-full flex-col gap-5 overflow-auto landscape:flex-row landscape:gap-0'>
             <Bio />
-            <Separator className='mx-auto w-[95%]' />
             <ActiveProjects />
         </div>
     );

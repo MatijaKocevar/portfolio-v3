@@ -18,5 +18,12 @@ export default async function HomeLayout({
 }: Readonly<{
     children: React.ReactNode;
 }>) {
-    return <div style={{ containerType: 'inline-size', containerName: 'home' }}>{children}</div>;
+    return (
+        <div
+            className='h-full landscape:h-[calc(100vh-4rem)] landscape:overflow-auto'
+            style={{ containerType: 'inline-size', containerName: 'home' }}
+        >
+            {children}
+        </div>
+    );
 }
