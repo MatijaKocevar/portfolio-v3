@@ -139,6 +139,7 @@
             "liveDemo": "Live Demo",
             "github": "GitHub",
             "projectDescriptions": {
+                "timeManager": "A time management web application built with Next.js and Tailwind CSS",
                 "hierarchicalStructure": "A web application for visualizing hierarchical structures, built with React and D3.js",
                 "zelda": "A tribute game inspired by The Legend of Zelda, built with modern web technologies",
                 "spaceInvaders": "A clone of Space Invaders in TypeScript",
