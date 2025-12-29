@@ -7,8 +7,8 @@ const projectsData: ShowcaseProject[] = [
         title: 'Time Manager',
         description: 'projects.showcase.projectDescriptions.timeManager',
         imageUrl: '/images/time-manager/time-manager.webp',
-        githubUrl: 'https://github.com/MatijaKocevar/time-management-app',
-        liveUrl: 'https://time-management-app-phi.vercel.app/demo',
+        githubUrl: 'https://github.com/MatijaKocevar/time-manager',
+        liveUrl: 'https://www.timemanager-demo.com/demo',
     },
     {
         id: '13',

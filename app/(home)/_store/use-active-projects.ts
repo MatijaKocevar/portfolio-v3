@@ -21,8 +21,8 @@ export const useActiveProjects = create<ActiveProjectsStore>((set) => ({
         {
             key: 'timeManager',
             image: '/images/time-manager/time-manager.webp',
-            liveUrl: 'https://time-management-app-phi.vercel.app/demo',
-            githubUrl: 'https://github.com/MatijaKocevar/time-management-app',
+            liveUrl: 'https://www.timemanager-demo.com/demo',
+            githubUrl: 'https://github.com/MatijaKocevar/time-manager',
             wip: true,
         },
         {
