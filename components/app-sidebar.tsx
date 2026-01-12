@@ -10,7 +10,6 @@ import SocialLinks from './social-links';
 import { ThemeModeToggle } from './theme-mode-toggle';
 import LanguageToggleButton from './language-toggle-button';
 import { useDeviceType } from '@/hooks/use-device-type';
-import { AuthButton } from '../app/(auth)/_components/auth-button';
 import { setCookie } from 'cookies-next';
 
 const data = {
@@ -38,11 +37,7 @@ const data = {
     ],
 };
 
-interface AppSidebarProps extends React.ComponentProps<typeof Sidebar> {
-    isLoggedIn?: boolean;
-}
-
-export function AppSidebar({ isLoggedIn, ...props }: AppSidebarProps) {
+export function AppSidebar(props: React.ComponentProps<typeof Sidebar>) {
     const pathname = usePathname();
     const locale = useLocale();
     const t = useTranslations('nav');
@@ -96,13 +91,8 @@ export function AppSidebar({ isLoggedIn, ...props }: AppSidebarProps) {
                         <LanguageToggleButton locale={locale} />
                         <ThemeModeToggle />
                     </div>
-                    <div className='flex items-center justify-between md:justify-center'>
+                    <div className='flex items-center justify-center'>
                         <SocialLinks />
-                        <AuthButton
-                            className='md:hidden'
-                            onClick={isMobile ? () => setOpenMobile(false) : undefined}
-                            isLoggedIn={isLoggedIn}
-                        />
                     </div>
                 </div>
             </SidebarFooter>

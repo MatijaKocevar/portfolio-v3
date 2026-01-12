@@ -1,5 +1,21 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
+import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server';
+
+const isPublicRoute = createRouteMatcher([
+    '/',
+    '/about',
+    '/experience',
+    '/interests',
+    '/projects',
+    '/contact',
+    '/skills',
+    '/sign-in(.*)',
+    '/sign-up(.*)',
+    '/api/push(.*)',
+    '/api/scores(.*)',
+    '/api/tasks(.*)',
+]);
 
 function corsMiddleware(request: NextRequest) {
     const origin = request.headers.get('origin') || '';
@@ -33,7 +49,17 @@ function corsMiddleware(request: NextRequest) {
     return response;
 }
 
-export default corsMiddleware;
+export default clerkMiddleware((auth, req) => {
+    if (req.method === 'OPTIONS') {
+        return corsMiddleware(req);
+    }
+
+    if (!isPublicRoute(req)) {
+        auth.protect();
+    }
+
+    return corsMiddleware(req);
+});
 
 export const config = {
     matcher: ['/api/:path*', '/((?!_next|images|icons|.*\\.[\\w]+$).*)'],
