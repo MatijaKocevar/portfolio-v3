@@ -1,15 +1,32 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import useNavigationStore from '../store/use-navigation-store';
+import { useMemo } from 'react';
 
 const SocialLinks = () => {
     const t = useTranslations();
+    const locale = useLocale();
     const { socialLinks } = useNavigationStore();
+
+    const allLinks = useMemo(() => {
+        const cvLink = locale === 'sl' ? process.env.NEXT_PUBLIC_CV_LINK_SL : process.env.NEXT_PUBLIC_CV_LINK_EN;
+
+        if (!cvLink) return socialLinks;
+
+        return [
+            ...socialLinks,
+            {
+                href: cvLink,
+                label: 'CV',
+                tooltipKey: 'nav.openResume',
+            },
+        ];
+    }, [locale, socialLinks]);
 
     return (
         <div className='flex flex-row items-center gap-4'>
-            {socialLinks.map((link) => (
+            {allLinks.map((link) => (
                 <a
                     key={link.label}
                     href={link.href}

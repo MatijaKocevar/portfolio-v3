@@ -33,11 +33,6 @@ const useNavigationStore = create<NavigationStore>(() => ({
             label: 'LinkedIn',
             tooltipKey: 'nav.openLinkedIn',
         },
-        {
-            href: 'https://drive.google.com/file/d/1a7A1h59XqKjEQ6zNjrlA5oWAMhsIqi1n/view',
-            label: 'CV',
-            tooltipKey: 'nav.openResume',
-        },
     ],
 }));
 
