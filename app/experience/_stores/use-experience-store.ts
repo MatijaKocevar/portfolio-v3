@@ -22,7 +22,7 @@ export const useExperienceStore = create<ExperienceStore>(() => ({
     experiences: [
         {
             id: 6,
-            name: 'Frontend developer - Amibit d.o.o.',
+            name: 'Senior Frontend developer - Amibit d.o.o.',
             dateRange: [new Date(2024, 5), new Date()],
             current: true,
             description: 'experience.descriptions.6',
