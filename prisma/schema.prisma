@@ -23,3 +23,16 @@ model Task {
   updatedAt   DateTime @updatedAt
 }
 
+model ContactSubmission {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String
+  message   String   @db.Text
+  ip        String?
+  userAgent String?
+  createdAt DateTime @default(now())
+
+  @@index([ip, createdAt])
+}
+
+
