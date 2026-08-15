@@ -105,7 +105,7 @@
         },
         "content": {
             "journey": "V šoli sem študiral programiranje, vendar študija nisem dokončal, zaradi česar sem sprva delal v prodaji. \n\n Po nekaj letih dela v prodaji, kjer nisem našel izpopolnitve, sem se znašel v položaju, kjer sem pri delu potreboval določeno orodje za katerega podjetje ni imelo sredstev za razvoj. To me je vodilo do tega, da sem se ponovno začel učiti spletnega razvoja saj sem vedel, da lahko ustvarim orodje, ki ga potrebujem. Eno je vodilo k drugemu in ustvaril sem spletnega pajka, ki je občutno skrajšal moje delo. \n\n Nadaljeval sem z učenjem o sodobnih ogrodjih in orodjih ter se ponovno zaljubil v razvoj. Učil sem se skoraj leto dni, nato pa sem dobil svojo prvo službo kot razvijalec. \n Od takrat sem delal na različnih projektih, tako samostojno kot v ekipah, ki so mi pomagali rasti kot razvijalcu. Uživam v izzivih reševanja kompleksnih problemov in ustvarjanju elegantnih rešitev, ki izboljšujejo uporabniško izkušnjo.",
-            "currentFocus": "Čeprav uživam v full-stack razvoju, je moj primarni fokus na frontend razvoju, kjer lahko združim svoje tehnične veščine s strastjo do ustvarjanja intuitivnih in privlačnih uporabniških izkušenj. Odlikujem se v razvoju z React in TypeScript tehnologijami, pri čemer se neprestano izpopolnjujem v najnovejših frontend tehnologijah in dobrih praksah. Moj pristop združuje tehnično odličnost s pozornostjo na uporabniško izkušnjo, kar zagotavlja, da dostavim rešitve, ki so hkrati zmogljive in uporabnikom prijazne."
+            "currentFocus": "Kot Senior Fullstack razvijalec delam čez celoten sklad z vse večjim poudarkom na AI in agentičnih delovnih tokovih. Gradim in orkestriram AI agente, integriram modele, kot sta Claude in DeepSeek, v realne produkte ter pospešujem lasten razvoj z AI orodji, kot je OpenCode. To združujem z močnimi frontend veščinami v React, Vue in Next.js, backend izkušnjami v Java in PHP ter praktičnim delom z infrastrukturo z Docker in strežniškimi nastavitvami."
         },
         "capabilities": {
             "frontend": {
@@ -122,12 +122,23 @@
             "fullstack": {
                 "title": "Full Stack zmožnosti",
                 "items": [
-                    "Razvoj backend storitev z .NET in Node.js",
+                    "Razvoj backend storitev z .NET, Node.js, Java in PHP",
                     "Načrtovanje in optimizacija podatkovnih baz (SQL Server, PostgreSQL)",
                     "Razvoj in integracija API-jev",
-                    "DevOps in postavitev v produkcijo",
+                    "Postavitev strežnikov in namestitve z Docker",
                     "Načrtovanje sistemske arhitekture in skalabilnosti",
                     "Tehnična dokumentacija in pregled kode"
+                ]
+            },
+            "ai": {
+                "title": "AI & Agenti",
+                "items": [
+                    "Gradnja AI agentov in agentičnih delovnih tokov",
+                    "Integracija LLM-jev, kot sta Claude in DeepSeek, v aplikacije",
+                    "Prompt engineering in orkestracija modelov",
+                    "Razvoj s pomočjo AI z OpenCode",
+                    "Povezovanje modelov z orodji in podatki prek MCP",
+                    "Avtomatizacija kompleksnih večstopenjskih procesov"
                 ]
             }
         }
@@ -179,7 +190,7 @@
             "position": "Pozicija"
         },
         "descriptions": {
-            "6": "Začel novo službo kot Vue.js razvijalec z delom na vzdrževanju in izboljšavah obstoječih Vue 2 aplikacij. Ustvaril nov Vue 3 projekt od začetka in razvil več prototipnih aplikacij. Vodilni razvijalec novega React projekta, vodenje razvoja in sprejemanje ključnih arhitekturnih odločitev.\n\nRazširil tehnično znanje z učenjem Java Spring Boot razvoja, poglobil znanje Docker kontejnerizacije in PHP Symfony ogrodja. Prevzel dodatne odgovornosti, vključno z UI/UX oblikovanjem v Figmi in mentorstvom novih zaposlenih.",
+            "6": "Začel novo službo kot Vue.js razvijalec z delom na vzdrževanju in izboljšavah obstoječih Vue 2 aplikacij. Ustvaril nov Vue 3 projekt od začetka in razvil več prototipnih aplikacij. Vodilni razvijalec novega React projekta, vodenje razvoja in sprejemanje ključnih arhitekturnih odločitev.\n\nRazširil tehnično znanje z učenjem Java Spring Boot razvoja, poglobil znanje Docker kontejnerizacije in PHP Symfony ogrodja. Prevzel dodatne odgovornosti, vključno z UI/UX oblikovanjem v Figmi in mentorstvom novih zaposlenih.\n\nNapredoval v Senior Fullstack razvijalca, zdaj delam čez celoten sklad s poudarkom na AI in agentičnih delovnih tokovih. Gradim in orkestriram AI agente, delam z Java in PHP backend-i, Next.js, React in Vue frontend-i ter skrbim za strežniške nastavitve in Docker infrastrukturo.",
             "5": "Razvil React knjižnico za tabele z naprednimi funkcijami in ustvaril samostojne poslovne aplikacije za interno uporabo. Obsežno delal z Microsoft SharePoint integracijo in razvil custom Canvas aplikacije znotraj Power Platform ekosistema. Prav tako sem delal z veliko manjših projektov s tehnologijo kot je Next.js ali samo navaden Javascript.\n\nSodeloval pri projektu migracije Laravel API-ja v .NET.",
             "4": "Delal na obsežni Vue.js/Angular aplikaciji z 24/7 razpoložljivostjo. Delal sem na migraciji obstoječe kode v Vue 3, ob sočasnem vzdrževanju in razvoju novih funkcionalnosti v Angularju. Delal s PHP Symfony ogrodjem za backend razvoj.\n\nPridobil obsežne izkušnje z Linux in Docker okolji za namestitev in lokalni razvoj. Delal v agilnem okolju z uporabo SCRUM metodologije za vodenje projektov.",
             "3": "Full-stack razvoj s poudarkom na React in TypeScript v svoji prvi vlogi profesionalnega razvijalca. Sodeloval pri razvoju nove spletne strani podjetja in delal na spletni aplikaciji z uporabo React-a na frontend strani. Ustvaril interaktivno knjižnico za prikaz podatkov na vnaprej določenih SVG zemljevidih.\n\nDelal z .NET in SQL na backend projektih, razvijal in vzdrževal rešitve za upravljanje vsebin z uporabo Umbraco CMS in C# Razor strani ter pridobival izkušnje z osnovnim spletnim oblikovanjem in izdelavo UI elementov.",
@@ -203,7 +214,8 @@
                 "title": "Spletni razvoj",
                 "frontend": "Frontend razvoj",
                 "backend": "Backend razvoj",
-                "database": "Podatkovne baze & orodja"
+                "database": "Podatkovne baze & orodja",
+                "ai": "AI & Agenti"
             },
             "design": {
                 "title": "Oblikovanje"
@@ -231,7 +243,13 @@
             "photoshop": "Photoshop",
             "illustrator": "Illustrator",
             "figma": "Figma",
-            "inkscape": "Inkscape"
+            "inkscape": "Inkscape",
+            "freecad": "FreeCAD",
+            "claude": "Claude",
+            "agents": "AI agenti",
+            "prompt": "Prompt Engineering",
+            "deepseek": "DeepSeek",
+            "opencode": "OpenCode"
         },
         "descriptions": {
             "react": "Imam obsežne izkušnje z Reactom, ki sem ga uporabljal v številnih profesionalnih projektih.\n\n Obvladam moderne React vzorce in je ogrodje, ki ga uporabljam za večino svojih projektov. Zaradi redne uporabe Next.js imam poglobljeno razumevanje React ekosistema, vključno s hooks, context API in knjižnicami za upravljanje stanja aplikacije kot je Zustand.\n\n Z lahkoto gradim SPA in kompleksne aplikacije, pri čemer implementiram najboljše prakse za zmogljivost in vzdrževanje.",
@@ -255,7 +273,13 @@
             "photoshop": "Photoshop uporabljam za urejanje slik in ustvarjanje sredstev v spletnih razvojnih projektih.\n\n Lahko učinkovito pripravim in optimiziram slike za spletno uporabo, ustvarjam UI elemente in urejam fotografije za različne namene.",
             "illustrator": "Z Illustratorjem delam za ustvarjanje vektorske grafike in ikon za spletne projekte.\n\n Lahko oblikujem in izvozim skalabilno grafiko, pri čemer ohranjam doslednost preko različnih velikosti zaslonov.",
             "figma": "Figmo obsežno uporabljam za UI/UX oblikovanje in sodelovanje.\n\n Ustvarjam in vzdržujem oblikovalske sisteme, gradim interaktivne prototipe in učinkovito sodelujem z oblikovalskimi ekipami. Obvladam auto-layout, komponente in oblikovalske žetone.",
-            "inkscape": "Inkscape uporabljam za ustvarjanje in urejanje SVG grafike za spletne projekte.\n\n Lahko učinkovito ustvarjam in optimiziram vektorsko grafiko, pri čemer ohranjam visoko kakovost preko različnih velikosti zaslonov."
+            "inkscape": "Inkscape uporabljam za ustvarjanje in urejanje SVG grafike za spletne projekte.\n\n Lahko učinkovito ustvarjam in optimiziram vektorsko grafiko, pri čemer ohranjam visoko kakovost preko različnih velikosti zaslonov.",
+            "freecad": "FreeCAD uporabljam za parametrično 3D modeliranje v okviru svojega hobija 3D tiskanja. Oblikujem dele po meri, ohišja in mehanske komponente z uporabo Sketcher ter Part/PartDesign delovnih okolij.\n\n Modele izvozim in pripravim za 3D tisk ter jih iterativno izpopolnjujem, da dobim funkcionalne in natisljive rezultate.",
+            "claude": "Uporabljam modele Anthropic Claude za gradnjo inteligentnih, produkcijsko zanesljivih AI funkcionalnosti. Delam s Claude API-jem, uporabo orodij (tool use), strukturiranimi izhodi in zmožnostmi vida za integracijo AI-ja v aplikacije.\n\n Gradim na podlagi Model Context Protocol (MCP), da povežem Claude z zunanjimi orodji in viri podatkov, ter uporabljam RAG vzorce z embeddings za utemeljitev odgovorov v domenskem znanju.",
+            "agents": "Načrtujem in gradim AI agente, ki avtomatizirajo kompleksne večstopenjske delovne tokove. Orkestriram agentične sisteme s klicanjem orodij, načrtovanjem in spominom, da agenti delujejo avtonomno in hkrati zanesljivo.\n\n Gradim multi-agentne sisteme in orkestracijske cevovode z uporabo ogrodij, kot sta LangChain in LangGraph, ter jih integriram v realne produkte od začetka do konca.",
+            "prompt": "Oblikujem in optimiziram pozive (prompts) za zanesljive in kakovostne izhode iz LLM-jev. Uporabljam tehnike, kot so few-shot prompting, chain-of-thought sklepanje in formatiranje strukturiranih izhodov.\n\n Gradim predloge pozivov in evalvacijske zanke za iteracijo sistemskih pozivov ter merjenje kakovosti, s čimer ohranjam dosledne in skladne odgovore.",
+            "deepseek": "Delam z modeli DeepSeek za kodiranje, sklepanje in splošne AI naloge, pri čemer uporabljam API za agentne hrbtenice in stroškovno učinkovito inferenco.\n\n DeepSeek integriram v agentične delovne tokove in ga primerjam z drugimi modeli, da izberem pravi model za vsako nalogo.",
+            "opencode": "OpenCode uporabljam za pospešitev svojega razvojnega delovnega toka, pri čemer sodelujem z AI programerskimi agenti za načrtovanje, implementacijo in pregled kode.\n\n Konfiguriram in razširjam agentična orodja za kodiranje s prilagojenimi pravili, veščinami in MCP strežniki, da funkcije dostavljam hitreje in bolj zanesljivo."
         }
     },
     "interests": {

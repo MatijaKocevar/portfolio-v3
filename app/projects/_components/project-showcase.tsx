@@ -3,9 +3,8 @@
 import Image from 'next/image';
 import { Button } from '../../../components/ui/button';
 import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from '../../../components/ui/card';
-import { Dialog, DialogContent, DialogTitle, DialogTrigger } from '../../../components/ui/dialog';
 import { ShowcaseProject } from '@/types/showcase';
-import { Github, ExternalLink, Info } from 'lucide-react';
+import { Github, ExternalLink } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { Skeleton } from '@/components/ui/skeleton';
 import { useState } from 'react';
@@ -51,17 +50,6 @@ export function ProjectShowcase({ project }: ProjectShowcaseProps) {
                             </a>
                         </Button>
                     )}
-                </div>
-                <div className='ml-auto'>
-                    <Dialog>
-                        <DialogTrigger asChild>
-                            <Button variant='outline' size='sm'>
-                                <Info className='h-4 w-4' />
-                            </Button>
-                        </DialogTrigger>
-                        <DialogTitle></DialogTitle>
-                        <DialogContent className='rounded-lg'>Description component in progress</DialogContent>
-                    </Dialog>
                 </div>
             </CardFooter>
         </Card>
