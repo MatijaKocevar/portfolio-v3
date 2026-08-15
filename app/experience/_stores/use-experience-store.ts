@@ -22,7 +22,7 @@ export const useExperienceStore = create<ExperienceStore>(() => ({
     experiences: [
         {
             id: 6,
-            name: 'Senior Frontend developer - Amibit d.o.o.',
+            name: 'Senior Fullstack Developer - Amibit d.o.o.',
             dateRange: [new Date(2024, 5), new Date()],
             current: true,
             description: 'experience.descriptions.6',
@@ -36,6 +36,9 @@ export const useExperienceStore = create<ExperienceStore>(() => ({
                 { name: 'php', title: 'PHP' },
                 { name: 'java', title: 'Java' },
                 { name: 'figma', title: 'Figma' },
+                { name: 'opencode', title: 'OpenCode' },
+                { name: 'deepseek', title: 'DeepSeek' },
+                { name: 'agents', title: 'AI Agents' },
             ],
         },
         {

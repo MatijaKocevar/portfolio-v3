@@ -28,6 +28,7 @@ export default function SkillsPage() {
                                 ...skillCategories.webDevelopment.tools,
                             ]}
                         />
+                        <SkillGroup title='webDevelopment.ai' skills={skillCategories.webDevelopment.ai} />
                     </CardContent>
                 </Card>
 

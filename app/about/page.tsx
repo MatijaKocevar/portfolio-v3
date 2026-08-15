@@ -16,10 +16,17 @@ export default function AboutPage() {
         { name: 'php', title: t('skills.tech.php') },
         { name: 'postgres', title: t('skills.tech.postgres') },
         { name: 'mssql', title: t('skills.tech.mssql') },
+        { name: 'opencode', title: t('skills.tech.opencode') },
+        { name: 'deepseek', title: t('skills.tech.deepseek') },
+        { name: 'agents', title: t('skills.tech.agents') },
+        { name: 'prompt', title: t('skills.tech.prompt') },
+        { name: 'claude', title: t('skills.tech.claude') },
+        { name: 'freecad', title: t('skills.tech.freecad') },
     ];
 
     const frontendItems = t.raw('about.capabilities.frontend.items') as string[];
     const fullstackItems = t.raw('about.capabilities.fullstack.items') as string[];
+    const aiItems = t.raw('about.capabilities.ai.items') as string[];
 
     return (
         <div className='scrollable-element flex flex-col gap-5 p-5 lg:gap-10 lg:p-10'>
@@ -62,7 +69,7 @@ export default function AboutPage() {
                     <CardTitle>{t('about.sections.capabilities')}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                    <div className='grid gap-5 md:grid-cols-2 lg:gap-10'>
+                    <div className='grid gap-5 md:grid-cols-3 lg:gap-10'>
                         <div className='space-y-5'>
                             <h3 className='text-xl font-medium'>{t('about.capabilities.frontend.title')}</h3>
                             <ul className='space-y-2'>
@@ -78,6 +85,17 @@ export default function AboutPage() {
                             <h3 className='text-xl font-medium'>{t('about.capabilities.fullstack.title')}</h3>
                             <ul className='space-y-2'>
                                 {fullstackItems.map((item, index) => (
+                                    <li key={index} className='flex items-center gap-2 text-muted-foreground'>
+                                        <span className='h-1.5 w-1.5 rounded-full bg-primary' />
+                                        {item}
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                        <div className='space-y-5'>
+                            <h3 className='text-xl font-medium'>{t('about.capabilities.ai.title')}</h3>
+                            <ul className='space-y-2'>
+                                {aiItems.map((item, index) => (
                                     <li key={index} className='flex items-center gap-2 text-muted-foreground'>
                                         <span className='h-1.5 w-1.5 rounded-full bg-primary' />
                                         {item}
