@@ -15,6 +15,7 @@ interface SkillsStore {
             backend: string[];
             database: string[];
             tools: string[];
+            ai: string[];
         };
         design: string[];
     };
@@ -52,6 +53,12 @@ export const useSkillsStore = create<SkillsStore>((set) => ({
         illustrator: ['Vector Art', 'Logo Design', 'Icon Design', 'Typography', 'Illustrations'],
         figma: ['UI/UX Design', 'Prototyping', 'Design Systems'],
         inkscape: ['Vector Graphics', 'SVG Editing', 'Icon Design', 'Logo Design', 'Print Design'],
+        freecad: ['Parametric 3D Modeling', 'Sketcher', 'Part/PartDesign', 'STL Export', '3D Printing Prep'],
+        claude: ['Claude API', 'Tool Use', 'Structured Outputs', 'Vision', 'Model Context Protocol (MCP)', 'RAG'],
+        agents: ['Agent Orchestration', 'Multi-agent Systems', 'Tool Calling', 'Agentic Workflows', 'Planning & Memory', 'LangChain/LangGraph'],
+        prompt: ['System Prompts', 'Few-shot Prompting', 'Chain-of-Thought', 'Structured Outputs', 'Prompt Optimization', 'Evaluation'],
+        deepseek: ['Code Generation', 'Reasoning Models', 'API Integration', 'Cost-efficient Inference'],
+        opencode: ['AI Coding Agents', 'Custom Rules & Skills', 'MCP Servers', 'Agent Workflows'],
     },
     skillCategories: {
         webDevelopment: {
@@ -59,7 +66,8 @@ export const useSkillsStore = create<SkillsStore>((set) => ({
             backend: ['cSharp', 'nodejs', 'php'],
             database: ['postgres', 'mssql'],
             tools: ['docker', 'git'],
+            ai: ['opencode', 'deepseek', 'agents', 'prompt', 'claude'],
         },
-        design: ['photoshop', 'illustrator', 'figma', 'inkscape'],
+        design: ['photoshop', 'illustrator', 'figma', 'inkscape', 'freecad'],
     },
 }));

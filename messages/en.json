@@ -105,7 +105,7 @@
         },
         "content": {
             "journey": "I studied programming in school but didn't complete college, which led me to work in sales initially. \n\n After a few years in sales roles where I wasn't finding fulfillment, I found myself in a position at work where I needed a tool to help me with my job but the company didn't have the resources to create it. This eventually lead me to start learning web development on my own because I knew I could create the tool I needed. One thing led to another, and I made a web scraper which shortened my work significantly. \n\n I continued learning about modern frameworks and tools and fell in love with developing again. I kept up learning for almost a year, and then I got my first job as a developer. \n Since then, I've worked on various projects, both independently and in teams, which have helped me grow as a developer. I enjoy the challenge of solving complex problems and creating elegant solutions that enhance user experiences.",
-            "currentFocus": "While I enjoy full-stack development, my primary focus is on frontend development where I can combine my technical skills with my passion for creating intuitive and engaging user experiences. I excel in React and TypeScript development, always staying updated with the latest frontend technologies and best practices. My approach combines technical excellence with a keen eye for user experience, ensuring that I deliver solutions that are both powerful and user-friendly."
+            "currentFocus": "As a Senior Fullstack Developer, I work across the entire stack with a growing focus on AI and agentic workflows. I build and orchestrate AI agents, integrating models like Claude and DeepSeek into real products and accelerating my own development with AI tools like OpenCode. I combine this with strong frontend skills in React, Vue and Next.js, backend experience in Java and PHP, and hands-on infrastructure work with Docker and server setups."
         },
         "capabilities": {
             "frontend": {
@@ -122,12 +122,23 @@
             "fullstack": {
                 "title": "Full Stack Capabilities",
                 "items": [
-                    "Developing backend services with .NET and Node.js",
+                    "Developing backend services with .NET, Node.js, Java and PHP",
                     "Database design and optimization (SQL Server, PostgreSQL)",
                     "API development and integration",
-                    "DevOps and deployment workflows",
+                    "Server setup and deployment with Docker",
                     "System architecture and scalability planning",
                     "Technical documentation and code review"
+                ]
+            },
+            "ai": {
+                "title": "AI & Agents",
+                "items": [
+                    "Building AI agents and agentic workflows",
+                    "Integrating LLMs like Claude and DeepSeek into apps",
+                    "Prompt engineering and model orchestration",
+                    "AI-assisted development with OpenCode",
+                    "Connecting models to tools and data via MCP",
+                    "Automating complex multi-step processes"
                 ]
             }
         }
@@ -179,7 +190,7 @@
             "position": "Position"
         },
         "descriptions": {
-            "6": "Started a new job as a Vue.js developer working on maintaining and improving legacy Vue 2 applications. Created a new Vue 3 project from scratch and developed multiple Proof of Concept applications. Lead developer for a new React project, managing development and making key architectural decisions.\n\nExpanded technical expertise by learning Java Spring Boot development, furthering knowledge of Docker containerization and PHP Symfony framework. Took on additional responsibilities including UI/UX design with Figma and mentoring new employees.",
+            "6": "Started a new job as a Vue.js developer working on maintaining and improving legacy Vue 2 applications. Created a new Vue 3 project from scratch and developed multiple Proof of Concept applications. Lead developer for a new React project, managing development and making key architectural decisions.\n\nExpanded technical expertise by learning Java Spring Boot development, furthering knowledge of Docker containerization and PHP Symfony framework. Took on additional responsibilities including UI/UX design with Figma and mentoring new employees.\n\nPromoted to Senior Fullstack Developer, now working across the entire stack with a focus on AI and agentic workflows. Building and orchestrating AI agents, working with Java and PHP backends, Next.js, React and Vue frontends, and handling server setups and Docker-based infrastructure.",
             "5": "Developed React table library with advanced features and created standalone business applications for internal use. Worked extensively with Microsoft SharePoint integration and developed custom Canvas apps within the Power Platform ecosystem. I also worked on many other smaller project using various frameworks like Next.js or plain Javascript.\n\nContributed to the migration project of porting a Laravel-based API to .NET.",
             "4": "Worked on a large-scale Vue.js/Angular application with 24/7 availability requirements. Worked on the migration of legacy code to Vue 3, while simultaneously maintaining and developing new features in Angular. Worked with PHP Symfony framework for backend development.\n\nGained extensive experience with Linux and Docker environments for deployment and local development. Worked in an agile environment using SCRUM methodology for project management.",
             "3": "Full-stack development with focus on React and Typescript in my first role as a professional developer. Contributed to the development of a new company website and worked on a web application using React on the frontend. Created an interactive library for displaying data on predefined SVG maps.\n\nWorked with .NET and SQL on backend projects, developing and maintaining content management solutions using Umbraco CMS and C# Razor pages while also gaining experience in basic web design and UI element creation.",
@@ -203,7 +214,8 @@
                 "title": "Web Development",
                 "frontend": "Frontend Development",
                 "backend": "Backend Development",
-                "database": "Database & Tools"
+                "database": "Database & Tools",
+                "ai": "AI & Agents"
             },
             "design": {
                 "title": "Design"
@@ -231,7 +243,13 @@
             "photoshop": "Photoshop",
             "illustrator": "Illustrator",
             "figma": "Figma",
-            "inkscape": "Inkscape"
+            "inkscape": "Inkscape",
+            "freecad": "FreeCAD",
+            "claude": "Claude",
+            "agents": "AI Agents",
+            "prompt": "Prompt Engineering",
+            "deepseek": "DeepSeek",
+            "opencode": "OpenCode"
         },
         "descriptions": {
             "react": "I have extensive experience with React, having used it in numerous professional projects.\n\n I'm proficient with modern React patterns and is the framework I use for most of my projects and I am confident in acomplishing any task thrown my way in web development. Because I use Next.js regularly, I have a deep understanding of React's ecosystem, including hooks, context API, and state management libraries like Zustand.\n\n I can build SPAs and complex applications with ease, implementing best practices for performance and maintainability.",
@@ -255,7 +273,13 @@
             "photoshop": "I use Photoshop for image editing and asset creation in web development projects.\n\n I can efficiently prepare and optimize images for web use, create UI elements, and edit photos for various purposes.",
             "illustrator": "I work with Illustrator to create vector graphics and icons for web projects.\n\n I can design and export scalable graphics, maintaining consistency across different screen sizes.",
             "figma": "I use Figma extensively for UI/UX design and collaboration.\n\n I create and maintain design systems, build interactive prototypes, and collaborate effectively with design teams. I'm proficient with auto-layout, components, and design tokens.",
-            "inkscape": "I use Inkscape for creating and editing SVG graphics for web projects.\n\n I can efficiently create and optimize vector graphics, maintaining high quality across different screen sizes."
+            "inkscape": "I use Inkscape for creating and editing SVG graphics for web projects.\n\n I can efficiently create and optimize vector graphics, maintaining high quality across different screen sizes.",
+            "freecad": "I use FreeCAD for parametric 3D modeling as part of my 3D printing hobby. I design custom parts, enclosures and mechanical components using the Sketcher and Part/PartDesign workbenches.\n\n I export and prepare models for 3D printing, iterating on designs to get functional, printable results.",
+            "claude": "I use Anthropic Claude models to build intelligent, production-grade AI features. I work with the Claude API, tool use, structured outputs and vision capabilities to integrate AI into applications.\n\n I build on top of the Model Context Protocol (MCP) to connect Claude with external tools and data sources, and apply RAG patterns with embeddings to ground responses in domain knowledge.",
+            "agents": "I design and build AI agents that automate complex, multi-step workflows. I orchestrate agentic systems with tool calling, planning and memory so agents act autonomously while staying reliable.\n\n I build multi-agent systems and orchestration pipelines using frameworks like LangChain and LangGraph, integrating them into real products end to end.",
+            "prompt": "I craft and optimize prompts to get reliable, high-quality outputs from LLMs. I use techniques like few-shot prompting, chain-of-thought reasoning and structured output formatting.\n\n I build prompt templates and evaluation loops to iterate on system prompts and measure quality, keeping responses consistent and on-brand.",
+            "deepseek": "I work with DeepSeek models for coding, reasoning and general AI tasks, using the API for agent backbones and cost-efficient inference.\n\n I integrate DeepSeek into agentic workflows and evaluate it against other frontier models to pick the right model for each task.",
+            "opencode": "I use OpenCode to accelerate my development workflow, pairing with AI coding agents to plan, implement and review code.\n\n I configure and extend agentic coding tools with custom rules, skills and MCP servers to ship features faster and more reliably."
         }
     },
     "interests": {

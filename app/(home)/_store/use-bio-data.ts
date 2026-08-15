@@ -17,12 +17,12 @@ export const useBioData = create<BioDataStore>(() => ({
         { name: 'nextjs', title: 'Next.js' },
         { name: 'typescript', title: 'TypeScript' },
 
-        // Backend
+        // Backend & Database
         { name: 'cSharp', title: 'C#' },
-        { name: 'php', title: 'PHP' },
-
-        // Database
         { name: 'postgres', title: 'PostgreSQL' },
-        { name: 'sql', title: 'SQL Server' },
+
+        // AI
+        { name: 'opencode', title: 'OpenCode' },
+        { name: 'agents', title: 'AI Agents' },
     ],
 }));
