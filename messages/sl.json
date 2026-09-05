@@ -69,6 +69,14 @@
             },
             "wip": "V izdelavi",
             "items": {
+                "webShop": {
+                    "title": "Web Shop",
+                    "description": "Fullstack 3D tiskarna s spletno trgovino in tiskom na zahtevo"
+                },
+                "openFiscal": {
+                    "title": "OpenFiscal",
+                    "description": "Aplikacija za prodajno mesto in fiskalne račune za slovensko davčno upravo"
+                },
                 "zelda": {
                     "title": "A Tie to the Past",
                     "description": "Klon igre v stilu Zelda, narejen z TypeScript in Phaser.js"
@@ -153,6 +161,8 @@
         "showcase": {
             "liveDemo": "Demonstracija",
             "github": "GitHub",
+            "inProgress": "V razvoju",
+            "liveIncoming": "Demo v pripravi",
             "projectDescriptions": {
                 "timeManager": "Spletna aplikacija za upravljanje časa, narejena z Next.js in Tailwind CSS",
                 "hierarchicalStructure": "Spletna aplikacija za vizualizacijo hierarhičnih struktur, zgrajena z React in D3.js",
@@ -167,7 +177,9 @@
                 "diffingApi": "API storitev za primerjavo in iskanje razlik v dveh base 64 kodiranih nizih",
                 "drumBox": "MIDI predvajalnik za ustvarjanje in predvajanje ritmičnih vzorcev",
                 "holidaysCalculator": "Orodje za izračunavanje in upravljanje dopustov v Sloveniji",
-                "roles": "Full-stack aplikacija za upravljanje vlog in pravic uporabnikov"
+                "roles": "Full-stack aplikacija za upravljanje vlog in pravic uporabnikov",
+                "openFiscal": "Aplikacija za prodajno mesto in fiskalne račune za slovensko davčno upravo (FURS), zgrajena z Next.js in C# mostom za fiskalizacijo",
+                "webShop": "Fullstack 3D tiskarna s spletno trgovino, ponudbo za tisk na zahtevo, Stripe plačili in administratorsko ploščo"
             }
         }
     },

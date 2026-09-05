@@ -19,6 +19,18 @@ export const useActiveProjects = create<ActiveProjectsStore>((set) => ({
     imageLoading: true,
     showcaseProjects: [
         {
+            key: 'webShop',
+            image: '/images/web-shop/web-shop.webp',
+            githubUrl: 'https://github.com/MatijaKocevar/web-shop',
+            wip: true,
+        },
+        {
+            key: 'openFiscal',
+            image: '/images/open-fiscal/open-fiscal.webp',
+            githubUrl: 'https://github.com/MatijaKocevar/open-fiscal',
+            wip: true,
+        },
+        {
             key: 'timeManager',
             image: '/images/time-manager/time-manager.webp',
             liveUrl: 'https://www.timemanager-demo.com/demo',

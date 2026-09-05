@@ -50,28 +50,30 @@ export default function ActiveProjects() {
                 </button>
             </div>
 
-            <div className={`flex flex-col items-center gap-4 transition-all duration-500 ${slideClass}`}>
+            <div className={`flex w-full flex-col items-center gap-4 transition-all duration-500 ${slideClass}`}>
                 <div className='flex flex-col items-center gap-2'>
                     <h2 className='text-xl font-semibold'>{t(`items.${currentProject.key}.title`)}</h2>
                     {currentProject.wip && <span className='text-sm text-red-500'>{t('wip')}</span>}
                 </div>
 
-                <p className='max-w-xl text-center text-sm text-foreground/70'>
+                <p className='line-clamp-2 min-h-10 max-w-xl text-center text-sm text-foreground/70'>
                     {t(`items.${currentProject.key}.description`)}
                 </p>
 
                 <div className='flex gap-4'>
-                    <Button size='lg'>
-                        <a
-                            href={currentProject.liveUrl}
-                            target='_blank'
-                            rel='noopener noreferrer'
-                            className='flex items-center gap-2'
-                        >
-                            <ExternalLink className='h-5 w-5' />
-                            {t('links.demo')}
-                        </a>
-                    </Button>
+                    {currentProject.liveUrl && (
+                        <Button size='lg'>
+                            <a
+                                href={currentProject.liveUrl}
+                                target='_blank'
+                                rel='noopener noreferrer'
+                                className='flex items-center gap-2'
+                            >
+                                <ExternalLink className='h-5 w-5' />
+                                {t('links.demo')}
+                            </a>
+                        </Button>
+                    )}
                     <Button size='lg'>
                         <a
                             href={currentProject.githubUrl}
