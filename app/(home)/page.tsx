@@ -3,7 +3,7 @@ import ActiveProjects from './_components/active-projects';
 
 export default async function Home() {
     return (
-        <div className='flex h-full w-full flex-col overflow-auto lg:flex-row'>
+        <div className='flex h-full w-full flex-col overflow-x-hidden overflow-y-auto lg:flex-row'>
             <Bio />
             <ActiveProjects />
         </div>

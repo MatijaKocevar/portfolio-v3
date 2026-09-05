@@ -5,4 +5,5 @@ export interface ShowcaseProject {
     imageUrl: string;
     githubUrl: string;
     liveUrl?: string;
+    badges?: string[];
 }
