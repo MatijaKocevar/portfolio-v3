@@ -34,7 +34,8 @@ Personal portfolio site. Next.js 15 App Router + React 19, TypeScript (strict), 
 
 ## Git
 
-- Default branch is `develop`; `master` is production. Changes flow `develop` → `master` via PRs.
+- `master` is the single main branch (default on GitHub). No `develop`, no PRs.
+- Workflow: create a feature branch from `master`, commit there, merge it back into `master`, and push. Delete the feature branch when done.
 
 ## Stale files
 
