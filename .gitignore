@@ -48,3 +48,6 @@ certificates
 
 # clerk configuration (can include secrets)
 /.clerk/
+
+# playwright mcp session artifacts
+/.playwright-mcp/

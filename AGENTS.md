@@ -21,6 +21,7 @@ Personal portfolio site. Next.js 15 App Router + React 19, TypeScript (strict), 
 - **Site content is hardcoded in the app, not the DB.** Prisma has only `Score`, `Task`, `ContactSubmission` models. Projects, skills, experience, and bio data live in `app/projects/page.tsx` and the per-section `_store/` files (despite README's "projects in Postgres" claim).
 - Contact form is a server action (`actions/email.ts`) using Resend, with IP-based rate limiting persisted to `ContactSubmission`. Needs `RESEND_API_KEY`, `CONTACT_EMAIL`, and a working DB.
 - SVG icons are imported as React components via `@svgr/webpack` (webpack + turbopack rules in `next.config.ts`), and loaded dynamically by `components/icon-renderer.tsx` from `public/icons/*.svg`. Do not inline SVGs elsewhere.
+- `next/image` has `unoptimized: true` and allows any `https` remote host.
 - Theme system: `themes/*.css` define CSS vars per base color × light/dark; the theme list is generated in `store/use-theme-store.ts` (default `blue-dark`), consumed via `next-themes`.
 - PWA: `app/manifest.ts` + `public/sw.js` + web-push. HTTPS is required in dev (hence `--experimental-https`).
 
@@ -30,6 +31,10 @@ Personal portfolio site. Next.js 15 App Router + React 19, TypeScript (strict), 
 - Per-section code goes under `app/<section>/` with private `_components/` and `_stores/` folders (`_` = not routed).
 - Zustand stores: global ones in `store/`, section-local ones in `app/<section>/_stores/`.
 - ESLint `@typescript-eslint/no-unused-vars` is warn-only; unused imports are common and won't fail lint.
+
+## Git
+
+- Default branch is `develop`; `master` is production. Changes flow `develop` → `master` via PRs.
 
 ## Stale files
 

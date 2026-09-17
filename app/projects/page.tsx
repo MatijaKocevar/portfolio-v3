@@ -3,6 +3,22 @@ import type { ShowcaseProject } from '@/types/showcase';
 
 const projectsData: ShowcaseProject[] = [
     {
+        id: '16',
+        title: 'Web Shop',
+        description: 'projects.showcase.projectDescriptions.webShop',
+        imageUrl: '/images/web-shop/web-shop.webp',
+        githubUrl: 'https://github.com/MatijaKocevar/web-shop',
+        badges: ['inProgress', 'liveIncoming'],
+    },
+    {
+        id: '15',
+        title: 'OpenFiscal',
+        description: 'projects.showcase.projectDescriptions.openFiscal',
+        imageUrl: '/images/open-fiscal/open-fiscal.webp',
+        githubUrl: 'https://github.com/MatijaKocevar/open-fiscal',
+        badges: ['inProgress', 'liveIncoming'],
+    },
+    {
         id: '14',
         title: 'Time Manager',
         description: 'projects.showcase.projectDescriptions.timeManager',
