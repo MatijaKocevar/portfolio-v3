@@ -1,46 +1,41 @@
 # AGENTS.md
 
-Personal portfolio (Next.js 15 App Router + TypeScript). Single app — no monorepo.
+Personal portfolio site. Next.js 15 App Router + React 19, TypeScript (strict), Tailwind v3 + shadcn/ui (new-york), Zustand, next-intl, next-themes, Resend, web-push, Prisma/PostgreSQL.
 
 ## Commands
 
-- `npm run dev` — dev server over HTTPS (`--turbopack --experimental-https`) at `https://localhost:3000`. PWA features need `certificates/cert.pem` + `key.pem` (see `README.md`; dir is gitignored, generated with `mkcert`).
-- `npm run lint` — ESLint via `next lint` (Next 15.2). There is **no** `typecheck` or `test` script and no test framework; lint + `npm run build` are the only verification.
-- `npx prisma generate` runs automatically on `postinstall`. Apply schema changes with `npx prisma migrate deploy` (or `migrate dev`); migrations live in `prisma/migrations`.
-- `npm run build` before commit/PR to catch type errors (build runs TS checking).
+- `npm run dev` — dev server on `https://localhost:3000` (Next 15 `--experimental-https`; uses `certificates/*.pem` if present for custom certs).
+- `npm run build` / `npm run start` — production build/serve.
+- `npm run lint` — works, but runs deprecated `next lint` (flat ESLint config in `eslint.config.mjs`). Prefer `npx eslint .`.
+- No test or typecheck script exists. Typecheck with `npx tsc --noEmit`.
+- Formatting: Prettier is configured but there is no script. Run `npx prettier --write .`.
+- DB: `npx prisma migrate deploy` then `npx prisma generate` (also runs on `postinstall`). Requires a PostgreSQL `DATABASE_URL`.
+- Single test target: `npx eslint <file>` or `npx tsc --noEmit`; there is no unit/integration test suite.
 
-## Paths / structure
+## Architecture / gotchas
 
-- `@/*` maps to the **repo root** (`./*`), not `src/`.
-- App Router routes under `app/`: `(home)`, `about`, `experience`, `projects`, `skills`, `interests`, `contact`. Route-scoped code lives in each route's `_components` / `_stores` (co-located, underscore-prefixed so Next ignores them).
-- `components/ui/*` — shadcn/ui components (customized; edit in place, don't regenerate blindly).
-- `lib/prisma.ts` — Prisma singleton (dev hot-reload safe).
-- `store/` — Zustand global stores (theme, language, navigation). Per-route state uses `_stores` folders instead.
-
-## Conventions that differ from defaults
-
-- **Formatting (Prettier):** single quotes, `jsxSingleQuote`, `tabWidth: 4`, `printWidth: 120`, tailwind class sorting. Match this — it's enforced by `.prettierrc`.
-- **SVGs** are imported as React components via SVGR (`import Icon from './x.svg'`); loader is configured in `next.config.ts` (both webpack and turbopack rules). No `<img src="*.svg">`.
+- Path alias `@/*` maps to the repo root.
+- **i18n has no locale-prefix routing.** Locale is stored in the `MATIJAKOCEVARPORTFOLIO_LOCALE` cookie (default `en`), read in `i18n/request.ts`. `store/use-language-store.ts` sets the cookie via `document.cookie` and reloads. `messages/en.json` and `messages/sl.json` must stay in sync — add every new key to **both** files.
+- **Clerk auth is stale/removed.** `.env.example` and `README.md` still mention Clerk, but `@clerk/nextjs` is NOT installed and the active `middleware.ts` is CORS-only. The old Clerk + route-protection middleware lives in `middleware.ts.bak` — do not reintroduce Clerk unless asked.
+- `middleware.ts` applies CORS to `/api/:path*` and page routes with hardcoded allowed origins.
+- **Site content is hardcoded in the app, not the DB.** Prisma has only `Score`, `Task`, `ContactSubmission` models. Projects, skills, experience, and bio data live in `app/projects/page.tsx` and the per-section `_store/` files (despite README's "projects in Postgres" claim).
+- Contact form is a server action (`actions/email.ts`) using Resend, with IP-based rate limiting persisted to `ContactSubmission`. Needs `RESEND_API_KEY`, `CONTACT_EMAIL`, and a working DB.
+- SVG icons are imported as React components via `@svgr/webpack` (webpack + turbopack rules in `next.config.ts`), and loaded dynamically by `components/icon-renderer.tsx` from `public/icons/*.svg`. Do not inline SVGs elsewhere.
 - `next/image` has `unoptimized: true` and allows any `https` remote host.
+- Theme system: `themes/*.css` define CSS vars per base color × light/dark; the theme list is generated in `store/use-theme-store.ts` (default `blue-dark`), consumed via `next-themes`.
+- PWA: `app/manifest.ts` + `public/sw.js` + web-push. HTTPS is required in dev (hence `--experimental-https`).
 
-## i18n (next-intl v4)
+## Conventions
 
-- Locale comes from the `MATIJAKOCEVARPORTFOLIO_LOCALE` cookie (`i18n/request.ts`); default `en`.
-- Adding/editing user-facing text requires updating **both** `messages/en.json` and `messages/sl.json`. Keys are flat namespace strings (e.g. `app.meta.title`).
-
-## Auth / middleware
-
-- `middleware.ts` is **CORS-only** (matcher: `/api/:path*` + pages) and does **not** run Clerk. Despite `README.md` and `.env.example` mentioning Clerk, Clerk auth has been removed from the home layout (see commit "Simplify home layout: remove Clerk auth"). Don't reintroduce it without asking.
-- `middleware.ts.bak` is a stale leftover — ignore it.
-- CORS allowed origins are hardcoded in `middleware.ts`; add new domains there.
-
-## Data / env
-
-- PostgreSQL via Prisma; models are `Score`, `Task`, and `ContactSubmission`. API routes under `app/api/*` return plain JSON.
-- Contact form (`actions/email.ts`) stores submissions in `ContactSubmission` (with IP + user-agent) and sends email via Resend. It has server-side validation plus IP rate-limiting (3 emails/hour, block at 8) — silently returns `success: true` to spammers. Web push via `actions/webpush.ts` / `webpush/`.
-- `.env.local` is the real env (gitignored); `.env.example` is the documented template.
-- Theming: custom CSS files in `themes/*.css` wired through `next-themes` (`defaultTheme: 'blue-dark'`).
+- Prettier: single quotes, `jsxSingleQuote`, 4-space indent, printWidth 120, tailwind plugin.
+- Per-section code goes under `app/<section>/` with private `_components/` and `_stores/` folders (`_` = not routed).
+- Zustand stores: global ones in `store/`, section-local ones in `app/<section>/_stores/`.
+- ESLint `@typescript-eslint/no-unused-vars` is warn-only; unused imports are common and won't fail lint.
 
 ## Git
 
 - Default branch is `develop`; `master` is production. Changes flow `develop` → `master` via PRs.
+
+## Stale files
+
+- `middleware.ts.bak` — old Clerk-based middleware; ignore.
