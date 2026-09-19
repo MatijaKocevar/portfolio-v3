@@ -65,7 +65,8 @@
             },
             "links": {
                 "demo": "Live Demo",
-                "code": "Code"
+                "code": "Code",
+                "liveIncoming": "Live incoming"
             },
             "wip": "Work in Progress",
             "items": {

@@ -21,6 +21,7 @@ export const useActiveProjects = create<ActiveProjectsStore>((set) => ({
         {
             key: 'webShop',
             image: '/images/web-shop/web-shop.webp',
+            liveUrl: 'https://web-shop-sand-mu.vercel.app/',
             githubUrl: 'https://github.com/MatijaKocevar/web-shop',
             wip: true,
         },

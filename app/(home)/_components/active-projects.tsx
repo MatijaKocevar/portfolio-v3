@@ -61,7 +61,7 @@ export default function ActiveProjects() {
                 </p>
 
                 <div className='flex gap-4'>
-                    {currentProject.liveUrl && (
+                    {currentProject.liveUrl ? (
                         <Button size='lg'>
                             <a
                                 href={currentProject.liveUrl}
@@ -72,6 +72,11 @@ export default function ActiveProjects() {
                                 <ExternalLink className='h-5 w-5' />
                                 {t('links.demo')}
                             </a>
+                        </Button>
+                    ) : (
+                        <Button size='lg' disabled>
+                            <ExternalLink className='h-5 w-5' />
+                            {t('links.liveIncoming')}
                         </Button>
                     )}
                     <Button size='lg'>

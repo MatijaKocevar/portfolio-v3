@@ -65,7 +65,8 @@
             },
             "links": {
                 "demo": "Demonstracija",
-                "code": "Koda"
+                "code": "Koda",
+                "liveIncoming": "Demo v pripravi"
             },
             "wip": "V izdelavi",
             "items": {
