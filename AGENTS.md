@@ -32,6 +32,11 @@ Personal portfolio site. Next.js 15 App Router + React 19, TypeScript (strict), 
 - Zustand stores: global ones in `store/`, section-local ones in `app/<section>/_stores/`.
 - ESLint `@typescript-eslint/no-unused-vars` is warn-only; unused imports are common and won't fail lint.
 
+## Working style
+
+- The user is a developer who always runs the app in their own IDE. The agent must **never** start dev servers, tunnels, watchers, or any long-running processes on its own.
+- Never commit, push, build, or run any other mutating Git/CI operation unless explicitly asked.
+
 ## Git
 
 - `master` is the single main branch (default on GitHub). No `develop`, no PRs.
