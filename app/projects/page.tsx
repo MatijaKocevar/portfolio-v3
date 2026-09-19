@@ -8,7 +8,7 @@ const projectsData: ShowcaseProject[] = [
         description: 'projects.showcase.projectDescriptions.webShop',
         imageUrl: '/images/web-shop/web-shop.webp',
         githubUrl: 'https://github.com/MatijaKocevar/web-shop',
-        badges: ['inProgress', 'liveIncoming'],
+        liveUrl: 'https://web-shop-sand-mu.vercel.app/',
     },
     {
         id: '15',
@@ -16,7 +16,7 @@ const projectsData: ShowcaseProject[] = [
         description: 'projects.showcase.projectDescriptions.openFiscal',
         imageUrl: '/images/open-fiscal/open-fiscal.webp',
         githubUrl: 'https://github.com/MatijaKocevar/open-fiscal',
-        badges: ['inProgress', 'liveIncoming'],
+        liveIncoming: true,
     },
     {
         id: '14',

@@ -36,32 +36,25 @@ export function ProjectShowcase({ project }: ProjectShowcaseProps) {
             </CardHeader>
             <CardFooter className='mt-auto flex flex-wrap items-center gap-2'>
                 <div className='flex flex-wrap items-center gap-2'>
-                    <Button variant='outline' size='sm' asChild>
+                    <Button size='sm' asChild>
                         <a href={project.githubUrl} target='_blank' rel='noopener noreferrer'>
                             <Github className='mr-2 h-4 w-4' />
                             {t('projects.showcase.github')}
                         </a>
                     </Button>
-                    {project.liveUrl && (
-                        <Button variant='outline' size='sm' asChild>
+                    {project.liveUrl ? (
+                        <Button size='sm' asChild>
                             <a href={project.liveUrl} target='_blank' rel='noopener noreferrer'>
                                 <ExternalLink className='mr-2 h-4 w-4' />
                                 {t('projects.showcase.liveDemo')}
                             </a>
                         </Button>
-                    )}
-                    {project.badges && project.badges.length > 0 && (
-                        <div className='flex flex-wrap gap-1.5'>
-                            {project.badges.map((badge) => (
-                                <span
-                                    key={badge}
-                                    className='rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary'
-                                >
-                                    {t(`projects.showcase.${badge}`)}
-                                </span>
-                            ))}
-                        </div>
-                    )}
+                    ) : project.liveIncoming ? (
+                        <Button size='sm' disabled>
+                            <ExternalLink className='mr-2 h-4 w-4' />
+                            {t('projects.showcase.liveIncoming')}
+                        </Button>
+                    ) : null}
                 </div>
             </CardFooter>
         </Card>
